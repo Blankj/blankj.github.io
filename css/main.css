@@ -1819,7 +1819,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b95588;
+  background: #21faff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3133,19 +3133,19 @@ body {
   background-position: center;
 }
 .post-block {
-  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
 }
 .header-inner {
-  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
 }
 .sidebar {
-  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  background: rgba(255,255,255,0) none repeat scroll !important;
 }
 .sidebar-inner {
-  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
 }
 .pagination {
-  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  background: rgba(255,255,255,0.75) none repeat scroll !important;
 }
 .headband {
   background: #f973a3 !important;
