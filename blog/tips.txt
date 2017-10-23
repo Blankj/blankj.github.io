@@ -1,0 +1,16 @@
+hexo clean
+hexo generate
+hexo deploy
+
+
+#新建文章
+hexo new "postName"
+
+#新建页面
+hexo new page "pageName"
+
+#生成静态页面至public目录
+hexo generate
+
+#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
+hexo s --debug

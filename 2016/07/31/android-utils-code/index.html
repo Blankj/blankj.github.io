@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工具类," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="README of English">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发人员不得不收集的代码(持续更新中)">
+<meta property="og:url" content="http://blankj.com/2016/07/31/android-utils-code/index.html">
+<meta property="og:site_name" content="Blankj">
+<meta property="og:description" content="README of English">
+<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+<meta property="og:image" content="https://img.shields.io/badge/AndroidUtilCode-v1.9.3-brightgreen.svg">
+<meta property="og:image" content="https://img.shields.io/badge/API-14+-brightgreen.svg">
+<meta property="og:image" content="https://travis-ci.org/Blankj/AndroidUtilCode.svg?branch=master">
+<meta property="og:image" content="https://www.insight.io/repoBadge/github.com/Blankj/AndroidUtilCode">
+<meta property="og:image" content="https://img.shields.io/badge/License-Apache--2.0-brightgreen.svg">
+<meta property="og:image" content="https://img.shields.io/badge/简书-Blankj-34a48e.svg">
+<meta property="og:image" content="https://img.shields.io/badge/weibo-__Blankj-34a48e.svg">
+<meta property="og:image" content="https://img.shields.io/badge/Blog-Blankj-34a48e.svg">
+<meta property="og:image" content="https://img.shields.io/badge/QQ0群(满)-74721490-ff73a3.svg">
+<meta property="og:image" content="https://img.shields.io/badge/QQ1群-25206533-ff73a3.svg">
+<meta property="og:updated_time" content="2017-10-22T05:54:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android开发人员不得不收集的代码(持续更新中)">
+<meta name="twitter:description" content="README of English">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":8,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blankj.com/2016/07/31/android-utils-code/"/>
+
+
+
+
+
+  <title>Android开发人员不得不收集的代码(持续更新中) | Blankj</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1918d813c85f9869017db2480dee5733";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blankj</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">select * from learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/07/31/android-utils-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android开发人员不得不收集的代码(持续更新中)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-31T10:34:59+08:00">
+                2016-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
+<p><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external"><img src="https://img.shields.io/badge/AndroidUtilCode-v1.9.3-brightgreen.svg" alt="auc"></a> <a href="https://android-arsenal.com/api?level=14" target="_blank" rel="external"><img src="https://img.shields.io/badge/API-14+-brightgreen.svg" alt="api"></a> <a href="https://travis-ci.org/Blankj/AndroidUtilCode" target="_blank" rel="external"><img src="https://travis-ci.org/Blankj/AndroidUtilCode.svg?branch=master" alt="build"></a> <a href="https://insight.io/github.com/Blankj/AndroidUtilCode" target="_blank" rel="external"><img src="https://www.insight.io/repoBadge/github.com/Blankj/AndroidUtilCode" alt="Insight"></a> <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/LICENSE" target="_blank" rel="external"><img src="https://img.shields.io/badge/License-Apache--2.0-brightgreen.svg" alt="License"></a></p>
+<h2 id="README-of-English"><a href="#README-of-English" class="headerlink" title="README of English"></a><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">README of English</a></h2><a id="more"></a>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li><h3 id="Activity相关→ActivityUtils-java→Demo"><a href="#Activity相关→ActivityUtils-java→Demo" class="headerlink" title="Activity相关→ActivityUtils.java→Demo"></a>Activity相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ActivityUtils.java" target="_blank" rel="external">ActivityUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/activity/ActivityActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">isActivityExists                 : 判断Activity是否存在</div><div class="line">startActivity                    : 启动Activity</div><div class="line">startActivities                  : 启动多个Activity</div><div class="line">startHomeActivity                : 回到桌面</div><div class="line">getActivityList                  : 获取Activity栈链表</div><div class="line">getLauncherActivity              : 获取启动项Activity</div><div class="line">getTopActivity                   : 获取栈顶Activity</div><div class="line">isActivityExistsInStack          : 判断Activity是否存在栈中</div><div class="line">finishActivity                   : 结束Activity</div><div class="line">finishToActivity                 : 结束到指定Activity</div><div class="line">finishOtherActivitiesExceptNewest: 结束除最新之外的同类型Activity</div><div class="line">finishAllActivities              : 结束所有activity</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="App相关→AppUtils-java→Demo"><a href="#App相关→AppUtils-java→Demo" class="headerlink" title="App相关→AppUtils.java→Demo"></a>App相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/AppUtils.java" target="_blank" rel="external">AppUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/app/AppActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">isInstallApp         : 判断App是否安装</div><div class="line">installApp           : 安装App（支持7.0）</div><div class="line">installAppSilent     : 静默安装App</div><div class="line">uninstallApp         : 卸载App</div><div class="line">uninstallAppSilent   : 静默卸载App</div><div class="line">isAppRoot            : 判断App是否有root权限</div><div class="line">launchApp            : 打开App</div><div class="line">exitApp              : 关闭应用</div><div class="line">getAppPackageName    : 获取App包名</div><div class="line">getAppDetailsSettings: 获取App具体设置</div><div class="line">getAppName           : 获取App名称</div><div class="line">getAppIcon           : 获取App图标</div><div class="line">getAppPath           : 获取App路径</div><div class="line">getAppVersionName    : 获取App版本号</div><div class="line">getAppVersionCode    : 获取App版本码</div><div class="line">isSystemApp          : 判断App是否是系统应用</div><div class="line">isAppDebug           : 判断App是否是Debug版本</div><div class="line">getAppSignature      : 获取App签名</div><div class="line">getAppSignatureSHA1  : 获取应用签名的的SHA1值</div><div class="line">isAppForeground      : 判断App是否处于前台</div><div class="line">getForegroundApp     : 获取前台应用包名</div><div class="line">getAppInfo           : 获取App信息</div><div class="line">getAppsInfo          : 获取所有已安装App信息</div><div class="line">cleanAppData         : 清除App所有数据</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="栏相关→BarUtils-java→Demo"><a href="#栏相关→BarUtils-java→Demo" class="headerlink" title="栏相关→BarUtils.java→Demo"></a>栏相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/BarUtils.java" target="_blank" rel="external">BarUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/bar/BarActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">getStatusBarHeight                   : 获取状态栏高度(px)</div><div class="line">addMarginTopEqualStatusBarHeight     : 为view增加MarginTop为状态栏高度</div><div class="line">subtractMarginTopEqualStatusBarHeight: 为view减少MarginTop为状态栏高度</div><div class="line">setStatusBarColor                    : 设置状态栏颜色</div><div class="line">setStatusBarAlpha                    : 设置状态栏透明度</div><div class="line">setStatusBarColor4Drawer             : 为DrawerLayout设置状态栏颜色</div><div class="line">setStatusBarAlpha4Drawer             : 为DrawerLayout设置状态栏透明度</div><div class="line">getActionBarHeight                   : 获取ActionBar高度</div><div class="line">showNotificationBar                  : 显示通知栏</div><div class="line">hideNotificationBar                  : 隐藏通知栏</div><div class="line">getNavBarHeight                      : 获取导航栏高度</div><div class="line">hideNavBar                           : 隐藏导航栏</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="缓存相关→CacheUtils-java→Test"><a href="#缓存相关→CacheUtils-java→Test" class="headerlink" title="缓存相关→CacheUtils.java→Test"></a>缓存相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/CacheUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">getInstance    : 获取缓存实例</div><div class="line">put            : 缓存中写入数据</div><div class="line">getBytes       : 缓存中读取字节数组</div><div class="line">getString      : 缓存中读取String</div><div class="line">getJSONObject  : 缓存中读取JSONObject</div><div class="line">getJSONArray   : 缓存中读取JSONArray</div><div class="line">getBitmap      : 缓存中读取Bitmap</div><div class="line">getDrawable    : 缓存中读取Drawable</div><div class="line">getParcelable  : 缓存中读取Parcelable</div><div class="line">getSerializable: 缓存中读取Serializable</div><div class="line">getCacheSize   : 获取缓存大小</div><div class="line">getCacheCount  : 获取缓存个数</div><div class="line">remove         : 根据键值移除缓存</div><div class="line">clear          : 清除所有缓存</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="清除相关→CleanUtils-java→Demo"><a href="#清除相关→CleanUtils-java→Demo" class="headerlink" title="清除相关→CleanUtils.java→Demo"></a>清除相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CleanUtils.java" target="_blank" rel="external">CleanUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/clean/CleanActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cleanInternalCache   : 清除内部缓存</div><div class="line">cleanInternalFiles   : 清除内部文件</div><div class="line">cleanInternalDbs     : 清除内部数据库</div><div class="line">cleanInternalDbByName: 根据名称清除数据库</div><div class="line">cleanInternalSP      : 清除内部SP</div><div class="line">cleanExternalCache   : 清除外部缓存</div><div class="line">cleanCustomCache     : 清除自定义目录下的文件</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="关闭相关→CloseUtils-java"><a href="#关闭相关→CloseUtils-java" class="headerlink" title="关闭相关→CloseUtils.java"></a>关闭相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CloseUtils.java" target="_blank" rel="external">CloseUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">closeIO       : 关闭IO</div><div class="line">closeIOQuietly: 安静关闭IO</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="转换相关→ConvertUtils-java→Test"><a href="#转换相关→ConvertUtils-java→Test" class="headerlink" title="转换相关→ConvertUtils.java→Test"></a>转换相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ConvertUtils.java" target="_blank" rel="external">ConvertUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/ConvertUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">bytes2HexString, hexString2Bytes        : byteArr与hexString互转</div><div class="line">chars2Bytes, bytes2Chars                : charArr与byteArr互转</div><div class="line">memorySize2Byte, byte2MemorySize        : 以unit为单位的内存大小与字节数互转</div><div class="line">byte2FitMemorySize                      : 字节数转合适内存大小</div><div class="line">timeSpan2Millis, millis2TimeSpan        : 以unit为单位的时间长度与毫秒时间戳互转</div><div class="line">millis2FitTimeSpan                      : 毫秒时间戳转合适时间长度</div><div class="line">bytes2Bits, bits2Bytes                  : bytes与bits互转</div><div class="line">input2OutputStream, output2InputStream  : inputStream与outputStream互转</div><div class="line">inputStream2Bytes, bytes2InputStream    : inputStream与byteArr互转</div><div class="line">outputStream2Bytes, bytes2OutputStream  : outputStream与byteArr互转</div><div class="line">inputStream2String, string2InputStream  : inputStream与string按编码互转</div><div class="line">outputStream2String, string2OutputStream: outputStream与string按编码互转</div><div class="line">bitmap2Bytes, bytes2Bitmap              : bitmap与byteArr互转</div><div class="line">drawable2Bitmap, bitmap2Drawable        : drawable与bitmap互转</div><div class="line">drawable2Bytes, bytes2Drawable          : drawable与byteArr互转</div><div class="line">view2Bitmap                             : view转Bitmap</div><div class="line">dp2px, px2dp                            : dp与px互转</div><div class="line">sp2px, px2sp                            : sp与px互转</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="崩溃相关→CrashUtils-java"><a href="#崩溃相关→CrashUtils-java" class="headerlink" title="崩溃相关→CrashUtils.java"></a>崩溃相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CrashUtils.java" target="_blank" rel="external">CrashUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">init: 初始化</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="设备相关→DeviceUtils-java→Demo"><a href="#设备相关→DeviceUtils-java→Demo" class="headerlink" title="设备相关→DeviceUtils.java→Demo"></a>设备相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/DeviceUtils.java" target="_blank" rel="external">DeviceUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/device/DeviceActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">isDeviceRooted   : 判断设备是否rooted</div><div class="line">getSDKVersion    : 获取设备系统版本号</div><div class="line">getAndroidID     : 获取设备AndroidID</div><div class="line">getMacAddress    : 获取设备MAC地址</div><div class="line">getManufacturer  : 获取设备厂商</div><div class="line">getModel         : 获取设备型号</div><div class="line">shutdown         : 关机</div><div class="line">reboot           : 重启</div><div class="line">reboot2Recovery  : 重启到recovery</div><div class="line">reboot2Bootloader: 重启到bootloader</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="判空相关→EmptyUtils-java→Test"><a href="#判空相关→EmptyUtils-java→Test" class="headerlink" title="判空相关→EmptyUtils.java→Test"></a>判空相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/EmptyUtils.java" target="_blank" rel="external">EmptyUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/EmptyUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isEmpty   : 判断对象是否为空</div><div class="line">isNotEmpty: 判断对象是否非空</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="编码解码相关→EncodeUtils-java→Test"><a href="#编码解码相关→EncodeUtils-java→Test" class="headerlink" title="编码解码相关→EncodeUtils.java→Test"></a>编码解码相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/EncodeUtils.java" target="_blank" rel="external">EncodeUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/EncodeUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">urlEncode          : URL编码</div><div class="line">urlDecode          : URL解码</div><div class="line">base64Encode       : Base64编码</div><div class="line">base64Encode2String: Base64编码</div><div class="line">base64Decode       : Base64解码</div><div class="line">base64UrlSafeEncode: Base64URL安全编码</div><div class="line">htmlEncode         : Html编码</div><div class="line">htmlDecode         : Html解码</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="加密解密相关→EncryptUtils-java→Test"><a href="#加密解密相关→EncryptUtils-java→Test" class="headerlink" title="加密解密相关→EncryptUtils.java→Test"></a>加密解密相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/EncryptUtils.java" target="_blank" rel="external">EncryptUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/EncryptUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">encryptMD2, encryptMD2ToString                        : MD2加密</div><div class="line">encryptMD5, encryptMD5ToString                        : MD5加密</div><div class="line">encryptMD5File, encryptMD5File2String                 : MD5加密文件</div><div class="line">encryptSHA1, encryptSHA1ToString                      : SHA1加密</div><div class="line">encryptSHA224, encryptSHA224ToString                  : SHA224加密</div><div class="line">encryptSHA256, encryptSHA256ToString                  : SHA256加密</div><div class="line">encryptSHA384, encryptSHA384ToString                  : SHA384加密</div><div class="line">encryptSHA512, encryptSHA512ToString                  : SHA512加密</div><div class="line">encryptHmacMD5, encryptHmacMD5ToString                : HmacMD5加密</div><div class="line">encryptHmacSHA1, encryptHmacSHA1ToString              : HmacSHA1加密</div><div class="line">encryptHmacSHA224, encryptHmacSHA224ToString          : HmacSHA224加密</div><div class="line">encryptHmacSHA256, encryptHmacSHA256ToString          : HmacSHA256加密</div><div class="line">encryptHmacSHA384, encryptHmacSHA384ToString          : HmacSHA384加密</div><div class="line">encryptHmacSHA512, encryptHmacSHA512ToString          : HmacSHA512加密</div><div class="line">encryptDES, encryptDES2HexString, encryptDES2Base64   : DES加密</div><div class="line">decryptDES, decryptHexStringDES, decryptBase64DES     : DES解密</div><div class="line">encrypt3DES, encrypt3DES2HexString, encrypt3DES2Base64: 3DES加密</div><div class="line">decrypt3DES, decryptHexString3DES, decryptBase64_3DES : 3DES解密</div><div class="line">encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密</div><div class="line">decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="文件相关→FileIOUtils-java→Test"><a href="#文件相关→FileIOUtils-java→Test" class="headerlink" title="文件相关→FileIOUtils.java→Test"></a>文件相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/FileIOUtils.java" target="_blank" rel="external">FileIOUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/FileIOUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">writeFileFromIS            : 将输入流写入文件</div><div class="line">writeFileFromBytesByStream : 将字节数组写入文件</div><div class="line">writeFileFromBytesByChannel: 将字节数组写入文件</div><div class="line">writeFileFromBytesByMap    : 将字节数组写入文件</div><div class="line">writeFileFromString        : 将字符串写入文件</div><div class="line">readFile2List              : 读取文件到字符串链表中</div><div class="line">readFile2String            : 读取文件到字符串中</div><div class="line">readFile2BytesByStream     : 读取文件到字节数组中</div><div class="line">readFile2BytesByChannel    : 读取文件到字节数组中</div><div class="line">readFile2BytesByMap        : 读取文件到字节数组中</div><div class="line">setBufferSize              : 设置缓冲区尺寸</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="文件相关→FileUtils-java→Test"><a href="#文件相关→FileUtils-java→Test" class="headerlink" title="文件相关→FileUtils.java→Test"></a>文件相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/FileUtils.java" target="_blank" rel="external">FileUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/FileUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">getFileByPath             : 根据文件路径获取文件</div><div class="line">isFileExists              : 判断文件是否存在</div><div class="line">rename                    : 重命名文件</div><div class="line">isDir                     : 判断是否是目录</div><div class="line">isFile                    : 判断是否是文件</div><div class="line">createOrExistsDir         : 判断目录是否存在，不存在则判断是否创建成功</div><div class="line">createOrExistsFile        : 判断文件是否存在，不存在则判断是否创建成功</div><div class="line">createFileByDeleteOldFile : 判断文件是否存在，存在则在创建之前删除</div><div class="line">copyDir                   : 复制目录</div><div class="line">copyFile                  : 复制文件</div><div class="line">moveDir                   : 移动目录</div><div class="line">moveFile                  : 移动文件</div><div class="line">deleteDir                 : 删除目录</div><div class="line">deleteFile                : 删除文件</div><div class="line">deleteAllInDir            : 删除目录下所有东西</div><div class="line">deleteFilesInDir          : 删除目录下所有文件</div><div class="line">deleteFilesInDirWithFilter: 删除目录下所有过滤的文件</div><div class="line">listFilesInDir            : 获取目录下所有文件</div><div class="line">listFilesInDirWithFilter  : 获取目录下所有过滤的文件</div><div class="line">getFileLastModified       : 获取文件最后修改的毫秒时间戳</div><div class="line">getFileCharsetSimple      : 简单获取文件编码格式</div><div class="line">getFileLines              : 获取文件行数</div><div class="line">getDirSize                : 获取目录大小</div><div class="line">getFileSize               : 获取文件大小</div><div class="line">getDirLength              : 获取目录长度</div><div class="line">getFileLength             : 获取文件长度</div><div class="line">getFileMD5                : 获取文件的MD5校验码</div><div class="line">getFileMD5ToString        : 获取文件的MD5校验码</div><div class="line">getDirName                : 根据全路径获取最长目录</div><div class="line">getFileName               : 根据全路径获取文件名</div><div class="line">getFileNameNoExtension    : 根据全路径获取文件名不带拓展名</div><div class="line">getFileExtension          : 根据全路径获取文件拓展名</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="Fragment相关→FragmentUtils-java→Demo"><a href="#Fragment相关→FragmentUtils-java→Demo" class="headerlink" title="Fragment相关→FragmentUtils.java→Demo"></a>Fragment相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/FragmentUtils.java" target="_blank" rel="external">FragmentUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/fragment/FragmentActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">add                   : 新增fragment</div><div class="line">show                  : 显示fragment</div><div class="line">hide                  : 隐藏fragment</div><div class="line">showHide              : 先显示后隐藏fragment</div><div class="line">replace               : 替换fragment</div><div class="line">pop                   : 出栈fragment</div><div class="line">popTo                 : 出栈到指定fragment</div><div class="line">popAll                : 出栈所有fragment</div><div class="line">remove                : 移除fragment</div><div class="line">removeTo              : 移除到指定fragment</div><div class="line">removeAll             : 移除所有fragment</div><div class="line">getTop                : 获取顶部fragment</div><div class="line">getTopInStack         : 获取栈中顶部fragment</div><div class="line">getTopShow            : 获取顶部可见fragment</div><div class="line">getTopShowInStack     : 获取栈中顶部可见fragment</div><div class="line">getFragments          : 获取同级别的fragment</div><div class="line">getFragmentsInStack   : 获取同级别栈中的fragment</div><div class="line">getAllFragments       : 获取所有fragment</div><div class="line">getAllFragmentsInStack: 获取栈中所有fragment</div><div class="line">findFragment          : 查找fragment</div><div class="line">dispatchBackPress     : 处理fragment回退键</div><div class="line">setBackgroundColor    : 设置背景色</div><div class="line">setBackgroundResource : 设置背景资源</div><div class="line">setBackground         : 设置背景</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="图片相关→ImageUtils-java→Demo"><a href="#图片相关→ImageUtils-java→Demo" class="headerlink" title="图片相关→ImageUtils.java→Demo"></a>图片相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ImageUtils.java" target="_blank" rel="external">ImageUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/image/ImageActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">bitmap2Bytes, bytes2Bitmap      : bitmap与byteArr互转</div><div class="line">drawable2Bitmap, bitmap2Drawable: drawable与bitmap互转</div><div class="line">drawable2Bytes, bytes2Drawable  : drawable与byteArr互转</div><div class="line">view2Bitmap                     : view转bitmap</div><div class="line">getBitmap                       : 获取bitmap</div><div class="line">scale                           : 缩放图片</div><div class="line">clip                            : 裁剪图片</div><div class="line">skew                            : 倾斜图片</div><div class="line">rotate                          : 旋转图片</div><div class="line">getRotateDegree                 : 获取图片旋转角度</div><div class="line">toRound                         : 转为圆形图片</div><div class="line">toRoundCorner                   : 转为圆角图片</div><div class="line">addCornerBorder                 : 添加圆角边框</div><div class="line">addCircleBorder                 : 添加圆形边框</div><div class="line">addReflection                   : 添加倒影</div><div class="line">addTextWatermark                : 添加文字水印</div><div class="line">addImageWatermark               : 添加图片水印</div><div class="line">toAlpha                         : 转为alpha位图</div><div class="line">toGray                          : 转为灰度图片</div><div class="line">fastBlur                        : 快速模糊</div><div class="line">renderScriptBlur                : renderScript模糊图片</div><div class="line">stackBlur                       : stack模糊图片</div><div class="line">save                            : 保存图片</div><div class="line">isImage                         : 根据文件名判断文件是否为图片</div><div class="line">getImageType                    : 获取图片类型</div><div class="line">compressByScale                 : 按缩放压缩</div><div class="line">compressByQuality               : 按质量压缩</div><div class="line">compressBySampleSize            : 按采样大小压缩</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="意图相关→IntentUtils-java"><a href="#意图相关→IntentUtils-java" class="headerlink" title="意图相关→IntentUtils.java"></a>意图相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/IntentUtils.java" target="_blank" rel="external">IntentUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">getInstallAppIntent        : 获取安装App（支持6.0）的意图</div><div class="line">getUninstallAppIntent      : 获取卸载App的意图</div><div class="line">getLaunchAppIntent         : 获取打开App的意图</div><div class="line">getAppDetailsSettingsIntent: 获取App具体设置的意图</div><div class="line">getShareTextIntent         : 获取分享文本的意图</div><div class="line">getShareImageIntent        : 获取分享图片的意图</div><div class="line">getComponentIntent         : 获取其他应用组件的意图</div><div class="line">getShutdownIntent          : 获取关机的意图</div><div class="line">getCaptureIntent           : 获取拍照的意图</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="键盘相关→KeyboardUtils-java→Demo"><a href="#键盘相关→KeyboardUtils-java→Demo" class="headerlink" title="键盘相关→KeyboardUtils.java→Demo"></a>键盘相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/KeyboardUtils.java" target="_blank" rel="external">KeyboardUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/keyboard/KeyboardActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">showSoftInput               : 动态显示软键盘</div><div class="line">hideSoftInput               : 动态隐藏软键盘</div><div class="line">toggleSoftInput             : 切换键盘显示与否状态</div><div class="line">clickBlankArea2HideSoftInput: 点击屏幕空白区域隐藏软键盘</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="日志相关→LogUtils-java→Demo"><a href="#日志相关→LogUtils-java→Demo" class="headerlink" title="日志相关→LogUtils.java→Demo"></a>日志相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/LogUtils.java" target="_blank" rel="external">LogUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/log/LogActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">getConfig               : 获取log配置</div><div class="line">Config.setLogSwitch     : 设置log总开关</div><div class="line">Config.setConsoleSwitch : 设置log控制台开关</div><div class="line">Config.setGlobalTag     : 设置log全局tag</div><div class="line">Config.setLogHeadSwitch : 设置log头部信息开关</div><div class="line">Config.setLog2FileSwitch: 设置log文件开关</div><div class="line">Config.setDir           : 设置log文件存储目录</div><div class="line">Config.setFilePrefix    : 设置log文件前缀</div><div class="line">Config.setBorderSwitch  : 设置log边框开关</div><div class="line">Config.setConsoleFilter : 设置log控制台过滤器</div><div class="line">Config.setFileFilter    : 设置log文件过滤器</div><div class="line">Config.setStackDeep     : 设置log栈深度</div><div class="line">v                       : Verbose日志</div><div class="line">d                       : Debug日志</div><div class="line">i                       : Info日志</div><div class="line">w                       : Warn日志</div><div class="line">e                       : Error日志</div><div class="line">a                       : Assert日志</div><div class="line">file                    : log到文件</div><div class="line">json                    : log字符串之json</div><div class="line">xml                     : log字符串之xml</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="网络相关→NetworkUtils-java→Demo"><a href="#网络相关→NetworkUtils-java→Demo" class="headerlink" title="网络相关→NetworkUtils.java→Demo"></a>网络相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/NetworkUtils.java" target="_blank" rel="external">NetworkUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/network/NetworkActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">openWirelessSettings  : 打开网络设置界面</div><div class="line">isConnected           : 判断网络是否连接</div><div class="line">isAvailableByPing     : 判断网络是否可用</div><div class="line">getDataEnabled        : 判断移动数据是否打开</div><div class="line">setDataEnabled        : 打开或关闭移动数据</div><div class="line">is4G                  : 判断网络是否是4G</div><div class="line">getWifiEnabled        : 判断wifi是否打开</div><div class="line">setWifiEnabled        : 打开或关闭wifi</div><div class="line">isWifiConnected       : 判断wifi是否连接状态</div><div class="line">isWifiAvailable       : 判断wifi数据是否可用</div><div class="line">getNetworkOperatorName: 获取移动网络运营商名称</div><div class="line">getNetworkType        : 获取当前网络类型</div><div class="line">getIPAddress          : 获取IP地址</div><div class="line">getDomainAddress      : 获取域名ip地址</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="手机相关→PhoneUtils-java→Demo"><a href="#手机相关→PhoneUtils-java→Demo" class="headerlink" title="手机相关→PhoneUtils.java→Demo"></a>手机相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/PhoneUtils.java" target="_blank" rel="external">PhoneUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/phone/PhoneActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">isPhone            : 判断设备是否是手机</div><div class="line">getIMEI            : 获取IMEI码</div><div class="line">getIMSI            : 获取IMSI码</div><div class="line">getPhoneType       : 获取移动终端类型</div><div class="line">isSimCardReady     : 判断sim卡是否准备好</div><div class="line">getSimOperatorName : 获取Sim卡运营商名称</div><div class="line">getSimOperatorByMnc: 获取Sim卡运营商名称</div><div class="line">getPhoneStatus     : 获取手机状态信息</div><div class="line">dial               : 跳至拨号界面</div><div class="line">call               : 拨打phoneNumber</div><div class="line">sendSms            : 跳至发送短信界面</div><div class="line">sendSmsSilent      : 发送短信</div><div class="line">getAllContactInfo  : 获取手机联系人</div><div class="line">getContactNum      : 打开手机联系人界面点击联系人后便获取该号码</div><div class="line">getAllSMS          : 获取手机短信并保存到xml中</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="进程相关→ProcessUtils-java→Demo"><a href="#进程相关→ProcessUtils-java→Demo" class="headerlink" title="进程相关→ProcessUtils.java→Demo"></a>进程相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ProcessUtils.java" target="_blank" rel="external">ProcessUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/process/ProcessActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getForegroundProcessName  : 获取前台线程包名</div><div class="line">killAllBackgroundProcesses: 杀死所有的后台服务进程</div><div class="line">killBackgroundProcesses   : 杀死后台服务进程</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="正则相关→RegexUtils-java→Test"><a href="#正则相关→RegexUtils-java→Test" class="headerlink" title="正则相关→RegexUtils.java→Test"></a>正则相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/RegexUtils.java" target="_blank" rel="external">RegexUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/RegexUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">isMobileSimple : 验证手机号（简单）</div><div class="line">isMobileExact  : 验证手机号（精确）</div><div class="line">isTel          : 验证电话号码</div><div class="line">isIDCard15     : 验证身份证号码15位</div><div class="line">isIDCard18     : 验证身份证号码18位</div><div class="line">isEmail        : 验证邮箱</div><div class="line">isURL          : 验证URL</div><div class="line">isZh           : 验证汉字</div><div class="line">isUsername     : 验证用户名</div><div class="line">isDate         : 验证yyyy-MM-dd格式的日期校验，已考虑平闰年</div><div class="line">isIP           : 验证IP地址</div><div class="line">isMatch        : 判断是否匹配正则</div><div class="line">getMatches     : 获取正则匹配的部分</div><div class="line">getSplits      : 获取正则匹配分组</div><div class="line">getReplaceFirst: 替换正则匹配的第一部分</div><div class="line">getReplaceAll  : 替换所有正则匹配的部分</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="屏幕相关→ScreenUtils-java"><a href="#屏幕相关→ScreenUtils-java" class="headerlink" title="屏幕相关→ScreenUtils.java"></a>屏幕相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ScreenUtils.java" target="_blank" rel="external">ScreenUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">getScreenWidth     : 获取屏幕的宽度（单位：px）</div><div class="line">getScreenHeight    : 获取屏幕的高度（单位：px）</div><div class="line">getScreenDensity   : 获取屏幕密度</div><div class="line">getScreenDensityDpi: 获取屏幕密度DPI</div><div class="line">setFullScreen      : 设置屏幕为全屏</div><div class="line">setLandscape       : 设置屏幕为横屏</div><div class="line">setPortrait        : 设置屏幕为竖屏</div><div class="line">isLandscape        : 判断是否横屏</div><div class="line">isPortrait         : 判断是否竖屏</div><div class="line">getScreenRotation  : 获取屏幕旋转角度</div><div class="line">screenShot         : 截屏</div><div class="line">isScreenLock       : 判断是否锁屏</div><div class="line">setSleepDuration   : 设置进入休眠时长</div><div class="line">getSleepDuration   : 获取进入休眠时长</div><div class="line">isTablet           : 判断是否是平板</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="SD卡相关→SDCardUtils-java→Demo"><a href="#SD卡相关→SDCardUtils-java→Demo" class="headerlink" title="SD卡相关→SDCardUtils.java→Demo"></a>SD卡相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/SDCardUtils.java" target="_blank" rel="external">SDCardUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/sdcard/SDCardActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isSDCardEnable: 判断SD卡是否可用</div><div class="line">getSDCardPaths: 获取SD卡路径</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="服务相关→ServiceUtils-java"><a href="#服务相关→ServiceUtils-java" class="headerlink" title="服务相关→ServiceUtils.java"></a>服务相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ServiceUtils.java" target="_blank" rel="external">ServiceUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getAllRunningService: 获取所有运行的服务</div><div class="line">startService        : 启动服务</div><div class="line">stopService         : 停止服务</div><div class="line">bindService         : 绑定服务</div><div class="line">unbindService       : 解绑服务</div><div class="line">isServiceRunning    : 判断服务是否运行</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="Shell相关→ShellUtils-java"><a href="#Shell相关→ShellUtils-java" class="headerlink" title="Shell相关→ShellUtils.java"></a>Shell相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ShellUtils.java" target="_blank" rel="external">ShellUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">execCmd: 是否是在root下执行命令</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="尺寸相关→SizeUtils-java"><a href="#尺寸相关→SizeUtils-java" class="headerlink" title="尺寸相关→SizeUtils.java"></a>尺寸相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/SizeUtils.java" target="_blank" rel="external">SizeUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dp2px, px2dp     : dp与px转换</div><div class="line">sp2px, px2sp     : sp与px转换</div><div class="line">applyDimension   : 各种单位转换</div><div class="line">forceGetViewSize : 在onCreate中获取视图的尺寸</div><div class="line">measureView      : 测量视图尺寸</div><div class="line">getMeasuredWidth : 获取测量视图宽度</div><div class="line">getMeasuredHeight: 获取测量视图高度</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="Snackbar相关→SnackbarUtils-java→Demo"><a href="#Snackbar相关→SnackbarUtils-java→Demo" class="headerlink" title="Snackbar相关→SnackbarUtils.java→Demo"></a>Snackbar相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/SnackbarUtils.java" target="_blank" rel="external">SnackbarUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/snackbar/SnackbarActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">with           : 设置snackbar依赖view</div><div class="line">setMessage     : 设置消息</div><div class="line">setMessageColor: 设置消息颜色</div><div class="line">setBgColor     : 设置背景色</div><div class="line">setBgResource  : 设置背景资源</div><div class="line">setDuration    : 设置显示时长</div><div class="line">setAction      : 设置行为</div><div class="line">setBottomMargin: 设置底边距</div><div class="line">show           : 显示snackbar</div><div class="line">showSuccess    : 显示预设成功的snackbar</div><div class="line">showWarning    : 显示预设警告的snackbar</div><div class="line">showError      : 显示预设错误的snackbar</div><div class="line">dismiss        : 消失snackbar</div><div class="line">getView        : 获取snackbar视图</div><div class="line">addView        : 添加snackbar视图</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="SpannableString相关→SpanUtils-java→Demo"><a href="#SpannableString相关→SpanUtils-java→Demo" class="headerlink" title="SpannableString相关→SpanUtils.java→Demo"></a>SpannableString相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/SpanUtils.java" target="_blank" rel="external">SpanUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/span/SpanActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">setFlag           : 设置标识</div><div class="line">setForegroundColor: 设置前景色</div><div class="line">setBackgroundColor: 设置背景色</div><div class="line">setLineHeight     : 设置行高</div><div class="line">setQuoteColor     : 设置引用线的颜色</div><div class="line">setLeadingMargin  : 设置缩进</div><div class="line">setBullet         : 设置列表标记</div><div class="line">setIconMargin     : 设置图标</div><div class="line">setFontSize       : 设置字体尺寸</div><div class="line">setFontProportion : 设置字体比例</div><div class="line">setFontXProportion: 设置字体横向比例</div><div class="line">setStrikethrough  : 设置删除线</div><div class="line">setUnderline      : 设置下划线</div><div class="line">setSuperscript    : 设置上标</div><div class="line">setSubscript      : 设置下标</div><div class="line">setBold           : 设置粗体</div><div class="line">setItalic         : 设置斜体</div><div class="line">setBoldItalic     : 设置粗斜体</div><div class="line">setFontFamily     : 设置字体系列</div><div class="line">setTypeface       : 设置字体</div><div class="line">setAlign          : 设置对齐</div><div class="line">setClickSpan      : 设置点击事件</div><div class="line">setUrl            : 设置超链接</div><div class="line">setBlur           : 设置模糊</div><div class="line">setShader         : 设置着色器</div><div class="line">setShadow         : 设置阴影</div><div class="line">setSpans          : 设置样式</div><div class="line">append            : 追加样式字符串</div><div class="line">appendLine        : 追加一行样式字符串</div><div class="line">appendImage       : 追加图片</div><div class="line">appendSpace       : 追加空白</div><div class="line">create            : 创建样式字符串</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="SP相关→SPUtils-java→Test"><a href="#SP相关→SPUtils-java→Test" class="headerlink" title="SP相关→SPUtils.java→Test"></a>SP相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/SPUtils.java" target="_blank" rel="external">SPUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/SPUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">getInstance: 获取SP实例</div><div class="line">put        : SP中写入数据</div><div class="line">getString  : SP中读取String</div><div class="line">getInt     : SP中读取int</div><div class="line">getLong    : SP中读取long</div><div class="line">getFloat   : SP中读取float</div><div class="line">getBoolean : SP中读取boolean</div><div class="line">getAll     : SP中获取所有键值对</div><div class="line">contains   : SP中是否存在该key</div><div class="line">remove     : SP中移除该key</div><div class="line">clear      : SP中清除所有数据</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="字符串相关→StringUtils-java→Test"><a href="#字符串相关→StringUtils-java→Test" class="headerlink" title="字符串相关→StringUtils.java→Test"></a>字符串相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/StringUtils.java" target="_blank" rel="external">StringUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/StringUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">isEmpty         : 判断字符串是否为null或长度为0</div><div class="line">isTrimEmpty     : 判断字符串是否为null或全为空格</div><div class="line">isSpace         : 判断字符串是否为null或全为空白字符</div><div class="line">equals          : 判断两字符串是否相等</div><div class="line">equalsIgnoreCase: 判断两字符串忽略大小写是否相等</div><div class="line">null2Length0    : null转为长度为0的字符串</div><div class="line">length          : 返回字符串长度</div><div class="line">upperFirstLetter: 首字母大写</div><div class="line">lowerFirstLetter: 首字母小写</div><div class="line">reverse         : 反转字符串</div><div class="line">toDBC           : 转化为半角字符</div><div class="line">toSBC           : 转化为全角字符</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="时间相关→TimeUtils-java→Test"><a href="#时间相关→TimeUtils-java→Test" class="headerlink" title="时间相关→TimeUtils.java→Test"></a>时间相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/TimeUtils.java" target="_blank" rel="external">TimeUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/TimeUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">millis2String           : 将时间戳转为时间字符串</div><div class="line">string2Millis           : 将时间字符串转为时间戳</div><div class="line">string2Date             : 将时间字符串转为Date类型</div><div class="line">date2String             : 将Date类型转为时间字符串</div><div class="line">date2Millis             : 将Date类型转为时间戳</div><div class="line">millis2Date             : 将时间戳转为Date类型</div><div class="line">getTimeSpan             : 获取两个时间差（单位：unit）</div><div class="line">getFitTimeSpan          : 获取合适型两个时间差</div><div class="line">getNowMills             : 获取当前毫秒时间戳</div><div class="line">getNowString            : 获取当前时间字符串</div><div class="line">getNowDate              : 获取当前Date</div><div class="line">getTimeSpanByNow        : 获取与当前时间的差（单位：unit）</div><div class="line">getFitTimeSpanByNow     : 获取合适型与当前时间的差</div><div class="line">getFriendlyTimeSpanByNow: 获取友好型与当前时间的差</div><div class="line">getMillis               : 获取与给定时间等于时间差的时间戳</div><div class="line">getString               : 获取与给定时间等于时间差的时间字符串</div><div class="line">getDate                 : 获取与给定时间等于时间差的Date</div><div class="line">getMillisByNow          : 获取与当前时间等于时间差的时间戳</div><div class="line">getStringByNow          : 获取与当前时间等于时间差的时间字符串</div><div class="line">getDateByNow            : 获取与当前时间等于时间差的Date</div><div class="line">isToday                 : 判断是否今天</div><div class="line">isLeapYear              : 判断是否闰年</div><div class="line">getChineseWeek          : 获取中式星期</div><div class="line">getUSWeek               : 获取美式式星期</div><div class="line">getWeekIndex            : 获取星期索引</div><div class="line">getWeekOfMonth          : 获取月份中的第几周</div><div class="line">getWeekOfYear           : 获取年份中的第几周</div><div class="line">getChineseZodiac        : 获取生肖</div><div class="line">getZodiac               : 获取星座</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="吐司相关→ToastUtils-java→Demo"><a href="#吐司相关→ToastUtils-java→Demo" class="headerlink" title="吐司相关→ToastUtils.java→Demo"></a>吐司相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ToastUtils.java" target="_blank" rel="external">ToastUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/app/src/main/java/com/blankj/androidutilcode/core/toast/ToastActivity.java" target="_blank" rel="external">Demo</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">setGravity     : 设置吐司位置</div><div class="line">setBgColor     : 设置背景颜色</div><div class="line">setBgResource  : 设置背景资源</div><div class="line">setMessageColor: 设置消息颜色</div><div class="line">showShort      : 显示短时吐司</div><div class="line">showLong       : 显示长时吐司</div><div class="line">showCustomShort: 显示短时自定义吐司</div><div class="line">showCustomLong : 显示长时自定义吐司</div><div class="line">cancel         : 取消吐司显示</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="压缩相关→ZipUtils-java→Test"><a href="#压缩相关→ZipUtils-java→Test" class="headerlink" title="压缩相关→ZipUtils.java→Test"></a>压缩相关→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ZipUtils.java" target="_blank" rel="external">ZipUtils.java</a>→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/ZipUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">zipFile           : 压缩文件</div><div class="line">unzipFile         : 解压文件</div><div class="line">unzipFileByKeyword: 解压带有关键字的文件</div><div class="line">getFilesPath      : 获取压缩文件中的文件路径链表</div><div class="line">getComments       : 获取压缩文件中的注释链表</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="更新Log→update-log-md"><a href="#更新Log→update-log-md" class="headerlink" title="更新Log→update_log.md"></a>更新Log→<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/update_log.md" target="_blank" rel="external">update_log.md</a></h3></li>
+</ul>
+<hr>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
+<li><p><a href="http://www.jianshu.com/u/46702d5c6978" target="_blank" rel="external"><img src="https://img.shields.io/badge/简书-Blankj-34a48e.svg" alt="jianshu"></a> <a href="http://weibo.com/blankcmj" target="_blank" rel="external"><img src="https://img.shields.io/badge/weibo-__Blankj-34a48e.svg" alt="weibo"></a>  <a href="http://blankj.com"><img src="https://img.shields.io/badge/Blog-Blankj-34a48e.svg" alt="Blog"></a> <a href="https://shang.qq.com/wpa/qunwpa?idkey=62baf2c3ec6b0863155b0c7a10c71bba2608cb0b6532fc18515835e54c69bdd3" target="_blank" rel="external"><img src="https://img.shields.io/badge/QQ0群(满)-74721490-ff73a3.svg" alt="QQ0Group"></a> <a href="https://shang.qq.com/wpa/qunwpa?idkey=d906789f84484465e2736f7b524366b4c23afeda38733d5c7b10fc3f6e406e9b" target="_blank" rel="external"><img src="https://img.shields.io/badge/QQ1群-25206533-ff73a3.svg" alt="QQ1Group"></a></p>
+</li>
+<li><p>做这份整理是想把它作为Android开发的小字典，当遇到一些琐碎问题时，不用再面向百度或者谷歌查询API的使用，费时费力，这里有的话，大家尽管撸走；同时也希望它能逐日壮大起来，期待大家的Star和完善，当然我也会一直更新发布版本和日志，为了方便大家导入，现已上传jcenter；其中很多代码也是汇四方之精华，谢谢前辈们的提供，当然最终还是要通过单元测试的，如有错误，请及时告之。</p>
+</li>
+</ul>
+<h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><p>Gradle:<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.blankj:utilcode:1.9.3'</span></div></pre></td></tr></table></figure></p>
+<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// init it in the function of onCreate in ur Application</div><div class="line">Utils.init(application);</div></pre></td></tr></table></figure>
+<h2 id="Proguard"><a href="#Proguard" class="headerlink" title="Proguard"></a>Proguard</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-keep class com.blankj.utilcode.** &#123; *; &#125;</div><div class="line">-keepclassmembers class com.blankj.utilcode.** &#123; *; &#125;</div><div class="line">-dontwarn com.blankj.utilcode.**</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具类/" rel="tag"># 工具类</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/26/how-scroll-achieve-hero/" rel="next" title="滑动效果是如何产生的(Android群英传)">
+                <i class="fa fa-chevron-left"></i> 滑动效果是如何产生的(Android群英传)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/01/achieve-srcoll-seven-ways-hero/" rel="prev" title="实现滑动的七种方法(Android群英传)">
+                实现滑动的七种方法(Android群英传) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="布兰柯基" />
+            
+              <p class="site-author-name" itemprop="name">布兰柯基</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/46702d5c6978" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-book"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gold.xitu.io/user/579f5dd1a341310063f9f105" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/a120705230" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-book"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/blankcmj" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.haowuyun.com" title="LoveInLog" target="_blank">LoveInLog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jp1017.github.io" title="蒋朋" target="_blank">蒋朋</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://xiasuhuei321.com" title="xiasuhuei" target="_blank">xiasuhuei</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.lilun.me" title="慕云" target="_blank">慕云</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#README-of-English"><span class="nav-number">1.</span> <span class="nav-text">README of English</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity相关→ActivityUtils-java→Demo"><span class="nav-number">2.1.</span> <span class="nav-text">Activity相关→ActivityUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App相关→AppUtils-java→Demo"><span class="nav-number">2.2.</span> <span class="nav-text">App相关→AppUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栏相关→BarUtils-java→Demo"><span class="nav-number">2.3.</span> <span class="nav-text">栏相关→BarUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存相关→CacheUtils-java→Test"><span class="nav-number">2.4.</span> <span class="nav-text">缓存相关→CacheUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除相关→CleanUtils-java→Demo"><span class="nav-number">2.5.</span> <span class="nav-text">清除相关→CleanUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭相关→CloseUtils-java"><span class="nav-number">2.6.</span> <span class="nav-text">关闭相关→CloseUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换相关→ConvertUtils-java→Test"><span class="nav-number">2.7.</span> <span class="nav-text">转换相关→ConvertUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#崩溃相关→CrashUtils-java"><span class="nav-number">2.8.</span> <span class="nav-text">崩溃相关→CrashUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备相关→DeviceUtils-java→Demo"><span class="nav-number">2.9.</span> <span class="nav-text">设备相关→DeviceUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判空相关→EmptyUtils-java→Test"><span class="nav-number">2.10.</span> <span class="nav-text">判空相关→EmptyUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码解码相关→EncodeUtils-java→Test"><span class="nav-number">2.11.</span> <span class="nav-text">编码解码相关→EncodeUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加密解密相关→EncryptUtils-java→Test"><span class="nav-number">2.12.</span> <span class="nav-text">加密解密相关→EncryptUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件相关→FileIOUtils-java→Test"><span class="nav-number">2.13.</span> <span class="nav-text">文件相关→FileIOUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件相关→FileUtils-java→Test"><span class="nav-number">2.14.</span> <span class="nav-text">文件相关→FileUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment相关→FragmentUtils-java→Demo"><span class="nav-number">2.15.</span> <span class="nav-text">Fragment相关→FragmentUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片相关→ImageUtils-java→Demo"><span class="nav-number">2.16.</span> <span class="nav-text">图片相关→ImageUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#意图相关→IntentUtils-java"><span class="nav-number">2.17.</span> <span class="nav-text">意图相关→IntentUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘相关→KeyboardUtils-java→Demo"><span class="nav-number">2.18.</span> <span class="nav-text">键盘相关→KeyboardUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志相关→LogUtils-java→Demo"><span class="nav-number">2.19.</span> <span class="nav-text">日志相关→LogUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络相关→NetworkUtils-java→Demo"><span class="nav-number">2.20.</span> <span class="nav-text">网络相关→NetworkUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机相关→PhoneUtils-java→Demo"><span class="nav-number">2.21.</span> <span class="nav-text">手机相关→PhoneUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程相关→ProcessUtils-java→Demo"><span class="nav-number">2.22.</span> <span class="nav-text">进程相关→ProcessUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则相关→RegexUtils-java→Test"><span class="nav-number">2.23.</span> <span class="nav-text">正则相关→RegexUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕相关→ScreenUtils-java"><span class="nav-number">2.24.</span> <span class="nav-text">屏幕相关→ScreenUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SD卡相关→SDCardUtils-java→Demo"><span class="nav-number">2.25.</span> <span class="nav-text">SD卡相关→SDCardUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务相关→ServiceUtils-java"><span class="nav-number">2.26.</span> <span class="nav-text">服务相关→ServiceUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell相关→ShellUtils-java"><span class="nav-number">2.27.</span> <span class="nav-text">Shell相关→ShellUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尺寸相关→SizeUtils-java"><span class="nav-number">2.28.</span> <span class="nav-text">尺寸相关→SizeUtils.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Snackbar相关→SnackbarUtils-java→Demo"><span class="nav-number">2.29.</span> <span class="nav-text">Snackbar相关→SnackbarUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpannableString相关→SpanUtils-java→Demo"><span class="nav-number">2.30.</span> <span class="nav-text">SpannableString相关→SpanUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SP相关→SPUtils-java→Test"><span class="nav-number">2.31.</span> <span class="nav-text">SP相关→SPUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串相关→StringUtils-java→Test"><span class="nav-number">2.32.</span> <span class="nav-text">字符串相关→StringUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间相关→TimeUtils-java→Test"><span class="nav-number">2.33.</span> <span class="nav-text">时间相关→TimeUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吐司相关→ToastUtils-java→Demo"><span class="nav-number">2.34.</span> <span class="nav-text">吐司相关→ToastUtils.java→Demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩相关→ZipUtils-java→Test"><span class="nav-number">2.35.</span> <span class="nav-text">压缩相关→ZipUtils.java→Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新Log→update-log-md"><span class="nav-number">2.36.</span> <span class="nav-text">更新Log→update_log.md</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About"><span class="nav-number">3.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Download"><span class="nav-number">4.</span> <span class="nav-text">Download</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-use"><span class="nav-number">5.</span> <span class="nav-text">How to use</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proguard"><span class="nav-number">6.</span> <span class="nav-text">Proguard</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">布兰柯基</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/gitalk.css">
+<script src="/js/src/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')
+       </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

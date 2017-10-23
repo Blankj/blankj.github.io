@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="3.Android控件架构与自定义控件详解," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
+　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义View(一)(Android群英传)">
+<meta property="og:url" content="http://blankj.com/2016/05/29/custom-view1-hero/index.html">
+<meta property="og:site_name" content="Blankj">
+<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
+　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta property="og:image" content="http://blankj.com/2016/05/29/custom-view1-hero/zdyv0.png">
+<meta property="og:image" content="http://blankj.com/2016/05/29/custom-view1-hero/zdyv1.png">
+<meta property="og:updated_time" content="2016-11-09T17:27:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义View(一)(Android群英传)">
+<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
+　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta name="twitter:image" content="http://blankj.com/2016/05/29/custom-view1-hero/zdyv0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":8,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blankj.com/2016/05/29/custom-view1-hero/"/>
+
+
+
+
+
+  <title>自定义View(一)(Android群英传) | Blankj</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1918d813c85f9869017db2480dee5733";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blankj</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">select * from learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/05/29/custom-view1-hero/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自定义View(一)(Android群英传)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-29T16:52:48+08:00">
+                2016-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android群英传/" itemprop="url" rel="index">
+                    <span itemprop="name">Android群英传</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
+                    <span itemprop="name">3.Android控件架构与自定义控件详解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong><em>内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。</em></strong></p>
+<p>　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以来都被初学者认为是代表高手的象征。其实，自定义View并没有想象中的那么难，与其说是在自定义一个View，不如说是在设计一个图形，只有站在一个设计者的角度上，才可以更好地创建自定义View。我们不能机械地记忆所有绘图的API，而是要让这些API为你所用，结合现实中绘图的方法，甚至是PhotoShop的技巧，才能设计出更好的自定义View。<br><a id="more"></a><br>　　适当地使用自定义View，可以丰富应用程序的体验效果，但滥用自定义View则会带来适得其反的效果。一个让用户觉得熟悉得控件，才是一个好的控件。如果一味追求炫酷的效果而创建自定义View，则会让用户觉得华而不实。而且，在系统原生控件可以实现功能的基础上，系统也提供了主题、图片资源、各种风格来创建丰富的UI。这些控件都是经过了Android一代代版本迭代后的产物。即使这样，在如今的版本中，依然存在不少Bug，更不要提我们自定义的View了。特别是现在Android ROM的多样性，导致Android的适配变得越来越复杂，很难保证自定义View在其他手机上也能达到你想要的效果。</p>
+<p>　　当然，了解Android系统自定义View的过程，可以帮助我们了解系统的绘图机智。同时，在适当的情况下也可以通过自定义View来帮助我们创建更佳灵活的布局。</p>
+<p>　　在自定义View时，我们通常会去重写onDraw()方法来挥着View的显示内容。如果该View还需要使用wrap_content属性，那么还必须写onMeasure()方法。另外，通过自定义attrs属性，还可以设置新的属性配置值。</p>
+<p>　　在View中通常有以下一些比较重要的回调方法。</p>
+<ul>
+<li>onFinishInflate()：从XML加载组件后回调。</li>
+<li>onSizeChanged()：组件大小改变时回调。</li>
+<li>onMeasure()：回调该方法来进行测量。</li>
+<li>onLayout()：回调该方法来确定显示的位置。</li>
+<li>onTouchEvent()：监听到触摸事件时回调。</li>
+</ul>
+<p>　　当然，创建自定义View的时候，并不需要重写所有的方法，只需要重写特定条件的回调方法即可。这也是Android控件架构灵活性的体现。</p>
+<p>　　通常情况下，有以下三种方法来实现自定义的控件。</p>
+<ul>
+<li>对现有控件进行拓展</li>
+<li>通过组合来实现新的控件</li>
+<li>重写View来实现全新的控件</li>
+</ul>
+<h3 id="对现有控件进行拓展"><a href="#对现有控件进行拓展" class="headerlink" title="对现有控件进行拓展"></a>对现有控件进行拓展</h3><p>　　这是一个非常重要的自定义View方法，它可以在原生控件的基础上进行拓展，增加新的功能、修改显示的UI等。一般来说，我们可以再原生控件的基础上进行拓展，增加新的功能、修改显示的UI等。一般来说，我们可以在onDraw()方法中对原生控件行为进行拓展。</p>
+<p>　　下面以一个TextView为例，来看看如何使用拓展原生控件的方法创建新的控件。比如想让一个TextView的背景更佳丰富，给其多绘制几层背景，如下图所示。</p>
+<img src="/2016/05/29/custom-view1-hero/zdyv0.png" alt="[自定义修改TextView]" title="[自定义修改TextView]">
+<p>　　我们先来分析一下如何实现这个效果，原生的TextView使用onDraw()方法绘制要显示的文字。当继承了系统的TextView之后，如果不重写其onDraw()方法，则不会修改TextView的任何效果。可以认为在自定义的TextView中调用TextView类的onDraw()方法来绘制显示的文字，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　程序调用super.onDraw(canvas)方法来实现原生控件的功能，但是在动用super.onDraw()方法之前和之后，我们都可以实现自己的逻辑，分别在系统绘制文字前后，完成自己的操作，即如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="comment">//在调父类方法前，实现自己的逻辑，对TextView来说即是在绘制文本内容前</span></div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">    <span class="comment">//在调父类方法后，实现自己的逻辑，对TextView来说即是在绘制文本内容后</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　以上就是通过改变控件的绘制行为创建自定义View的思路。有了上面的分析，我们就可以很轻松地实现上图所示的自定义TextView了。我们在构造方法中完成必要对象的初始化工作，如初始化画笔等，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mPaint1 = <span class="keyword">new</span> Paint();</div><div class="line">mPaint1.setColor(Color.BLUE);</div><div class="line">mPaint1.setStyle(Paint.Style.FILL);</div><div class="line">mPaint2 = <span class="keyword">new</span> Paint();</div><div class="line">mPaint2.setColor(Color.YELLOW);</div><div class="line">mPaint2.setStyle(Paint.Style.FILL);</div></pre></td></tr></table></figure>
+<p>　　而代码中最重要的部分则是在onDraw()方法中，为了改变原生的绘制行为，在系统调用super.onDraw(canvas)方法前，也就是在绘制文字之前，绘制两个不同大小的矩形，形成一个重叠效果，再让系统调用super.onDraw(canvas)方法，执行绘制文字的工作。这样，我们就通过改变控件绘制行为，创建了一个新的控件，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘制外层矩形</span></div><div class="line">canvas.drawRect(</div><div class="line">        <span class="number">0</span>,</div><div class="line">        <span class="number">0</span>,</div><div class="line">        getMeasuredWidth(),</div><div class="line">        getMeasuredHeight(),</div><div class="line">        mPaint1</div><div class="line">);</div><div class="line"><span class="comment">//绘制内层矩形</span></div><div class="line">canvas.drawRect(</div><div class="line">        <span class="number">10</span>,</div><div class="line">        <span class="number">10</span>,</div><div class="line">        getMeasuredWidth() - <span class="number">10</span>,</div><div class="line">        getMeasuredHeight() - <span class="number">10</span>,</div><div class="line">        mPaint2</div><div class="line">);</div><div class="line">canvas.save();</div><div class="line"><span class="comment">//绘制文字前平移10像素</span></div><div class="line">canvas.translate(<span class="number">10</span>,<span class="number">0</span>);</div><div class="line"><span class="comment">//父类完成的方法，即绘制文本</span></div><div class="line"><span class="keyword">super</span>.onDraw(canvas);</div><div class="line">canvas.restore();</div></pre></td></tr></table></figure>
+<p>　　下面再来看一个稍微复杂一点的TextView。在前面一个实例中，我们直接使用了Canvas对象来进行图像的绘制，然后利用Android的绘图机制，可以绘制出更复杂丰富的图像。比如可以利用LinearGradient Shader 和Matrix来实现一个动态的文字闪动效果，程序运行效果如下图所示。</p>
+<img src="/2016/05/29/custom-view1-hero/zdyv1.png" alt="[闪动的文字效果]" title="[闪动的文字效果]">
+<p>　　要想实现这个效果，可以充分利用Android中Paint对象的Shader渲染器。通过设置一个不断变化的LinearGradient，并使用带有该属性的Paint对象来绘制要显示的文字。首先，在onSizeChanged()方法中进行一些对象的初始化工作，并根据View的宽度设置一个LinearGradient渐变渲染器，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onSizeChanged(w, h, oldw, oldh);</div><div class="line">    <span class="keyword">if</span> (mViewWidth == <span class="number">0</span>) &#123;</div><div class="line">        mViewWidth = getMeasuredWidth();</div><div class="line">        <span class="keyword">if</span> (mViewWidth &gt; <span class="number">0</span>) &#123;</div><div class="line">            mPaint = getPaint();</div><div class="line">            mLinearGradient = <span class="keyword">new</span> LinearGradient(</div><div class="line">                    <span class="number">0</span>,</div><div class="line">                    <span class="number">0</span>,</div><div class="line">                    mViewWidth,</div><div class="line">                    <span class="number">0</span>,</div><div class="line">                    <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;</div><div class="line">                            Color.BLUE,</div><div class="line">                            <span class="number">0xffffff</span>,</div><div class="line">                            Color.BLUE</div><div class="line">                    &#125;,</div><div class="line">                    <span class="keyword">null</span>,</div><div class="line">                    Shader.TileMode.CLAMP);</div><div class="line">            mPaint.setShader(mLinearGradient);</div><div class="line">            mGradientMatrix = <span class="keyword">new</span> Matrix();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　其中最关键的就是使用getPaint()方法获取当前绘制TextView的Paint对象，并给这个Paint对象设置原生TextView没有的LinearGradient属性。最后，在onDraw()方法中，通过矩形的方式来不断平移渐变效果，从而在绘制文字时，产生动态的闪动效果，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">    <span class="keyword">if</span> (mGradientMatrix != <span class="keyword">null</span>) &#123;</div><div class="line">        mTranslate += mViewWidth / <span class="number">5</span>;</div><div class="line">        <span class="keyword">if</span> (mTranslate &gt; <span class="number">2</span> * mViewWidth) &#123;</div><div class="line">            mTranslate = -mViewWidth;</div><div class="line">        &#125;</div><div class="line">        mGradientMatrix.setTranslate(mTranslate, <span class="number">0</span>);</div><div class="line">        mLinearGradient.setLocalMatrix(mGradientMatrix);</div><div class="line">        postInvalidateDelayed(<span class="number">100</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>原文地址<a href="http://blankj.com/2016/05/29/自定义View(一)(Android群英传)/">自定义View(一)(Android群英传)</a></p>
+<p>我的自媒体博客<a href="http://blankj.com/">Blankj小站</a>，欢迎来逛逛。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/3-Android控件架构与自定义控件详解/" rel="tag"># 3.Android控件架构与自定义控件详解</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/28/measure-draw-viewGroup-hero/" rel="next" title="ViewGroup的测量与绘制(Android群英传)">
+                <i class="fa fa-chevron-left"></i> ViewGroup的测量与绘制(Android群英传)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/15/auto-teaching-evaluation/" rel="prev" title="正方教务系统自动评教">
+                正方教务系统自动评教 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="布兰柯基" />
+            
+              <p class="site-author-name" itemprop="name">布兰柯基</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/46702d5c6978" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-book"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gold.xitu.io/user/579f5dd1a341310063f9f105" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/a120705230" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-book"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/blankcmj" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.haowuyun.com" title="LoveInLog" target="_blank">LoveInLog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jp1017.github.io" title="蒋朋" target="_blank">蒋朋</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://xiasuhuei321.com" title="xiasuhuei" target="_blank">xiasuhuei</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.lilun.me" title="慕云" target="_blank">慕云</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对现有控件进行拓展"><span class="nav-number">1.</span> <span class="nav-text">对现有控件进行拓展</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">布兰柯基</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/gitalk.css">
+<script src="/js/src/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')
+       </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

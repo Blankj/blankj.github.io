@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="3.Android控件架构与自定义控件详解," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
+上一篇自定义View(一)(Android群英传)中说的是对现有控件进行拓展，这篇介绍第二种自定义View方法，创建复合控件。
+创建复合控件　　创建复合控件可以很好地创建出具有重用功能的控件集合。这种方式通常需要继承一个合适的ViewGroup，再给它添加指定功能的控件，从而组合成新的复合控件。通过这种方式创建的控件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义View(二)(Android群英传)">
+<meta property="og:url" content="http://blankj.com/2016/07/17/custom-view2-hero/index.html">
+<meta property="og:site_name" content="Blankj">
+<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
+上一篇自定义View(一)(Android群英传)中说的是对现有控件进行拓展，这篇介绍第二种自定义View方法，创建复合控件。
+创建复合控件　　创建复合控件可以很好地创建出具有重用功能的控件集合。这种方式通常需要继承一个合适的ViewGroup，再给它添加指定功能的控件，从而组合成新的复合控件。通过这种方式创建的控件">
+<meta property="og:image" content="http://blankj.com/2016/07/17/custom-view2-hero/topbar_full.jpg">
+<meta property="og:image" content="http://blankj.com/2016/07/17/custom-view2-hero/topbar_top.jpg">
+<meta property="og:image" content="http://blankj.com/2016/07/17/custom-view2-hero/topbar_hide_right.jpg">
+<meta property="og:updated_time" content="2016-11-09T17:28:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义View(二)(Android群英传)">
+<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
+上一篇自定义View(一)(Android群英传)中说的是对现有控件进行拓展，这篇介绍第二种自定义View方法，创建复合控件。
+创建复合控件　　创建复合控件可以很好地创建出具有重用功能的控件集合。这种方式通常需要继承一个合适的ViewGroup，再给它添加指定功能的控件，从而组合成新的复合控件。通过这种方式创建的控件">
+<meta name="twitter:image" content="http://blankj.com/2016/07/17/custom-view2-hero/topbar_full.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":8,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blankj.com/2016/07/17/custom-view2-hero/"/>
+
+
+
+
+
+  <title>自定义View(二)(Android群英传) | Blankj</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1918d813c85f9869017db2480dee5733";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blankj</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">select * from learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/07/17/custom-view2-hero/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自定义View(二)(Android群英传)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-17T18:17:39+08:00">
+                2016-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android群英传/" itemprop="url" rel="index">
+                    <span itemprop="name">Android群英传</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
+                    <span itemprop="name">3.Android控件架构与自定义控件详解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong><em>内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。</em></strong></p>
+<p>上一篇<a href="http://blankj.com/2016/05/29/自定义View(一)(Android群英传)/">自定义View(一)(Android群英传)</a>中说的是<strong>对现有控件进行拓展</strong>，这篇介绍第二种自定义View方法，<strong>创建复合控件</strong>。</p>
+<h3 id="创建复合控件"><a href="#创建复合控件" class="headerlink" title="创建复合控件"></a>创建复合控件</h3><p>　　创建复合控件可以很好地创建出具有重用功能的控件集合。这种方式通常需要继承一个合适的ViewGroup，再给它添加指定功能的控件，从而组合成新的复合控件。通过这种方式创建的控件，我们一般会给它指定一些可配置的属性，让它具有更强的拓展性。下面就以一个TopBar为示例，讲解如何创建复合控件。<br><a id="more"></a><br>　　我们知道为了应用程序风格的统一，很多应用程序都有一些共通的UI界面，比如下图中所示的TopBar这样一个标题栏。</p>
+<img src="/2016/07/17/custom-view2-hero/topbar_full.jpg" alt="[界面上的TopBar]" title="[界面上的TopBar]">
+<p>　　通常情况下，这些界面都会被抽象出来，形成一个共通的UI组件。所有需要添加标题栏的界面都会引用这样一个TopBar，而不是每个界面都在布局文件中写这样一个TopBar。同时，设计者还可以给TopBar增加响应的接口，让调用者能够更加灵活地控制TopBar，这样不仅可以提高界面的复用率，更能在需要修改UI时，做到快速修改，而不需要对每个页面的标题栏都进行修改。</p>
+<p>　　下面我们就来看看该如何创建一个这样的UI模板。首先，模板应该具有通用性与可定制性。也就是说，我们需要给调用者以丰富的接口，让他们可以更改模板中的文字、颜色、行为等信息，而不是所有的模板都一样，那样就失去了模板的意义。</p>
+<h4 id="定义属性"><a href="#定义属性" class="headerlink" title="定义属性"></a>定义属性</h4><p>　　为一个View提供可自定义的属性非常简单，只需要在res资源目录的values目录下创建一个attrs.xml的属性定义文件，并在该文件中通过如下代码定义相应的属性即可。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt; </div><div class="line">&lt;resources&gt;</div><div class="line">    &lt;declare-styleable name="TopBar"&gt;</div><div class="line">        &lt;attr name="_title" format="string" /&gt;</div><div class="line">        &lt;attr name="_titleTextSize" format="dimension" /&gt;</div><div class="line">        &lt;attr name="_titleTextColor" format="color" /&gt;</div><div class="line">        &lt;attr name="leftTextColor" format="color" /&gt;</div><div class="line">        &lt;attr name="leftBackground" format="reference|color" /&gt;</div><div class="line">        &lt;attr name="leftText" format="string" /&gt;</div><div class="line">        &lt;attr name="rightTextColor" format="color" /&gt;</div><div class="line">        &lt;attr name="rightBackground" format="reference|color" /&gt;</div><div class="line">        &lt;attr name="rightText" format="string" /&gt;</div><div class="line">    &lt;/declare-styleable&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+<p>　　我们在代码中通过<declare-styleable>标签声明了使用自定义属性，并通过name属性来确定引用的名称。最后，通过<attr>标签来声明具体的自定义属性，比如在这里定义了标题文字的字体、大小、颜色，左边按钮的文字颜色、背景、字体，右边按钮的文字颜色、背景、字体等属性，并通过format属性来指定属性的类型。这里需要注意的就是，有些属性可以是颜色属性，也可以是引用属性。比如按钮的背景，可以把它指定为具体的颜色，也可以把它指定为一张图片，所以使用“|”来分隔不同的属性——“reference|color”。</attr></declare-styleable></p>
+<p>　　在确定好属性后，就可以创建一个自定义控件—-TopBar，并让它继承自ViewGroup，从而组合一些需要的控件。这里为了简单，我们继承RelativeLayout。在构造方法中，通过如下所示代码来获取XML布局文件中自定义的那些属性，即与我们使用系统提供的那些属性一样。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TopBar);</div></pre></td></tr></table></figure>
+<p>　　系统提供了TypedArray这样的数据结构来获取自定义属性集，后面引用的styleable的TopBar，就是我们在XML中通过<declare-styleable name="TopBar">所指定的name名。接下来，通过TypedArray对象的getString()、getColor()等方法，就可以获取这些定义的属性值，代码如下所示。</declare-styleable></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过这个方法，将你在attrs.xml中定义的declare-styleable的所有属性值存储到TypedArray中</span></div><div class="line">TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TopBar);</div><div class="line"><span class="comment">// 从TypedArray中取出对应的值来为要设置的属性赋值</span></div><div class="line">mLeftTextColor = ta.getColor(R.styleable.TopBar_leftTextColor, <span class="number">0</span>);</div><div class="line">mLeftBackground = ta.getDrawable(R.styleable.TopBar_leftBackground);</div><div class="line">mLeftText = ta.getString(R.styleable.TopBar_leftText);</div><div class="line">mRightTextColor = ta.getColor(R.styleable.TopBar_rightTextColor, <span class="number">0</span>);</div><div class="line">mRightBackground = ta.getDrawable(R.styleable.TopBar_rightBackground);</div><div class="line">mRightText = ta.getString(R.styleable.TopBar_rightText);</div><div class="line">mTitleTextSize = ta.getDimension(R.styleable.TopBar__titleTextSize, <span class="number">10</span>);</div><div class="line">mTitleTextColor = ta.getColor(R.styleable.TopBar__titleTextColor, <span class="number">0</span>);</div><div class="line">mTitle = ta.getString(R.styleable.TopBar__title);</div><div class="line"><span class="comment">// 获取完TypedArray的值后，一般要调用recycle方法来避免重新创建时的错误</span></div><div class="line">ta.recycle();</div></pre></td></tr></table></figure>
+<p>　　这里需要注意的是，当获取完所有的属性值后，需要调用TypedArray的recycle方法来完成资源的回收。</p>
+<h4 id="组合控件"><a href="#组合控件" class="headerlink" title="组合控件"></a>组合控件</h4><p>　　接下来，我们就可以开始组合控件了。UI模板TopBar实际上由三个控件组成，即左边的点击按钮mLeftButton，右边的点击按钮mRightButton和中间的标题栏mTitleView。通过动态添加控件的方式，使用addView()方法将这三个控件加入到定义的TopBar模板中，并给它们设置我们前面所获取到的具体的属性值，比如标题的文字颜色、大小等，代码如下所示。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为创建的组件元素赋值</span></div><div class="line"><span class="comment">// 值就来源于我们在引用的xml文件中给对应属性的赋值</span></div><div class="line">mLeftButton.setTextColor(mLeftTextColor);</div><div class="line">mLeftButton.setBackground(mLeftBackground);</div><div class="line">mLeftButton.setText(mLeftText);</div><div class="line"> </div><div class="line">mRightButton.setTextColor(mRightTextColor);</div><div class="line">mRightButton.setBackground(mRightBackground);</div><div class="line">mRightButton.setText(mRightText);</div><div class="line"> </div><div class="line">mTitleView.setText(mTitle);</div><div class="line">mTitleView.setTextColor(mTitleTextColor);</div><div class="line">mTitleView.setTextSize(mTitleTextSize);</div><div class="line">mTitleView.setGravity(Gravity.CENTER);</div><div class="line"> </div><div class="line"><span class="comment">// 为组件元素设置相应的布局元素</span></div><div class="line">mLeftLayoutParams = <span class="keyword">new</span> LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);</div><div class="line">mLeftLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);</div><div class="line"><span class="comment">// 添加到ViewGroup</span></div><div class="line">addView(mLeftButton, mLeftLayoutParams);</div><div class="line"> </div><div class="line">mRightLayoutParams = <span class="keyword">new</span> LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);</div><div class="line">mRightLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);</div><div class="line">addView(mRightButton, mRightLayoutParams);</div><div class="line"> </div><div class="line">mTitleLayoutParams = <span class="keyword">new</span> LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);</div><div class="line">mTitleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, TRUE);</div><div class="line">addView(mTitleView, mTitleLayoutParams);</div></pre></td></tr></table></figure>
+<ul>
+<li>定义接口</li>
+</ul>
+<p>　　在UI模板类中定义一个左右按钮点击的接口，并创建两个方法，分别用于左边按钮的点击和右边按钮的点击，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 接口对象，实现回调机制，在回调方法中</span></div><div class="line"><span class="comment">// 通过映射的接口对象调用接口中的方法</span></div><div class="line"><span class="comment">// 而不用去考虑如何实现，具体的实现由调用者去创建</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">topbarClickListener</span> </span>&#123;</div><div class="line">    <span class="comment">// 左按钮点击事件</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">leftClick</span><span class="params">()</span></span>;</div><div class="line"> </div><div class="line">    <span class="comment">// 右按钮点击事件</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rightClick</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>暴露接口给调用者</li>
+</ul>
+<p>　　在模板方法中，为左、右按钮增加点击事件，但不去实现具体的逻辑，而是调用接口中相应的点击方法，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 按钮的点击事件，不需要具体的实现，</span></div><div class="line"><span class="comment">// 只需调用接口的方法，回调的时候，会有具体的实现</span></div><div class="line">mRightButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        mListener.rightClick();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">mLeftButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        mListener.leftClick();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"> </div><div class="line"><span class="comment">// 暴露一个方法给调用者来注册接口回调</span></div><div class="line"><span class="comment">// 通过接口来获得回调者对接口方法的实现</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnTopbarClickListener</span><span class="params">(topbarClickListener mListener)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.mListener = mListener;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>实现接口回调</li>
+</ul>
+<p>　　在调用者的代码中，调用者需要实现这样一个接口，并完成接口中的方法，确定具体的实现逻辑，并使用第二步中暴露的方法，将接口的对象传递进去，从而完成回调。通常情况下，可以使用匿名内部类的形式来实现接口中的方法，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mTopBar.setOnTopbarClickListener(<span class="keyword">new</span> MyTopBar.topbarClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leftClick</span><span class="params">()</span> </span>&#123;</div><div class="line">        Toast.makeText(MainActivity.<span class="keyword">this</span>,</div><div class="line">                <span class="string">"left"</span>, Toast.LENGTH_SHORT)</div><div class="line">                .show();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rightClick</span><span class="params">()</span> </span>&#123;</div><div class="line">        Toast.makeText(MainActivity.<span class="keyword">this</span>,</div><div class="line">                <span class="string">"right"</span>, Toast.LENGTH_SHORT)</div><div class="line">                .show();</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>　　这里为了简单演示，只显示两个Toast来区分不同的按钮点击事件。除了通过接口回调的方式来实现动态的控制UI模板，同样可以使用公共方法来动态地修改UI模板中的UI，这样就进一步提高了模板的可定制性，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 设置按钮的显示与否 通过id区分按钮，flag区分是否显示</div><div class="line">*</div><div class="line">* <span class="doctag">@param</span> id   id</div><div class="line">* <span class="doctag">@param</span> flag 是否显示</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setButtonVisable</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">boolean</span> flag)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (flag) &#123;</div><div class="line">        <span class="keyword">if</span> (id == <span class="number">0</span>) &#123;</div><div class="line">            mLeftButton.setVisibility(View.VISIBLE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mRightButton.setVisibility(View.VISIBLE);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (id == <span class="number">0</span>) &#123;</div><div class="line">            mLeftButton.setVisibility(View.GONE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mRightButton.setVisibility(View.GONE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　通过如上所示代码，当调用者通过TopBar对象调用这个方法后，根据参数，调用者就可以了动态地控制按钮的显示，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 控制topbar上组件的状态</span></div><div class="line">mTopBar.setButtonVisable(<span class="number">0</span>, <span class="keyword">true</span>);</div><div class="line">mTopBar.setButtonVisable(<span class="number">1</span>, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<h4 id="引用UI模板"><a href="#引用UI模板" class="headerlink" title="引用UI模板"></a>引用UI模板</h4><p>　　最后一步，自然是在需要使用的地方引用UI模板，在引用前，需要指定引用第三方控件的名字空间。在布局文件中，可以看到如下一行代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div></pre></td></tr></table></figure>
+<p>　　这行代码就是在指定引用的名字空间xmlns，即xml namespace。这里指定了名字空间为“android”，因此在接下来使用系统属性的时候，才可以使用“android:”来引用Android的系统属性。同样地，如果要使用自定义的属性，那么就需要创建自己的名字空间，在Android Studio中，第三方的控件都使用如下代码来引入名字空间。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:custom=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div></pre></td></tr></table></figure>
+<p>　　这里我们将引入的第三方控件的名字空间取为custom，之后再XML文件中使用自定义的属性时，就可以通过这个名字空间来引用，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;cmj.com.delsys.MyTopBar</div><div class="line">    android:id=<span class="string">"@+id/topBar"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"40dp"</span></div><div class="line">    custom:_title=<span class="string">"自定义标题"</span></div><div class="line">    custom:_titleTextColor=<span class="string">"#123412"</span></div><div class="line">    custom:_titleTextSize=<span class="string">"10sp"</span></div><div class="line">    custom:leftBackground=<span class="string">"@color/colorPrimary"</span></div><div class="line">    custom:leftText=<span class="string">"Back"</span></div><div class="line">    custom:leftTextColor=<span class="string">"#ffffff"</span></div><div class="line">    custom:rightBackground=<span class="string">"@color/colorPrimary"</span></div><div class="line">    custom:rightText=<span class="string">"More"</span></div><div class="line">    custom:rightTextColor=<span class="string">"#ffffff"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>　　使用自定义的View与系统原生的View最大的区别就是在申明控件时，需要指定完整的包名，而在引用自定义的属性时，需要使用自定义的xmlns名字。</p>
+<p>　　再更进一步，如果将这个UI模板写到一个布局文件中，代码如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;cmj.com.delsys.MyTopBar</div><div class="line">    android:id=<span class="string">"@+id/topBar"</span></div><div class="line">    xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    xmlns:custom=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"40dp"</span></div><div class="line">    custom:_title=<span class="string">"自定义标题"</span></div><div class="line">    custom:_titleTextColor=<span class="string">"#123412"</span></div><div class="line">    custom:_titleTextSize=<span class="string">"10sp"</span></div><div class="line">    custom:leftBackground=<span class="string">"@color/colorPrimary"</span></div><div class="line">    custom:leftText=<span class="string">"Back"</span></div><div class="line">    custom:leftTextColor=<span class="string">"#ffffff"</span></div><div class="line">    custom:rightBackground=<span class="string">"@color/colorPrimary"</span></div><div class="line">    custom:rightText=<span class="string">"More"</span></div><div class="line">    custom:rightTextColor=<span class="string">"#ffffff"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>　　通过如上所示的代码，我们就可以在其他的布局文件中，直接通过<include>标签来引用这个UI模板View，代码如下所示。</include></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;include layout=<span class="string">"@layout/widget_topbar"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>　　这样就更加满足了我们的模板需求。</p>
+<p>　　运行程序后，显示效果如下图所示。</p>
+<img src="/2016/07/17/custom-view2-hero/topbar_top.jpg" alt="[组合控件]" title="[组合控件]">
+<p>　　当调用公共方法setButtonVisable()来控制左右两个按钮的显示和隐藏的时候，效果显示如下图所示。</p>
+<img src="/2016/07/17/custom-view2-hero/topbar_hide_right.jpg" alt="[隐藏右按钮]" title="[隐藏右按钮]">
+<p>项目地址→<a href="https://github.com/Blankj/MyTopBar" target="_blank" rel="external">MyTopBar</a></p>
+<hr>
+<p>原文地址<a href="http://blankj.com/2016/07/17/自定义View(二)(Android群英传)/">自定义View(二)(Android群英传)</a></p>
+<p>我的自媒体博客<a href="http://blankj.com/">Blankj小站</a>，欢迎来逛逛。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/3-Android控件架构与自定义控件详解/" rel="tag"># 3.Android控件架构与自定义控件详解</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/12/rxjava-note/" rel="next" title="RxJava笔记">
+                <i class="fa fa-chevron-left"></i> RxJava笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/20/custom-view3-hero/" rel="prev" title="自定义View(三)(Android群英传)">
+                自定义View(三)(Android群英传) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="布兰柯基" />
+            
+              <p class="site-author-name" itemprop="name">布兰柯基</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/46702d5c6978" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-book"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gold.xitu.io/user/579f5dd1a341310063f9f105" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/a120705230" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-book"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/blankcmj" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.haowuyun.com" title="LoveInLog" target="_blank">LoveInLog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jp1017.github.io" title="蒋朋" target="_blank">蒋朋</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://xiasuhuei321.com" title="xiasuhuei" target="_blank">xiasuhuei</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.lilun.me" title="慕云" target="_blank">慕云</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建复合控件"><span class="nav-number">1.</span> <span class="nav-text">创建复合控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义属性"><span class="nav-number">1.1.</span> <span class="nav-text">定义属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合控件"><span class="nav-number">1.2.</span> <span class="nav-text">组合控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用UI模板"><span class="nav-number">1.3.</span> <span class="nav-text">引用UI模板</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">布兰柯基</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/gitalk.css">
+<script src="/js/src/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')
+       </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
