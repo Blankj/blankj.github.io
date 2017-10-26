@@ -36,14 +36,14 @@
 {% include 'gitalk.swig' %}
 ```
 
-在 `themes/next/layout/_partials/comments.swig` 文件中找到倒数第二个 `{% endif %}` 语句，在前面插入如下代码:
+3. 在 `themes/next/layout/_partials/comments.swig` 文件中找到倒数第二个 `{% endif %}` 语句，在前面插入如下代码:
 
 ```js
 {% elseif theme.gitalk.enable %}
   <div id="gitalk-container"></div>
 ```
 
-在 `themes/next/_config.xml` 文件中引入 `Gitalk`
+4. 在 `themes/next/_config.xml` 文件中引入 `Gitalk`
 
 ```
 gitalk:
