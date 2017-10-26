@@ -1926,7 +1926,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f4c721;
+  background: #7455cb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3270,7 +3270,7 @@ h3 {
 }
 @font-face {
   font-family: Taken;
-  src: url("/fonts/Taken.ttf");
+  src: url("/fonts/Blankj.ttf");
 }
 .site-title {
   font-size: 40px !important;
