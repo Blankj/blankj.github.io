@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://blankj.com/2015/07/18/kmp/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
 <meta property="og:description" content="题目描述输入一个主串和一个子串，若匹配成功，则找出匹配的趟数和在子串在主串中的位置，若匹配不成功，则输出0">
-<meta property="og:updated_time" content="2017-01-11T19:39:12.000Z">
+<meta property="og:updated_time" content="2017-10-27T02:57:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP模式匹配">
 <meta name="twitter:description" content="题目描述输入一个主串和一个子串，若匹配成功，则找出匹配的趟数和在子串在主串中的位置，若匹配不成功，则输出0">
@@ -357,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -411,6 +411,7 @@ abcac</pre>
 <p>Code：</p>
 <p>今天好好地理解了kmp算法，物超所值。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">getnext</span><span class="params">(<span class="keyword">char</span> str[],<span class="keyword">int</span> next[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">-1</span>;</div><div class="line">    next[<span class="number">0</span>]=<span class="number">-1</span>;</div><div class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str);</div><div class="line">    <span class="keyword">while</span>(i&lt;len<span class="number">-1</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(j==<span class="number">-1</span>||str[i]==str[j])</div><div class="line">        &#123;</div><div class="line">            ++i;</div><div class="line">            ++j;            </div><div class="line">            next[i]=j;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            j=next[j];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">kmp</span><span class="params">(<span class="keyword">char</span> str[],<span class="keyword">char</span> substr[],<span class="keyword">int</span> next[],<span class="keyword">int</span> &amp;times,<span class="keyword">int</span> &amp;pos)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> len1=<span class="built_in">strlen</span>(str);</div><div class="line">    <span class="keyword">int</span> len2=<span class="built_in">strlen</span>(substr);</div><div class="line">    <span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</div><div class="line">    times=<span class="number">1</span>;</div><div class="line">    getnext(substr,next);</div><div class="line">    <span class="keyword">while</span>(i&lt;len1&amp;&amp;j&lt;len2)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(j==<span class="number">-1</span>||str[i]==substr[j])</div><div class="line">        &#123;</div><div class="line">            ++i;</div><div class="line">            ++j;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            j=next[j];        </div><div class="line">            ++times;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(len2==j)</div><div class="line">        pos=i-j;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        times=<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> str[<span class="number">100</span>],substr[<span class="number">100</span>];</div><div class="line">    gets(str);</div><div class="line">    gets(substr);</div><div class="line">    <span class="keyword">int</span> next[<span class="number">100</span>];</div><div class="line">    <span class="keyword">int</span> pos,times;</div><div class="line">    kmp(str,substr,next,times,pos);</div><div class="line">    <span class="keyword">if</span>(times)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;times&lt;&lt;<span class="string">" "</span>&lt;&lt;pos+<span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -536,7 +537,7 @@ abcac</pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +548,7 @@ abcac</pre>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -558,7 +559,7 @@ abcac</pre>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

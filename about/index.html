@@ -79,16 +79,25 @@
 
 
 
-<meta name="description" content="About Blankj我的中文简历我的英文简历">
+<meta name="description" content="About Blankj我的中文简历我的英文简历About Blog主题博客使用的是 next 主题，版本是 5.1.3。
+添加Gitalk评论需要 Github Application，如果没有 点击这里申请，Authorization callback URL 填写你主页地址，比如我的就是 https://blankj.com，其他都随意。
+
+首先创建 Gitalk 的 swig 文件，放在">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
+<meta property="og:title" content="Blankj's Blog">
 <meta property="og:url" content="http://blankj.com/about/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="About Blankj我的中文简历我的英文简历">
-<meta property="og:updated_time" content="2017-10-20T09:50:51.000Z">
+<meta property="og:description" content="About Blankj我的中文简历我的英文简历About Blog主题博客使用的是 next 主题，版本是 5.1.3。
+添加Gitalk评论需要 Github Application，如果没有 点击这里申请，Authorization callback URL 填写你主页地址，比如我的就是 https://blankj.com，其他都随意。
+
+首先创建 Gitalk 的 swig 文件，放在">
+<meta property="og:updated_time" content="2017-10-27T05:56:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="About Blankj我的中文简历我的英文简历">
+<meta name="twitter:title" content="Blankj's Blog">
+<meta name="twitter:description" content="About Blankj我的中文简历我的英文简历About Blog主题博客使用的是 next 主题，版本是 5.1.3。
+添加Gitalk评论需要 Github Application，如果没有 点击这里申请，Authorization callback URL 填写你主页地址，比如我的就是 https://blankj.com，其他都随意。
+
+首先创建 Gitalk 的 swig 文件，放在">
 
 
 
@@ -124,7 +133,7 @@
 
 
 
-  <title>about | Blankj's Blog</title>
+  <title> | Blankj's Blog</title>
   
 
 
@@ -298,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -310,7 +319,33 @@
       <div class="post-body">
         
         
-          <h1 id="About-Blankj"><a href="#About-Blankj" class="headerlink" title="About Blankj"></a>About Blankj</h1><h2 id="我的中文简历"><a href="#我的中文简历" class="headerlink" title="我的中文简历"></a><a href="http://blankj.com/resume/resume-cn.html">我的中文简历</a></h2><h2 id="我的英文简历"><a href="#我的英文简历" class="headerlink" title="我的英文简历"></a><a href="http://blankj.com/resume/resume-eng.html">我的英文简历</a></h2>
+          <h2 id="About-Blankj"><a href="#About-Blankj" class="headerlink" title="About Blankj"></a>About Blankj</h2><h3 id="我的中文简历"><a href="#我的中文简历" class="headerlink" title="我的中文简历"></a><a href="http://blankj.com/resume/resume-cn.html">我的中文简历</a></h3><h3 id="我的英文简历"><a href="#我的英文简历" class="headerlink" title="我的英文简历"></a><a href="http://blankj.com/resume/resume-eng.html">我的英文简历</a></h3><h2 id="About-Blog"><a href="#About-Blog" class="headerlink" title="About Blog"></a>About Blog</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>博客使用的是 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a> 主题，版本是 <code>5.1.3</code>。</p>
+<h3 id="添加Gitalk评论"><a href="#添加Gitalk评论" class="headerlink" title="添加Gitalk评论"></a>添加<a href="https://github.com/gitalk/gitalk" target="_blank" rel="external">Gitalk</a>评论</h3><p>需要 <code>Github Application</code>，如果没有 <a href="https://github.com/settings/applications/new" target="_blank" rel="external">点击这里申请</a>，<code>Authorization callback URL</code> 填写你主页地址，比如我的就是 <code>https://blankj.com</code>，其他都随意。</p>
+<ol>
+<li>首先创建 <code>Gitalk</code> 的 <code>swig</code> 文件，放在 <code>themes/next/layout/_third-party/comments</code> 文件夹下，命名为 <code>gitalk.swig</code> 。内容如下</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;% if page.comments &amp;&amp; theme.gitalk.enable %&#125;</div><div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;&gt;</div><div class="line"></div><div class="line">  &lt;script src=&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">   &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">		var gitalk = new Gitalk(&#123;</div><div class="line">		  clientID: &apos;&#123;&#123; theme.gitalk.ClientID &#125;&#125;&apos;,</div><div class="line">		  clientSecret: &apos;&#123;&#123; theme.gitalk.ClientSecret &#125;&#125;&apos;,</div><div class="line">		  repo: &apos;&#123;&#123; theme.gitalk.repo &#125;&#125;&apos;,</div><div class="line">		  owner: &apos;&#123;&#123; theme.gitalk.githubID &#125;&#125;&apos;,</div><div class="line">		  admin: [&apos;&#123;&#123; theme.gitalk.adminUser &#125;&#125;&apos;],</div><div class="line">		  id: location.pathname,</div><div class="line">		  distractionFreeMode: &apos;&#123;&#123; theme.gitalk.distractionFreeMode &#125;&#125;&apos;</div><div class="line">		&#125;)</div><div class="line">		gitalk.render(&apos;gitalk-container&apos;)           </div><div class="line">       &lt;/script&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>在主题文件 <code>themes/next/layout/_third-party/comments/index.swig</code> 中引入刚刚添加的文件。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% include &apos;gitalk.swig&apos; %&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>在 <code>themes/next/layout/_partials/comments.swig</code> 文件末找到倒数第二个 <code>endif</code> 语句，在前面插入如下代码:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% elseif theme.gitalk.enable %&#125;</div><div class="line">  &lt;div id=&quot;gitalk-container&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>在 <code>themes/next/_config.xml</code> 文件中引入 <code>Gitalk</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gitalk:</div><div class="line">  enable: true</div><div class="line">  githubID: Blankj</div><div class="line">  repo: xxx</div><div class="line">  ClientID: xxx</div><div class="line">  ClientSecret: xxx</div><div class="line">  adminUser: Blankj</div><div class="line">  distractionFreeMode: true</div></pre></td></tr></table></figure>
+<p>其中 <code>githubID</code> 是你的 <code>Github</code> 用户名，<code>repo</code> 是你用来存放评论 <code>issue</code> 的仓库，比如我的就是<a href="https://github.com/Blankj/blog-comment" target="_blank" rel="external">blog-comment</a>，那么我就写 <code>blog-comment</code> 即可，<code>ClientID</code> 和 <code>ClientSecret</code> 就是你之前申请 <code>Github Application</code> 可以获取到，<code>adminUser</code> 和 <code>githubID</code> 一样即可，<code>distractionFreeMode</code> 是评论时遮照效果的开关。</p>
+<h3 id="添加背景图"><a href="#添加背景图" class="headerlink" title="添加背景图"></a>添加背景图</h3><p>在 <code>themes/next/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">body&#123;</div><div class="line">    background:url(/images/bg.jpg);</div><div class="line">    background-size:cover;</div><div class="line">    background-repeat:no-repeat;</div><div class="line">    background-attachment:fixed;</div><div class="line">    background-position:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改Logo字体"><a href="#修改Logo字体" class="headerlink" title="修改Logo字体"></a>修改Logo字体</h3><p>在 <code>themes/next/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;</div><div class="line">    font-family: Blankj;</div><div class="line">    src: url(&apos;/fonts/Blankj.ttf&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.site-title &#123;</div><div class="line">    font-size: 40px !important;</div><div class="line">	font-family: &apos;Blankj&apos; !important;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中字体文件在 <code>themes/next/source/fonts</code> 目录下，里面有个 <code>.gitkeep</code> 的隐藏文件，打开写入你要保留的字体文件，比如我的是就是写入 <code>Blankj.ttf</code>，具体字库自己从网上下载即可。</p>
+<h3 id="设置圆形头像"><a href="#设置圆形头像" class="headerlink" title="设置圆形头像"></a>设置圆形头像</h3><p>修改 <code>themes/next/source/css/_common/components/sidebar/sidebar-author.styl</code> 为下方代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">.site-author-image &#123;</div><div class="line">  display: block;</div><div class="line">  margin: 0 auto;</div><div class="line">  padding: $site-author-image-padding;</div><div class="line">  max-width: $site-author-image-width;</div><div class="line">  height: $site-author-image-height;</div><div class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</div><div class="line">  /* 头像圆形 */</div><div class="line">  border-radius: 80px;</div><div class="line">  -webkit-border-radius: 80px;</div><div class="line">  -moz-border-radius: 80px;</div><div class="line">  box-shadow: inset 0 -1px 0 #333sf;</div><div class="line">  /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束</div><div class="line">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</div><div class="line">  -webkit-animation: play 2s ease-out 1s 1;</div><div class="line">  -moz-animation: play 2s ease-out 1s 1;</div><div class="line">  animation: play 2s ease-out 1s 1;</div><div class="line">  /* 鼠标经过头像旋转360度 */</div><div class="line">  -webkit-transition: -webkit-transform 1.5s ease-out;</div><div class="line">  -moz-transition: -moz-transform 1.5s ease-out;</div><div class="line">  transition: transform 1.5s ease-out;</div><div class="line">&#125;</div><div class="line">img:hover &#123;</div><div class="line">  /* 鼠标经过停止头像旋转</div><div class="line">  -webkit-animation-play-state:paused;</div><div class="line">  animation-play-state:paused;*/</div><div class="line">  /* 鼠标经过头像旋转360度 */</div><div class="line">  -webkit-transform: rotateZ(360deg);</div><div class="line">  -moz-transform: rotateZ(360deg);</div><div class="line">  transform: rotateZ(360deg);</div><div class="line">&#125;</div><div class="line">/* Z 轴旋转动画 */</div><div class="line">@-webkit-keyframes play &#123;</div><div class="line">  0% &#123;</div><div class="line">    -webkit-transform: rotateZ(0deg);</div><div class="line">  &#125;</div><div class="line">  100% &#123;</div><div class="line">    -webkit-transform: rotateZ(-360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@-moz-keyframes play &#123;</div><div class="line">  0% &#123;</div><div class="line">    -moz-transform: rotateZ(0deg);</div><div class="line">  &#125;</div><div class="line">  100% &#123;</div><div class="line">    -moz-transform: rotateZ(-360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@keyframes play &#123;</div><div class="line">  0% &#123;</div><div class="line">    transform: rotateZ(0deg);</div><div class="line">  &#125;</div><div class="line">  100% &#123;</div><div class="line">    transform: rotateZ(-360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">.site-author-name &#123;</div><div class="line">  margin: $site-author-name-margin;</div><div class="line">  text-align: $site-author-name-align;</div><div class="line">  color: $site-author-name-color;</div><div class="line">  font-weight: $site-author-name-weight;</div><div class="line">&#125;</div><div class="line">.site-description &#123;</div><div class="line">  margin-top: $site-description-margin-top;</div><div class="line">  text-align: $site-description-align;</div><div class="line">  font-size: $site-description-font-size;</div><div class="line">  color: $site-description-color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
         
       </div>
       
@@ -384,7 +419,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -395,7 +430,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -406,7 +441,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -499,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#About-Blankj"><span class="nav-number">1.</span> <span class="nav-text">About Blankj</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的中文简历"><span class="nav-number">1.1.</span> <span class="nav-text">我的中文简历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的英文简历"><span class="nav-number">1.2.</span> <span class="nav-text">我的英文简历</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#About-Blankj"><span class="nav-number">1.</span> <span class="nav-text">About Blankj</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的中文简历"><span class="nav-number">1.1.</span> <span class="nav-text">我的中文简历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的英文简历"><span class="nav-number">1.2.</span> <span class="nav-text">我的英文简历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About-Blog"><span class="nav-number">2.</span> <span class="nav-text">About Blog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">2.1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Gitalk评论"><span class="nav-number">2.2.</span> <span class="nav-text">添加Gitalk评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加背景图"><span class="nav-number">2.3.</span> <span class="nav-text">添加背景图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改Logo字体"><span class="nav-number">2.4.</span> <span class="nav-text">修改Logo字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置圆形头像"><span class="nav-number">2.5.</span> <span class="nav-text">设置圆形头像</span></a></li></ol></li></ol></div>
             
 
           </div>

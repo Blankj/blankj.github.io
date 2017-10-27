@@ -2,15 +2,18 @@
 
 ## About Blog
 
-### 主题[next](https://github.com/iissnan/hexo-theme-next)
+### 主题
 
-### 评论[gitalk](https://github.com/gitalk/gitalk)
+博客使用的是 [next](https://github.com/iissnan/hexo-theme-next) 主题，版本是 `5.1.3`。
 
-需要 `Github Application`，如果没有 [点击这里申请](https://github.com/settings/applications/new)，`Authorization callback URL` 填写你主页地址，比如我的就是`https://blankj.com`，其他都随意。
+
+### 添加[Gitalk](https://github.com/gitalk/gitalk)评论
+
+需要 `Github Application`，如果没有 [点击这里申请](https://github.com/settings/applications/new)，`Authorization callback URL` 填写你主页地址，比如我的就是 `https://blankj.com`，其他都随意。
 
 1. 首先创建 `Gitalk` 的 `swig` 文件，放在 `themes/next/layout/_third-party/comments` 文件夹下，命名为 `gitalk.swig` 。内容如下
 
-```js
+```
 {% if page.comments && theme.gitalk.enable %}
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 
@@ -32,13 +35,13 @@
 
 2. 在主题文件 `themes/next/layout/_third-party/comments/index.swig` 中引入刚刚添加的文件。
 
-```js
+```
 {% include 'gitalk.swig' %}
 ```
 
-3. 在 `themes/next/layout/_partials/comments.swig` 文件中找到倒数第二个 `{% endif %}` 语句，在前面插入如下代码:
+3. 在 `themes/next/layout/_partials/comments.swig` 文件末找到倒数第二个 `endif` 语句，在前面插入如下代码:
 
-```js
+```
 {% elseif theme.gitalk.enable %}
   <div id="gitalk-container"></div>
 ```
@@ -58,29 +61,45 @@ gitalk:
 
 其中 `githubID` 是你的 `Github` 用户名，`repo` 是你用来存放评论 `issue` 的仓库，比如我的就是[blog-comment](https://github.com/Blankj/blog-comment)，那么我就写 `blog-comment` 即可，`ClientID` 和 `ClientSecret` 就是你之前申请 `Github Application` 可以获取到，`adminUser` 和 `githubID` 一样即可，`distractionFreeMode` 是评论时遮照效果的开关。
 
-### Logo字体
 
-在 `themes/next/source/css/_custom/custom.styl` 中设置如下即可。
+### 添加背景图
 
-```css
+在 `themes/next/source/css/_custom/custom.styl` 中添加如下代码：
+
+```
+body{
+    background:url(/images/bg.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+}
+```
+
+### 修改Logo字体
+
+在 `themes/next/source/css/_custom/custom.styl` 中添加如下代码：
+
+```
 @font-face {
-    font-family: Taken;
+    font-family: Blankj;
     src: url('/fonts/Blankj.ttf');
 }
 
 .site-title {
     font-size: 40px !important;
-	font-family: 'Taken' !important;
+	font-family: 'Blankj' !important;
 }
 ```
 
 其中字体文件在 `themes/next/source/fonts` 目录下，里面有个 `.gitkeep` 的隐藏文件，打开写入你要保留的字体文件，比如我的是就是写入 `Blankj.ttf`，具体字库自己从网上下载即可。
 
-### 圆形头像
+
+### 设置圆形头像
 
 修改 `themes/next/source/css/_common/components/sidebar/sidebar-author.styl` 为下方代码。
 
-```css
+```
 .site-author-image {
   display: block;
   margin: 0 auto;

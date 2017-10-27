@@ -95,7 +95,7 @@
 　　在主题的footer.php最后加上如下JS代码即可，代码一目了">
 <meta property="og:image" content="http://blankj.com/2016/06/17/solve-wp-markdown-editor-crayon-syntax-highlighter-one-more-line-bug/oneMoreLine.png">
 <meta property="og:image" content="http://blankj.com/2016/06/17/solve-wp-markdown-editor-crayon-syntax-highlighter-one-more-line-bug/normalLine.png">
-<meta property="og:updated_time" content="2017-01-09T15:28:18.000Z">
+<meta property="og:updated_time" content="2017-10-27T02:59:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决WP Markdown Editor和Crayon Syntax Highlighter一起使用代码块无故多一行">
 <meta name="twitter:description" content="当用WP Markdown Editor写完文章发布后，如果存在代码块的话，在前台由Crayon Syntax Highlighter渲染出来会存在如下图问题。
@@ -372,7 +372,18 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WordPress/" itemprop="url" rel="index">
+                  <a href="/categories/Blog/" itemprop="url" rel="index">
+                    <span itemprop="name">Blog</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog/WordPress/" itemprop="url" rel="index">
                     <span itemprop="name">WordPress</span>
                   </a>
                 </span>
@@ -418,7 +429,7 @@
 <img src="/2016/06/17/solve-wp-markdown-editor-crayon-syntax-highlighter-one-more-line-bug/oneMoreLine.png" alt="[oneMoreLine]" title="[oneMoreLine]">
 <p>　　也就是代码块无故多一行出来，影响美观，由审查元素可以看到多的是一个转义的空格&nbsp;</p>
 <p>　　处理了大半天，终于解决了，是目前来说最好的解决办法了，方法如下：</p>
-<p>　　在主题的footer.php最后加上如下JS代码即可，代码一目了然是在做什么。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt; </div><div class="line"><span class="keyword">var</span> nodes = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.crayon-pre'</span>);  </div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nodes.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> lastnode = nodes[i].lastChild;  </div><div class="line">    <span class="keyword">if</span> (lastnode.innerHTML == <span class="string">' '</span>) &#123;</div><div class="line">        nodes[i].removeChild(lastnode)</div><div class="line">        <span class="keyword">var</span> parent = nodes[i].parentNode.parentNode.parentNode.firstChild.childNodes[<span class="number">1</span>].childNodes[<span class="number">1</span>];</div><div class="line">        <span class="keyword">var</span> parentLastNode = parent.lastChild;</div><div class="line">        parent.removeChild(parentLastNode);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<p>　　在主题的footer.php最后加上如下JS代码即可，代码一目了然是在做什么。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">var</span> nodes = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.crayon-pre'</span>);  </div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nodes.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> lastnode = nodes[i].lastChild;  </div><div class="line">    <span class="keyword">if</span> (lastnode.innerHTML == <span class="string">' '</span>) &#123;</div><div class="line">        nodes[i].removeChild(lastnode)</div><div class="line">        <span class="keyword">var</span> parent = nodes[i].parentNode.parentNode.parentNode.firstChild.childNodes[<span class="number">1</span>].childNodes[<span class="number">1</span>];</div><div class="line">        <span class="keyword">var</span> parentLastNode = parent.lastChild;</div><div class="line">        parent.removeChild(parentLastNode);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
 <p>　　再清一下缓存去前台探探路，如下图所示。</p>
 <img src="/2016/06/17/solve-wp-markdown-editor-crayon-syntax-highlighter-one-more-line-bug/normalLine.png" alt="[normalLine]" title="[normalLine]">
 <p>　　大功告成。</p>
@@ -542,7 +553,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -553,7 +564,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -564,7 +575,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
