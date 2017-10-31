@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Facebook面经记]]></title>
+    <url>%2F2017%2F10%2F31%2Ffacebook-interview%2F</url>
+    <content type="text"><![CDATA[背景可能由于我 GitHub 较为活跃，国庆期间居然收到了 Facebook 的面试邀请函，既然有这机会，当然不能浪费，试试那就试试吧，下面是我的 GitHub 页面及面试邀请函。 准备电面流程在和HR交流前我也查看了很多关于 Facebook 面试相关流程，正所谓知己知彼，百战百胜。HR是在新加坡的，和他交流还是用中国话，简单交流完之后就给我发了面试相关邮件，不过之后的电话面试当然得用英文了。邮件中介绍了电面相关流程，总时长45分钟左右，前5分钟自我介绍下并回答几个简单的 Android 问题，接下来的35分钟就是 coding 了，最后5分钟就是你可以问面试官几个问题。 LeetCode面试FLAG（Facebook、Linkedin、Amazon、Google）这样的外企，数据结构和算法肯定是要过关的，并且可以脱离IDE编写代码，也就是所谓的白板编程，Facebook 是用 CoderPad 在线coding，题目的话着重推荐 LeetCode，所以我推荐把题目拷贝到 CoderPad 上，然后在 CoderPad 上完整地写出AC代码，如果某些APIs不熟悉的话，那就去IDE上面查一下，确保自己写出的代码等同于IDE格式化后的代码。下面附上一首诗。 明有科举八股，今有LeetCode。八股定格式而取文采心意，LeetCode定题目且重答案背诵。美其名曰：”practice makes perfect.”为何今不如古？非也非也，科举为国取士，LeetCode为Google筛码工，各取所需也。 这方面的话，幸好我大学是ACMer，数据结构和算法相关的还是有点底子的，为了方便大家，我在 GitHub 上开了 awesome-java-leetcode，其中包括了 Java 语言的 LeetCode 相关题解，觉得不错的话给个 star 吧。说句题外话，我一直都觉得数据结构和算法是作为一名程序员必须掌握和善于利用的，即便我没这个机会面试 Facebook，我也是照样会去刷 LeetCode 的，今后也会不断更新 LeetCode 题解。 以下是和HR交流之后他发给我的部分面试准备内容。 其中也有提及 LeetCode 相关内容，可见其重要性。 简历面试外企一份英文简历是必不可少的，我花了两天时间做了份 Markdown 通用的简历，利用 Pandoc 可以很方便导出各种格式，至于为什么花了两天，当然是为了之后能分享给你们哈。 之前写过一篇文章：为跳槽的你献计献策（Android） 有很多小伙伴想要查看我的简历，而当时我只提供了模板。如果现在小伙伴们还不清楚怎么写简历或者觉得自己的简历不够完美，那你们可以借鉴我的自己去修改修改，我已把它上传到了 GitHub，这里是传送门，喜欢的话记得 star 哦。 注意点Facebook 更为注重的是团队精神，即便你 coding 水平一流，在面试的时候你声也不吭地敲完了所有代码，即便是 bug-free ，那面试官心里也肯定会想：“wc，老子肯定不希望跟这种人做同事！”。所以coding 的时候要和面试官进行交流哈，不要闷头就敲代码，而是要表现得是在和面试官在一起讨论问题，比如要问清楚数据的边界，你要用什么方式去解决这个问题，时间复杂度，空间复杂度等等，做完之后不要忘了测试用例，当然，最终目的肯定是需要 bug-free 的。 结语以上便是我的面试总结，不论我之后还有没有机肥面试下一轮，我还是会继续巩固数据结构和算法，不断更新我的 awesome-java-leetcode，毕竟面试 Facebook 的机肥年年都有，即使不为 Facebook，这也是我作为程序员应该坚持的，完结，撒花。]]></content>
+      <categories>
+        <category>Android</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>简历</tag>
+        <tag>Facebook</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android Studio升级到3.0 Terminal 中文显示异常]]></title>
     <url>%2F2017%2F10%2F27%2Fupdate-as3-terminal-problem%2F</url>
     <content type="text"><![CDATA[遇到这个问题的话应该是平时终端用的是zsh造成的，如果不是的话，那我也没办法，至少我是这么解决的，希望也可以帮到你。 具体Bug如下所示 内心有一万匹草泥马呼啸而过，捣豉了很久，最终在某群中问了下得到了答案，解决途径如下。 打开~/.zshrc文件，找到如下两行。 12# You may need to manually set your language environment# export LANG=en_US.UTF-8 我们把第二行取消注释即可，保存之后重启AS即可，熟悉的中文又出现在终端中，如下所示。 希望大家可以绕过这个坑。]]></content>
