@@ -88,7 +88,7 @@ now，我来分享一种比这个插件更加优秀合理地对资源进行分�
 <meta property="og:description" content="也许你曾经用过这个插件来对资源文件layout进行分类https://github.com/dmytrodanylyk/folding-plugin，但如今随着AS版本的升高，该插件已经不再支持。
 now，我来分享一种比这个插件更加优秀合理地对资源进行分包，让你的资源文件看起来简明有序。先上效果图，如下所示：">
 <meta property="og:image" content="http://blankj.com/2016/09/21/android-studio-classify-src-package/classify_dir.png">
-<meta property="og:updated_time" content="2017-01-08T13:05:56.000Z">
+<meta property="og:updated_time" content="2017-11-15T07:59:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio下对资源进行分包">
 <meta name="twitter:description" content="也许你曾经用过这个插件来对资源文件layout进行分类https://github.com/dmytrodanylyk/folding-plugin，但如今随着AS版本的升高，该插件已经不再支持。
@@ -419,11 +419,13 @@ now，我来分享一种比这个插件更加优秀合理地对资源进行分�
 <p>now，我来分享一种比这个插件更加优秀合理地对资源进行分包，让你的资源文件看起来简明有序。<br>先上效果图，如下所示：</p>
 <img src="/2016/09/21/android-studio-classify-src-package/classify_dir.png" alt="[效果图]" title="[效果图]">
 <a id="more"></a>
-<p>从图中可以看出，我们可以对每个页面的资源都进行具体分类，不只是layout，还有drawable及value，是不是心动了，赶紧照着如下配置试一试吧，别再让资源文件们“混为一潭”了。<br>方法很简单，配置我们的app文件夹下的build.gradle文件，比如我的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ...</div><div class="line">    sourceSets &#123;</div><div class="line">        main &#123;</div><div class="line">            res.srcDirs =</div><div class="line">                    [</div><div class="line">                            &apos;src/main/res/layouts&apos;,</div><div class="line">                            &apos;src/main/res&apos;,</div><div class="line">                            &apos;src/main/res/layouts/home&apos;,</div><div class="line">                            &apos;src/main/res/layouts/hot_sale&apos;,</div><div class="line">                            &apos;src/main/res/layouts/amuse&apos;,</div><div class="line">                            &apos;src/main/res/layouts/delicacy&apos;,</div><div class="line">                            &apos;src/main/res/layouts/food_management&apos;,</div><div class="line">                            &apos;src/main/res/layouts/settings&apos;,</div><div class="line">                    ]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从图中可以看出新增了 <code>res_core</code> 和 <code>res_sub</code> 两个资源包，这样我们可以对每个模块的资源都进行具体分类，是不是心动了，赶紧照着如下配置试一试吧，别再让资源文件们“混为一潭”了。</p>
+<p>方法很简单，配置我们的app文件夹下的build.gradle文件，比如我的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ...</div><div class="line">    sourceSets &#123;</div><div class="line">        main &#123;</div><div class="line">            res.srcDirs(&apos;src/main/res&apos;, &apos;src/main/res_core&apos;, &apos;src/main/res_sub&apos;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>配置完之后，sync project一下就成功了。</p>
 <hr>
 <p><strong>补充：发现有小伙伴试验不成功，好伐，是我疏漏了，文件夹是要自己创建的，因为自己创建的文件夹gradle不能解析为资源文件来使用，所以需要在build.gradle中进行配置，这样你们就懂了吧。</strong></p>
+<p>如果还有问题，可以参照<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a>的使用</p>
 
       
     </div>
