@@ -883,7 +883,7 @@
       
         
           
-            <h1 id="安卓开发规范（完结版）"><a href="#安卓开发规范（完结版）" class="headerlink" title="安卓开发规范（完结版）"></a>安卓开发规范（完结版）</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+            <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li><a href="#1-前言">1 前言</a></li>
 <li><a href="#2-as-规范">2 AS 规范</a></li>
 <li><a href="#3-命名规范">3 命名规范</a></li>
@@ -918,7 +918,7 @@
 <li><p>package 有私有作用域（package-private scope）</p>
 <p>  你负责开发这块功能，这个目录下所有东西都是你的。</p>
 <p>  PBL 的方式是把所有工具方法都放在 util 包下，小张开发新功能时候发现需要一个 xxUtil，但它又不是通用的，那应该放在哪里？没办法，按照分层原则，我们还得放在 util 包下，好像不太合适，但放在其它包更不合适，功能越来越多，util 类也越定义越多。后来小李负责开发一块功能时发现需要一个 xxUtil，同样不通用，去 util 包一看，怎么已经有了，而且还没法复用，只好放弃 xx 这个名字，改为 xxxUtil……，因为 PBL 的 package 没有私有作用域，每一个包都是 public（跨包方法调用是很平常的事情，每一个包对其它包来说都是可访问的）。</p>
-<p>  如果是 PBF，小张的 xxUtil 自然放在 feautreA 下，小李的 xxUtil 在 featureB 下，如果觉得 util 好像是通用的，就去 util 包看看要不要把工具方法添进 xxUtil, class 命名冲突没有了。</p>
+<p>  如果是 PBF，小张的 xxUtil 自然放在 featureA 下，小李的 xxUtil 在 featureB 下，如果觉得 util 好像是通用的，就去 util 包看看要不要把工具方法添进 xxUtil, class 命名冲突没有了。</p>
 <p>  PBF 的 package 有私有作用域，featureA 不应该访问 featureB 下的任何东西（如果非访问不可，那就说明接口定义有问题）。</p>
 </li>
 <li><p>很容易删除功能</p>
@@ -933,8 +933,8 @@
 <li><p>只通过 class 来分离逻辑代码</p>
 <p>  PBL 既分离 class 又分离 package，而 PBF 只通过 class 来分离逻辑代码。</p>
 <p>  没有必要通过 package 分离，因为 PBL 中也可能出现尴尬的情况：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">├─service</div><div class="line">        │      MainServ.java</div></pre></td></tr></table></figure>
-<p>  按照 PBL, service 包下的所有东西都是 Controller，应该不需要 Serv 后缀，但实际上通常为了码起来方便，直接 import service 包，Serv 后缀是为了避免引入的 class 和当前包下的 class 命名冲突，当然，不用后缀也可以，得写清楚包路径，比如 <code>new net.ayqy.service. Main()</code>，麻烦；而 PBF 就很方便，无需 import，直接 <code>new MainServ()</code> 即可。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">├── service</div><div class="line">        ├── MainService.java</div></pre></td></tr></table></figure>
+<p>  按照 PBL, service 包下的所有东西都是 Service，应该不需要 Service 后缀，但实际上通常为了方便，直接 import service 包，Service 后缀是为了避免引入的 class 和当前包下的 class 命名冲突，当然，不用后缀也可以，得写清楚包路径，比如 <code>new com.domain.service.MainService()</code>，麻烦；而 PBF 就很方便，无需 import，直接 <code>new MainService()</code> 即可。</p>
 </li>
 <li><p>package 的大小有意义了</p>
 <p>  PBL 中包的大小无限增长是合理的，因为功能越添越多，而 PBF 中包太大（包里 class 太多）表示这块需要重构（划分子包）。</p>
@@ -943,7 +943,7 @@
 <p>当然，我们大谷歌也有相应的 Sample：<strong><a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp/" target="_blank" rel="external">todo-mvp</a></strong>，其结构如下所示，很值得学习。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">com</div><div class="line">└── example</div><div class="line">    └── android</div><div class="line">        └── architecture</div><div class="line">            └── blueprints</div><div class="line">                └── todoapp</div><div class="line">                    ├── BasePresenter.java</div><div class="line">                    ├── BaseView.java</div><div class="line">                    ├── addedittask</div><div class="line">                    │   ├── AddEditTaskActivity.java</div><div class="line">                    │   ├── AddEditTaskContract.java</div><div class="line">                    │   ├── AddEditTaskFragment.java</div><div class="line">                    │   └── AddEditTaskPresenter.java</div><div class="line">                    ├── data</div><div class="line">                    │   ├── Task.java</div><div class="line">                    │   └── source</div><div class="line">                    │       ├── TasksDataSource.java</div><div class="line">                    │       ├── TasksRepository.java</div><div class="line">                    │       ├── local</div><div class="line">                    │       │   ├── TasksDbHelper.java</div><div class="line">                    │       │   ├── TasksLocalDataSource.java</div><div class="line">                    │       │   └── TasksPersistenceContract.java</div><div class="line">                    │       └── remote</div><div class="line">                    │           └── TasksRemoteDataSource.java</div><div class="line">                    ├── statistics</div><div class="line">                    │   ├── StatisticsActivity.java</div><div class="line">                    │   ├── StatisticsContract.java</div><div class="line">                    │   ├── StatisticsFragment.java</div><div class="line">                    │   └── StatisticsPresenter.java</div><div class="line">                    ├── taskdetail</div><div class="line">                    │   ├── TaskDetailActivity.java</div><div class="line">                    │   ├── TaskDetailContract.java</div><div class="line">                    │   ├── TaskDetailFragment.java</div><div class="line">                    │   └── TaskDetailPresenter.java</div><div class="line">                    ├── tasks</div><div class="line">                    │   ├── ScrollChildSwipeRefreshLayout.java</div><div class="line">                    │   ├── TasksActivity.java</div><div class="line">                    │   ├── TasksContract.java</div><div class="line">                    │   ├── TasksFilterType.java</div><div class="line">                    │   ├── TasksFragment.java</div><div class="line">                    │   └── TasksPresenter.java</div><div class="line">                    └── util</div><div class="line">                        ├── ActivityUtils.java</div><div class="line">                        ├── EspressoIdlingResource.java</div><div class="line">                        └── SimpleCountingIdlingResource.java</div></pre></td></tr></table></figure>
 <p>参考以上的代码结构，按功能分包具体可以这样做：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">com</div><div class="line">└── domain</div><div class="line">    └── app</div><div class="line">        ├── App.java 定义 Application 类</div><div class="line">        ├── Config.java 定义配置数据（常量）</div><div class="line">        ├── base 基础组件</div><div class="line">        ├── custom_view 自定义视图</div><div class="line">        ├── data 数据处理</div><div class="line">        │   ├── DataManager.java 数据管理器，</div><div class="line">        │   ├── local 来源于本地的数据，比如 SP，Database，File</div><div class="line">        │   ├── model 定义 model（数据结构以及 getter/setter、compareTo、equals 等等，不含复杂操作）</div><div class="line">        │   └── remote 来源于远端的数据</div><div class="line">        ├── feature 功能</div><div class="line">        │   ├── feature0 功能 0</div><div class="line">        │   │   ├── featrue0Activity.java</div><div class="line">        │   │   ├── featrue0Fragment.java</div><div class="line">        │   │   ├── xxAdapter.java</div><div class="line">        │   │   └── ... 其他 class</div><div class="line">        │   └── ...其他功能</div><div class="line">        ├── injection 依赖注入</div><div class="line">        ├── util 工具类</div><div class="line">        └── widget 小部件</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">com</div><div class="line">└── domain</div><div class="line">    └── app</div><div class="line">        ├── App.java 定义 Application 类</div><div class="line">        ├── Config.java 定义配置数据（常量）</div><div class="line">        ├── base 基础组件</div><div class="line">        ├── custom_view 自定义视图</div><div class="line">        ├── data 数据处理</div><div class="line">        │   ├── DataManager.java 数据管理器，</div><div class="line">        │   ├── local 来源于本地的数据，比如 SP，Database，File</div><div class="line">        │   ├── model 定义 model（数据结构以及 getter/setter、compareTo、equals 等等，不含复杂操作）</div><div class="line">        │   └── remote 来源于远端的数据</div><div class="line">        ├── feature 功能</div><div class="line">        │   ├── feature0 功能 0</div><div class="line">        │   │   ├── feature0Activity.java</div><div class="line">        │   │   ├── feature0Fragment.java</div><div class="line">        │   │   ├── xxAdapter.java</div><div class="line">        │   │   └── ... 其他 class</div><div class="line">        │   └── ...其他功能</div><div class="line">        ├── injection 依赖注入</div><div class="line">        ├── util 工具类</div><div class="line">        └── widget 小部件</div></pre></td></tr></table></figure>
 <h4 id="3-2-类名"><a href="#3-2-类名" class="headerlink" title="3.2 类名"></a>3.2 类名</h4><p>类名都以 <code>UpperCamelCase</code> 风格编写。</p>
 <p>类名通常是名词或名词短语，接口名称有时可能是形容词或形容词短语。现在还没有特定的规则或行之有效的约定来命名注解类型。</p>
 <p>名词，采用大驼峰命名法，尽量避免缩写，除非该缩写是众所周知的， 比如 HTML、URL，如果类名称中包含单词缩写，则单词缩写的每个字母均应大写。</p>
@@ -964,7 +964,7 @@
 <tr>
 <td style="text-align:left"><code>Adapter</code> 类</td>
 <td style="text-align:left"><code>Adapter</code> 为后缀标识</td>
-<td style="text-align:left">新闻详情适配器 <code>NewDetailAdapter</code></td>
+<td style="text-align:left">新闻详情适配器 <code>NewsDetailAdapter</code></td>
 </tr>
 <tr>
 <td style="text-align:left">解析类</td>
@@ -973,13 +973,13 @@
 </tr>
 <tr>
 <td style="text-align:left">工具方法类</td>
-<td style="text-align:left"><code>Utils</code> 或 <code>Manager</code> 为后缀标识（与系统或第三方的 <code>Utils</code> 区分）或功能 + <code>Utils</code></td>
-<td style="text-align:left">线程池管理类：<code>ThreadPoolManager</code> 日志工具类：<code>LogUtils</code>（<code>Logger</code> 也可）打印工具类：<code>PrinterUtils</code></td>
+<td style="text-align:left"><code>Utils</code> 或 <code>Manager</code> 为后缀标识</td>
+<td style="text-align:left">线程池管理类：<code>ThreadPoolManager</code><br>日志工具类：<code>LogUtils</code>（<code>Logger</code> 也可）<br>打印工具类：<code>PrinterUtils</code></td>
 </tr>
 <tr>
 <td style="text-align:left">数据库类</td>
 <td style="text-align:left">以 <code>DBHelper</code> 后缀标识</td>
-<td style="text-align:left">新闻数据库：<code>NewDBHelper</code></td>
+<td style="text-align:left">新闻数据库：<code>NewsDBHelper</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>Service</code> 类</td>
@@ -1226,7 +1226,7 @@
 <p>比如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">loadPicture(context, <span class="string">"https://blankj.com/images/avatar.jpg"</span>, ivAvatar, <span class="string">"Avatar of the user"</span>, clickListener);</div></pre></td></tr></table></figure>
 <p>我们应该使用如下规则：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">loadPicture(context,</div><div class="line">        <span class="string">"https://blankj.com/images/avatar.jpg"</span>,</div><div class="line">        ivAvatar,</div><div class="line">        <span class="string">"Avatar of the user"</span></div><div class="line">        clickListener,);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">loadPicture(context,</div><div class="line">        <span class="string">"https://blankj.com/images/avatar.jpg"</span>,</div><div class="line">        ivAvatar,</div><div class="line">        <span class="string">"Avatar of the user"</span>,</div><div class="line">        clickListener);</div></pre></td></tr></table></figure>
 <h5 id="4-7-1-4-RxJava-链式的换行"><a href="#4-7-1-4-RxJava-链式的换行" class="headerlink" title="4.7.1.4 RxJava 链式的换行"></a>4.7.1.4 RxJava 链式的换行</h5><p>RxJava 的每个操作符都需要换新行，并且把换行符插入在 <code>.</code> 之前。</p>
 <p>例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Observable&lt;Location&gt; <span class="title">syncLocations</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> mDatabaseHelper.getAllLocations()</div><div class="line">            .concatMap(<span class="keyword">new</span> Func1&lt;Location, Observable&lt;? extends Location&gt;&gt;() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                 <span class="keyword">public</span> Observable&lt;? extends Location&gt; call(Location location) &#123;</div><div class="line">                     <span class="keyword">return</span> mRetrofitService.getLocation(location.id);</div><div class="line">                 &#125;</div><div class="line">            &#125;)</div><div class="line">            .retry(<span class="keyword">new</span> Func2&lt;Integer, Throwable, Boolean&gt;() &#123;</div><div class="line">                 <span class="meta">@Override</span></div><div class="line">                 <span class="function"><span class="keyword">public</span> Boolean <span class="title">call</span><span class="params">(Integer numRetries, Throwable throwable)</span> </span>&#123;</div><div class="line">                     <span class="keyword">return</span> throwable <span class="keyword">instanceof</span> RetrofitError;</div><div class="line">                 &#125;</div><div class="line">            &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1583,7 +1583,7 @@
 </li>
 <li><p>当一个类有多个构造函数，或是多个同名函数，这些函数应该按顺序出现在一起，中间不要放进其它函数；</p>
 </li>
-<li><p>数据提供统一的入口。无论是在 MVP、MVC 还是 MVVM 中，提供一个统一的数据入口，都可以让代码变得更加易于维护。比如可使用一个 <code>DataManager</code>，把 <code>http</code>、<code>preference</code>、<code>eventpost</code>、<code>database</code> 都放在 <code>DataManger</code> 里面进行操作，我们只需要与 <code>DataManger</code>打交道；</p>
+<li><p>数据提供统一的入口。无论是在 MVP、MVC 还是 MVVM 中，提供一个统一的数据入口，都可以让代码变得更加易于维护。比如可使用一个 <code>DataManager</code>，把 <code>http</code>、<code>preference</code>、<code>eventpost</code>、<code>database</code> 都放在 <code>DataManager</code> 里面进行操作，我们只需要与 <code>DataManager</code>打交道；</p>
 </li>
 <li><p>多用组合，少用继承；</p>
 </li>
@@ -1615,7 +1615,7 @@
 </li>
 <li><p>使用带缓冲的输入输出流进行 IO 操作；</p>
 </li>
-<li><p>尽量使用 <code>HashMap</code>、<code>ArrayList</code>、<code>StringBuilder</code>，除非线程安全需要，否则不推荐使用 <code>Hashtable</code>、<code>Vector</code>、<code>StringBuffer</code>，后三者由于使用同步机制而导致了性能开销；</p>
+<li><p>尽量使用 <code>HashMap</code>、<code>ArrayList</code>、<code>StringBuilder</code>，除非线程安全需要，否则不推荐使用 <code>HashTable</code>、<code>Vector</code>、<code>StringBuffer</code>，后三者由于使用同步机制而导致了性能开销；</p>
 </li>
 <li><p>尽量在合适的场合使用单例；</p>
 <p>使用单例可以减轻加载的负担、缩短加载的时间、提高加载的效率，但并不是所有地方都适用于单例，简单来说，单例主要适用于以下三个方面：</p>
@@ -1759,7 +1759,7 @@
 </tr>
 <tr>
 <td>selector</td>
-<td>sel（主要用于某一 view 多种状态，不仅包括 Listview 中的 selector，还包括按钮的 selector）</td>
+<td>sel（主要用于某一 view 多种状态，不仅包括 ListView 中的 selector，还包括按钮的 selector）</td>
 </tr>
 <tr>
 <td>buffer</td>
@@ -1856,16 +1856,16 @@
 <p><a href="http://www.hawstein.com/posts/google-java-style.html" target="_blank" rel="external">Google Java 编程风格指南</a></p>
 <p><a href="http://www.jianshu.com/p/436943216526" target="_blank" rel="external">小细节，大用途，35 个 Java 代码性能优化总结！</a></p>
 <h2 id="版本日志"><a href="#版本日志" class="headerlink" title="版本日志"></a>版本日志</h2><ul>
-<li>17/12/04: 完善按功能分包，定该版为完结版；</li>
+<li>17/12/04: 完善按功能分包，修复 typor，定该版为完结版；</li>
 <li>17/12/03: 完善代码样式规范和测试规范；</li>
 <li>17/12/02: 新增代码样式规范；</li>
 <li>17/12/01: 对资源文件规范进行重构；</li>
 <li>17/11/29: 格式化中英混排；</li>
-<li>17/03/06: 发布初版；</li>
-<li>17/03/07: 修订目录排版，完善某些细节；</li>
-<li>17/03/08: 规范排版，修复typor及新增一些规范；</li>
-<li>17/03/13: 新增其他注释；</li>
 <li>17/03/14: 包名划分为按功能划分；</li>
+<li>17/03/13: 新增其他注释；</li>
+<li>17/03/08: 规范排版，修复 typor 及新增一些规范；</li>
+<li>17/03/07: 修订目录排版，完善某些细节；</li>
+<li>17/03/06: 发布初版；</li>
 </ul>
 <p>　　　　　　　　　　　　　　　     ——powered by Blankj</p>
 
