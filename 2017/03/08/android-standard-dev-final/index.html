@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="开发规范," />
 
 
 
@@ -79,12 +79,52 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blankj's Blog">
-<meta property="og:url" content="http://blankj.com/index.html">
+<meta name="description" content="安卓开发规范（完结版）摘要
+1 前言
+2 AS 规范
+3 命名规范
+4 代码样式规范
+5 资源文件规范
+6 版本统一规范
+7 第三方库规范
+8 注释规范
+9 测试规范
+10 其他的一些规范
+
+1 前言为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓开发规范（完结版）">
+<meta property="og:url" content="http://blankj.com/2017/03/08/android-standard-dev-final/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
+<meta property="og:description" content="安卓开发规范（完结版）摘要
+1 前言
+2 AS 规范
+3 命名规范
+4 代码样式规范
+5 资源文件规范
+6 版本统一规范
+7 第三方库规范
+8 注释规范
+9 测试规范
+10 其他的一些规范
+
+1 前言为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最">
+<meta property="og:updated_time" content="2017-12-04T06:16:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blankj's Blog">
+<meta name="twitter:title" content="安卓开发规范（完结版）">
+<meta name="twitter:description" content="安卓开发规范（完结版）摘要
+1 前言
+2 AS 规范
+3 命名规范
+4 代码样式规范
+5 资源文件规范
+6 版本统一规范
+7 第三方库规范
+8 注释规范
+9 测试规范
+10 其他的一些规范
+
+1 前言为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最">
 
 
 
@@ -114,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://blankj.com/"/>
+  <link rel="canonical" href="http://blankj.com/2017/03/08/android-standard-dev-final/"/>
 
 
 
 
 
-  <title>Blankj's Blog</title>
+  <title>安卓开发规范（完结版） | Blankj's Blog</title>
   
 
 
@@ -149,8 +189,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,486 +326,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2017/10/31/facebook-interview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/31/facebook-interview/" itemprop="url">Facebook面经记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-31T18:31:09+08:00">
-                2017-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/面试/" itemprop="url" rel="index">
-                    <span itemprop="name">面试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>可能由于我 GitHub 较为活跃，国庆期间居然收到了 Facebook 的面试邀请函，既然有这机肥，当然不能浪费，试试那就试试吧，下面是我的 GitHub 页面及面试邀请函。</p>
-<img src="/2017/10/31/facebook-interview/github.png" alt="github.png" title="">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/31/facebook-interview/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2017/10/27/update-as3-terminal-problem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/27/update-as3-terminal-problem/" itemprop="url">Android Studio升级到3.0 Terminal 中文显示异常</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T10:14:16+08:00">
-                2017-10-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>遇到这个问题的话应该是平时终端用的是<code>zsh</code>造成的，如果不是的话，那我也没办法，至少我是这么解决的，希望也可以帮到你。</p>
-<p>具体Bug如下所示</p>
-<img src="/2017/10/27/update-as3-terminal-problem/error.gif" alt="error.gif" title="">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/27/update-as3-terminal-problem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2017/04/16/awesome-java-leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/16/awesome-java-leetcode/" itemprop="url">LeetCode题解之Java版(updating)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-16T10:05:10+08:00">
-                2017-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我如今是一名Android Developer，大学的我曾是一名ACMer，为了不想让算法淡出我的记忆，故重拾LeetCode之Algorithm，语言选择的是Java，题库会一点点完善起来，按简单，中等，困难分类，相应难度下按题号排序，工程代码在<a href="https://github.com/Blankj/awesome-java-leetcode/tree/master/project">project</a>目录中，相关解题都在<a href="https://github.com/Blankj/awesome-java-leetcode/tree/master/note">note</a>目录中，欢迎star。</p>
-<p>如今有机会面试Facebook，附上LeetCode上Facebook的面试题目序号，希望可以帮助到以后想入Facebook的小伙伴:-)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1,10,13,15,17,20,23,25,26,28,33,38,43,44,49,50,56,57,67,68,69,71,75,76</div><div class="line">78,79,80,85,88,90,91,98,102,117,121,125,127,128,133,139,146,157,158,161</div><div class="line">168,173,200,206,208,209,210,211,215,218,221,234,235,236,238,252,253,257</div><div class="line">261,265,269,273,274,275,277,278,282,283,285,286,297,301,311,314,325,334</div><div class="line">341,377,380,398,404,410,461,477,494,523,525,534,535,543,554</div></pre></td></tr></table></figure>
-<p>如果想知道更多公司LeetCode面试题，可以参看<a href="https://github.com/Blankj/awesome-java-leetcode/blob/master/Companies.md">Companies.md</a>。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/16/awesome-java-leetcode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -796,9 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/08/android-standard-dev-final/" itemprop="url">安卓开发规范（完结版）</a></h1>
+          <h1 class="post-title" itemprop="name headline">安卓开发规范（完结版）</h1>
         
 
         <div class="post-meta">
@@ -863,6 +423,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -881,9 +446,7 @@
       
 
       
-        
-          
-            <h1 id="安卓开发规范（完结版）"><a href="#安卓开发规范（完结版）" class="headerlink" title="安卓开发规范（完结版）"></a>安卓开发规范（完结版）</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+        <h1 id="安卓开发规范（完结版）"><a href="#安卓开发规范（完结版）" class="headerlink" title="安卓开发规范（完结版）"></a>安卓开发规范（完结版）</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li><a href="#1-前言">1 前言</a></li>
 <li><a href="#2-as-规范">2 AS 规范</a></li>
 <li><a href="#3-命名规范">3 命名规范</a></li>
@@ -1869,8 +1432,6 @@
 </ul>
 <p>　　　　　　　　　　　　　　　     ——powered by Blankj</p>
 
-          
-        
       
     </div>
     
@@ -1885,321 +1446,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2017/02/16/find-job/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/16/find-job/" itemprop="url">为跳槽的你献计献策（Android）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T13:06:13+08:00">
-                2017-02-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/跳槽/" itemprop="url" rel="index">
-                    <span itemprop="name">跳槽</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/开发规范/" rel="tag"># 开发规范</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>首先先介绍下我的境况吧，上周一提交的辞职报告，周二正式离开了我的EX公司，也就是裸辞吧，毕竟我还没有收到任何面试通知和offer，但是我在上周一之前已把简历写好，并在相关的平台投出了多份简历，只欠东风了。当然，裸辞也有裸辞的好处（什么，裸辞还有好处？），裸辞状态下你可以更全面地准备知识，到新公司面试的时候如果是离职状态的话，一般新公司也更喜欢离职的员工，因为可以更快地入职，从而成功跳槽。互联网简历平台我还是比较推荐 <strong><a href="https://www.lagou.com/">拉勾网</a></strong> 的，就互联网简历推送平台对比而言，我对某联和某同城印象还是不怎么好的，记得刚找工作那会，收到某些培训机构的面试通知，唉，浪费时间真是。当然，你身边有内推渠道的话，千万不要浪费了这机会哈，一定要全面运用身边的资源，既然说到了简历，那就谈谈它吧。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/16/find-job/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/16/find-job/" rel="next" title="为跳槽的你献计献策（Android）">
+                <i class="fa fa-chevron-left"></i> 为跳槽的你献计献策（Android）
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2017/01/11/awesome-comment/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/11/awesome-comment/" itemprop="url">神注释大全（欢迎补充）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-11T10:06:13+08:00">
-                2017-01-11
-              </time>
+              <a href="/2017/04/16/awesome-java-leetcode/" rel="prev" title="LeetCode题解之Java版(updating)">
+                LeetCode题解之Java版(updating) <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Joke/" itemprop="url" rel="index">
-                    <span itemprop="name">Joke</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="awesome-comment"><a href="#awesome-comment" class="headerlink" title="awesome-comment"></a>awesome-comment</h1><p>欢迎提交issue来完善这个神级注释</p>
-<blockquote>
-<p>写在前面的话：一时兴起就收集了以下神注释，希望能为广大ITer带来快乐，缓解你们工作中的压力，下面开车，先自爆头像，下文会给出制作链接。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">/**　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　瓦瓦　　　　　　　　　　　　十　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　十齱龠己　　　　　　　　　亅瓦車己　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　乙龍龠毋日丶　　　　　　丶乙己毋毋丶　　　　　　　　　　　</div><div class="line"> *　　　　　　　　十龠馬鬼車瓦　　　　　　己十瓦毋毋　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　鬼馬龠馬龠十　　　　己己毋車毋瓦　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　毋龠龠龍龠鬼乙丶丶乙車乙毋鬼車己　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　乙龠龍龍鬼龍瓦　十瓦毋乙瓦龠瓦亅　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　馬齱龍馬鬼十丶日己己己毋車乙丶　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　己齱馬鬼車十十毋日乙己己乙乙　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　車馬齱齱日乙毋瓦己乙瓦日亅　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　亅車齺龖瓦乙車龖龍乙乙十　　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　　日龠龠十亅車龍毋十十　　　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　　日毋己亅　己己十亅亅　　　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　丶己十十乙　　丶丶丶丶丶　　　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　亅己十龍龖瓦　　丶　丶　乙十　　　　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　亅己十龠龖毋　丶丶　　丶己鬼鬼瓦亅　　　　　　　　　</div><div class="line"> *　　　　　　　　　　　十日十十日亅丶亅丶　丶十日毋鬼馬馬車乙　　　　　　　</div><div class="line"> *　　　　　　　　　　　十日乙十亅亅亅丶　　十乙己毋鬼鬼鬼龍齺馬乙　　　　　</div><div class="line"> *　　　　　　　　　　　丶瓦己乙十十亅丶亅乙乙乙己毋鬼鬼鬼龍齱齺齺鬼十　　　</div><div class="line"> *　　　　　　　　　　　　乙乙十十十亅乙瓦瓦己日瓦毋鬼鬼龠齱齱龍龍齱齱毋丶　</div><div class="line"> *　　　　　　　　　　　　亅十十十十乙瓦車毋瓦瓦日車馬龠龍龍龍龍龍龠龠龠馬亅</div><div class="line"> *　　　　　　　　　　　　　十十十十己毋車瓦瓦瓦瓦鬼馬龠龍龠龠龍龠龠龠馬龠車</div><div class="line"> *　　　　　　　　　　　　　　亅十十日毋瓦日日瓦鬼鬼鬼龠龠馬馬龠龍龍龠馬馬車</div><div class="line"> *　　　　　　　　　　　　　　亅亅亅乙瓦瓦毋車車車馬龍龠鬼鬼馬龠龍龍龠馬馬鬼</div><div class="line"> *　　　　　　　　　　　　丶丶乙亅亅乙車鬼鬼鬼毋車龍龍龠鬼馬馬龠龍齱齱龍馬鬼</div><div class="line"> *　　　　　　　　　　　亅己十十己十日鬼鬼車瓦毋龠龍龠馬馬龠龠龠齱齺齺齱龠鬼</div><div class="line"> *　　　　　　　　　　　　亅乙乙乙十車馬車毋馬齱齱龍龠龠龠馬龠龍齱龍龠龠鬼瓦</div><div class="line"> *　　　　　　　　　　　　　　　　丶毋龠鬼車瓦車馬龠龍龠龠龍齱齱龠馬馬鬼毋日</div><div class="line"> *　　　　　　　　　　　　　　　　十乙己日十　　丶己鬼龍齱齺齱龍馬馬馬車毋己</div><div class="line"> *　　　　　　　　　　　　　　丶十己乙亅丶　　　　　　亅瓦馬龠龍龠龠馬毋瓦乙</div><div class="line"> *　　　　　　　　　　　　　丶十十乙亅十　　　　　　　　亅己瓦車馬龠鬼車瓦乙</div><div class="line"> *　　　　　　　　　　　　　丶十乙十十丶　　　　　　　　　丶丶亅十瓦鬼車瓦己</div><div class="line"> *　　　　　　　　　　　　　　丶亅亅丶　　　　　　　　　　　　　　　亅日瓦日</div><div class="line"> *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　丶</div><div class="line"> */</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/11/awesome-comment/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -2209,652 +1489,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/12/27/have-to-konw-the-html-knowledge/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/12/27/have-to-konw-the-html-knowledge/" itemprop="url">你不得不了解的HTML知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-27T18:02:07+08:00">
-                2016-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这次要细说的只是块级元素和行内元素的内容，如有不对，请轻喷。</p>
-</blockquote>
-<h2 id="块级元素和行内元素"><a href="#块级元素和行内元素" class="headerlink" title="块级元素和行内元素"></a>块级元素和行内元素</h2><p>默认情况下块级元素会始终占居一行，而行内元素并不会。除了 table 元素的 display 属性比较特殊以外，基本上所有的 HTML 元素的 display 的属性值要么是 block，要么是 inline。无论你想了解哪个 HTML 元素，第一个要问的问题就是：它是块级元素还是行内元素，然后在编写标记的时候预想到这个元素在初始状态下是如何定位的，这样才能进一步想好将来怎么用 CSS 重新定位它，因为块级元素和行内元素在定位上有很大的区别，后面会详细说明。</p>
-<p>块级元素盒子（一个很重要的概念————盒模型）会扩展到与父元素同宽，这也是为什么块级元素会占居一行的原因了，因为所有块级元素的父元素都是 body，而它的默认宽度就是浏览器的视口大小，所以默认情况下块级元素的宽度也和浏览器的视口一样宽，这样以来，一个块级元素旁边也就没有空间来容纳另一个块级元素了。</p>
-<p>相比于块级元素会扩展到与父元素同宽，然而行内元素的行为却是恰恰相反，它会尽量的收缩包裹其内容，这也就是为什么几个行内元素会并排显示在一行直到它们排满一行才会另起一行，而每个块级元素会直接另起一行的原因了。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/27/have-to-konw-the-html-knowledge/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/11/10/rotatable-imageView/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/10/rotatable-imageView/" itemprop="url">可旋转的ImageView</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T17:09:18+08:00">
-                2016-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/自定义View/" itemprop="url" rel="index">
-                    <span itemprop="name">自定义View</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>话不多少，先上效果图过一下瘾。</p>
-<img src="/2016/11/10/rotatable-imageView/demo.gif" alt="[演示动画]" title="[演示动画]">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/10/rotatable-imageView/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/09/21/android-keep-version-unity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/21/android-keep-version-unity/" itemprop="url">Android 开发之版本统一规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-21T19:12:09+08:00">
-                2016-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Android-Tips/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Tips</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Android 开发存在着众多版本的不同，比如 <code>compileSdkVersion</code>、<code>minSdkVersion</code>、<code>targetSdkVersion</code> 以及项目中依赖第三方库的版本，不同的 module 及不同的开发人员都有不同的版本，所以需要一个统一版本规范的文件，现在我就来介绍一种方式。</p>
-<p>在项目根目录，也就是跟 app 同一目录下的 build.gradle 文件，如下图所示</p>
-<img src="/2016/09/21/android-keep-version-unity/build.gradle.png" alt="[build.gradle]" title="[build.gradle]">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/21/android-keep-version-unity/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/09/21/android-studio-classify-src-package/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/21/android-studio-classify-src-package/" itemprop="url">Android Studio 下对资源进行分包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-21T11:29:46+08:00">
-                2016-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Android-Tips/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Tips</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>也许你曾经用过这个插件来对资源文件 layout 进行分类<a href="https://github.com/dmytrodanylyk/folding-plugin">https://github.com/dmytrodanylyk/folding-plugin</a>，但如今随着 AS 版本的升高，该插件已经不再支持。</p>
-<p>now，我来分享一种比这个插件更加优秀合理地对资源进行分包，让你的资源文件看起来简明有序。<br>先上效果图，如下所示：</p>
-<img src="/2016/09/21/android-studio-classify-src-package/classify_dir.png" alt="[效果图]" title="[效果图]">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/21/android-studio-classify-src-package/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -2862,6 +1501,13 @@
 
 
           
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
 
         </div>
         
@@ -2882,8 +1528,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -3011,6 +1666,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安卓开发规范（完结版）"><span class="nav-number">1.</span> <span class="nav-text">安卓开发规范（完结版）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AS-规范"><span class="nav-number">1.1.2.</span> <span class="nav-text">2 AS 规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-命名规范"><span class="nav-number">1.1.3.</span> <span class="nav-text">3 命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-包名"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">3.1 包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-类名"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">3.2 类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-方法名"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">3.3 方法名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-常量名"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">3.4 常量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-非常量字段名"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">3.5 非常量字段名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-参数名"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">3.6 参数名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-局部变量名"><span class="nav-number">1.1.3.7.</span> <span class="nav-text">3.7 局部变量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-临时变量"><span class="nav-number">1.1.3.8.</span> <span class="nav-text">3.8 临时变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9-类型变量名"><span class="nav-number">1.1.3.9.</span> <span class="nav-text">3.9 类型变量名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-代码样式规范"><span class="nav-number">1.1.4.</span> <span class="nav-text">4 代码样式规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-使用标准大括号样式"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">4.1 使用标准大括号样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-编写简短方法"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">4.2 编写简短方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-类成员的顺序"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">4.3 类成员的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-函数参数的排序"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">4.4 函数参数的排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-字符串常量的命名和值"><span class="nav-number">1.1.4.5.</span> <span class="nav-text">4.5 字符串常量的命名和值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-Activities-和-Fragments-的传参"><span class="nav-number">1.1.4.6.</span> <span class="nav-text">4.6 Activities 和 Fragments 的传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-行长限制"><span class="nav-number">1.1.4.7.</span> <span class="nav-text">4.7 行长限制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-换行策略"><span class="nav-number">1.1.4.7.1.</span> <span class="nav-text">4.7.1 换行策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-1-操作符的换行"><span class="nav-number">1.1.4.7.2.</span> <span class="nav-text">4.7.1.1 操作符的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-2-函数链的换行"><span class="nav-number">1.1.4.7.3.</span> <span class="nav-text">4.7.1.2 函数链的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-3-多参数的换行"><span class="nav-number">1.1.4.7.4.</span> <span class="nav-text">4.7.1.3 多参数的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-4-RxJava-链式的换行"><span class="nav-number">1.1.4.7.5.</span> <span class="nav-text">4.7.1.4 RxJava 链式的换行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-资源文件规范"><span class="nav-number">1.1.5.</span> <span class="nav-text">5 资源文件规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-动画资源文件（anim-和-animator-）"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">5.1 动画资源文件（anim/ 和 animator/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-颜色资源文件（color-）"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">5.2 颜色资源文件（color/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-图片资源文件（drawable-和-mipmap-）"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">5.3 图片资源文件（drawable/ 和 mipmap/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-布局资源文件（layout-）"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">5.4 布局资源文件（layout/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-菜单资源文件（menu-）"><span class="nav-number">1.1.5.5.</span> <span class="nav-text">5.5 菜单资源文件（menu/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-values-资源文件（values-）"><span class="nav-number">1.1.5.6.</span> <span class="nav-text">5.6 values 资源文件（values/）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-1-colors-xml"><span class="nav-number">1.1.5.6.1.</span> <span class="nav-text">5.6.1 colors.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-2-dimens-xml"><span class="nav-number">1.1.5.6.2.</span> <span class="nav-text">5.6.2 dimens.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-3-strings-xml"><span class="nav-number">1.1.5.6.3.</span> <span class="nav-text">5.6.3 strings.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-4-styles-xml"><span class="nav-number">1.1.5.6.4.</span> <span class="nav-text">5.6.4 styles.xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-id-命名"><span class="nav-number">1.1.5.7.</span> <span class="nav-text">5.7 id 命名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-版本统一规范"><span class="nav-number">1.1.6.</span> <span class="nav-text">6 版本统一规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-第三方库规范"><span class="nav-number">1.1.7.</span> <span class="nav-text">7 第三方库规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-注释规范"><span class="nav-number">1.1.8.</span> <span class="nav-text">8 注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-类注释"><span class="nav-number">1.1.8.1.</span> <span class="nav-text">8.1 类注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-方法注释"><span class="nav-number">1.1.8.2.</span> <span class="nav-text">8.2 方法注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-块注释"><span class="nav-number">1.1.8.3.</span> <span class="nav-text">8.3 块注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-4-其他一些注释"><span class="nav-number">1.1.8.4.</span> <span class="nav-text">8.4 其他一些注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-测试规范"><span class="nav-number">1.1.9.</span> <span class="nav-text">9 测试规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-单元测试"><span class="nav-number">1.1.9.1.</span> <span class="nav-text">9.1 单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-Espresso-测试"><span class="nav-number">1.1.9.2.</span> <span class="nav-text">9.2 Espresso 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-其他的一些规范"><span class="nav-number">1.1.10.</span> <span class="nav-text">10 其他的一些规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">1.2.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-控件缩写表"><span class="nav-number">1.2.1.</span> <span class="nav-text">UI 控件缩写表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的英文单词缩写表"><span class="nav-number">1.2.2.</span> <span class="nav-text">常见的英文单词缩写表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.3.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本日志"><span class="nav-number">1.4.</span> <span class="nav-text">版本日志</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -3167,6 +1838,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -3207,6 +1882,22 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')
+       </script>
 
 
 
