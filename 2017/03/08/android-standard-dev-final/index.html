@@ -89,11 +89,9 @@
 7 第三方库规范
 8 注释规范
 9 测试规范
-10 其他的一些规范
-
-1 前言为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最完善的安卓开发规范一点">
+10 其他的一些规范">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓开发规范（完结版）">
+<meta property="og:title" content="Android 开发规范（完结版）">
 <meta property="og:url" content="http://blankj.com/2017/03/08/android-standard-dev-final/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
 <meta property="og:description" content="摘要
@@ -106,12 +104,11 @@
 7 第三方库规范
 8 注释规范
 9 测试规范
-10 其他的一些规范
-
-1 前言为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最完善的安卓开发规范一点">
-<meta property="og:updated_time" content="2017-12-04T10:38:50.000Z">
+10 其他的一些规范">
+<meta property="og:image" content="http://blankj.com/2017/03/08/android-standard-dev-final/logo.png">
+<meta property="og:updated_time" content="2017-12-05T13:45:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓开发规范（完结版）">
+<meta name="twitter:title" content="Android 开发规范（完结版）">
 <meta name="twitter:description" content="摘要
 1 前言
 2 AS 规范
@@ -122,9 +119,8 @@
 7 第三方库规范
 8 注释规范
 9 测试规范
-10 其他的一些规范
-
-1 前言为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最完善的安卓开发规范一点">
+10 其他的一些规范">
+<meta name="twitter:image" content="http://blankj.com/2017/03/08/android-standard-dev-final/logo.png">
 
 
 
@@ -160,7 +156,7 @@
 
 
 
-  <title>安卓开发规范（完结版） | Blankj's Blog</title>
+  <title>Android 开发规范（完结版） | Blankj's Blog</title>
   
 
 
@@ -358,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安卓开发规范（完结版）</h1>
+          <h1 class="post-title" itemprop="name headline">Android 开发规范（完结版）</h1>
         
 
         <div class="post-meta">
@@ -446,7 +442,8 @@
       
 
       
-        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+        <img src="/2017/03/08/android-standard-dev-final/logo.png" alt="logo.png" title="">
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li><a href="#1-前言">1 前言</a></li>
 <li><a href="#2-as-规范">2 AS 规范</a></li>
 <li><a href="#3-命名规范">3 命名规范</a></li>
@@ -456,14 +453,15 @@
 <li><a href="#7-第三方库规范">7 第三方库规范</a></li>
 <li><a href="#8-注释规范">8 注释规范</a></li>
 <li><a href="#9-测试规范">9 测试规范</a></li>
-<li><a href="#10-其他的一些规范">10 其他的一些规范</a></li>
+<li><a href="#10-其他的一些规范">10 其他的一些规范</a><a id="more"></a>
+</li>
 </ul>
-<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h3><p>为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最完善的安卓开发规范一点也不为过，如有更好建议，欢迎到 GitHub 提 issue，原文地址：<strong><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="external">安卓开发规范（完结版）</a></strong>。后续可能会根据该规范出一个 <code>CheckStyle</code> 插件来检查是否规范，当然也支持在 CI 上进行检查。</p>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h3><p>为了有利于项目维护、增强代码可读性、提升 Code Review 效率以及规范团队安卓开发，故提出以下安卓开发规范，该规范结合本人多年的开发经验并吸取多家之精华，可谓是本人的呕心沥血之作，称其为当前最完善的安卓开发规范一点也不为过，如有更好建议，欢迎到 GitHub 提 issue，原文地址：<strong><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="external">Android 开发规范（完结版）</a></strong>。相关 Demo，可以查看我的 Android 开发工具类集合项目：<strong><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">Android 开发人员不得不收集的代码</a></strong>。后续可能会根据该规范出一个 CheckStyle 插件来检查是否规范，当然也支持在 CI 上运行。</p>
 <h3 id="2-AS-规范"><a href="#2-AS-规范" class="headerlink" title="2 AS 规范"></a>2 AS 规范</h3><p>工欲善其事，必先利其器。</p>
 <ol>
-<li>尽量使用最新版的 IDE 进行开发；</li>
+<li>尽量使用最新的稳定版的 IDE 进行开发；</li>
 <li>编码格式统一为 <strong>UTF-8</strong>；</li>
-<li>编辑完 .java、.xml 等文件后一定要 <strong>格式化</strong>（基本格式方面使用 AS 默认模板即可）；</li>
+<li>编辑完 .java、.xml 等文件后一定要 <strong>格式化，格式化，格式化</strong>（如果团队有公共的样式包，那就遵循它，否则统一使用 AS 默认模板即可）；</li>
 <li>删除多余的 import，减少警告出现，可利用 AS 的 Optimize Imports（Settings -&gt; Keymap -&gt; Optimize Imports）快捷键；</li>
 <li>Android 开发者工具可以参考这里：<strong><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2017/0526/7973.html" target="_blank" rel="external">Android 开发者工具</a></strong>；</li>
 </ol>
@@ -471,17 +469,16 @@
 <blockquote>
 <p>注意：即使纯拼音命名方式也要避免采用。但 <code>alibaba</code>、<code>taobao</code>、<code>youku</code>、<code>hangzhou</code> 等国际通用的名称，可视同英文。</p>
 </blockquote>
-<h4 id="3-1-包名"><a href="#3-1-包名" class="headerlink" title="3.1 包名"></a>3.1 包名</h4><p>包名全部小写，连续的单词只是简单地连接起来，不使用下划线，采用反域名命名规则，全部使用小写字母。一级包名是顶级域名，通常为 <code>com</code>、<code>edu</code>、<code>gov</code>、<code>net</code>、<code>org</code> 等，二级包名为公司名，三级包名根据应用进行命名，后面就是对包名的划分了，关于包名的划分，推荐使用按功能分，一开始我们也是按照层去分包的，很坑爹。按照功能分可能你不是很好区分在哪个功能中，不过也比你按照层区分要好找很多，具体可以参考这篇博文：<strong><a href="https://medium.com/@cesarmcferreira/package-by-features-not-layers-2d076df1964d#.mp782izhh" target="_blank" rel="external">Package by features, not layers</a></strong>。且 PBF（按功能分包 Package By Feature）与 PBL（按层分包 Package By Layer）相比较有如下优势：</p>
+<h4 id="3-1-包名"><a href="#3-1-包名" class="headerlink" title="3.1 包名"></a>3.1 包名</h4><p>包名全部小写，连续的单词只是简单地连接起来，不使用下划线，采用反域名命名规则，全部使用小写字母。一级包名是顶级域名，通常为 <code>com</code>、<code>edu</code>、<code>gov</code>、<code>net</code>、<code>org</code> 等，二级包名为公司名，三级包名根据应用进行命名，后面就是对包名的划分了，关于包名的划分，推荐采用 PBF（按功能分包 Package By Feature），一开始我们采用的也是 PBL（按层分包 Package By Layer），很坑爹。PBF 可能不是很好区分在哪个功能中，不过也比 PBL 要好找很多，且 PBF 与 PBL 相比较有如下优势：</p>
 <ul>
 <li><p>package 内高内聚，package 间低耦合</p>
 <p>  哪块要添新功能，只改某一个 package 下的东西。</p>
-<p>  按 class 职能分层（PBL）降低了代码耦合，但带来了 package 耦合，要添新功能，需要改 model、dbHelper、view、service 等等，需要改动好几个 package 下的代码，改动的地方越多，越容易产生新问题，不是吗？</p>
-<p>  按功能分包（PBF），featureA 相关的所有东西都在 featureA 包，feature 内高内聚高度模块化，不同 feature 之间低耦合，相关的东西都放在一起，还好找。</p>
+<p>  PBL 降低了代码耦合，但带来了 package 耦合，要添新功能，需要改 model、dbHelper、view、service 等等，需要改动好几个 package 下的代码，改动的地方越多，越容易产生新问题，不是吗？</p>
+<p>  PBF 的话 featureA 相关的所有东西都在 featureA 包，feature 内高内聚、高度模块化，不同 feature 之间低耦合，相关的东西都放在一起，还好找。</p>
 </li>
 <li><p>package 有私有作用域（package-private scope）</p>
 <p>  你负责开发这块功能，这个目录下所有东西都是你的。</p>
-<p>  PBL 的方式是把所有工具方法都放在 util 包下，小张开发新功能时候发现需要一个 xxUtil，但它又不是通用的，那应该放在哪里？没办法，按照分层原则，我们还得放在 util 包下，好像不太合适，但放在其它包更不合适，功能越来越多，util 类也越定义越多。后来小李负责开发一块功能时发现需要一个 xxUtil，同样不通用，去 util 包一看，怎么已经有了，而且还没法复用，只好放弃 xx 这个名字，改为 xxxUtil……，因为 PBL 的 package 没有私有作用域，每一个包都是 public（跨包方法调用是很平常的事情，每一个包对其它包来说都是可访问的）。</p>
-<p>  如果是 PBF，小张的 xxUtil 自然放在 featureA 下，小李的 xxUtil 在 featureB 下，如果觉得 util 好像是通用的，就去 util 包看看要不要把工具方法添进 xxUtil, class 命名冲突没有了。</p>
+<p>  PBL 的方式是把所有工具方法都放在 util 包下，小张开发新功能时候发现需要一个 xxUtil，但它又不是通用的，那应该放在哪里？没办法，按照分层原则，我们还得放在 util 包下，好像不太合适，但放在其它包更不合适，功能越来越多，util 类也越定义越多。后来小李负责开发一块功能时发现需要一个 xxUtil，同样不通用，去 util 包一看，怎么已经有了，而且还没法复用，只好放弃 xx 这个名字，改为 xxxUtil……，因为 PBL 的 package 没有私有作用域，每一个包都是 public（跨包方法调用是很平常的事情，每一个包对其它包来说都是可访问的）；如果是 PBF，小张的 xxUtil 自然放在 featureA 下，小李的 xxUtil 在 featureB 下，如果觉得 util 好像是通用的，就去 util 包看看要不要把工具方法添进 xxUtil, class 命名冲突没有了。</p>
 <p>  PBF 的 package 有私有作用域，featureA 不应该访问 featureB 下的任何东西（如果非访问不可，那就说明接口定义有问题）。</p>
 </li>
 <li><p>很容易删除功能</p>
@@ -503,7 +500,7 @@
 <p>  PBL 中包的大小无限增长是合理的，因为功能越添越多，而 PBF 中包太大（包里 class 太多）表示这块需要重构（划分子包）。</p>
 </li>
 </ul>
-<p>当然，我们大谷歌也有相应的 Sample：<strong><a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp/" target="_blank" rel="external">todo-mvp</a></strong>，其结构如下所示，很值得学习。</p>
+<p>如要知道更多好处，可以查看这篇博文：<strong><a href="https://medium.com/@cesarmcferreira/package-by-features-not-layers-2d076df1964d#.mp782izhh" target="_blank" rel="external">Package by features, not layers</a></strong>，当然，我们大谷歌也有相应的 Sample：<strong><a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp/" target="_blank" rel="external">todo-mvp</a></strong>，其结构如下所示，很值得学习。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">com</div><div class="line">└── example</div><div class="line">    └── android</div><div class="line">        └── architecture</div><div class="line">            └── blueprints</div><div class="line">                └── todoapp</div><div class="line">                    ├── BasePresenter.java</div><div class="line">                    ├── BaseView.java</div><div class="line">                    ├── addedittask</div><div class="line">                    │   ├── AddEditTaskActivity.java</div><div class="line">                    │   ├── AddEditTaskContract.java</div><div class="line">                    │   ├── AddEditTaskFragment.java</div><div class="line">                    │   └── AddEditTaskPresenter.java</div><div class="line">                    ├── data</div><div class="line">                    │   ├── Task.java</div><div class="line">                    │   └── source</div><div class="line">                    │       ├── TasksDataSource.java</div><div class="line">                    │       ├── TasksRepository.java</div><div class="line">                    │       ├── local</div><div class="line">                    │       │   ├── TasksDbHelper.java</div><div class="line">                    │       │   ├── TasksLocalDataSource.java</div><div class="line">                    │       │   └── TasksPersistenceContract.java</div><div class="line">                    │       └── remote</div><div class="line">                    │           └── TasksRemoteDataSource.java</div><div class="line">                    ├── statistics</div><div class="line">                    │   ├── StatisticsActivity.java</div><div class="line">                    │   ├── StatisticsContract.java</div><div class="line">                    │   ├── StatisticsFragment.java</div><div class="line">                    │   └── StatisticsPresenter.java</div><div class="line">                    ├── taskdetail</div><div class="line">                    │   ├── TaskDetailActivity.java</div><div class="line">                    │   ├── TaskDetailContract.java</div><div class="line">                    │   ├── TaskDetailFragment.java</div><div class="line">                    │   └── TaskDetailPresenter.java</div><div class="line">                    ├── tasks</div><div class="line">                    │   ├── ScrollChildSwipeRefreshLayout.java</div><div class="line">                    │   ├── TasksActivity.java</div><div class="line">                    │   ├── TasksContract.java</div><div class="line">                    │   ├── TasksFilterType.java</div><div class="line">                    │   ├── TasksFragment.java</div><div class="line">                    │   └── TasksPresenter.java</div><div class="line">                    └── util</div><div class="line">                        ├── ActivityUtils.java</div><div class="line">                        ├── EspressoIdlingResource.java</div><div class="line">                        └── SimpleCountingIdlingResource.java</div></pre></td></tr></table></figure>
 <p>参考以上的代码结构，按功能分包具体可以这样做：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">com</div><div class="line">└── domain</div><div class="line">    └── app</div><div class="line">        ├── App.java 定义 Application 类</div><div class="line">        ├── Config.java 定义配置数据（常量）</div><div class="line">        ├── base 基础组件</div><div class="line">        ├── custom_view 自定义视图</div><div class="line">        ├── data 数据处理</div><div class="line">        │   ├── DataManager.java 数据管理器，</div><div class="line">        │   ├── local 来源于本地的数据，比如 SP，Database，File</div><div class="line">        │   ├── model 定义 model（数据结构以及 getter/setter、compareTo、equals 等等，不含复杂操作）</div><div class="line">        │   └── remote 来源于远端的数据</div><div class="line">        ├── feature 功能</div><div class="line">        │   ├── feature0 功能 0</div><div class="line">        │   │   ├── feature0Activity.java</div><div class="line">        │   │   ├── feature0Fragment.java</div><div class="line">        │   │   ├── xxAdapter.java</div><div class="line">        │   │   └── ... 其他 class</div><div class="line">        │   └── ...其他功能</div><div class="line">        ├── injection 依赖注入</div><div class="line">        ├── util 工具类</div><div class="line">        └── widget 小部件</div></pre></td></tr></table></figure>
@@ -610,8 +607,8 @@
 <td>更新数据</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>saveXX()</code></td>
-<td>保存数据</td>
+<td style="text-align:left"><code>saveXX()</code>, <code>insertXX()</code></td>
+<td>保存或插入数据</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>resetXX()</code></td>
@@ -622,7 +619,7 @@
 <td>清除数据</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>removeXX()</code></td>
+<td style="text-align:left"><code>removeXX()</code>, <code>deleteXX()</code></td>
 <td>移除数据或者视图等，如 <code>removeView()</code></td>
 </tr>
 <tr>
@@ -632,21 +629,23 @@
 </tbody>
 </table>
 <h4 id="3-4-常量名"><a href="#3-4-常量名" class="headerlink" title="3.4 常量名"></a>3.4 常量名</h4><p>常量名命名模式为 <code>CONSTANT_CASE</code>，全部字母大写，用下划线分隔单词。那到底什么算是一个常量？</p>
-<p>每个常量都是一个静态 <code>final</code> 字段，但不是所有静态 <code>final</code> 字段都是常量。在决定一个字段是否是一个常量时，考虑它是否真的感觉像是一个常量。例如，如果任何一个该实例的观测状态是可变的，则它几乎肯定不会是一个常量。只是永远不打算改变对象一般是不够的，它要真的一直不变才能将它示为常量。</p>
+<p>每个常量都是一个 <code>static final</code> 字段，但不是所有 <code>static final</code> 字段都是常量。在决定一个字段是否是一个常量时，得考虑它是否真的感觉像是一个常量。例如，如果观测任何一个该实例的状态是可变的，则它几乎肯定不会是一个常量。只是永远不打算改变的对象一般是不够的，它要真的一直不变才能将它示为常量。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Constants</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUMBER = <span class="number">5</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ImmutableListNAMES = ImmutableList.of(<span class="string">"Ed"</span>, <span class="string">"Ann"</span>);</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> Joiner COMMA_JOINER = Joiner.on(<span class="string">','</span>); <span class="comment">// because Joiner is immutable</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> SomeMutableType[] EMPTY_ARRAY = &#123;&#125;;</div><div class="line"><span class="keyword">enum</span> SomeEnum &#123; ENUM_CONSTANT &#125;</div><div class="line"></div><div class="line"><span class="comment">// Not constants</span></div><div class="line"><span class="keyword">static</span> String nonFinal = <span class="string">"non-final"</span>;</div><div class="line"><span class="keyword">final</span> String nonStatic = <span class="string">"non-static"</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> SetmutableCollection = <span class="keyword">new</span> HashSet();</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> ImmutableSetmutableElements = ImmutableSet.of(mutable);</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> Logger logger = Logger.getLogger(MyClass.getName());</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String[] nonEmptyArray = &#123;<span class="string">"these"</span>, <span class="string">"can"</span>, <span class="string">"change"</span>&#125;;</div></pre></td></tr></table></figure>
-<h4 id="3-5-非常量字段名"><a href="#3-5-非常量字段名" class="headerlink" title="3.5 非常量字段名"></a>3.5 非常量字段名</h4><p>非常量字段名以 <code>lowerCamelCase</code> 风格的基础上改造为如下风格：基本结构为 scopeVariableNameType。</p>
-<p><strong>scope：范围</strong></p>
-<p>非公有，非静态字段命名以 <code>m</code> 开头。</p>
+<h4 id="3-5-非常量字段名"><a href="#3-5-非常量字段名" class="headerlink" title="3.5 非常量字段名"></a>3.5 非常量字段名</h4><p>非常量字段名以 <code>lowerCamelCase</code> 风格的基础上改造为如下风格：基本结构为 <code>scope{Type0}VariableName{Type1}</code>、<code>type0VariableName{Type1}</code>、<code>variableName{Type1}</code>。</p>
+<p>说明：<code>{}</code> 中的内容为可选。</p>
+<blockquote>
+<p>注意：所有的 VO（值对象）统一采用标准的 lowerCamelCase 风格编写，所有的 DTO（数据传输对象）就按照接口文档中定义的字段名编写。</p>
+</blockquote>
+<h5 id="3-5-1-scope（范围）"><a href="#3-5-1-scope（范围）" class="headerlink" title="3.5.1 scope（范围）"></a>3.5.1 scope（范围）</h5><p>非公有，非静态字段命名以 <code>m</code> 开头。</p>
 <p>静态字段命名以 <code>s</code> 开头。</p>
 <p>其他字段以小写字母开头。</p>
 <p>例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> publicField;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSingleton;</div><div class="line">    <span class="keyword">int</span> mPackagePrivate;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>使用 1 个字符前缀来表示作用范围，1 个字符的前缀必须小写，前缀后面是由表意性强的一个单词或多个单词组成的名字，而且每个单词的首写字母大写，其它字母小写，这样保证了对变量名能够进行正确的断句。</p>
-<p><strong>Type：类型</strong></p>
-<p>考虑到 Android 中使用很多 UI 控件，为避免控件和普通成员变量混淆以及更好达意，所有用来表示控件的成员变量统一加上控件缩写作为后缀（文末附有缩写表）。</p>
-<p>对于普通变量一般不添加类型后缀，如果统一添加类型后缀，请参考文末的缩写表。</p>
-<p>用统一的量词通过在结尾处放置一个量词，就可创建更加统一的变量，它们更容易理解，也更容易搜索。</p>
-<p>例如，请使用 <code>mCustomerStrFirst</code> 和 <code>mCustomerStrLast</code>，而不要使用 <code>mFirstCustomerStr</code> 和 <code>mLastCustomerStr</code>。</p>
+<h5 id="3-5-2-Type0（控件类型）"><a href="#3-5-2-Type0（控件类型）" class="headerlink" title="3.5.2 Type0（控件类型）"></a>3.5.2 Type0（控件类型）</h5><p>考虑到 Android 众多的 UI 控件，为避免控件和普通成员变量混淆以及更好地表达意思，所有用来表示控件的成员变量统一加上控件缩写作为前缀（具体见附录<a href="#ui-控件缩写表">UI 控件缩写表</a>）。</p>
+<p>例如：<code>mIvAvatar</code>、<code>rvBooks</code>、<code>flContainer</code>。</p>
+<h5 id="3-5-3-VariableName（变量名）"><a href="#3-5-3-VariableName（变量名）" class="headerlink" title="3.5.3 VariableName（变量名）"></a>3.5.3 VariableName（变量名）</h5><p>变量名中可能会出现量词，我们需要创建统一的量词，它们更容易理解，也更容易搜索。</p>
+<p>例如：<code>mFirstBook</code>、<code>mPreBook</code>、<code>curBook</code>。</p>
 <table>
 <thead>
 <tr>
@@ -665,7 +664,7 @@
 </tr>
 <tr>
 <td><code>Next</code></td>
-<td>一组变量中的下一个变量</td>
+<td>一组变量中的下一个</td>
 </tr>
 <tr>
 <td><code>Pre</code></td>
@@ -677,11 +676,12 @@
 </tr>
 </tbody>
 </table>
-<p>说明：</p>
-<p>集合添加如下后缀：List、Map、Set</p>
-<p>数组添加如下后缀：Arr</p>
+<h5 id="3-5-4-Type1（数据类型）"><a href="#3-5-4-Type1（数据类型）" class="headerlink" title="3.5.4 Type1（数据类型）"></a>3.5.4 Type1（数据类型）</h5><p>对于表示集合或者数组的非常量字段名，我们可以添加后缀来增强字段的可读性，比如：</p>
+<p>集合添加如下后缀：List、Map、Set。</p>
+<p>数组添加如下后缀：Arr。</p>
+<p>例如：<code>mIvAvatarList</code>、<code>userArr</code>、<code>firstNameSet</code>。</p>
 <blockquote>
-<p>注意：所有的 VO（值对象）统一采用标准的 lowerCamelCase 风格编写，所有的 DTO（数据传输对象）就按照接口文档中定义的字段名编写。</p>
+<p>注意：如果数据类型不确定的话，比如表示的是很多书，那么使用其复数形式来表示也可，例如 <code>mBooks</code>。</p>
 </blockquote>
 <h4 id="3-6-参数名"><a href="#3-6-参数名" class="headerlink" title="3.6 参数名"></a>3.6 参数名</h4><p>参数名以 <code>lowerCamelCase</code> 风格编写，参数应该避免用单个字符命名。</p>
 <h4 id="3-7-局部变量名"><a href="#3-7-局部变量名" class="headerlink" title="3.7 局部变量名"></a>3.7 局部变量名</h4><p>局部变量名以 <code>lowerCamelCase</code> 风格编写，比起其它类型的名称，局部变量名可以有更为宽松的缩写。</p>
@@ -693,7 +693,7 @@
 <li>单个的大写字母，后面可以跟一个数字（如：<code>E</code>, <code>T</code>, <code>X</code>, <code>T2</code>）。</li>
 <li>以类命名方式（参考<a href="#32-类名">3.2 类名</a>），后面加个大写的 T（如：<code>RequestT</code>, <code>FooBarT</code>）。</li>
 </ol>
-<p>更多还可参考：<strong><a href="https://102.alibaba.com/newsInfo.htm?newsId=6" target="_blank" rel="external">阿里巴巴 Java 开发手册</a></strong></p>
+<p>更多还可参考：<strong><a href="https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E7%BA%AA%E5%BF%B5%E7%89%88%EF%BC%89.pdf" target="_blank" rel="external">阿里巴巴 Java 开发手册</a></strong></p>
 <h3 id="4-代码样式规范"><a href="#4-代码样式规范" class="headerlink" title="4 代码样式规范"></a>4 代码样式规范</h3><h4 id="4-1-使用标准大括号样式"><a href="#4-1-使用标准大括号样式" class="headerlink" title="4.1 使用标准大括号样式"></a>4.1 使用标准大括号样式</h4><p>左大括号不单独占一行，与其前面的代码位于同一行：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (something) &#123;</div><div class="line">            <span class="comment">// ...</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (somethingElse) &#123;</div><div class="line">            <span class="comment">// ...</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// ...</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>我们需要在条件语句周围添加大括号。例外情况：如果整个条件语句（条件和主体）适合放在同一行，那么您可以（但不是必须）将其全部放在一行上。例如，我们接受以下样式：</p>
@@ -765,10 +765,10 @@
 <blockquote>
 <p>注意：这些函数需要放在 <code>onCreate()</code> 之前的类的顶部；如果我们使用了这种方式，那么 <code>extras</code> 和 <code>arguments</code> 的键应该是 <code>private</code> 的，因为它们不再需要暴露给其他类来使用。</p>
 </blockquote>
-<h4 id="4-7-行长限制"><a href="#4-7-行长限制" class="headerlink" title="4.7 行长限制"></a>4.7 行长限制</h4><p>代码中每一行文本的长度都应该不超过 100 个字符。虽然关于此规则存在很多争论，但最终决定仍是以 100 个字符为上限，如果行长超过了 100，我们通常有两种方法来缩减行长。</p>
+<h4 id="4-7-行长限制"><a href="#4-7-行长限制" class="headerlink" title="4.7 行长限制"></a>4.7 行长限制</h4><p>代码中每一行文本的长度都应该不超过 100 个字符。虽然关于此规则存在很多争论，但最终决定仍是以 100 个字符为上限，如果行长超过了 100（AS 窗口右侧的竖线就是设置的行宽末尾 ），我们通常有两种方法来缩减行长。</p>
 <ul>
 <li>提取一个局部变量或方法（最好）。</li>
-<li>应用换行将一行换成多行。</li>
+<li>使用换行符将一行换成多行。</li>
 </ul>
 <p>不过存在以下例外情况：</p>
 <ul>
@@ -797,7 +797,7 @@
 <p>如果想对资源文件进行分包可以参考我这篇文章：<strong><a href="https://blankj.com/2016/09/21/android-studio-classify-src-package/">Android Studio 下对资源进行分包</a></strong>。</p>
 <h4 id="5-1-动画资源文件（anim-和-animator-）"><a href="#5-1-动画资源文件（anim-和-animator-）" class="headerlink" title="5.1 动画资源文件（anim/ 和 animator/）"></a>5.1 动画资源文件（anim/ 和 animator/）</h4><p>安卓主要包含属性动画和视图动画，其视图动画包括补间动画和逐帧动画。属性动画文件需要放在 <code>res/animator/</code> 目录下，视图动画文件需放在 <code>res/anim/</code> 目录下。</p>
 <p>命名规则：<code>{模块名_}逻辑名称</code>。</p>
-<p>说明：<code>模块名</code> 为可选，<code>逻辑名称</code> 可由多个单词加下划线组成。</p>
+<p>说明：<code>{}</code> 中的内容为可选，<code>逻辑名称</code> 可由多个单词加下划线组成。</p>
 <p>例如：<code>refresh_progress.xml</code>、<code>market_cart_add.xml</code>、<code>market_cart_remove.xml</code>。</p>
 <p>如果是普通的补间动画或者属性动画，可采用：<code>动画类型_方向</code> 的命名方式。</p>
 <p>例如：</p>
@@ -853,7 +853,7 @@
 <p>颜色资源也可以放于 <code>res/drawable/</code> 目录，引用时则用 <code>@drawable</code> 来引用，但不推荐这么做，最好还是把两者分开。</p>
 <h4 id="5-3-图片资源文件（drawable-和-mipmap-）"><a href="#5-3-图片资源文件（drawable-和-mipmap-）" class="headerlink" title="5.3 图片资源文件（drawable/ 和 mipmap/）"></a>5.3 图片资源文件（drawable/ 和 mipmap/）</h4><p><code>res/drawable/</code> 目录下放的是位图文件（.png、.9.png、.jpg、.gif）或编译为可绘制对象资源子类型的 XML 文件，而 <code>res/mipmap/</code> 目录下放的是不同密度的启动图标，所以 <code>res/mipmap/</code> 只用于存放启动图标，其余图片资源文件都应该放到 <code>res/drawable/</code> 目录下。</p>
 <p>命名规则：<code>类型{_模块名}_逻辑名称</code>、<code>类型{_模块名}_颜色</code>。</p>
-<p>说明：<code>模块名</code> 为可选；<code>类型</code> 可以是<a href="可绘制对象资源类型">可绘制对象资源类型</a>，也可以是控件类型（具体见附录<a href="#ui-控件缩写表">UI 控件缩写表</a>）；最后可加后缀 <code>_small</code> 表示小图，<code>_big</code> 表示大图。</p>
+<p>说明：<code>{}</code> 中的内容为可选；<code>类型</code> 可以是<a href="可绘制对象资源类型">可绘制对象资源类型</a>，也可以是控件类型（具体见附录<a href="#ui-控件缩写表">UI 控件缩写表</a>）；最后可加后缀 <code>_small</code> 表示小图，<code>_big</code> 表示大图。</p>
 <p>例如：</p>
 <table>
 <thead>
@@ -988,7 +988,7 @@
 <p>注意：使用 Android Studio 的插件 SelectorChapek 可以快速生成 selector，前提是命名要规范。</p>
 </blockquote>
 <h4 id="5-4-布局资源文件（layout-）"><a href="#5-4-布局资源文件（layout-）" class="headerlink" title="5.4 布局资源文件（layout/）"></a>5.4 布局资源文件（layout/）</h4><p>命名规则：<code>类型_模块名</code>、<code>类型{_模块名}_逻辑名称</code>。</p>
-<p>说明：<code>模块名</code> 为可选。</p>
+<p>说明：<code>{}</code> 中的内容为可选。</p>
 <p>例如：</p>
 <table>
 <thead>
@@ -1023,13 +1023,15 @@
 <td>信息弹窗（PopupWindow） <code>类型_逻辑名称</code></td>
 </tr>
 <tr>
-<td><code>item_song.xml</code></td>
-<td>歌曲列表项 <code>类型_逻辑名称</code></td>
+<td><code>item_main_song.xml</code></td>
+<td>主页歌曲列表项 <code>类型_模块名_逻辑名称</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="5-5-菜单资源文件（menu-）"><a href="#5-5-菜单资源文件（menu-）" class="headerlink" title="5.5 菜单资源文件（menu/）"></a>5.5 菜单资源文件（menu/）</h4><p>菜单相关的资源文件应放在该目录下。</p>
-<p>命名规则：<code>{模块名_}逻辑名称</code>，<code>模块名_</code> 为可选，例如：<code>main_drawer.xml</code>、<code>navigation_menu.xml</code>。</p>
+<p>命名规则：<code>{模块名_}逻辑名称</code></p>
+<p>说明：<code>{}</code> 中的内容为可选。</p>
+<p>例如：<code>main_drawer.xml</code>、<code>navigation.xml</code>。</p>
 <h4 id="5-6-values-资源文件（values-）"><a href="#5-6-values-资源文件（values-）" class="headerlink" title="5.6 values 资源文件（values/）"></a>5.6 values 资源文件（values/）</h4><p><code>values/</code> 资源文件下的文件都以 <code>s</code> 结尾，如 <code>attrs.xml</code>、<code>colors.xml</code>、<code>dimens.xml</code>，起作用的不是文件名称，而是 <code>&lt;resources&gt;</code> 标签下的各种标签，比如 <code>&lt;style&gt;</code> 决定样式，<code>&lt;color&gt;</code> 决定颜色，所以，可以把一个大的 <code>xml</code> 文件分割成多个小的文件，比如可以有多个 <code>style</code> 文件，如 <code>styles.xml</code>、<code>styles_home.xml</code>、<code>styles_item_details.xml</code>、<code>styles_forms.xml</code>。</p>
 <h5 id="5-6-1-colors-xml"><a href="#5-6-1-colors-xml" class="headerlink" title="5.6.1 colors.xml"></a>5.6.1 colors.xml</h5><p><code>&lt;color&gt;</code> 的 <code>name</code> 命名使用下划线命名法，在你的 <code>colors.xml</code> 文件中应该只是映射颜色的名称一个 ARGB 值，而没有其它的。不要使用它为不同的按钮来定义 ARGB 值。</p>
 <p>例如，不要像下面这样做：</p>
@@ -1088,7 +1090,7 @@
 <p>应用到 <code>TextView</code> 中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;TextView</div><div class="line">    android:layout_width=&quot;wrap_content&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:text=&quot;@string/price&quot;</div><div class="line">    style=&quot;@style/ContentText&quot;</div><div class="line">    /&gt;</div></pre></td></tr></table></figure>
 <p>或许你需要为按钮控件做同样的事情，不要停止在那里，将一组相关的和重复 <code>android:xxxx</code> 的属性放到一个通用的 <code>&lt;style&gt;</code> 中。</p>
-<h4 id="5-7-id-命名"><a href="#5-7-id-命名" class="headerlink" title="5.7 id 命名"></a>5.7 id 命名</h4><p>命名规则：<code>view缩写_{模块名}_逻辑名</code>，例如： <code>btn_main_search</code>、<code>btn_back</code>。</p>
+<h4 id="5-7-id-命名"><a href="#5-7-id-命名" class="headerlink" title="5.7 id 命名"></a>5.7 id 命名</h4><p>命名规则：<code>view缩写{_模块名}_逻辑名</code>，例如： <code>btn_main_search</code>、<code>btn_back</code>。</p>
 <p>如果在项目中有用黄油刀的话，使用 AS 的插件：ButterKnife Zelezny，可以非常方便帮助你生成注解；没用黄油刀的话可以使用 Android Code Generator 插件。</p>
 <h3 id="6-版本统一规范"><a href="#6-版本统一规范" class="headerlink" title="6 版本统一规范"></a>6 版本统一规范</h3><p>Android 开发存在着众多版本的不同，比如 <code>compileSdkVersion</code>、<code>minSdkVersion</code>、<code>targetSdkVersion</code> 以及项目中依赖第三方库的版本，不同的 module 及不同的开发人员都有不同的版本，所以需要一个统一版本规范的文件。</p>
 <p>具体可以参考我写的这篇博文：<strong><a href="https://blankj.com/2016/09/21/android-keep-version-unity/">Android 开发之版本统一规范</a></strong>。</p>
@@ -1215,84 +1217,84 @@
 </thead>
 <tbody>
 <tr>
-<td>TextView</td>
-<td>tv</td>
-</tr>
-<tr>
-<td>EditText</td>
-<td>et</td>
-</tr>
-<tr>
-<td>ImageButton</td>
-<td>ib</td>
-</tr>
-<tr>
 <td>Button</td>
 <td>btn</td>
-</tr>
-<tr>
-<td>ImageView</td>
-<td>iv</td>
-</tr>
-<tr>
-<td>ListView</td>
-<td>lv</td>
-</tr>
-<tr>
-<td>GridView</td>
-<td>gv</td>
-</tr>
-<tr>
-<td>ProgressBar</td>
-<td>pb</td>
-</tr>
-<tr>
-<td>SeekBar</td>
-<td>sb</td>
-</tr>
-<tr>
-<td>RadioButtion</td>
-<td>rb</td>
 </tr>
 <tr>
 <td>CheckBox</td>
 <td>cb</td>
 </tr>
 <tr>
-<td>ScrollView</td>
-<td>sv</td>
-</tr>
-<tr>
-<td>LinearLayout</td>
-<td>ll</td>
+<td>EditText</td>
+<td>et</td>
 </tr>
 <tr>
 <td>FrameLayout</td>
 <td>fl</td>
 </tr>
 <tr>
-<td>RelativeLayout</td>
-<td>rl</td>
+<td>GridView</td>
+<td>gv</td>
+</tr>
+<tr>
+<td>ImageButton</td>
+<td>ib</td>
+</tr>
+<tr>
+<td>ImageView</td>
+<td>iv</td>
+</tr>
+<tr>
+<td>LinearLayout</td>
+<td>ll</td>
+</tr>
+<tr>
+<td>ListView</td>
+<td>lv</td>
+</tr>
+<tr>
+<td>ProgressBar</td>
+<td>pb</td>
+</tr>
+<tr>
+<td>RadioButton</td>
+<td>rb</td>
 </tr>
 <tr>
 <td>RecyclerView</td>
 <td>rv</td>
 </tr>
 <tr>
-<td>WebView</td>
-<td>wv</td>
+<td>RelativeLayout</td>
+<td>rl</td>
 </tr>
 <tr>
-<td>VideoView</td>
-<td>vv</td>
+<td>ScrollView</td>
+<td>sv</td>
+</tr>
+<tr>
+<td>SeekBar</td>
+<td>sb</td>
 </tr>
 <tr>
 <td>Spinner</td>
 <td>spn</td>
 </tr>
 <tr>
+<td>TextView</td>
+<td>tv</td>
+</tr>
+<tr>
 <td>ToggleButton</td>
 <td>tb</td>
+</tr>
+<tr>
+<td>VideoView</td>
+<td>vv</td>
+</tr>
+<tr>
+<td>WebView</td>
+<td>wv</td>
 </tr>
 </tbody>
 </table>
@@ -1305,14 +1307,6 @@
 </thead>
 <tbody>
 <tr>
-<td>icon</td>
-<td>ic（主要用在 App 的图标）</td>
-</tr>
-<tr>
-<td>color</td>
-<td>cl（主要用于颜色值）</td>
-</tr>
-<tr>
 <td>average</td>
 <td>avg</td>
 </tr>
@@ -1321,16 +1315,16 @@
 <td>bg（主要用于布局和子布局的背景）</td>
 </tr>
 <tr>
-<td>selector</td>
-<td>sel（主要用于某一 view 多种状态，不仅包括 ListView 中的 selector，还包括按钮的 selector）</td>
-</tr>
-<tr>
 <td>buffer</td>
 <td>buf</td>
 </tr>
 <tr>
 <td>control</td>
 <td>ctrl</td>
+</tr>
+<tr>
+<td>current</td>
+<td>cur</td>
 </tr>
 <tr>
 <td>default</td>
@@ -1353,11 +1347,15 @@
 <td>esc</td>
 </tr>
 <tr>
+<td>icon</td>
+<td>ic（主要用在 App 的图标）</td>
+</tr>
+<tr>
 <td>increment</td>
 <td>inc</td>
 </tr>
 <tr>
-<td>infomation</td>
+<td>information</td>
 <td>info</td>
 </tr>
 <tr>
@@ -1393,6 +1391,14 @@
 <td>pos</td>
 </tr>
 <tr>
+<td>previous</td>
+<td>pre</td>
+</tr>
+<tr>
+<td>selector</td>
+<td>sel（主要用于某一 view 多种状态，不仅包括 ListView 中的 selector，还包括按钮的 selector）</td>
+</tr>
+<tr>
 <td>server</td>
 <td>srv</td>
 </tr>
@@ -1401,12 +1407,12 @@
 <td>str</td>
 </tr>
 <tr>
-<td>temp</td>
+<td>temporary</td>
 <td>tmp</td>
 </tr>
 <tr>
 <td>window</td>
-<td>wnd</td>
+<td>win</td>
 </tr>
 </tbody>
 </table>
@@ -1414,23 +1420,23 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.ayqy.net/blog/android%E5%8C%85%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" target="_blank" rel="external">Android 包命名规范</a></p>
 <p><a href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md" target="_blank" rel="external">Android 开发最佳实践</a></p>
 <p><a href="http://www.jianshu.com/p/0a984f999592" target="_blank" rel="external">Android 编码规范</a></p>
-<p><a href="https://102.alibaba.com/newsInfo.htm?newsId=6" target="_blank" rel="external">阿里巴巴 Java 开发手册</a></p>
+<p><a href="https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E7%BA%AA%E5%BF%B5%E7%89%88%EF%BC%89.pdf" target="_blank" rel="external">阿里巴巴 Java 开发手册</a></p>
 <p><a href="https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md" target="_blank" rel="external">Project and code style guidelines</a></p>
 <p><a href="http://www.hawstein.com/posts/google-java-style.html" target="_blank" rel="external">Google Java 编程风格指南</a></p>
 <p><a href="http://www.jianshu.com/p/436943216526" target="_blank" rel="external">小细节，大用途，35 个 Java 代码性能优化总结！</a></p>
 <h2 id="版本日志"><a href="#版本日志" class="headerlink" title="版本日志"></a>版本日志</h2><ul>
-<li>17/12/04: 完善按功能分包，修复 typor，定该版为完结版；</li>
+<li>17/12/05: 新增 logo；</li>
+<li>17/12/04: 完善按功能分包，修复 typo，定该版为完结版；</li>
 <li>17/12/03: 完善代码样式规范和测试规范；</li>
 <li>17/12/02: 新增代码样式规范；</li>
 <li>17/12/01: 对资源文件规范进行重构；</li>
 <li>17/11/29: 格式化中英混排；</li>
 <li>17/03/14: 包名划分为按功能划分；</li>
 <li>17/03/13: 新增其他注释；</li>
-<li>17/03/08: 规范排版，修复 typor 及新增一些规范；</li>
+<li>17/03/08: 规范排版，修复 typo 及新增一些规范；</li>
 <li>17/03/07: 修订目录排版，完善某些细节；</li>
 <li>17/03/06: 发布初版；</li>
 </ul>
-<p>　　　　　　　　　　　　　　　     ——powered by Blankj</p>
 
       
     </div>
@@ -1676,7 +1682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-number">1.1.</span> <span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AS-规范"><span class="nav-number">1.2.</span> <span class="nav-text">2 AS 规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-命名规范"><span class="nav-number">1.3.</span> <span class="nav-text">3 命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-包名"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-类名"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-方法名"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 方法名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-常量名"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 常量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-非常量字段名"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.5 非常量字段名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-参数名"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.6 参数名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-局部变量名"><span class="nav-number">1.3.7.</span> <span class="nav-text">3.7 局部变量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-临时变量"><span class="nav-number">1.3.8.</span> <span class="nav-text">3.8 临时变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9-类型变量名"><span class="nav-number">1.3.9.</span> <span class="nav-text">3.9 类型变量名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-代码样式规范"><span class="nav-number">1.4.</span> <span class="nav-text">4 代码样式规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-使用标准大括号样式"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 使用标准大括号样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-编写简短方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 编写简短方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-类成员的顺序"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 类成员的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-函数参数的排序"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.4 函数参数的排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-字符串常量的命名和值"><span class="nav-number">1.4.5.</span> <span class="nav-text">4.5 字符串常量的命名和值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-Activities-和-Fragments-的传参"><span class="nav-number">1.4.6.</span> <span class="nav-text">4.6 Activities 和 Fragments 的传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-行长限制"><span class="nav-number">1.4.7.</span> <span class="nav-text">4.7 行长限制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-换行策略"><span class="nav-number">1.4.7.1.</span> <span class="nav-text">4.7.1 换行策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-1-操作符的换行"><span class="nav-number">1.4.7.2.</span> <span class="nav-text">4.7.1.1 操作符的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-2-函数链的换行"><span class="nav-number">1.4.7.3.</span> <span class="nav-text">4.7.1.2 函数链的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-3-多参数的换行"><span class="nav-number">1.4.7.4.</span> <span class="nav-text">4.7.1.3 多参数的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-4-RxJava-链式的换行"><span class="nav-number">1.4.7.5.</span> <span class="nav-text">4.7.1.4 RxJava 链式的换行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-资源文件规范"><span class="nav-number">1.5.</span> <span class="nav-text">5 资源文件规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-动画资源文件（anim-和-animator-）"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 动画资源文件（anim/ 和 animator/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-颜色资源文件（color-）"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2 颜色资源文件（color/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-图片资源文件（drawable-和-mipmap-）"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.3 图片资源文件（drawable/ 和 mipmap/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-布局资源文件（layout-）"><span class="nav-number">1.5.4.</span> <span class="nav-text">5.4 布局资源文件（layout/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-菜单资源文件（menu-）"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.5 菜单资源文件（menu/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-values-资源文件（values-）"><span class="nav-number">1.5.6.</span> <span class="nav-text">5.6 values 资源文件（values/）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-1-colors-xml"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">5.6.1 colors.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-2-dimens-xml"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">5.6.2 dimens.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-3-strings-xml"><span class="nav-number">1.5.6.3.</span> <span class="nav-text">5.6.3 strings.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-4-styles-xml"><span class="nav-number">1.5.6.4.</span> <span class="nav-text">5.6.4 styles.xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-id-命名"><span class="nav-number">1.5.7.</span> <span class="nav-text">5.7 id 命名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-版本统一规范"><span class="nav-number">1.6.</span> <span class="nav-text">6 版本统一规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-第三方库规范"><span class="nav-number">1.7.</span> <span class="nav-text">7 第三方库规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-注释规范"><span class="nav-number">1.8.</span> <span class="nav-text">8 注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-类注释"><span class="nav-number">1.8.1.</span> <span class="nav-text">8.1 类注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-方法注释"><span class="nav-number">1.8.2.</span> <span class="nav-text">8.2 方法注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-块注释"><span class="nav-number">1.8.3.</span> <span class="nav-text">8.3 块注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-4-其他一些注释"><span class="nav-number">1.8.4.</span> <span class="nav-text">8.4 其他一些注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-测试规范"><span class="nav-number">1.9.</span> <span class="nav-text">9 测试规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-单元测试"><span class="nav-number">1.9.1.</span> <span class="nav-text">9.1 单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-Espresso-测试"><span class="nav-number">1.9.2.</span> <span class="nav-text">9.2 Espresso 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-其他的一些规范"><span class="nav-number">1.10.</span> <span class="nav-text">10 其他的一些规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">2.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-控件缩写表"><span class="nav-number">2.1.</span> <span class="nav-text">UI 控件缩写表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的英文单词缩写表"><span class="nav-number">2.2.</span> <span class="nav-text">常见的英文单词缩写表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本日志"><span class="nav-number">4.</span> <span class="nav-text">版本日志</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-number">1.1.</span> <span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AS-规范"><span class="nav-number">1.2.</span> <span class="nav-text">2 AS 规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-命名规范"><span class="nav-number">1.3.</span> <span class="nav-text">3 命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-包名"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 包名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-类名"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-方法名"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 方法名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-常量名"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 常量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-非常量字段名"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.5 非常量字段名</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-1-scope（范围）"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">3.5.1 scope（范围）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-2-Type0（控件类型）"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">3.5.2 Type0（控件类型）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-3-VariableName（变量名）"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">3.5.3 VariableName（变量名）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-4-Type1（数据类型）"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">3.5.4 Type1（数据类型）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-参数名"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.6 参数名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-局部变量名"><span class="nav-number">1.3.7.</span> <span class="nav-text">3.7 局部变量名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-临时变量"><span class="nav-number">1.3.8.</span> <span class="nav-text">3.8 临时变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9-类型变量名"><span class="nav-number">1.3.9.</span> <span class="nav-text">3.9 类型变量名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-代码样式规范"><span class="nav-number">1.4.</span> <span class="nav-text">4 代码样式规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-使用标准大括号样式"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 使用标准大括号样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-编写简短方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 编写简短方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-类成员的顺序"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 类成员的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-函数参数的排序"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.4 函数参数的排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-字符串常量的命名和值"><span class="nav-number">1.4.5.</span> <span class="nav-text">4.5 字符串常量的命名和值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-Activities-和-Fragments-的传参"><span class="nav-number">1.4.6.</span> <span class="nav-text">4.6 Activities 和 Fragments 的传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-行长限制"><span class="nav-number">1.4.7.</span> <span class="nav-text">4.7 行长限制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-换行策略"><span class="nav-number">1.4.7.1.</span> <span class="nav-text">4.7.1 换行策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-1-操作符的换行"><span class="nav-number">1.4.7.2.</span> <span class="nav-text">4.7.1.1 操作符的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-2-函数链的换行"><span class="nav-number">1.4.7.3.</span> <span class="nav-text">4.7.1.2 函数链的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-3-多参数的换行"><span class="nav-number">1.4.7.4.</span> <span class="nav-text">4.7.1.3 多参数的换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-7-1-4-RxJava-链式的换行"><span class="nav-number">1.4.7.5.</span> <span class="nav-text">4.7.1.4 RxJava 链式的换行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-资源文件规范"><span class="nav-number">1.5.</span> <span class="nav-text">5 资源文件规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-动画资源文件（anim-和-animator-）"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 动画资源文件（anim/ 和 animator/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-颜色资源文件（color-）"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2 颜色资源文件（color/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-图片资源文件（drawable-和-mipmap-）"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.3 图片资源文件（drawable/ 和 mipmap/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-布局资源文件（layout-）"><span class="nav-number">1.5.4.</span> <span class="nav-text">5.4 布局资源文件（layout/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-菜单资源文件（menu-）"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.5 菜单资源文件（menu/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-values-资源文件（values-）"><span class="nav-number">1.5.6.</span> <span class="nav-text">5.6 values 资源文件（values/）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-1-colors-xml"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">5.6.1 colors.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-2-dimens-xml"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">5.6.2 dimens.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-3-strings-xml"><span class="nav-number">1.5.6.3.</span> <span class="nav-text">5.6.3 strings.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6-4-styles-xml"><span class="nav-number">1.5.6.4.</span> <span class="nav-text">5.6.4 styles.xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-id-命名"><span class="nav-number">1.5.7.</span> <span class="nav-text">5.7 id 命名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-版本统一规范"><span class="nav-number">1.6.</span> <span class="nav-text">6 版本统一规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-第三方库规范"><span class="nav-number">1.7.</span> <span class="nav-text">7 第三方库规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-注释规范"><span class="nav-number">1.8.</span> <span class="nav-text">8 注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-类注释"><span class="nav-number">1.8.1.</span> <span class="nav-text">8.1 类注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-方法注释"><span class="nav-number">1.8.2.</span> <span class="nav-text">8.2 方法注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-块注释"><span class="nav-number">1.8.3.</span> <span class="nav-text">8.3 块注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-4-其他一些注释"><span class="nav-number">1.8.4.</span> <span class="nav-text">8.4 其他一些注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-测试规范"><span class="nav-number">1.9.</span> <span class="nav-text">9 测试规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-单元测试"><span class="nav-number">1.9.1.</span> <span class="nav-text">9.1 单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-Espresso-测试"><span class="nav-number">1.9.2.</span> <span class="nav-text">9.2 Espresso 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-其他的一些规范"><span class="nav-number">1.10.</span> <span class="nav-text">10 其他的一些规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">2.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-控件缩写表"><span class="nav-number">2.1.</span> <span class="nav-text">UI 控件缩写表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的英文单词缩写表"><span class="nav-number">2.2.</span> <span class="nav-text">常见的英文单词缩写表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本日志"><span class="nav-number">4.</span> <span class="nav-text">版本日志</span></a></li></ol></div>
             
 
           </div>
