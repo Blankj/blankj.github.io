@@ -83,19 +83,19 @@
 　　控件大致被分为两类，ViewGroup控件和View控件。ViewGroup可以包含多个View并管理它们。通过ViewGroup，整个界面上的控件形成一个树形结构，也就是我们常说的控件树，上层控件负责下层子控件的测量与绘制，并传递交互事件。通常在Activity中使用findViewById()方法，就是在控件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android控件架构(Android群英传)">
-<meta property="og:url" content="http://blankj.com/2016/05/19/android-widget-struct-hero/index.html">
+<meta property="og:url" content="https://blankj.com/2016/05/19/android-widget-struct-hero/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
 <meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
 　　控件大致被分为两类，ViewGroup控件和View控件。ViewGroup可以包含多个View并管理它们。通过ViewGroup，整个界面上的控件形成一个树形结构，也就是我们常说的控件树，上层控件负责下层子控件的测量与绘制，并传递交互事件。通常在Activity中使用findViewById()方法，就是在控件">
-<meta property="og:image" content="http://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg1.png">
-<meta property="og:image" content="http://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg2.png">
-<meta property="og:image" content="http://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg3.png">
+<meta property="og:image" content="https://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg1.png">
+<meta property="og:image" content="https://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg2.png">
+<meta property="og:image" content="https://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg3.png">
 <meta property="og:updated_time" content="2016-11-09T17:25:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android控件架构(Android群英传)">
 <meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
 　　控件大致被分为两类，ViewGroup控件和View控件。ViewGroup可以包含多个View并管理它们。通过ViewGroup，整个界面上的控件形成一个树形结构，也就是我们常说的控件树，上层控件负责下层子控件的测量与绘制，并传递交互事件。通常在Activity中使用findViewById()方法，就是在控件">
-<meta name="twitter:image" content="http://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg1.png">
+<meta name="twitter:image" content="https://blankj.com/2016/05/19/android-widget-struct-hero/azkjjg1.png">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://blankj.com/2016/05/19/android-widget-struct-hero/"/>
+  <link rel="canonical" href="https://blankj.com/2016/05/19/android-widget-struct-hero/"/>
 
 
 
@@ -236,12 +236,32 @@
         </li>
       
         
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://blankj.com/gitbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            GitBook
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+            
+            小伙伴们
           </a>
         </li>
       
@@ -312,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blankj.com/2016/05/19/android-widget-struct-hero/">
+    <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/05/19/android-widget-struct-hero/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
@@ -438,7 +458,49 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <!--<p>微信支付</p>-->
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    布兰柯基
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blankj.com/2016/05/19/android-widget-struct-hero/" title="Android控件架构(Android群英传)">https://blankj.com/2016/05/19/android-widget-struct-hero/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -545,7 +607,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">139</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -617,36 +679,6 @@
           
 
           
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友链
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.haowuyun.com" title="LoveInLog" target="_blank">LoveInLog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://jp1017.github.io" title="蒋朋" target="_blank">蒋朋</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://xiasuhuei321.com" title="xiasuhuei" target="_blank">xiasuhuei</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.lilun.me" title="慕云" target="_blank">慕云</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://dajipai.cc" title="香脆的大鸡排" target="_blank">香脆的大鸡排</a>
-                  </li>
-                
-              </ul>
-            </div>
           
 
           
