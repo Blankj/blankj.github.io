@@ -91,7 +91,7 @@
 添加Gitalk评论需要 Github Application，如果没有 点击这里申请，Authorization callback URL 填写你主页地址，比如我的就是 https://blankj.com，其他都随意。
 
 首先创建 Gitalk 的 swig 文件，放在">
-<meta property="og:updated_time" content="2018-04-12T08:28:41.000Z">
+<meta property="og:updated_time" content="2018-04-12T11:19:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于">
 <meta name="twitter:description" content="About Blankj我的中文简历我的英文简历About Blog主题博客使用的是 next 主题，版本是 5.1.3。
@@ -238,22 +238,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-gitbook">
-          <a href="https://blankj.com/gitbook/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
-            
-            GitBook
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://blankj.com/gitbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            GitBook
           </a>
         </li>
       
@@ -361,7 +361,7 @@
 <h3 id="添加背景图"><a href="#添加背景图" class="headerlink" title="添加背景图"></a>添加背景图</h3><p>在 <code>themes/next/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">body&#123;</div><div class="line">    background:url(/images/bg.jpg);</div><div class="line">    background-size:cover;</div><div class="line">    background-repeat:no-repeat;</div><div class="line">    background-attachment:fixed;</div><div class="line">    background-position:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="修改Logo字体"><a href="#修改Logo字体" class="headerlink" title="修改Logo字体"></a>修改Logo字体</h3><p>在 <code>themes/next/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;</div><div class="line">    font-family: Blankj;</div><div class="line">    src: url(&apos;/fonts/Blankj.ttf&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.site-title &#123;</div><div class="line">    font-size: 40px !important;</div><div class="line">	font-family: &apos;Blankj&apos; !important;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;</div><div class="line">    font-family: Blankj;</div><div class="line">    src: url(&apos;/fonts/Blankj.ttf&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.site-title &#123;</div><div class="line">    font-size: 40px !important;</div><div class="line">    font-family: &apos;Blankj&apos; !important;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其中字体文件在 <code>themes/next/source/fonts</code> 目录下，里面有个 <code>.gitkeep</code> 的隐藏文件，打开写入你要保留的字体文件，比如我的是就是写入 <code>Blankj.ttf</code>，具体字库自己从网上下载即可。</p>
 <h3 id="设置圆形头像"><a href="#设置圆形头像" class="headerlink" title="设置圆形头像"></a>设置圆形头像</h3><p>修改 <code>themes/next/source/css/_common/components/sidebar/sidebar-author.styl</code> 为下方代码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">.site-author-image &#123;</div><div class="line">  display: block;</div><div class="line">  margin: 0 auto;</div><div class="line">  padding: $site-author-image-padding;</div><div class="line">  max-width: $site-author-image-width;</div><div class="line">  height: $site-author-image-height;</div><div class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</div><div class="line">  /* 头像圆形 */</div><div class="line">  border-radius: 80px;</div><div class="line">  -webkit-border-radius: 80px;</div><div class="line">  -moz-border-radius: 80px;</div><div class="line">  box-shadow: inset 0 -1px 0 #333sf;</div><div class="line">  /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束</div><div class="line">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</div><div class="line">  -webkit-animation: play 2s ease-out 1s 1;</div><div class="line">  -moz-animation: play 2s ease-out 1s 1;</div><div class="line">  animation: play 2s ease-out 1s 1;</div><div class="line">  /* 鼠标经过头像旋转360度 */</div><div class="line">  -webkit-transition: -webkit-transform 1.5s ease-out;</div><div class="line">  -moz-transition: -moz-transform 1.5s ease-out;</div><div class="line">  transition: transform 1.5s ease-out;</div><div class="line">&#125;</div><div class="line">img:hover &#123;</div><div class="line">  /* 鼠标经过停止头像旋转</div><div class="line">  -webkit-animation-play-state:paused;</div><div class="line">  animation-play-state:paused;*/</div><div class="line">  /* 鼠标经过头像旋转360度 */</div><div class="line">  -webkit-transform: rotateZ(360deg);</div><div class="line">  -moz-transform: rotateZ(360deg);</div><div class="line">  transform: rotateZ(360deg);</div><div class="line">&#125;</div><div class="line">/* Z 轴旋转动画 */</div><div class="line">@-webkit-keyframes play &#123;</div><div class="line">  0% &#123;</div><div class="line">    -webkit-transform: rotateZ(0deg);</div><div class="line">  &#125;</div><div class="line">  100% &#123;</div><div class="line">    -webkit-transform: rotateZ(-360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@-moz-keyframes play &#123;</div><div class="line">  0% &#123;</div><div class="line">    -moz-transform: rotateZ(0deg);</div><div class="line">  &#125;</div><div class="line">  100% &#123;</div><div class="line">    -moz-transform: rotateZ(-360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@keyframes play &#123;</div><div class="line">  0% &#123;</div><div class="line">    transform: rotateZ(0deg);</div><div class="line">  &#125;</div><div class="line">  100% &#123;</div><div class="line">    transform: rotateZ(-360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">.site-author-name &#123;</div><div class="line">  margin: $site-author-name-margin;</div><div class="line">  text-align: $site-author-name-align;</div><div class="line">  color: $site-author-name-color;</div><div class="line">  font-weight: $site-author-name-weight;</div><div class="line">&#125;</div><div class="line">.site-description &#123;</div><div class="line">  margin-top: $site-description-margin-top;</div><div class="line">  text-align: $site-description-align;</div><div class="line">  font-size: $site-description-font-size;</div><div class="line">  color: $site-description-color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -439,7 +439,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">139</span>
+                  <span class="site-state-item-count">140</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -450,7 +450,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -461,7 +461,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

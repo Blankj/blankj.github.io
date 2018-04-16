@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GitBook 使用教程]]></title>
+    <url>%2F2018%2F04%2F16%2Fgitbook-use%2F</url>
+    <content type="text"><![CDATA[GitBook 使用教程首先先献上 我的 GitBook 地址，可以在我的 博客 导航栏处找到，下面进行相关的介绍。 背景由于之前都把零散的知识都写在 Gist 上，要查找的时候不是很系统化，所以打算挪到 GitBook 上来统一管理，而且 GitBook 写完编译后可以生成静态页面发布到博客上，逼格满满的样子。 GitBook 简介 GitBook 官网 GitBook 文档 GitBook 准备工作安装 Node.jsGitBook 是一个基于 Node.js 的命令行工具，下载安装 Node.js，安装完成之后，你可以使用下面的命令来检验是否安装成功。 12$ node -vv7.7.1 安装 GitBook输入下面的命令来安装 GitBook。 1$ npm install gitbook-cli -g 安装完成之后，你可以使用下面的命令来检验是否安装成功。 123$ gitbook -VCLI version: 2.3.2GitBook version: 3.2.3 更多详情请参照 GitBook 安装文档 来安装 GitBook。 安装 GitBook 编辑器去 GitBook 官网 下载 GitBook 编辑器；如果是 Mac 用户且安装过 brew cask 的话可以使用 brew cask install gitbook-editor 命令行来安装 GitBook 编辑器。 先睹为快GitBook 准备工作做好之后，我们进入一个你要写书的目录，输入如下命令。 12345$ gitbook initwarn: no summary file in this bookinfo: create README.mdinfo: create SUMMARY.mdinfo: initialization is finished 可以看到他会创建 README.md 和 SUMMARY.md 这两个文件，README.md 应该不陌生，就是说明文档，而 SUMMARY.md 其实就是书的章节目录，其默认内容如下所示： 123# Summary* [Introduction](README.md) 接下来，我们输入 $ gitbook serve 命令，然后在浏览器地址栏中输入 http://localhost:4000 便可预览书籍。 效果如下所示： 运行该命令后会在书籍的文件夹中生成一个 _book 文件夹, 里面的内容即为生成的 html 文件，我们可以使用下面命令来生成网页而不开启服务器。 1gitbook build 下面我们来详细介绍下 GitBook 目录结构及相关文件。 目录结构GitBook 基本的目录结构如下所示： 12345678910.├── book.json├── README.md├── SUMMARY.md├── chapter-1/| ├── README.md| └── something.md└── chapter-2/ ├── README.md └── something.md 下面我们主要来讲讲 book.json 和 SUMMARY.md 文件。 book.json该文件主要用来存放配置信息，我先放出我的配置文件。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687&#123; "title": "Blankj's Glory", "author": "Blankj", "description": "select * from learn", "language": "zh-hans", "gitbook": "3.2.3", "styles": &#123; "website": "./styles/website.css" &#125;, "structure": &#123; "readme": "README.md" &#125;, "links": &#123; "sidebar": &#123; "我的狗窝": "https://blankj.com" &#125; &#125;, "plugins": [ "-sharing", "splitter", "expandable-chapters-small", "anchors", "github", "github-buttons", "donate", "sharing-plus", "anchor-navigation-ex", "favicon" ], "pluginsConfig": &#123; "github": &#123; "url": "https://github.com/Blankj" &#125;, "github-buttons": &#123; "buttons": [&#123; "user": "Blankj", "repo": "glory", "type": "star", "size": "small", "count": true &#125; ] &#125;, "donate": &#123; "alipay": "./source/images/donate.png", "title": "", "button": "赞赏", "alipayText": " " &#125;, "sharing": &#123; "douban": false, "facebook": false, "google": false, "hatenaBookmark": false, "instapaper": false, "line": false, "linkedin": false, "messenger": false, "pocket": false, "qq": false, "qzone": false, "stumbleupon": false, "twitter": false, "viber": false, "vk": false, "weibo": false, "whatsapp": false, "all": [ "google", "facebook", "weibo", "twitter", "qq", "qzone", "linkedin", "pocket" ] &#125;, "anchor-navigation-ex": &#123; "showLevel": false &#125;, "favicon":&#123; "shortcut": "./source/images/favicon.jpg", "bookmark": "./source/images/favicon.jpg", "appleTouch": "./source/images/apple-touch-icon.jpg", "appleTouchMore": &#123; "120x120": "./source/images/apple-touch-icon.jpg", "180x180": "./source/images/apple-touch-icon.jpg" &#125; &#125; &#125;&#125; 相信很多节点自己也能猜到是什么意思，我还是简单介绍下吧。 title本书标题 author本书作者 description本书描述 language本书语言，中文设置 “zh-hans” 即可 gitbook指定使用的 GitBook 版本 styles自定义页面样式 structure指定 Readme、Summary、Glossary 和 Languages 对应的文件名 links在左侧导航栏添加链接信息 plugins配置使用的插件 pluginsConfig配置插件的属性 SUMMARY.md这个文件主要决定 GitBook 的章节目录，它通过 Markdown 中的列表语法来表示文件的父子关系，下面是一个简单的示例： 123456789# Summary* [Introduction](README.md)* [Part I](part1/README.md) * [Writing is nice](part1/writing.md) * [GitBook is nice](part1/gitbook.md)* [Part II](part2/README.md) * [We love feedback](part2/feedback_please.md) * [Better tools for authors](part2/better_tools.md) 这个配置对应的目录结构如下所示: 我们通过使用 标题 或者 水平分割线 将 GitBook 分为几个不同的部分，如下所示： 12345678910111213141516# Summary### Part I* [Introduction](README.md)* [Writing is nice](part1/writing.md)* [GitBook is nice](part1/gitbook.md)### Part II* [We love feedback](part2/feedback_please.md)* [Better tools for authors](part2/better_tools.md)---* [Last part without title](part3/title.md) 这个配置对应的目录结构如下所示: 插件GitBook 有 插件官网，默认带有 5 个插件，highlight、search、sharing、font-settings、livereload，如果要去除自带的插件， 可以在插件名称前面加 -，比如： 123&quot;plugins&quot;: [ &quot;-search&quot;] 如果要配置使用的插件可以在 book.json 文件中加入即可，比如我们添加 plugin-github，我们在 book.json 中加入配置如下即可： 12345678&#123; &quot;plugins&quot;: [ &quot;github&quot; ], &quot;pluginsConfig&quot;: &#123; &quot;github&quot;: &#123; &quot;url&quot;: &quot;https://github.com/your/repo&quot; &#125; &#125;&#125; 然后在终端输入 gitbook install ./ 即可。 如果要指定插件的版本可以使用 plugin@0.3.1，因为一些插件可能不会随着 GitBook 版本的升级而升级。 结语这是我对 GitBook 使用的总结，希望能帮到今后需要的小伙伴。]]></content>
+      <categories>
+        <category>GitBook</category>
+      </categories>
+      <tags>
+        <tag>GitBook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决 AS 3.1.0 版本 Logcat 合并多条日志的问题]]></title>
     <url>%2F2018%2F04%2F12%2Fsolve-logcat%2F</url>
     <content type="text"><![CDATA[在升级到 AS 3.1.0 版本后，Logcat 会合并短时间内同 tag 的日志，具体情况如下图所示： 一些三方日志库都会存在上述问题，当然，AndroidUtilCode 在第一时间就解决了该问题，如今只需使用 1.13.8 以上版本即可，如果嫌 AndroidUtilCode 太庞大的话，我这里也提供了单一的日志库：一个精简、全面、方便的 Android 日志库：ALog。对如上日志输出如下所示： 当然，你如果还想要以前那样的效果，我也做了兼容，只需要初始化的时候进行如下设置即可。 1setSingleTagSwitch(false)// 一条日志仅输出一条，默认开，为美化 AS 3.1.0 的 Logcat` 再顺带说一下日志工具的功能吧 兼容 Android Studio 3.1.0 的 Logcat 完美显示日志 兼容 Kotlin 可设置 Log 开启和关闭 可设置是否输出到控制台（Logcat） 可设置 Log 全局 Tag 全局 Tag 为空时 Tag 为当前类名 可设置 Log 是否显示头部信息 Log 文件顶部显示设备信息 Log 头部含有当前线程名 Log 头部含有当前类及行号和函数名，支持点击跳转 可设置 Log 是否写入文件 可设置 Log 写入文件目录 可设置 Log 写入文件前缀 可设置 Log 是否显示边框 可设置 Log 控制台过滤器 可设置 Log 文件过滤器 可设置 Log 栈深度 支持控制台长字符串的输出 支持多参数输出 支持单独写入文件 支持 JSON 串的输出 支持 XML 串的输出 支持 Live Templates 如果正好帮到了你，那可真是巧了哈。]]></content>
@@ -10,6 +21,7 @@
       </categories>
       <tags>
         <tag>Android Studio</tag>
+        <tag>Logcat</tag>
       </tags>
   </entry>
   <entry>
@@ -22,6 +34,7 @@
       </categories>
       <tags>
         <tag>工具类</tag>
+        <tag>反射</tag>
       </tags>
   </entry>
   <entry>
@@ -34,6 +47,7 @@
       </categories>
       <tags>
         <tag>工具类</tag>
+        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
