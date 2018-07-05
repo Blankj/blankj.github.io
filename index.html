@@ -322,6 +322,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blankj.com/2018/07/05/double-cache-so-easy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/double-cache-so-easy/" itemprop="url">Android 的二级缓存如斯简单</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T11:55:43+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="CacheDiskUtils"><a href="#CacheDiskUtils" class="headerlink" title="CacheDiskUtils"></a>CacheDiskUtils</h2><p>之前写过一篇 <a href="https://www.jianshu.com/p/e39fb4f2b06a" target="_blank" rel="external">你想要的 CacheUtils</a>，简单介绍了下其可以完美替代 <a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">ASimpleCache</a>，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：</p>
+<h3 id="缓存相关-gt-CacheUtils-java"><a href="#缓存相关-gt-CacheUtils-java" class="headerlink" title="缓存相关 -&gt; CacheUtils.java"></a>缓存相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">getInstance             : 获取缓存实例</div><div class="line">Instance.put            : 缓存中写入数据</div><div class="line">Instance.getBytes       : 缓存中读取字节数组</div><div class="line">Instance.getString      : 缓存中读取 String</div><div class="line">Instance.getJSONObject  : 缓存中读取 JSONObject</div><div class="line">Instance.getJSONArray   : 缓存中读取 JSONArray</div><div class="line">Instance.getBitmap      : 缓存中读取 Bitmap</div><div class="line">Instance.getDrawable    : 缓存中读取 Drawable</div><div class="line">Instance.getParcelable  : 缓存中读取 Parcelable</div><div class="line">Instance.getSerializable: 缓存中读取 Serializable</div><div class="line">Instance.getCacheSize   : 获取缓存大小</div><div class="line">Instance.getCacheCount  : 获取缓存个数</div><div class="line">Instance.remove         : 根据键值移除缓存</div><div class="line">Instance.clear          : 清除所有缓存</div></pre></td></tr></table></figure>
+<p>其也就是所谓的硬盘缓存，在 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a> 1.17.0 版本，该 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils</a> 已被我标记废弃，可替换为 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheDiskUtils.java" target="_blank" rel="external"> CacheDiskUtils</a>，下一个大版本1.18.x 可能就会移除 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils</a>。</p>
+<h2 id="CacheMemoryUtils"><a href="#CacheMemoryUtils" class="headerlink" title="CacheMemoryUtils"></a>CacheMemoryUtils</h2><p>讲了磁盘缓存另一个就是内存缓存，内存缓存工具类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheMemoryUtils.java" target="_blank" rel="external">CacheMemoryUtils</a> 原理是利用 LruCache 来实现的（LRU 是Least Recently Used的缩写，即最近最少使用），其 API 如下所示：</p>
+<h3 id="内存缓存相关-gt-CacheMemoryUtils-java-gt-Test"><a href="#内存缓存相关-gt-CacheMemoryUtils-java-gt-Test" class="headerlink" title="内存缓存相关 -&gt; CacheMemoryUtils.java -&gt; Test"></a>内存缓存相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheMemoryUtils.java" target="_blank" rel="external">CacheMemoryUtils.java</a> -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/CacheMemoryUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getInstance           : 获取缓存实例</div><div class="line">Instance.put          : 缓存中写入数据</div><div class="line">Instance.get          : 缓存中读取字节数组</div><div class="line">Instance.getCacheCount: 获取缓存个数</div><div class="line">Instance.remove       : 根据键值移除缓存</div><div class="line">Instance.clear        : 清除所有缓存</div></pre></td></tr></table></figure>
+<h2 id="CacheDoubleUtils"><a href="#CacheDoubleUtils" class="headerlink" title="CacheDoubleUtils"></a>CacheDoubleUtils</h2><p>结合硬盘缓存工具类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheDiskUtils.java" target="_blank" rel="external"> CacheDiskUtils</a> 和内存缓存工具类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheMemoryUtils.java" target="_blank" rel="external">CacheMemoryUtils</a>，那么我们的二级缓存工具类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheDoubleUtils.java" target="_blank" rel="external">CacheDoubleUtils</a> 便诞生了，其 API 如下所示：</p>
+<h3 id="二级缓存相关-gt-CacheDoubleUtils-java-gt-Test"><a href="#二级缓存相关-gt-CacheDoubleUtils-java-gt-Test" class="headerlink" title="二级缓存相关 -&gt; CacheDoubleUtils.java -&gt; Test"></a>二级缓存相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheDoubleUtils.java" target="_blank" rel="external">CacheDoubleUtils.java</a> -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/CacheDoubleUtilsTest.java" target="_blank" rel="external">Test</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">getInstance                 : 获取缓存实例</div><div class="line">Instance.put                : 缓存中写入数据</div><div class="line">Instance.getBytes           : 缓存中读取字节数组</div><div class="line">Instance.getString          : 缓存中读取 String</div><div class="line">Instance.getJSONObject      : 缓存中读取 JSONObject</div><div class="line">Instance.getJSONArray       : 缓存中读取 JSONArray</div><div class="line">Instance.getBitmap          : 缓存中读取 Bitmap</div><div class="line">Instance.getDrawable        : 缓存中读取 Drawable</div><div class="line">Instance.getParcelable      : 缓存中读取 Parcelable</div><div class="line">Instance.getSerializable    : 缓存中读取 Serializable</div><div class="line">Instance.getCacheDiskSize   : 获取磁盘缓存大小</div><div class="line">Instance.getCacheDiskCount  : 获取磁盘缓存个数</div><div class="line">Instance.getCacheMemoryCount: 获取内存缓存个数</div><div class="line">Instance.remove             : 根据键值移除缓存</div><div class="line">Instance.clear              : 清除所有缓存</div></pre></td></tr></table></figure>
+<p>借助以上三个缓存工具类，那么 Android 端的缓存实现便再也不是什么难题了，例如你想要实现 RxCache，那么借助 RxJava 的 compose 操作符和我的工具类，把数据放入缓存不就轻而易举地实现了么，更多风骚的姿势可待你解锁。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2018/05/23/thread-utils/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1715,166 +1875,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blankj.com/2017/04/16/awesome-java-leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/16/awesome-java-leetcode/" itemprop="url">LeetCode题解之Java版(updating)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-16T10:05:10+08:00">
-                2017-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我如今是一名Android Developer，大学的我曾是一名ACMer，为了不想让算法淡出我的记忆，故重拾LeetCode之Algorithm，语言选择的是Java，题库会一点点完善起来，按简单，中等，困难分类，相应难度下按题号排序，工程代码在<a href="https://github.com/Blankj/awesome-java-leetcode/tree/master/project">project</a>目录中，相关解题都在<a href="https://github.com/Blankj/awesome-java-leetcode/tree/master/note">note</a>目录中，欢迎star。</p>
-<p>如今有机会面试Facebook，附上LeetCode上Facebook的面试题目序号，希望可以帮助到以后想入Facebook的小伙伴:-)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1,10,13,15,17,20,23,25,26,28,33,38,43,44,49,50,56,57,67,68,69,71,75,76</div><div class="line">78,79,80,85,88,90,91,98,102,117,121,125,127,128,133,139,146,157,158,161</div><div class="line">168,173,200,206,208,209,210,211,215,218,221,234,235,236,238,252,253,257</div><div class="line">261,265,269,273,274,275,277,278,282,283,285,286,297,301,311,314,325,334</div><div class="line">341,377,380,398,404,410,461,477,494,523,525,534,535,543,554</div></pre></td></tr></table></figure>
-<p>如果想知道更多公司LeetCode面试题，可以参看<a href="https://github.com/Blankj/awesome-java-leetcode/blob/master/Companies.md">Companies.md</a>。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/16/awesome-java-leetcode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1929,7 +1929,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">142</span>
+                  <span class="site-state-item-count">143</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1951,7 +1951,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
