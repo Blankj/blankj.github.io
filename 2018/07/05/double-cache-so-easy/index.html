@@ -79,19 +79,16 @@
 
 
 
-<meta name="description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：
-缓存相关 -&amp;gt; CacheUtils.java1234567891011121314getInstance             : 获取缓存实例Instance.put">
+<meta name="description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 的二级缓存如斯简单">
 <meta property="og:url" content="https://blankj.com/2018/07/05/double-cache-so-easy/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：
-缓存相关 -&amp;gt; CacheUtils.java1234567891011121314getInstance             : 获取缓存实例Instance.put">
-<meta property="og:updated_time" content="2018-07-05T03:57:03.000Z">
+<meta property="og:description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：">
+<meta property="og:updated_time" content="2018-07-05T04:00:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 的二级缓存如斯简单">
-<meta name="twitter:description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：
-缓存相关 -&amp;gt; CacheUtils.java1234567891011121314getInstance             : 获取缓存实例Instance.put">
+<meta name="twitter:description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：">
 
 
 
@@ -433,7 +430,7 @@
       
 
       
-        <h2 id="CacheDiskUtils"><a href="#CacheDiskUtils" class="headerlink" title="CacheDiskUtils"></a>CacheDiskUtils</h2><p>之前写过一篇 <a href="https://www.jianshu.com/p/e39fb4f2b06a" target="_blank" rel="external">你想要的 CacheUtils</a>，简单介绍了下其可以完美替代 <a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">ASimpleCache</a>，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：</p>
+        <h2 id="CacheDiskUtils"><a href="#CacheDiskUtils" class="headerlink" title="CacheDiskUtils"></a>CacheDiskUtils</h2><p>之前写过一篇 <a href="https://www.jianshu.com/p/e39fb4f2b06a" target="_blank" rel="external">你想要的 CacheUtils</a>，简单介绍了下其可以完美替代 <a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="external">ASimpleCache</a>，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：<br><a id="more"></a></p>
 <h3 id="缓存相关-gt-CacheUtils-java"><a href="#缓存相关-gt-CacheUtils-java" class="headerlink" title="缓存相关 -&gt; CacheUtils.java"></a>缓存相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">getInstance             : 获取缓存实例</div><div class="line">Instance.put            : 缓存中写入数据</div><div class="line">Instance.getBytes       : 缓存中读取字节数组</div><div class="line">Instance.getString      : 缓存中读取 String</div><div class="line">Instance.getJSONObject  : 缓存中读取 JSONObject</div><div class="line">Instance.getJSONArray   : 缓存中读取 JSONArray</div><div class="line">Instance.getBitmap      : 缓存中读取 Bitmap</div><div class="line">Instance.getDrawable    : 缓存中读取 Drawable</div><div class="line">Instance.getParcelable  : 缓存中读取 Parcelable</div><div class="line">Instance.getSerializable: 缓存中读取 Serializable</div><div class="line">Instance.getCacheSize   : 获取缓存大小</div><div class="line">Instance.getCacheCount  : 获取缓存个数</div><div class="line">Instance.remove         : 根据键值移除缓存</div><div class="line">Instance.clear          : 清除所有缓存</div></pre></td></tr></table></figure>
 <p>其也就是所谓的硬盘缓存，在 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a> 1.17.0 版本，该 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils</a> 已被我标记废弃，可替换为 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheDiskUtils.java" target="_blank" rel="external"> CacheDiskUtils</a>，下一个大版本1.18.x 可能就会移除 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="external">CacheUtils</a>。</p>
 <h2 id="CacheMemoryUtils"><a href="#CacheMemoryUtils" class="headerlink" title="CacheMemoryUtils"></a>CacheMemoryUtils</h2><p>讲了磁盘缓存另一个就是内存缓存，内存缓存工具类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheMemoryUtils.java" target="_blank" rel="external">CacheMemoryUtils</a> 原理是利用 LruCache 来实现的（LRU 是Least Recently Used的缩写，即最近最少使用），其 API 如下所示：</p>
