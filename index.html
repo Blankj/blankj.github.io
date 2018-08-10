@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/30/easy-adapt-screen/" itemprop="url">Android 屏幕适配从未如斯简单（8月8日有过更新）</a></h1>
+                <a class="post-title-link" href="/2018/07/30/easy-adapt-screen/" itemprop="url">Android 屏幕适配从未如斯简单（8月10日最终更新版）</a></h1>
         
 
         <div class="post-meta">
@@ -426,8 +426,9 @@
       
         
           <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个月前看了今日头条新的屏幕适配方案，<a href="https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA">这是传送门</a>，对此不禁拍案叫绝，为此我想把这种方案融入到我工具类中直接一行代码即可适配，如今最新 1.18.5 版 <a href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode</a> 已有其最新的适配方案，其相关函数在 ScreenUtils 中，相关 API 如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adaptScreen4VerticalSlide  : 适配垂直滑动的屏幕</div><div class="line">adaptScreen4HorizontalSlide: 适配水平滑动的屏幕</div><div class="line">cancelAdaptScreen          : 取消适配屏幕</div></pre></td></tr></table></figure>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于之前发的适配文章关注的人比较多，而之前的方案存在较多坑，但这已经被我这一周来仔细琢磨找到了最优的解决方案，担心大家还停留在之前的适配方式，所以在掘金只能靠分享链接来提醒你们查看最新更新版本，为之前还未成熟的适配深表歉意，烦请大家一起再次阅览一遍下文吧。</p>
+<p>一个月前看了今日头条新的屏幕适配方案，<a href="https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA">这是传送门</a>，对此不禁拍案叫绝，为此我想把这种方案融入到我工具类中直接一行代码即可适配，如今最新 1.19.0 版 <a href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode</a> 已有其最新的适配方案，其相关函数在 ScreenUtils 中，相关 API 如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">adaptScreen4VerticalSlide  : 适配垂直滑动的屏幕</div><div class="line">adaptScreen4HorizontalSlide: 适配水平滑动的屏幕</div><div class="line">cancelAdaptScreen          : 取消适配屏幕</div><div class="line">isAdaptScreen              : 是否适配屏幕</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/30/easy-adapt-screen/#more" rel="contents">
