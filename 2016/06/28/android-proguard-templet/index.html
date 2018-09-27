@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示：
-123456789101112131415161718192021222324252627282930313233def releaseTime() &amp;#123;    return new Date().format(&quot;yyyy.MM.dd&quot;, TimeZ">
+<meta name="description" content="现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！　　首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示：
+123456789101112131415161718192021222324252627282">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Studio混淆模板及常用第三方混淆(看了都说好)">
 <meta property="og:url" content="https://blankj.com/2016/06/28/android-proguard-templet/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示：
-123456789101112131415161718192021222324252627282930313233def releaseTime() &amp;#123;    return new Date().format(&quot;yyyy.MM.dd&quot;, TimeZ">
-<meta property="og:updated_time" content="2016-11-09T17:20:22.000Z">
+<meta property="og:description" content="现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！　　首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示：
+123456789101112131415161718192021222324252627282">
+<meta property="og:updated_time" content="2018-08-30T09:48:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio混淆模板及常用第三方混淆(看了都说好)">
-<meta name="twitter:description" content="首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示：
-123456789101112131415161718192021222324252627282930313233def releaseTime() &amp;#123;    return new Date().format(&quot;yyyy.MM.dd&quot;, TimeZ">
+<meta name="twitter:description" content="现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！　　首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示：
+123456789101112131415161718192021222324252627282">
 
 
 
@@ -433,7 +433,7 @@
       
 
       
-        <p>　　首先要在build.gradle中开启混淆，也就是 <code>minifyEnabled true</code> ，我用的build.gradle具体如下所示：</p>
+        <h2 id="现可使用-FreeProGuard-库来助你快速混淆！"><a href="#现可使用-FreeProGuard-库来助你快速混淆！" class="headerlink" title="现可使用 FreeProGuard 库来助你快速混淆！"></a>现可使用 <a href="https://github.com/Blankj/FreeProGuard" target="_blank" rel="external">FreeProGuard</a> 库来助你快速混淆！</h2><h2 id="现可使用-FreeProGuard-库来助你快速混淆！-1"><a href="#现可使用-FreeProGuard-库来助你快速混淆！-1" class="headerlink" title="现可使用 FreeProGuard 库来助你快速混淆！"></a>现可使用 <a href="https://github.com/Blankj/FreeProGuard" target="_blank" rel="external">FreeProGuard</a> 库来助你快速混淆！</h2><h2 id="现可使用-FreeProGuard-库来助你快速混淆！-2"><a href="#现可使用-FreeProGuard-库来助你快速混淆！-2" class="headerlink" title="现可使用 FreeProGuard 库来助你快速混淆！"></a>现可使用 <a href="https://github.com/Blankj/FreeProGuard" target="_blank" rel="external">FreeProGuard</a> 库来助你快速混淆！</h2><p>　　首先要在build.gradle中开启混淆，也就是 <code>minifyEnabled true</code> ，我用的build.gradle具体如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> releaseTime() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Date().format(<span class="string">"yyyy.MM.dd"</span>, TimeZone.getTimeZone(<span class="string">"UTC"</span>))</div><div class="line">&#125;</div><div class="line"></div><div class="line">android &#123;</div><div class="line">    ....</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="comment">// 混淆</span></div><div class="line">            minifyEnabled <span class="literal">true</span></div><div class="line">            <span class="comment">// Zipalign优化</span></div><div class="line">            zipAlignEnabled <span class="literal">true</span></div><div class="line">            <span class="comment">// 移除无用的resource文件</span></div><div class="line">            shrinkResources <span class="literal">true</span></div><div class="line">            <span class="comment">// 前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件</span></div><div class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></div><div class="line"> </div><div class="line">            applicationVariants.all &#123; variant -&gt;</div><div class="line">                variant.outputs.each &#123; output -&gt;</div><div class="line">                    <span class="keyword">def</span> outputFile = output.outputFile</div><div class="line">                    <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</div><div class="line">                        <span class="comment">// 输出apk名称为appname-1.0-beta1-xxxx-xx-xx.apk</span></div><div class="line">                        <span class="keyword">def</span> fileName = <span class="string">"app-$&#123;defaultConfig.versionName&#125;-beta1-$&#123;releaseTime()&#125;.apk"</span></div><div class="line">                        output.outputFile = <span class="keyword">new</span> File(outputFile.parent, fileName)</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>　　上面注释中写到proguard-android.txt文件，这是系统默认的混淆文件，具体在../sdk/tools/proguard/目录下，其中包含了android最基本的混淆，一般不需要改动，我们需要配置的是项目中app下的proguard-rules.pro文件，在此提供一份混淆模板。  </p>
@@ -584,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -604,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">144</span>
+                  <span class="site-state-item-count">145</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -626,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -683,6 +692,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现可使用-FreeProGuard-库来助你快速混淆！"><span class="nav-number">1.</span> <span class="nav-text">现可使用 FreeProGuard 库来助你快速混淆！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现可使用-FreeProGuard-库来助你快速混淆！-1"><span class="nav-number">2.</span> <span class="nav-text">现可使用 FreeProGuard 库来助你快速混淆！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现可使用-FreeProGuard-库来助你快速混淆！-2"><span class="nav-number">3.</span> <span class="nav-text">现可使用 FreeProGuard 库来助你快速混淆！</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
