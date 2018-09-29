@@ -79,19 +79,16 @@
 
 
 
-<meta name="description" content="数据处理和视图加载分离我们知道，从远端拉取数据肯定是要放在异步的，在我们拉取下来数据之后可能就匆匆把数据丢给了 VH 处理，其实，数据的处理逻辑我们也应该放在异步处理，这样 Adapter 在 notify change 后，ViewHolder 就可以简单无压力地做数据与视图的绑定逻辑，比如：
-1mTextView.setText(Html.fromHtml(data).toString());">
+<meta name="description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
 <meta property="og:url" content="https://blankj.com/2018/09/29/optimize-recycler-view/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="数据处理和视图加载分离我们知道，从远端拉取数据肯定是要放在异步的，在我们拉取下来数据之后可能就匆匆把数据丢给了 VH 处理，其实，数据的处理逻辑我们也应该放在异步处理，这样 Adapter 在 notify change 后，ViewHolder 就可以简单无压力地做数据与视图的绑定逻辑，比如：
-1mTextView.setText(Html.fromHtml(data).toString());">
-<meta property="og:updated_time" content="2018-09-29T01:56:09.000Z">
+<meta property="og:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
+<meta property="og:updated_time" content="2018-09-29T01:59:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
-<meta name="twitter:description" content="数据处理和视图加载分离我们知道，从远端拉取数据肯定是要放在异步的，在我们拉取下来数据之后可能就匆匆把数据丢给了 VH 处理，其实，数据的处理逻辑我们也应该放在异步处理，这样 Adapter 在 notify change 后，ViewHolder 就可以简单无压力地做数据与视图的绑定逻辑，比如：
-1mTextView.setText(Html.fromHtml(data).toString());">
+<meta name="twitter:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
 
 
 
@@ -433,7 +430,8 @@
       
 
       
-        <h2 id="数据处理和视图加载分离"><a href="#数据处理和视图加载分离" class="headerlink" title="数据处理和视图加载分离"></a>数据处理和视图加载分离</h2><p>我们知道，从远端拉取数据肯定是要放在异步的，在我们拉取下来数据之后可能就匆匆把数据丢给了 VH 处理，其实，数据的处理逻辑我们也应该放在异步处理，这样 Adapter 在 notify change 后，ViewHolder 就可以简单无压力地做数据与视图的绑定逻辑，比如：</p>
+        <p>阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。<br><a id="more"></a></p>
+<h2 id="数据处理和视图加载分离"><a href="#数据处理和视图加载分离" class="headerlink" title="数据处理和视图加载分离"></a>数据处理和视图加载分离</h2><p>我们知道，从远端拉取数据肯定是要放在异步的，在我们拉取下来数据之后可能就匆匆把数据丢给了 VH 处理，其实，数据的处理逻辑我们也应该放在异步处理，这样 Adapter 在 notify change 后，ViewHolder 就可以简单无压力地做数据与视图的绑定逻辑，比如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mTextView.setText(Html.fromHtml(data).toString());</div></pre></td></tr></table></figure>
 <p>这里的 <code>Html.fromHtml(data)</code> 方法可能就是比较耗时的，存在多个 <code>TextView</code> 的话耗时会更为严重，这样便会引发掉帧、卡顿，而如果把这一步与网络异步线程放在一起，站在用户角度，最多就是网络刷新时间稍长一点。</p>
 <h2 id="数据优化"><a href="#数据优化" class="headerlink" title="数据优化"></a>数据优化</h2><p>分页拉取远端数据，对拉取下来的远端数据进行缓存，提升二次加载速度；对于新增或者删除数据通过 <code>DiffUtil</code> 来进行局部刷新数据，而不是一味地全局刷新数据。</p>
