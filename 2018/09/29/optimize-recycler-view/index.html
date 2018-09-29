@@ -85,7 +85,7 @@
 <meta property="og:url" content="https://blankj.com/2018/09/29/optimize-recycler-view/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
 <meta property="og:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
-<meta property="og:updated_time" content="2018-09-29T02:27:01.000Z">
+<meta property="og:updated_time" content="2018-09-29T02:38:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
 <meta name="twitter:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
@@ -460,7 +460,7 @@
 </li>
 <li><p>对 <code>ItemView</code> 设置监听器，不要对每个 Item 都调用 <code>addXxListener</code>，应该大家公用一个 <code>XxListener</code>，根据 <code>ID</code> 来进行不同的操作，优化了对象的频繁创建带来的资源消耗。</p>
 </li>
-<li><p>通过 getExtraLayoutSpace 来增加 RecyclerView 预留的额外空间，如下所示：</p>
+<li><p>通过 getExtraLayoutSpace 来增加 RecyclerView 预留的额外空间（显示范围之外，应该额外缓存的空间），如下所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">new LinearLayoutManager(this) &#123;</div><div class="line">    @Override</div><div class="line">    protected int getExtraLayoutSpace(RecyclerView.State state) &#123;</div><div class="line">        return size;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -549,6 +549,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/09/29/the-process-of-app-start/" rel="prev" title="App 启动过程（含 Activity 启动过程） | 安卓 offer 收割基">
+                App 启动过程（含 Activity 启动过程） | 安卓 offer 收割基 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -631,7 +635,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">146</span>
+                  <span class="site-state-item-count">147</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -653,7 +657,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
