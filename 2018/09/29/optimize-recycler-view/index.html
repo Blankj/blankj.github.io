@@ -85,7 +85,7 @@
 <meta property="og:url" content="https://blankj.com/2018/09/29/optimize-recycler-view/index.html">
 <meta property="og:site_name" content="Blankj's Blog">
 <meta property="og:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
-<meta property="og:updated_time" content="2018-09-29T03:08:05.000Z">
+<meta property="og:updated_time" content="2018-09-30T09:26:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
 <meta name="twitter:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
@@ -435,7 +435,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mTextView.setText(Html.fromHtml(data).toString());</div></pre></td></tr></table></figure>
 <p>这里的 <code>Html.fromHtml(data)</code> 方法可能就是比较耗时的，存在多个 <code>TextView</code> 的话耗时会更为严重，这样便会引发掉帧、卡顿，而如果把这一步与网络异步线程放在一起，站在用户角度，最多就是网络刷新时间稍长一点。</p>
 <h2 id="数据优化"><a href="#数据优化" class="headerlink" title="数据优化"></a>数据优化</h2><p>分页拉取远端数据，对拉取下来的远端数据进行缓存，提升二次加载速度；对于新增或者删除数据通过 <code>DiffUtil</code> 来进行局部刷新数据，而不是一味地全局刷新数据。</p>
-<h2 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a>布局优化</h2><h3 id="减少过渡绘制"><a href="#减少过渡绘制" class="headerlink" title="减少过渡绘制"></a>减少过渡绘制</h3><p>减少布局层级，例如使用 <code>ConstraintLayout</code>或者用一个自定义 View 来代替 ItemView。</p>
+<h2 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a>布局优化</h2><h3 id="减少过渡绘制"><a href="#减少过渡绘制" class="headerlink" title="减少过渡绘制"></a>减少过渡绘制</h3><p>减少布局层级，可以考虑使用自定义 View 来减少层级，或者更合理地设置布局来减少层级，不推荐在 RecyclerView 中使用 <code>ConstraintLayout</code>，有很多开发者已经反映了使用它效果更差，相关链接有：<a href="https://www.reddit.com/r/androiddev/comments/7ylbz3/is_constraintlayout_that_slow/" target="_blank" rel="external">Is ConstraintLayout that slow?</a>、<a href="https://issuetracker.google.com/issues/112000722" target="_blank" rel="external">constraintlayout 1.1.1 not work well in listview</a>。</p>
 <h3 id="减少-xml-文件-inflate-时间"><a href="#减少-xml-文件-inflate-时间" class="headerlink" title="减少 xml 文件 inflate 时间"></a>减少 xml 文件 inflate 时间</h3><p>这里的 xml 文件不仅包括 layout 的 xml，还包括 drawable 的 xml，xml 文件 inflate 出 ItemView 是通过耗时的 IO 操作，尤其当 Item 的复用几率很低的情况下，随着 Type 的增多，这种 inflate 带来的损耗是相当大的，此时我们可以用代码去生成布局，即 <code>new View()</code> 的方式，只要搞清楚 xml 中每个节点的属性对应的 API 即可。</p>
 <h3 id="减少-View-对象的创建"><a href="#减少-View-对象的创建" class="headerlink" title="减少 View 对象的创建"></a>减少 View 对象的创建</h3><p>一个稍微复杂的 Item 会包含大量的 View，而大量的 View 的创建也会消耗大量时间，所以要尽可能简化 ItemView；设计 ItemType 时，对多 ViewType 能够共用的部分尽量设计成自定义 View，减少 View 的构造和嵌套。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他并不代表不重要，而是我不能把他们进行分类哈，其中可能某些操作会对你的 RecyclerView 有很大的优化。</p>
