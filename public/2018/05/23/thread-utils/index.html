@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="RxJava,工具类,线程池,单元测试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="为什么要用线程池使用线程池管理线程有如下优点：  降低资源消耗：通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 提高响应速度：当任务到达时，任务可以不需要等到线程创建就能立即执行。 提高线程的可管理性：线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。">
+<meta name="keywords" content="RxJava,工具类,线程池,单元测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="妈妈再也不用担心你不会使用线程池了（ThreadUtils）">
+<meta property="og:url" content="https://blankj.com/2018/05/23/thread-utils/index.html">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="为什么要用线程池使用线程池管理线程有如下优点：  降低资源消耗：通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 提高响应速度：当任务到达时，任务可以不需要等到线程创建就能立即执行。 提高线程的可管理性：线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+<meta property="og:image" content="https://blankj.com/2018/05/23/thread-utils/process.png">
+<meta property="og:updated_time" content="2018-10-01T02:31:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="妈妈再也不用担心你不会使用线程池了（ThreadUtils）">
+<meta name="twitter:description" content="为什么要用线程池使用线程池管理线程有如下优点：  降低资源消耗：通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 提高响应速度：当任务到达时，任务可以不需要等到线程创建就能立即执行。 提高线程的可管理性：线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":8,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blankj.com/2018/05/23/thread-utils/">
+
+
+
+
+
+  <title>妈妈再也不用担心你不会使用线程池了（ThreadUtils） | Blankj's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1918d813c85f9869017db2480dee5733";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blankj's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">select * from learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://blankj.com/gitbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
+            
+            小伙伴们
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blankj.com/2018/05/23/thread-utils/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">妈妈再也不用担心你不会使用线程池了（ThreadUtils）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T18:21:49+08:00">
+                2018-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
+<h3 id="为什么要用线程池"><a href="#为什么要用线程池" class="headerlink" title="为什么要用线程池"></a>为什么要用线程池</h3><p>使用线程池管理线程有如下优点：</p>
+<ol>
+<li>降低资源消耗：通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li>
+<li>提高响应速度：当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+<li>提高线程的可管理性：线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。<a id="more"></a>
+</li>
+</ol>
+<h3 id="线程池介绍"><a href="#线程池介绍" class="headerlink" title="线程池介绍"></a>线程池介绍</h3><h4 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h4><p>Java 为我们提供了 ThreadPoolExecutor 来创建一个线程池，其完整构造函数如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="function"><span class="params">                          TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">                          BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="function"><span class="params">                          RejectedExecutionHandler handler)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>int corePoolSize（核心线程数）：线程池新建线程的时候，如果当前线程总数小于corePoolSize，则新建的是核心线程，如果超过corePoolSize，则新建的是非核心线程；核心线程默认情况下会一直存活在线程池中，即使这个核心线程啥也不干(闲置状态)；如果设置了 allowCoreThreadTimeOut 为 true，那么核心线程如果不干活(闲置状态)的话，超过一定时间(时长下面参数决定)，就会被销毁掉。</p>
+</li>
+<li><p>int maximumPoolSize（线程池能容纳的最大线程数量）：线程总数 = 核心线程数 + 非核心线程数。</p>
+</li>
+<li><p>long keepAliveTime（非核心线程空闲存活时长）：非核心线程空闲时长超过该时长将会被回收，主要应用在缓存线程池中，当设置了 allowCoreThreadTimeOut 为 true 时，对核心线程同样起作用。</p>
+</li>
+<li><p>TimeUnit unit（keepAliveTime 的单位）：它是一个枚举类型，常用的如：TimeUnit.SECONDS（秒）、TimeUnit.MILLISECONDS（毫秒）。</p>
+</li>
+<li><p>BlockingQueue workQueue（任务队列）：当所有的核心线程都在干活时，新添加的任务会被添加到这个队列中等待处理，如果队列满了，则新建非核心线程执行任务，常用的 workQueue 类型：</p>
+<ol>
+<li><p>SynchronousQueue：这个队列接收到任务的时候，会直接提交给线程处理，而不保留它，如果所有线程都在工作怎么办？那就新建一个线程来处理这个任务！所以为了保证不出现 <em>线程数达到了 maximumPoolSize 而不能新建线程</em> 的错误，使用这个类型队列的时候，maximumPoolSize 一般指定成 Integer.MAX_VALUE，即无限大。</p>
+</li>
+<li><p>LinkedBlockingQueue：这个队列接收到任务的时候，如果当前线程数小于核心线程数，则新建线程(核心线程)处理任务；如果当前线程数等于核心线程数，则进入队列等待。由于这个队列没有最大值限制，即所有超过核心线程数的任务都将被添加到队列中，这也就导致了 maximumPoolSize 的设定失效，因为总线程数永远不会超过 corePoolSize。</p>
+</li>
+<li><p>ArrayBlockingQueue：可以限定队列的长度，接收到任务的时候，如果没有达到 corePoolSize 的值，则新建线程(核心线程)执行任务，如果达到了，则入队等候，如果队列已满，则新建线程(非核心线程)执行任务，又如果总线程数到了 maximumPoolSize，并且队列也满了，则发生错误。</p>
+</li>
+<li><p>DelayQueue：队列内元素必须实现 Delayed 接口，这就意味着你传进去的任务必须先实现 Delayed 接口。这个队列接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务。</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>ThreadFactory threadFactory（线程工厂）：用来创建线程池中的线程，通常用默认的即可。</p>
+</li>
+<li><p>RejectedExecutionHandler handler（拒绝策略）：在线程池已经关闭的情况下和任务太多导致最大线程数和任务队列已经饱和，无法再接收新的任务，在上面两种情况下，只要满足其中一种时，在使用 execute() 来提交新的任务时将会拒绝，线程池提供了以下 4 种策略：</p>
+<ol>
+<li><p>AbortPolicy：默认策略，在拒绝任务时，会抛出RejectedExecutionException。</p>
+</li>
+<li><p>CallerRunsPolicy：只要线程池未关闭，该策略直接在调用者线程中，运行当前的被丢弃的任务。</p>
+</li>
+<li><p>DiscardOldestPolicy：该策略将丢弃最老的一个请求，也就是即将被执行的任务，并尝试再次提交当前任务。</p>
+</li>
+<li><p>DiscardPolicy：该策略默默的丢弃无法处理的任务，不予任何处理。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="线程池执行策略"><a href="#线程池执行策略" class="headerlink" title="线程池执行策略"></a>线程池执行策略</h4><p>当一个任务要被添加进线程池时，有以下四种执行策略：</p>
+<ol>
+<li>线程数量未达到 corePoolSize，则新建一个线程（核心线程）执行任务。</li>
+<li>线程数量达到了 corePoolsSize，则将任务移入队列等待。</li>
+<li>队列已满，新建非核心线程执行任务。</li>
+<li>队列已满，总线程数又达到了 maximumPoolSize，就会由 RejectedExecutionHandler 抛出异常。</li>
+</ol>
+<p>其流程图如下所示：</p>
+<img src="/2018/05/23/thread-utils/process.png">
+<h4 id="常见的四类线程池"><a href="#常见的四类线程池" class="headerlink" title="常见的四类线程池"></a>常见的四类线程池</h4><p>常见的四类线程池分别有 FixedThreadPool、SingleThreadExecutor、ScheduledThreadPool 和 CachedThreadPool，它们其实都是通过 ThreadPoolExecutor 创建的，其参数如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>FixedThreadPool</th>
+<th>SingleThreadExecutor</th>
+<th>ScheduledThreadPool</th>
+<th>CachedThreadPool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>corePoolSize</td>
+<td>nThreads</td>
+<td>1</td>
+<td>corePoolSize</td>
+<td>0</td>
+</tr>
+<tr>
+<td>maximumPoolSize</td>
+<td>nThreads</td>
+<td>1</td>
+<td>Integer.MAX_VALUE</td>
+<td>Integer.MAX_VALUE</td>
+</tr>
+<tr>
+<td>keepAliveTime</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>60</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>MILLISECONDS</td>
+<td>MILLISECONDS</td>
+<td>MILLISECONDS</td>
+<td>SECONDS</td>
+</tr>
+<tr>
+<td>workQueue</td>
+<td>LinkedBlockingQueue</td>
+<td>LinkedBlockingQueue</td>
+<td>DelayedWorkQueue</td>
+<td>SynchronousQueue</td>
+</tr>
+<tr>
+<td>threadFactory</td>
+<td>defaultThreadFactory</td>
+<td>defaultThreadFactory</td>
+<td>defaultThreadFactory</td>
+<td>defaultThreadFactory</td>
+</tr>
+<tr>
+<td>handler</td>
+<td>defaultHandler</td>
+<td>defaultHandler</td>
+<td>defaultHandler</td>
+<td>defaultHandler</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>已知并发压力的情况下，对线程数做限制</td>
+<td>需要保证顺序执行的场景，并且只有一个线程在执行</td>
+<td>需要多个后台线程执行周期任务的场景</td>
+<td>处理执行时间比较短的任务</td>
+</tr>
+</tbody>
+</table>
+<p>如果你不想自己写一个线程池，那么你可以从上面看看有没有符合你要求的（一般都够用了），如果有，那么很好你直接用就行了，如果没有，那你就老老实实自己去写一个吧。</p>
+<h4 id="合理地配置线程池"><a href="#合理地配置线程池" class="headerlink" title="合理地配置线程池"></a>合理地配置线程池</h4><p>需要针对具体情况而具体处理，不同的任务类别应采用不同规模的线程池，任务类别可划分为 CPU 密集型任务、IO 密集型任务和混合型任务。</p>
+<ul>
+<li><p>CPU 密集型任务：线程池中线程个数应尽量少，推荐配置为 (CPU 核心数 + 1)；</p>
+</li>
+<li><p>IO 密集型任务：由于 IO 操作速度远低于 CPU 速度，那么在运行这类任务时，CPU 绝大多数时间处于空闲状态，那么线程池可以配置尽量多些的线程，以提高 CPU 利用率，推荐配置为 (2 * CPU 核心数 + 1)；</p>
+</li>
+<li><p>混合型任务：可以拆分为 CPU 密集型任务和 IO 密集型任务，当这两类任务执行时间相差无几时，通过拆分再执行的吞吐率高于串行执行的吞吐率，但若这两类任务执行时间有数据级的差距，那么没有拆分的意义。</p>
+</li>
+</ul>
+<h3 id="线程池工具类封装及使用"><a href="#线程池工具类封装及使用" class="headerlink" title="线程池工具类封装及使用"></a>线程池工具类封装及使用</h3><p>为了提升开发效率及更好地使用和管理线程池，我已经为你们封装好了线程工具类—-<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ThreadUtils.java" target="_blank" rel="noopener">ThreadUtils</a>，依赖 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 1.16.1 版本即可使用，其 API 如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">isMainThread            : 判断当前是否主线程</span><br><span class="line">getFixedPool            : 获取固定线程池</span><br><span class="line">getSinglePool           : 获取单线程池</span><br><span class="line">getCachedPool           : 获取缓冲线程池</span><br><span class="line">getIoPool               : 获取 IO 线程池</span><br><span class="line">getCpuPool              : 获取 CPU 线程池</span><br><span class="line">executeByFixed          : 在固定线程池执行任务</span><br><span class="line">executeByFixedWithDelay : 在固定线程池延时执行任务</span><br><span class="line">executeByFixedAtFixRate : 在固定线程池按固定频率执行任务</span><br><span class="line">executeBySingle         : 在单线程池执行任务</span><br><span class="line">executeBySingleWithDelay: 在单线程池延时执行任务</span><br><span class="line">executeBySingleAtFixRate: 在单线程池按固定频率执行任务</span><br><span class="line">executeByCached         : 在缓冲线程池执行任务</span><br><span class="line">executeByCachedWithDelay: 在缓冲线程池延时执行任务</span><br><span class="line">executeByCachedAtFixRate: 在缓冲线程池按固定频率执行任务</span><br><span class="line">executeByIo             : 在 IO 线程池执行任务</span><br><span class="line">executeByIoWithDelay    : 在 IO 线程池延时执行任务</span><br><span class="line">executeByIoAtFixRate    : 在 IO 线程池按固定频率执行任务</span><br><span class="line">executeByCpu            : 在 CPU 线程池执行任务</span><br><span class="line">executeByCpuWithDelay   : 在 CPU 线程池延时执行任务</span><br><span class="line">executeByCpuAtFixRate   : 在 CPU 线程池按固定频率执行任务</span><br><span class="line">executeByCustom         : 在自定义线程池执行任务</span><br><span class="line">executeByCustomWithDelay: 在自定义线程池延时执行任务</span><br><span class="line">executeByCustomAtFixRate: 在自定义线程池按固定频率执行任务</span><br><span class="line">cancel                  : 取消任务的执行</span><br></pre></td></tr></table></figure>
+<p>如果你使用 RxJava 很 6，而且项目中已经使用了 RxJava，那么你可以继续使用 RxJava 来做线程切换的操作；如果你并不会 RxJava 或者是在开发 SDK，那么这个工具类再适合你不过了，它可以为你统一管理线程池的使用，不至于让你的项目中出现过多的线程池。</p>
+<p>ThreadUtils 使用极为方便，看 API 即可明白相关意思，FixedPool、SinglePool、CachedPool 分别对应了上面介绍的 FixedThreadPool、SingleThreadExecutor、CachedThreadPool 这三种，IoPool 是创建 (CPU_COUNT * 2 + 1) 个核心线程数，CpuPool 是建立 (CPU_COUNT + 1) 个核心线程数；而所有的 execute 都是线程池外围裹了一层 ScheduledThreadPool，这里和 RxJava 线程池的实现有所相似，可以更方便地提供延时任务和固定频率执行的任务，当然也可以更方便地取消任务的执行，下面让我们来简单地来介绍其使用，以从 assets 中拷贝 APK 到 SD 卡为例，其代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">releaseInstallApk</span><span class="params">(<span class="keyword">final</span> OnReleasedListener listener)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!FileUtils.isFileExists(Config.TEST_APK_PATH)) &#123;</span><br><span class="line">        ThreadUtils.executeByIo(<span class="keyword">new</span> ThreadUtils.SimpleTask&lt;Void&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Void <span class="title">doInBackground</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                ResourceUtils.copyFileFromAssets(<span class="string">"test_install"</span>, Config.TEST_APK_PATH);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(Void result)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    listener.onReleased();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            listener.onReleased();</span><br><span class="line">        &#125;</span><br><span class="line">        LogUtils.d(<span class="string">"test apk existed."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看起来还不是很优雅是吧，你可以把相关的 Task 都抽出来放到合适的包下，这样每个 Task 的职责一看便知，如上例子可以改装成如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReleaseInstallApkTask</span> <span class="keyword">extends</span> <span class="title">ThreadUtils</span>.<span class="title">SimpleTask</span>&lt;<span class="title">Void</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> OnReleasedListener mListener;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReleaseInstallApkTask</span><span class="params">(<span class="keyword">final</span> OnReleasedListener listener)</span> </span>&#123;</span><br><span class="line">        mListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Void <span class="title">doInBackground</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        ResourceUtils.copyFileFromAssets(<span class="string">"test_install"</span>, Config.TEST_APK_PATH);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(Void result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mListener.onReleased();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ThreadUtils.executeByIo(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">releaseInstallApk</span><span class="params">(<span class="keyword">final</span> OnReleasedListener listener)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!FileUtils.isFileExists(Config.TEST_APK_PATH)) &#123;</span><br><span class="line">        <span class="keyword">new</span> ReleaseInstallApkTask(listener).execute();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            listener.onReleased();</span><br><span class="line">        &#125;</span><br><span class="line">        LogUtils.d(<span class="string">"test apk existed."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是瞬间清爽了很多，如果执行成功的回调中涉及了 View 相关的操作，那么你需要在 destroy 中取消 task 的执行哦，否则会内存泄漏哦，继续以上面的例子为例，代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XXActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    ···</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ThreadUtils.cancel(releaseInstallApkTask); 或者下面的取消都可以</span></span><br><span class="line">        releaseInstallApkTask.cancel();</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上是以 SimpleTask 为例，Task 的话会多两个回调，onCancel() 和 onFail(Throwable t)，它们和 onSuccess(T result) 都是互斥的，最终回调只会走它们其中之一，<strong>并且在 Android 端是发送到主线程中执行</strong>，如果是 Java 端的话那就还是会在相应的线程池中执行，这点也方便了我做单元测试。</p>
+<h3 id="线程池工具类单元测试"><a href="#线程池工具类单元测试" class="headerlink" title="线程池工具类单元测试"></a>线程池工具类单元测试</h3><p>如果遇到了异步的单测，你会发现单测很快就跑完呢，并没有等待我们线程跑完再结束，我们可以用 CountDownLatch 来等待线程的结束，或者化异步为同步的做法，这里我们使用 CountDownLatch 来实现，我进行了简单的封装，测试 Fixed 的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadUtilsTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">executeByFixed</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        asyncTest(<span class="number">10</span>, <span class="keyword">new</span> TestRunnable&lt;String&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> index, CountDownLatch latch)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">final</span> TestTask&lt;String&gt; task = <span class="keyword">new</span> TestTask&lt;String&gt;(latch) &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> String <span class="title">doInBackground</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                        Thread.sleep(<span class="number">500</span> + index * <span class="number">10</span>);</span><br><span class="line">                        <span class="keyword">if</span> (index &lt; <span class="number">4</span>) &#123;</span><br><span class="line">                            <span class="keyword">return</span> Thread.currentThread() + <span class="string">" :"</span> + index;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index &lt; <span class="number">7</span>) &#123;</span><br><span class="line">                            cancel();</span><br><span class="line">                            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(String.valueOf(index));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">void</span> <span class="title">onTestSuccess</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line">                        System.out.println(result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                ThreadUtils.executeByFixed(<span class="number">3</span>, task);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">executeByFixedWithDelay</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        asyncTest(<span class="number">10</span>, <span class="keyword">new</span> TestRunnable&lt;String&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> index, CountDownLatch latch)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">final</span> TestTask&lt;String&gt; task = <span class="keyword">new</span> TestTask&lt;String&gt;(latch) &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> String <span class="title">doInBackground</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">                        <span class="keyword">if</span> (index &lt; <span class="number">4</span>) &#123;</span><br><span class="line">                            <span class="keyword">return</span> Thread.currentThread() + <span class="string">" :"</span> + index;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index &lt; <span class="number">7</span>) &#123;</span><br><span class="line">                            cancel();</span><br><span class="line">                            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(String.valueOf(index));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">void</span> <span class="title">onTestSuccess</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line">                        System.out.println(result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                ThreadUtils.executeByFixedWithDelay(<span class="number">3</span>, task, <span class="number">500</span> + index * <span class="number">10</span>, TimeUnit.MILLISECONDS);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">executeByFixedAtFixRate</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        asyncTest(<span class="number">10</span>, <span class="keyword">new</span> TestRunnable&lt;String&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> index, CountDownLatch latch)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">final</span> TestScheduledTask&lt;String&gt; task = <span class="keyword">new</span> TestScheduledTask&lt;String&gt;(latch, <span class="number">3</span>) &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> String <span class="title">doInBackground</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                        Thread.sleep(<span class="number">500</span> + index * <span class="number">10</span>);</span><br><span class="line">                        <span class="keyword">if</span> (index &lt; <span class="number">4</span>) &#123;</span><br><span class="line">                            <span class="keyword">return</span> Thread.currentThread() + <span class="string">" :"</span> + index;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index &lt; <span class="number">7</span>) &#123;</span><br><span class="line">                            cancel();</span><br><span class="line">                            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(String.valueOf(index));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">void</span> <span class="title">onTestSuccess</span><span class="params">(String result)</span> </span>&#123;</span><br><span class="line">                        System.out.println(result);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                ThreadUtils.executeByFixedAtFixRate(<span class="number">3</span>, task, <span class="number">3000</span> + index * <span class="number">10</span>, TimeUnit.MILLISECONDS);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TestScheduledTask</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">ThreadUtils</span>.<span class="title">Task</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> AtomicInteger ATOMIC_INTEGER = <span class="keyword">new</span> AtomicInteger();</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mTimes;</span><br><span class="line">        CountDownLatch mLatch;</span><br><span class="line"></span><br><span class="line">        TestScheduledTask(<span class="keyword">final</span> CountDownLatch latch, <span class="keyword">final</span> <span class="keyword">int</span> times) &#123;</span><br><span class="line">            mLatch = latch;</span><br><span class="line">            mTimes = times;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onTestSuccess</span><span class="params">(T result)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(T result)</span> </span>&#123;</span><br><span class="line">            onTestSuccess(result);</span><br><span class="line">            <span class="keyword">if</span> (ATOMIC_INTEGER.addAndGet(<span class="number">1</span>) % mTimes == <span class="number">0</span>) &#123;</span><br><span class="line">                mLatch.countDown();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread() + <span class="string">" onCancel: "</span>);</span><br><span class="line">            mLatch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFail</span><span class="params">(Throwable t)</span> </span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread() + <span class="string">" onFail: "</span> + t);</span><br><span class="line">            mLatch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTask</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">ThreadUtils</span>.<span class="title">Task</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">        CountDownLatch mLatch;</span><br><span class="line"></span><br><span class="line">        TestTask(<span class="keyword">final</span> CountDownLatch latch) &#123;</span><br><span class="line">            mLatch = latch;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onTestSuccess</span><span class="params">(T result)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(T result)</span> </span>&#123;</span><br><span class="line">            onTestSuccess(result);</span><br><span class="line">            mLatch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread() + <span class="string">" onCancel: "</span>);</span><br><span class="line">            mLatch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFail</span><span class="params">(Throwable t)</span> </span>&#123;</span><br><span class="line">            System.out.println(Thread.currentThread() + <span class="string">" onFail: "</span> + t);</span><br><span class="line">            mLatch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">asyncTest</span><span class="params">(<span class="keyword">int</span> threadCount, TestRunnable&lt;T&gt; runnable)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(threadCount);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; threadCount; i++) &#123;</span><br><span class="line">            runnable.run(i, latch);</span><br><span class="line">        &#125;</span><br><span class="line">        latch.await();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">TestRunnable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> index, CountDownLatch latch)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最后想说的话"><a href="#最后想说的话" class="headerlink" title="最后想说的话"></a>最后想说的话</h3><p>感谢大家一起陪伴 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 的成长，核心工具类几乎都已囊括，也是汇集了我大量的心血，把开源做到了极致，希望大家可以用的舒心，大大提升开发效率，早日赢取白富美，走上人生巅峰。</p>
+<p>后文再添加一个个人对 OkHttp 的线程池的使用分析，算是送上个小福利。</p>
+<h3 id="OkHttp-中的线程池使用"><a href="#OkHttp-中的线程池使用" class="headerlink" title="OkHttp 中的线程池使用"></a>OkHttp 中的线程池使用</h3><p>查看 OkHttp 的源码发现，不论是同步请求还是异步请求，最终都是交给 Dispatcher 做处理，我们看下该类和线程池有关的的主要代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Dispatcher</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 最大请求数</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> maxRequests = <span class="number">64</span>;</span><br><span class="line">  <span class="comment">// 相同 host 最大请求数</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> maxRequestsPerHost = <span class="number">5</span>;</span><br><span class="line">  <span class="comment">// 请求执行线程池，懒加载</span></span><br><span class="line">  <span class="keyword">private</span> <span class="meta">@Nullable</span> ExecutorService executorService;</span><br><span class="line">  <span class="comment">// 就绪状态的异步请求队列</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;AsyncCall&gt; readyAsyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">  <span class="comment">// 运行中的异步请求队列，包括还没完成的请求</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Deque&lt;AsyncCall&gt; runningAsyncCalls = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Dispatcher</span><span class="params">(ExecutorService executorService)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.executorService = executorService;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Dispatcher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> ExecutorService <span class="title">executorService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (executorService == <span class="keyword">null</span>) &#123;</span><br><span class="line">          <span class="comment">// 和 CachedThreadPool 很相似</span></span><br><span class="line">          executorService = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">0</span>, Integer.MAX_VALUE, <span class="number">60</span>, TimeUnit.SECONDS,</span><br><span class="line">          <span class="keyword">new</span> SynchronousQueue&lt;Runnable&gt;(), Util.threadFactory(<span class="string">"OkHttp Dispatcher"</span>, <span class="keyword">false</span>));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> executorService;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(AsyncCall call)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不超过最大请求数并且不超过 host 最大请求数</span></span><br><span class="line">    <span class="keyword">if</span> (runningAsyncCalls.size() &lt; maxRequests &amp;&amp; runningCallsForHost(call) &lt; maxRequestsPerHost) &#123;</span><br><span class="line">      <span class="comment">// 添加到运行中的异步请求队列</span></span><br><span class="line">      runningAsyncCalls.add(call);</span><br><span class="line">      <span class="comment">// 添加到线程池中运行</span></span><br><span class="line">      executorService().execute(call);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 添加到就绪的异步请求队列</span></span><br><span class="line">      readyAsyncCalls.add(call);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当该异步请求结束的时候，会调用此方法，用于将运行中的异步请求队列中的该请求移除并调整请求队列</span></span><br><span class="line">  <span class="comment">// 此时就绪队列中的请求就可以进入运行中的队列</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">(AsyncCall call)</span> </span>&#123;</span><br><span class="line">      finished(runningAsyncCalls, call, <span class="keyword">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">finished</span><span class="params">(Deque&lt;T&gt; calls, T call, <span class="keyword">boolean</span> promoteCalls)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> runningCallsCount;</span><br><span class="line">      Runnable idleCallback;</span><br><span class="line">      <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (!calls.remove(call)) <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(<span class="string">"Call wasn't in-flight!"</span>);</span><br><span class="line">          <span class="keyword">if</span> (promoteCalls) promoteCalls();</span><br><span class="line">          runningCallsCount = runningCallsCount();</span><br><span class="line">          idleCallback = <span class="keyword">this</span>.idleCallback;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (runningCallsCount == <span class="number">0</span> &amp;&amp; idleCallback != <span class="keyword">null</span>) &#123;</span><br><span class="line">          idleCallback.run();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 根据 maxRequests 和 maxRequestsPerHost 来调整 runningAsyncCalls 和 readyAsyncCalls</span></span><br><span class="line">  <span class="comment">// 使运行中的异步请求不超过两种最大值，并且如果队列有空闲，将就绪状态的请求归类为运行中。</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">promoteCalls</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果运行中的异步队列不小于最大请求数，直接返回</span></span><br><span class="line">    <span class="keyword">if</span> (runningAsyncCalls.size() &gt;= maxRequests) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 如果就绪队列为空，直接返回</span></span><br><span class="line">    <span class="keyword">if</span> (readyAsyncCalls.isEmpty()) <span class="keyword">return</span>; <span class="comment">// No ready calls to promote.</span></span><br><span class="line">    <span class="comment">// 遍历就绪队列并插入到运行队列</span></span><br><span class="line">    <span class="keyword">for</span> (Iterator&lt;AsyncCall&gt; i = readyAsyncCalls.iterator(); i.hasNext(); ) &#123;</span><br><span class="line">      AsyncCall call = i.next();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (runningCallsForHost(call) &lt; maxRequestsPerHost) &#123;</span><br><span class="line">        i.remove();</span><br><span class="line">        runningAsyncCalls.add(call);</span><br><span class="line">        executorService().execute(call);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 运行队列中的数量到达最大请求数，直接返回</span></span><br><span class="line">      <span class="keyword">if</span> (runningAsyncCalls.size() &gt;= maxRequests) <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以发现 OkHttp 不是在线程池中维护线程的个数，线程是通过 Dispatcher 间接控制，线程池中的请求都是运行中的请求，这也就是说线程的重用不是线程池控制的，通过源码我们发现线程重用的地方是请求结束的地方 <code>finished(AsyncCall call)</code> ，而真正的控制是通过 <code>promoteCalls</code> 方法， 根据 <code>maxRequests</code> 和 <code>maxRequestsPerHost</code> 来调整 <code>runningAsyncCalls</code> 和 <code>readyAsyncCalls</code>，使运行中的异步请求不超过两种最大值，并且如果队列有空闲，将就绪状态的请求归类为运行中。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
+        <!--<p>微信支付</p>-->
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    布兰柯基
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blankj.com/2018/05/23/thread-utils/" title="妈妈再也不用担心你不会使用线程池了（ThreadUtils）">https://blankj.com/2018/05/23/thread-utils/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RxJava/" rel="tag"># RxJava</a>
+          
+            <a href="/tags/工具类/" rel="tag"># 工具类</a>
+          
+            <a href="/tags/线程池/" rel="tag"># 线程池</a>
+          
+            <a href="/tags/单元测试/" rel="tag"># 单元测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/09/awesome-rxbus/" rel="next" title="这个 RxBus 稳如老狗">
+                <i class="fa fa-chevron-left"></i> 这个 RxBus 稳如老狗
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/05/double-cache-so-easy/" rel="prev" title="Android 的二级缓存如斯简单">
+                Android 的二级缓存如斯简单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
+            
+              <p class="site-author-name" itemprop="name">布兰柯基</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">148</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/46702d5c6978" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-book"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gold.xitu.io/user/579f5dd1a341310063f9f105" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/a120705230" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-book"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/blankcmj" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用线程池"><span class="nav-number">1.</span> <span class="nav-text">为什么要用线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池介绍"><span class="nav-number">2.</span> <span class="nav-text">线程池介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ThreadPoolExecutor"><span class="nav-number">2.1.</span> <span class="nav-text">ThreadPoolExecutor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池执行策略"><span class="nav-number">2.2.</span> <span class="nav-text">线程池执行策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的四类线程池"><span class="nav-number">2.3.</span> <span class="nav-text">常见的四类线程池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合理地配置线程池"><span class="nav-number">2.4.</span> <span class="nav-text">合理地配置线程池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池工具类封装及使用"><span class="nav-number">3.</span> <span class="nav-text">线程池工具类封装及使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池工具类单元测试"><span class="nav-number">4.</span> <span class="nav-text">线程池工具类单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后想说的话"><span class="nav-number">5.</span> <span class="nav-text">最后想说的话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OkHttp-中的线程池使用"><span class="nav-number">6.</span> <span class="nav-text">OkHttp 中的线程池使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">布兰柯基</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')
+       </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
