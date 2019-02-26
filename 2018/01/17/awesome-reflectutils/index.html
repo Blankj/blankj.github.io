@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="工具类,反射," />
+  <meta name="keywords" content="工具类,反射,">
 
 
 
@@ -80,11 +80,13 @@
 
 
 <meta name="description" content="Foreword反射的作用我在这就不多说了，每次用到反射都是那么一坨代码丢进去，总是让人觉得很不优雅，如今有了我这个反射工具类，那么大家就可以一句话优雅地来完成反射的工作，该工具类是站在 jOOR 的肩膀上进行改造，修复了它没有完成的工作，至于修复了什么，后面源码分析会详述，至于这个工具类在哪，现已加入至 1.12.0 版本的 AndroidUtilCode，下面来介绍下其功能。">
+<meta name="keywords" content="工具类,反射">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反射工具类，如斯优雅">
 <meta property="og:url" content="https://blankj.com/2018/01/17/awesome-reflectutils/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="Foreword反射的作用我在这就不多说了，每次用到反射都是那么一坨代码丢进去，总是让人觉得很不优雅，如今有了我这个反射工具类，那么大家就可以一句话优雅地来完成反射的工作，该工具类是站在 jOOR 的肩膀上进行改造，修复了它没有完成的工作，至于修复了什么，后面源码分析会详述，至于这个工具类在哪，现已加入至 1.12.0 版本的 AndroidUtilCode，下面来介绍下其功能。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
 <meta property="og:updated_time" content="2018-04-13T06:14:31.000Z">
 <meta name="twitter:card" content="summary">
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2018/01/17/awesome-reflectutils/"/>
+  <link rel="canonical" href="https://blankj.com/2018/01/17/awesome-reflectutils/">
 
 
 
@@ -148,7 +150,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -158,13 +160,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -194,7 +196,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -204,7 +206,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -214,7 +216,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -224,7 +226,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -234,7 +236,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -244,7 +246,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -254,7 +256,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -267,7 +269,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -288,9 +290,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -322,20 +322,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2018/01/17/awesome-reflectutils/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -367,7 +367,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -378,7 +378,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -389,7 +389,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/工具类/" itemprop="url" rel="index">
                     <span itemprop="name">工具类</span>
                   </a>
@@ -407,12 +407,18 @@
 
           
           
-
+             <span id="/2018/01/17/awesome-reflectutils/" class="leancloud_visitors" data-flag-title="反射工具类，如斯优雅">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -433,35 +439,35 @@
 
       
         <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
-<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><p>反射的作用我在这就不多说了，每次用到反射都是那么一坨代码丢进去，总是让人觉得很不优雅，如今有了我这个反射工具类，那么大家就可以一句话优雅地来完成反射的工作，该工具类是站在 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="external">jOOR</a> 的肩膀上进行改造，修复了它没有完成的工作，至于修复了什么，后面源码分析会详述，至于这个工具类在哪，现已加入至 1.12.0 版本的 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a>，下面来介绍下其功能。<br><a id="more"></a></p>
+<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><p>反射的作用我在这就不多说了，每次用到反射都是那么一坨代码丢进去，总是让人觉得很不优雅，如今有了我这个反射工具类，那么大家就可以一句话优雅地来完成反射的工作，该工具类是站在 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="noopener">jOOR</a> 的肩膀上进行改造，修复了它没有完成的工作，至于修复了什么，后面源码分析会详述，至于这个工具类在哪，现已加入至 1.12.0 版本的 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a>，下面来介绍下其功能。<br><a id="more"></a></p>
 <h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><p>其 APIs 如下所示：</p>
-<p>反射相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ReflectUtils.java" target="_blank" rel="external">ReflectUtils.java</a> -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/reflect/ReflectUtilsTest.java" target="_blank" rel="external">Test</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">reflect    : 设置要反射的类</div><div class="line">newInstance: 实例化反射对象</div><div class="line">field      : 设置反射的字段</div><div class="line">method     : 设置反射的方法</div><div class="line">get        : 获取反射想要获取的</div></pre></td></tr></table></figure>
+<p>反射相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ReflectUtils.java" target="_blank" rel="noopener">ReflectUtils.java</a> -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/reflect/ReflectUtilsTest.java" target="_blank" rel="noopener">Test</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reflect    : 设置要反射的类</span><br><span class="line">newInstance: 实例化反射对象</span><br><span class="line">field      : 设置反射的字段</span><br><span class="line">method     : 设置反射的方法</span><br><span class="line">get        : 获取反射想要获取的</span><br></pre></td></tr></table></figure>
 <h2 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h2><h3 id="实例化反射对象"><a href="#实例化反射对象" class="headerlink" title="实例化反射对象"></a>实例化反射对象</h3><p>比如，我们实例化一个 <code>String</code> 对象可以这样做：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">String str1 = ReflectUtils.reflect(String.class).newInstance().get();</div><div class="line"><span class="comment">// equals: String str1 = new String();</span></div><div class="line"></div><div class="line">String str2 = ReflectUtils.reflect(<span class="string">"java.lang.String"</span>).newInstance(<span class="string">"abc"</span>).get();</div><div class="line"><span class="comment">// equals: String str2 = new String("abc");</span></div><div class="line"></div><div class="line">String str3 = ReflectUtils.reflect(String.class).newInstance(<span class="string">"abc"</span>.getBytes()).get();</div><div class="line"><span class="comment">// equals: String str3 = new String("abc".getBytes());</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String str1 = ReflectUtils.reflect(String.class).newInstance().get();</span><br><span class="line"><span class="comment">// equals: String str1 = new String();</span></span><br><span class="line"></span><br><span class="line">String str2 = ReflectUtils.reflect(<span class="string">"java.lang.String"</span>).newInstance(<span class="string">"abc"</span>).get();</span><br><span class="line"><span class="comment">// equals: String str2 = new String("abc");</span></span><br><span class="line"></span><br><span class="line">String str3 = ReflectUtils.reflect(String.class).newInstance(<span class="string">"abc"</span>.getBytes()).get();</span><br><span class="line"><span class="comment">// equals: String str3 = new String("abc".getBytes());</span></span><br></pre></td></tr></table></figure>
 <h3 id="设置反射的方法"><a href="#设置反射的方法" class="headerlink" title="设置反射的方法"></a>设置反射的方法</h3><p>比如，我们想要调用 <code>String</code> 的 <code>substring</code> 函数可以这样做：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String str1 = ReflectUtils.reflect((Object) <span class="string">"1234"</span>).method(<span class="string">"substring"</span>, <span class="number">2</span>).get();</div><div class="line"><span class="comment">// equals: String str1 = "1234".substring(2);</span></div><div class="line"></div><div class="line">String str2 = ReflectUtils.reflect((Object) <span class="string">"1234"</span>).method(<span class="string">"substring"</span>, <span class="number">0</span>, <span class="number">2</span>).get();</div><div class="line"><span class="comment">// equals: String str1 = "1234".substring(0, 2);</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str1 = ReflectUtils.reflect((Object) <span class="string">"1234"</span>).method(<span class="string">"substring"</span>, <span class="number">2</span>).get();</span><br><span class="line"><span class="comment">// equals: String str1 = "1234".substring(2);</span></span><br><span class="line"></span><br><span class="line">String str2 = ReflectUtils.reflect((Object) <span class="string">"1234"</span>).method(<span class="string">"substring"</span>, <span class="number">0</span>, <span class="number">2</span>).get();</span><br><span class="line"><span class="comment">// equals: String str1 = "1234".substring(0, 2);</span></span><br></pre></td></tr></table></figure>
 <h3 id="设置反射的字段"><a href="#设置反射的字段" class="headerlink" title="设置反射的字段"></a>设置反射的字段</h3><p>比如，<code>TestPrivateStaticFinal.java</code> 如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPrivateStaticFinal</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>     I1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Integer I2 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPrivateStaticFinal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>     I1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Integer I2 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们要设置其 <code>I1</code>、<code>I2</code> 值为 2，可以如下操作：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I1"</span>, <span class="number">2</span>);</div><div class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I2"</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I1"</span>, <span class="number">2</span>);</span><br><span class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I2"</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
 <p>要获取其 <code>I1</code>、<code>I2</code> 值的话，可以如下操作：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I1"</span>).get()</div><div class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I2"</span>).get()</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I1"</span>).get()</span><br><span class="line">ReflectUtils.reflect(TestPrivateStaticFinal.class).field(<span class="string">"I2"</span>).get()</span><br></pre></td></tr></table></figure>
 <p>当然，字段操作也有更高级的操作，比如 <code>Test1.java</code> 测试类如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>     S_INT1;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Integer S_INT2;</div><div class="line">    <span class="keyword">public</span>        <span class="keyword">int</span>     I_INT1;</div><div class="line">    <span class="keyword">public</span>        Integer I_INT2;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Test1 S_DATA;</div><div class="line">    <span class="keyword">public</span>        Test1 I_DATA;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>     S_INT1;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Integer S_INT2;</span><br><span class="line">    <span class="keyword">public</span>        <span class="keyword">int</span>     I_INT1;</span><br><span class="line">    <span class="keyword">public</span>        Integer I_INT2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Test1 S_DATA;</span><br><span class="line">    <span class="keyword">public</span>        Test1 I_DATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我对其进行的单元测试如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fieldAdvanced</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    ReflectUtils.reflect(Test1.class)</div><div class="line">            .field(<span class="string">"S_DATA"</span>, ReflectUtils.reflect(Test1.class).newInstance())<span class="comment">// 设置 Test1.class 中 S_DATA 字段 为 new Test1()</span></div><div class="line">            .field(<span class="string">"S_DATA"</span>)<span class="comment">// 获取到 Test1.class 中 S_DATA 字段</span></div><div class="line">            .field(<span class="string">"I_DATA"</span>, ReflectUtils.reflect(Test1.class).newInstance())<span class="comment">// 获取到 Test1.class 中 S_DATA 字段 的 I_DATA 为 new Test1()</span></div><div class="line">            .field(<span class="string">"I_DATA"</span>)<span class="comment">// 获取到 Test1.class 中 S_DATA 字段 的 I_DATA 字段</span></div><div class="line">            .field(<span class="string">"I_INT1"</span>, <span class="number">1</span>)<span class="comment">// 设置 Test1.class 中 S_DATA 字段 的 I_DATA 字段的 I_INT1 值为 1</span></div><div class="line">            .field(<span class="string">"S_INT1"</span>, <span class="number">2</span>);<span class="comment">// 设置 Test1.class 中 S_DATA 字段 的 S_INT1 字段的 I_INT1 值为 2</span></div><div class="line">    assertEquals(<span class="number">2</span>, Test1.S_INT1);<span class="comment">// 静态变量就是最后设置的 2</span></div><div class="line">    assertEquals(<span class="keyword">null</span>, Test1.S_INT2);<span class="comment">// 没操作过就是 null</span></div><div class="line">    assertEquals(<span class="number">0</span>, Test1.S_DATA.I_INT1);<span class="comment">// 没操作过就是 0</span></div><div class="line">    assertEquals(<span class="keyword">null</span>, Test1.S_DATA.I_INT2);<span class="comment">// 没操作过就是 0</span></div><div class="line">    assertEquals(<span class="number">1</span>, Test1.S_DATA.I_DATA.I_INT1);<span class="comment">// 倒数第二步操作设置为 1</span></div><div class="line">    assertEquals(<span class="keyword">null</span>, Test1.S_DATA.I_DATA.I_INT2);<span class="comment">// 没操作过就是 null</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>根据如上注释相信大家也可以理解一二了，如果还想了解更多使用方式，可以查看我写的单元测试类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/reflect/ReflectUtilsTest.java" target="_blank" rel="external">ReflectUtilsTest</a>，其使用方式就介绍到这里，下面介绍其实现方式。</p>
-<h2 id="Achieve"><a href="#Achieve" class="headerlink" title="Achieve"></a>Achieve</h2><p>实现的话是站在 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="external">jOOR</a> 的肩膀上进行改造，其内部封装了一个 <code>private final Object object;</code> 变量，每次进行反射操作时都会重新实例化一个变量并把结果赋予该变量，最终 <code>get()</code> 就是获取其值，比如我们来看一下 <code>newInstance</code> 的操作，其涉及的代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 实例化反射对象</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> args 实例化需要的参数</div><div class="line"> * <span class="doctag">@return</span> &#123;<span class="doctag">@link</span> ReflectUtils&#125;</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> ReflectUtils <span class="title">newInstance</span><span class="params">(Object... args)</span> </span>&#123;</div><div class="line">    Class&lt;?&gt;[] types = getArgsType(args);</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Constructor&lt;?&gt; constructor = type().getDeclaredConstructor(types);</div><div class="line">        <span class="keyword">return</span> newInstance(constructor, args);</div><div class="line">    &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</div><div class="line">        List&lt;Constructor&lt;?&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (Constructor&lt;?&gt; constructor : type().getDeclaredConstructors()) &#123;</div><div class="line">            <span class="keyword">if</span> (match(constructor.getParameterTypes(), types)) &#123;</div><div class="line">                list.add(constructor);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (list.isEmpty()) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            sortConstructors(list);</div><div class="line">            <span class="keyword">return</span> newInstance(list.get(<span class="number">0</span>), args);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> Class&lt;?&gt;[] getArgsType(<span class="keyword">final</span> Object... args) &#123;</div><div class="line">    <span class="keyword">if</span> (args == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Class[<span class="number">0</span>];</div><div class="line">    Class&lt;?&gt;[] result = <span class="keyword">new</span> Class[args.length];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; i++) &#123;</div><div class="line">        Object value = args[i];</div><div class="line">        result[i] = value == <span class="keyword">null</span> ? NULL.class : value.getClass();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sortConstructors</span><span class="params">(List&lt;Constructor&lt;?&gt;&gt; list)</span> </span>&#123;</div><div class="line">    Collections.sort(list, <span class="keyword">new</span> Comparator&lt;Constructor&lt;?&gt;&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Constructor&lt;?&gt; o1, Constructor&lt;?&gt; o2)</span> </span>&#123;</div><div class="line">            Class&lt;?&gt;[] types1 = o1.getParameterTypes();</div><div class="line">            Class&lt;?&gt;[] types2 = o2.getParameterTypes();</div><div class="line">            <span class="keyword">int</span> len = types1.length;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (!types1[i].equals(types2[i])) &#123;</div><div class="line">                    <span class="keyword">if</span> (wrapper(types1[i]).isAssignableFrom(wrapper(types2[i]))) &#123;</div><div class="line">                        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> ReflectUtils <span class="title">newInstance</span><span class="params">(<span class="keyword">final</span> Constructor&lt;?&gt; constructor, <span class="keyword">final</span> Object... args)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ReflectUtils(</div><div class="line">                constructor.getDeclaringClass(),</div><div class="line">                accessible(constructor).newInstance(args)</div><div class="line">        );</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Class&lt;?&gt; type;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object object;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="title">ReflectUtils</span><span class="params">(<span class="keyword">final</span> Class&lt;?&gt; type, Object object)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.type = type;</div><div class="line">    <span class="keyword">this</span>.object = object;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/jOOQ/jOOR" target="_blank" rel="external">jOOR</a> 所没有做到的就是没有对多个符合的 <code>Constructor</code> 进行排序，而是直接返回了第一个与之匹配的。这样说有点抽象，我举个例子应该就明白了，比如说有两个构造函数如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">(Number n)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">(Object n)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/jOOQ/jOOR" target="_blank" rel="external">jOOR</a> 反射调用构造函数参数传入 <code>Long</code> 类型，很可能就会走 <code>Test(Object n)</code> 这个构造函数，而我修改过后就是对多个符合的 <code>Constructor</code> 进行排序，匹配出与之最接近的父类，也就是会走 <code>Test(Number n)</code> 这个构造函数，同理，在后面的 <code>method</code> 中的参数匹配 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="external">jOOR</a> 也是存在这个问题，我也已经对其修复了。</p>
-<p>还有就是 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="external">jOOR</a> 对 <code>private static final</code> 字段先 <code>get</code> 再 <code>set</code> 会报异常 <code>java.lang.IllegalAccessException</code> 异常，是因为对 <code>private static final</code> 字段 <code>get</code> 的时候没有去除 <code>final</code> 属性，如果在 <code>get</code> 时就把 <code>final</code> 去掉即可解决，那样在 <code>set</code> 的时候就不会报错。然而，在 Android 的 SDK 中是没有 <code>Field.class.getDeclaredField(&quot;modifiers&quot;)</code> 这个字段的，所以会报 <code>NoSuchFieldException</code> 异常，这方面我做了容错处理，相关代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 设置反射的字段</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> name 字段名</div><div class="line"> * <span class="doctag">@return</span> &#123;<span class="doctag">@link</span> ReflectUtils&#125;</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> ReflectUtils <span class="title">field</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Field field = getField(name);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ReflectUtils(field.getType(), field.get(object));</div><div class="line">    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 设置反射的字段</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> name  字段名</div><div class="line"> * <span class="doctag">@param</span> value 字段值</div><div class="line"> * <span class="doctag">@return</span> &#123;<span class="doctag">@link</span> ReflectUtils&#125;</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> ReflectUtils <span class="title">field</span><span class="params">(String name, Object value)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Field field = getField(name);</div><div class="line">        field.set(object, unwrap(value));</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> Field <span class="title">getField</span><span class="params">(String name)</span> <span class="keyword">throws</span> IllegalAccessException </span>&#123;</div><div class="line">    Field field = getAccessibleField(name);</div><div class="line">    <span class="keyword">if</span> ((field.getModifiers() &amp; Modifier.FINAL) == Modifier.FINAL) &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Field modifiersField = Field.class.getDeclaredField(<span class="string">"modifiers"</span>);</div><div class="line">            modifiersField.setAccessible(<span class="keyword">true</span>);</div><div class="line">            modifiersField.setInt(field, field.getModifiers() &amp; ~Modifier.FINAL);</div><div class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException ignore) &#123;</div><div class="line">            <span class="comment">// runs in android will happen</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> field;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> Field <span class="title">getAccessibleField</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    Class&lt;?&gt; type = type();</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">return</span> accessible(type.getField(name));</div><div class="line">    &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">return</span> accessible(type.getDeclaredField(name));</div><div class="line">            &#125; <span class="keyword">catch</span> (NoSuchFieldException ignore) &#123;</div><div class="line">            &#125;</div><div class="line">            type = type.getSuperclass();</div><div class="line">        &#125; <span class="keyword">while</span> (type != <span class="keyword">null</span>);</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">unwrap</span><span class="params">(Object object)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (object <span class="keyword">instanceof</span> ReflectUtils) &#123;</div><div class="line">        <span class="keyword">return</span> ((ReflectUtils) object).get();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> object;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fieldAdvanced</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    ReflectUtils.reflect(Test1.class)</span><br><span class="line">            .field(<span class="string">"S_DATA"</span>, ReflectUtils.reflect(Test1.class).newInstance())<span class="comment">// 设置 Test1.class 中 S_DATA 字段 为 new Test1()</span></span><br><span class="line">            .field(<span class="string">"S_DATA"</span>)<span class="comment">// 获取到 Test1.class 中 S_DATA 字段</span></span><br><span class="line">            .field(<span class="string">"I_DATA"</span>, ReflectUtils.reflect(Test1.class).newInstance())<span class="comment">// 获取到 Test1.class 中 S_DATA 字段 的 I_DATA 为 new Test1()</span></span><br><span class="line">            .field(<span class="string">"I_DATA"</span>)<span class="comment">// 获取到 Test1.class 中 S_DATA 字段 的 I_DATA 字段</span></span><br><span class="line">            .field(<span class="string">"I_INT1"</span>, <span class="number">1</span>)<span class="comment">// 设置 Test1.class 中 S_DATA 字段 的 I_DATA 字段的 I_INT1 值为 1</span></span><br><span class="line">            .field(<span class="string">"S_INT1"</span>, <span class="number">2</span>);<span class="comment">// 设置 Test1.class 中 S_DATA 字段 的 S_INT1 字段的 I_INT1 值为 2</span></span><br><span class="line">    assertEquals(<span class="number">2</span>, Test1.S_INT1);<span class="comment">// 静态变量就是最后设置的 2</span></span><br><span class="line">    assertEquals(<span class="keyword">null</span>, Test1.S_INT2);<span class="comment">// 没操作过就是 null</span></span><br><span class="line">    assertEquals(<span class="number">0</span>, Test1.S_DATA.I_INT1);<span class="comment">// 没操作过就是 0</span></span><br><span class="line">    assertEquals(<span class="keyword">null</span>, Test1.S_DATA.I_INT2);<span class="comment">// 没操作过就是 0</span></span><br><span class="line">    assertEquals(<span class="number">1</span>, Test1.S_DATA.I_DATA.I_INT1);<span class="comment">// 倒数第二步操作设置为 1</span></span><br><span class="line">    assertEquals(<span class="keyword">null</span>, Test1.S_DATA.I_DATA.I_INT2);<span class="comment">// 没操作过就是 null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据如上注释相信大家也可以理解一二了，如果还想了解更多使用方式，可以查看我写的单元测试类 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/test/java/com/blankj/utilcode/util/reflect/ReflectUtilsTest.java" target="_blank" rel="noopener">ReflectUtilsTest</a>，其使用方式就介绍到这里，下面介绍其实现方式。</p>
+<h2 id="Achieve"><a href="#Achieve" class="headerlink" title="Achieve"></a>Achieve</h2><p>实现的话是站在 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="noopener">jOOR</a> 的肩膀上进行改造，其内部封装了一个 <code>private final Object object;</code> 变量，每次进行反射操作时都会重新实例化一个变量并把结果赋予该变量，最终 <code>get()</code> 就是获取其值，比如我们来看一下 <code>newInstance</code> 的操作，其涉及的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实例化反射对象</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> args 实例化需要的参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="doctag">@link</span> ReflectUtils&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ReflectUtils <span class="title">newInstance</span><span class="params">(Object... args)</span> </span>&#123;</span><br><span class="line">    Class&lt;?&gt;[] types = getArgsType(args);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Constructor&lt;?&gt; constructor = type().getDeclaredConstructor(types);</span><br><span class="line">        <span class="keyword">return</span> newInstance(constructor, args);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">        List&lt;Constructor&lt;?&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Constructor&lt;?&gt; constructor : type().getDeclaredConstructors()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (match(constructor.getParameterTypes(), types)) &#123;</span><br><span class="line">                list.add(constructor);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (list.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sortConstructors(list);</span><br><span class="line">            <span class="keyword">return</span> newInstance(list.get(<span class="number">0</span>), args);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> Class&lt;?&gt;[] getArgsType(<span class="keyword">final</span> Object... args) &#123;</span><br><span class="line">    <span class="keyword">if</span> (args == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Class[<span class="number">0</span>];</span><br><span class="line">    Class&lt;?&gt;[] result = <span class="keyword">new</span> Class[args.length];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; i++) &#123;</span><br><span class="line">        Object value = args[i];</span><br><span class="line">        result[i] = value == <span class="keyword">null</span> ? NULL.class : value.getClass();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sortConstructors</span><span class="params">(List&lt;Constructor&lt;?&gt;&gt; list)</span> </span>&#123;</span><br><span class="line">    Collections.sort(list, <span class="keyword">new</span> Comparator&lt;Constructor&lt;?&gt;&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Constructor&lt;?&gt; o1, Constructor&lt;?&gt; o2)</span> </span>&#123;</span><br><span class="line">            Class&lt;?&gt;[] types1 = o1.getParameterTypes();</span><br><span class="line">            Class&lt;?&gt;[] types2 = o2.getParameterTypes();</span><br><span class="line">            <span class="keyword">int</span> len = types1.length;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!types1[i].equals(types2[i])) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (wrapper(types1[i]).isAssignableFrom(wrapper(types2[i]))) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> ReflectUtils <span class="title">newInstance</span><span class="params">(<span class="keyword">final</span> Constructor&lt;?&gt; constructor, <span class="keyword">final</span> Object... args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ReflectUtils(</span><br><span class="line">                constructor.getDeclaringClass(),</span><br><span class="line">                accessible(constructor).newInstance(args)</span><br><span class="line">        );</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Class&lt;?&gt; type;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object object;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">ReflectUtils</span><span class="params">(<span class="keyword">final</span> Class&lt;?&gt; type, Object object)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.type = type;</span><br><span class="line">    <span class="keyword">this</span>.object = object;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/jOOQ/jOOR" target="_blank" rel="noopener">jOOR</a> 所没有做到的就是没有对多个符合的 <code>Constructor</code> 进行排序，而是直接返回了第一个与之匹配的。这样说有点抽象，我举个例子应该就明白了，比如说有两个构造函数如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">(Number n)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">(Object n)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/jOOQ/jOOR" target="_blank" rel="noopener">jOOR</a> 反射调用构造函数参数传入 <code>Long</code> 类型，很可能就会走 <code>Test(Object n)</code> 这个构造函数，而我修改过后就是对多个符合的 <code>Constructor</code> 进行排序，匹配出与之最接近的父类，也就是会走 <code>Test(Number n)</code> 这个构造函数，同理，在后面的 <code>method</code> 中的参数匹配 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="noopener">jOOR</a> 也是存在这个问题，我也已经对其修复了。</p>
+<p>还有就是 <a href="https://github.com/jOOQ/jOOR" target="_blank" rel="noopener">jOOR</a> 对 <code>private static final</code> 字段先 <code>get</code> 再 <code>set</code> 会报异常 <code>java.lang.IllegalAccessException</code> 异常，是因为对 <code>private static final</code> 字段 <code>get</code> 的时候没有去除 <code>final</code> 属性，如果在 <code>get</code> 时就把 <code>final</code> 去掉即可解决，那样在 <code>set</code> 的时候就不会报错。然而，在 Android 的 SDK 中是没有 <code>Field.class.getDeclaredField(&quot;modifiers&quot;)</code> 这个字段的，所以会报 <code>NoSuchFieldException</code> 异常，这方面我做了容错处理，相关代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置反射的字段</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> name 字段名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="doctag">@link</span> ReflectUtils&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ReflectUtils <span class="title">field</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Field field = getField(name);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ReflectUtils(field.getType(), field.get(object));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置反射的字段</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> name  字段名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value 字段值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="doctag">@link</span> ReflectUtils&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ReflectUtils <span class="title">field</span><span class="params">(String name, Object value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Field field = getField(name);</span><br><span class="line">        field.set(object, unwrap(value));</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Field <span class="title">getField</span><span class="params">(String name)</span> <span class="keyword">throws</span> IllegalAccessException </span>&#123;</span><br><span class="line">    Field field = getAccessibleField(name);</span><br><span class="line">    <span class="keyword">if</span> ((field.getModifiers() &amp; Modifier.FINAL) == Modifier.FINAL) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field modifiersField = Field.class.getDeclaredField(<span class="string">"modifiers"</span>);</span><br><span class="line">            modifiersField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            modifiersField.setInt(field, field.getModifiers() &amp; ~Modifier.FINAL);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException ignore) &#123;</span><br><span class="line">            <span class="comment">// runs in android will happen</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> field;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Field <span class="title">getAccessibleField</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    Class&lt;?&gt; type = type();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> accessible(type.getField(name));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> accessible(type.getDeclaredField(name));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (NoSuchFieldException ignore) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">            type = type.getSuperclass();</span><br><span class="line">        &#125; <span class="keyword">while</span> (type != <span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ReflectException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">unwrap</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (object <span class="keyword">instanceof</span> ReflectUtils) &#123;</span><br><span class="line">        <span class="keyword">return</span> ((ReflectUtils) object).get();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> object;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>所以该工具类既完美支持 Java，也完美支持 Android。</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>好了，这次反射工具类就介绍到这了，是不是觉得如斯优雅，如果觉得好的话以后遇到反射的问题，那就快用我这个工具类吧，这么好的东西藏着不用真的是可惜了哦。</p>
-<p>关于安卓核心常用工具类我已经差不多都封装了，今后应该也不会在核心的里面新增了，除非确实很需要我才会再新增某个工具类，其余不常用的我都会放在 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/subutil/README-CN.md" target="_blank" rel="external">subutil</a> 中，感谢大家一直陪伴着 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a> 的成长。</p>
+<p>关于安卓核心常用工具类我已经差不多都封装了，今后应该也不会在核心的里面新增了，除非确实很需要我才会再新增某个工具类，其余不常用的我都会放在 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/subutil/README-CN.md" target="_blank" rel="noopener">subutil</a> 中，感谢大家一直陪伴着 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 的成长。</p>
 
       
     </div>
@@ -482,7 +488,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -615,11 +621,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -748,7 +752,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -766,26 +770,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1270,6 +1254,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

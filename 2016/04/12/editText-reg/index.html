@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="自定义View," />
+  <meta name="keywords" content="自定义View,">
 
 
 
@@ -79,23 +79,19 @@
 
 
 
-<meta name="description" content="这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。
-
-原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用">
+<meta name="description" content="这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。  原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用">
+<meta name="keywords" content="自定义View">
 <meta property="og:type" content="article">
 <meta property="og:title" content="带正则校验的EditText">
 <meta property="og:url" content="https://blankj.com/2016/04/12/editText-reg/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。
-
-原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。  原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blankj.com/2016/04/12/editText-reg/acet.gif">
 <meta property="og:updated_time" content="2016-11-10T01:23:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带正则校验的EditText">
-<meta name="twitter:description" content="这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。
-
-原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用">
+<meta name="twitter:description" content="这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。  原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用">
 <meta name="twitter:image" content="https://blankj.com/2016/04/12/editText-reg/acet.gif">
 
 
@@ -126,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2016/04/12/editText-reg/"/>
+  <link rel="canonical" href="https://blankj.com/2016/04/12/editText-reg/">
 
 
 
@@ -154,7 +150,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -164,13 +160,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -200,7 +196,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -210,7 +206,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -220,7 +216,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -230,7 +226,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -240,7 +236,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -250,7 +246,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -260,7 +256,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -273,7 +269,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -294,9 +290,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -328,20 +322,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/04/12/editText-reg/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -373,7 +367,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -384,7 +378,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -395,7 +389,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/自定义View/" itemprop="url" rel="index">
                     <span itemprop="name">自定义View</span>
                   </a>
@@ -413,12 +407,18 @@
 
           
           
-
+             <span id="/2016/04/12/editText-reg/" class="leancloud_visitors" data-flag-title="带正则校验的EditText">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -439,9 +439,9 @@
 
       
         <p>这是好久之前写的了，现在整理下文章那就写一下吧，直接上演示Demo，如下所示，伸手党们可直接跳到最后去下载源码。</p>
-<img src="/2016/04/12/editText-reg/acet.gif" alt="[演示动画]" title="[演示动画]">
-<p>原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用户名的校验，如果你觉得还不满足的话，最后还提供了用户自定义正则的校验，这样总满意了吧，下面给出其代码供参考。<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</div><div class="line"><span class="keyword">import</span> android.text.Editable;</div><div class="line"><span class="keyword">import</span> android.text.TextWatcher;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by cmj on 2016/4/11.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoCheckEditText</span> <span class="keyword">extends</span> <span class="title">EditText</span> <span class="keyword">implements</span> <span class="title">TextWatcher</span> </span>&#123;</div><div class="line">    <span class="comment">//手机校验类型</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_MOBILE = <span class="number">0xb0</span>;</div><div class="line">    <span class="comment">//座机校验类型</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_TEL = <span class="number">0xb1</span>;</div><div class="line">    <span class="comment">//邮箱校验类型</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_EMAIL = <span class="number">0xb2</span>;</div><div class="line">    <span class="comment">//url校验类型</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_URL = <span class="number">0xb3</span>;</div><div class="line">    <span class="comment">//汉字校验类型</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_CHZ = <span class="number">0xb4</span>;</div><div class="line">    <span class="comment">//用户名校验类型</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_USERNAME = <span class="number">0xb5</span>;</div><div class="line"></div><div class="line">    <span class="comment">//用户自定义</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_USER_DEFINE = <span class="number">0xbb</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> type;</div><div class="line">    <span class="keyword">private</span> Drawable successDrawable;</div><div class="line">    <span class="keyword">private</span> Drawable unsuccessDrawable;</div><div class="line">    <span class="keyword">private</span> String userRegx;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCheckEditText</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCheckEditText</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCheckEditText</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> typ       要校验的类型</div><div class="line">     * <span class="doctag">@param</span> success   匹配成功时的图标</div><div class="line">     * <span class="doctag">@param</span> unsuccess 匹配失败时的图标</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">creatCheck</span><span class="params">(<span class="keyword">int</span> typ, Drawable success, Drawable unsuccess)</span> </span>&#123;</div><div class="line">        type = typ;</div><div class="line">        successDrawable = success;</div><div class="line">        successDrawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, successDrawable.getMinimumWidth(), successDrawable.getMinimumHeight());</div><div class="line">        unsuccessDrawable = unsuccess;</div><div class="line">        unsuccessDrawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, unsuccessDrawable.getMinimumWidth(), unsuccessDrawable.getMinimumHeight());</div><div class="line">        <span class="keyword">this</span>.addTextChangedListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> typ       要校验的类型</div><div class="line">     * <span class="doctag">@param</span> success   匹配成功时的图标</div><div class="line">     * <span class="doctag">@param</span> unsuccess 匹配失败时的图标</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">creatCheck</span><span class="params">(<span class="keyword">int</span> typ, Drawable success, Drawable unsuccess, String userRegex)</span> </span>&#123;</div><div class="line">        creatCheck(typ, success, unsuccess);</div><div class="line">        <span class="keyword">this</span>.userRegx = userRegex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"a"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s != <span class="keyword">null</span> &amp;&amp; s.length() &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">boolean</span> isMatch;</div><div class="line">            <span class="keyword">if</span> (type == TYPE_OF_MOBILE) &#123;</div><div class="line">                isMatch = Check.isMobile(s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_TEL) &#123;</div><div class="line">                isMatch = Check.isTel(s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_EMAIL) &#123;</div><div class="line">                isMatch = Check.isEmail(s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_URL) &#123;</div><div class="line">                isMatch = Check.isURL(s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_CHZ) &#123;</div><div class="line">                isMatch = Check.isChz(s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_USERNAME) &#123;</div><div class="line">                isMatch = Check.isUsername(s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_USER_DEFINE) &#123;</div><div class="line">                isMatch = Check.isMatch(userRegx, s.toString());</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (isMatch) &#123;</div><div class="line">                setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, successDrawable, <span class="keyword">null</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, unsuccessDrawable, <span class="keyword">null</span>);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line">        System.out.println();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>最后献上源码地址：<strong><a href="https://github.com/Blankj/AutoCheckEditTextDemo" target="_blank" rel="external">AutoCheckEditTextDemo</a></strong>，欢迎大家star和fork。</p>
+<img src="/2016/04/12/editText-reg/acet.gif" title="[演示动画]">
+<p>原理很简单，实现TextWatcher接口中的afterTextChanged()函数，根据正则表达式返回的结果来动态加载rightDrawable，至于校验成功或者失败的drawable用户在初始化的时候可以自定义，下面给出源码参考，其实现了常用的手机、座机、邮箱、url、汉字、用户名的校验，如果你觉得还不满足的话，最后还提供了用户自定义正则的校验，这样总满意了吧，下面给出其代码供参考。<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.text.Editable;</span><br><span class="line"><span class="keyword">import</span> android.text.TextWatcher;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.widget.EditText;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by cmj on 2016/4/11.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoCheckEditText</span> <span class="keyword">extends</span> <span class="title">EditText</span> <span class="keyword">implements</span> <span class="title">TextWatcher</span> </span>&#123;</span><br><span class="line">    <span class="comment">//手机校验类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_MOBILE = <span class="number">0xb0</span>;</span><br><span class="line">    <span class="comment">//座机校验类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_TEL = <span class="number">0xb1</span>;</span><br><span class="line">    <span class="comment">//邮箱校验类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_EMAIL = <span class="number">0xb2</span>;</span><br><span class="line">    <span class="comment">//url校验类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_URL = <span class="number">0xb3</span>;</span><br><span class="line">    <span class="comment">//汉字校验类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_CHZ = <span class="number">0xb4</span>;</span><br><span class="line">    <span class="comment">//用户名校验类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_USERNAME = <span class="number">0xb5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用户自定义</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_OF_USER_DEFINE = <span class="number">0xbb</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> type;</span><br><span class="line">    <span class="keyword">private</span> Drawable successDrawable;</span><br><span class="line">    <span class="keyword">private</span> Drawable unsuccessDrawable;</span><br><span class="line">    <span class="keyword">private</span> String userRegx;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCheckEditText</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCheckEditText</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCheckEditText</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> typ       要校验的类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> success   匹配成功时的图标</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> unsuccess 匹配失败时的图标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">creatCheck</span><span class="params">(<span class="keyword">int</span> typ, Drawable success, Drawable unsuccess)</span> </span>&#123;</span><br><span class="line">        type = typ;</span><br><span class="line">        successDrawable = success;</span><br><span class="line">        successDrawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, successDrawable.getMinimumWidth(), successDrawable.getMinimumHeight());</span><br><span class="line">        unsuccessDrawable = unsuccess;</span><br><span class="line">        unsuccessDrawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, unsuccessDrawable.getMinimumWidth(), unsuccessDrawable.getMinimumHeight());</span><br><span class="line">        <span class="keyword">this</span>.addTextChangedListener(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> typ       要校验的类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> success   匹配成功时的图标</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> unsuccess 匹配失败时的图标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">creatCheck</span><span class="params">(<span class="keyword">int</span> typ, Drawable success, Drawable unsuccess, String userRegex)</span> </span>&#123;</span><br><span class="line">        creatCheck(typ, success, unsuccess);</span><br><span class="line">        <span class="keyword">this</span>.userRegx = userRegex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"a"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s != <span class="keyword">null</span> &amp;&amp; s.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> isMatch;</span><br><span class="line">            <span class="keyword">if</span> (type == TYPE_OF_MOBILE) &#123;</span><br><span class="line">                isMatch = Check.isMobile(s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_TEL) &#123;</span><br><span class="line">                isMatch = Check.isTel(s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_EMAIL) &#123;</span><br><span class="line">                isMatch = Check.isEmail(s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_URL) &#123;</span><br><span class="line">                isMatch = Check.isURL(s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_CHZ) &#123;</span><br><span class="line">                isMatch = Check.isChz(s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_USERNAME) &#123;</span><br><span class="line">                isMatch = Check.isUsername(s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == TYPE_OF_USER_DEFINE) &#123;</span><br><span class="line">                isMatch = Check.isMatch(userRegx, s.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isMatch) &#123;</span><br><span class="line">                setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, successDrawable, <span class="keyword">null</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, unsuccessDrawable, <span class="keyword">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后献上源码地址：<strong><a href="https://github.com/Blankj/AutoCheckEditTextDemo" target="_blank" rel="noopener">AutoCheckEditTextDemo</a></strong>，欢迎大家star和fork。</p>
 
       
     </div>
@@ -462,7 +462,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -584,11 +584,9 @@
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -701,7 +699,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -719,26 +717,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1223,6 +1201,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

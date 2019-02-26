@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="RecyclerView,优化," />
+  <meta name="keywords" content="RecyclerView,优化,">
 
 
 
@@ -80,11 +80,13 @@
 
 
 <meta name="description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
+<meta name="keywords" content="RecyclerView,优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
 <meta property="og:url" content="https://blankj.com/2018/09/29/optimize-recycler-view/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-09-30T09:26:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
@@ -118,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2018/09/29/optimize-recycler-view/"/>
+  <link rel="canonical" href="https://blankj.com/2018/09/29/optimize-recycler-view/">
 
 
 
@@ -146,7 +148,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -156,13 +158,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -192,7 +194,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -202,7 +204,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -212,7 +214,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -222,7 +224,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -232,7 +234,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -242,7 +244,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -252,7 +254,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -265,7 +267,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -286,9 +288,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -320,20 +320,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2018/09/29/optimize-recycler-view/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -365,7 +365,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -376,7 +376,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/安卓-offer-收割基/" itemprop="url" rel="index">
                     <span itemprop="name">安卓 offer 收割基</span>
                   </a>
@@ -387,7 +387,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/安卓-offer-收割基/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -405,12 +405,18 @@
 
           
           
-
+             <span id="/2018/09/29/optimize-recycler-view/" class="leancloud_visitors" data-flag-title="RecyclerView 性能优化 | 安卓 offer 收割基">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -432,15 +438,15 @@
       
         <p>阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。<br><a id="more"></a></p>
 <h2 id="数据处理和视图加载分离"><a href="#数据处理和视图加载分离" class="headerlink" title="数据处理和视图加载分离"></a>数据处理和视图加载分离</h2><p>我们知道，从远端拉取数据肯定是要放在异步的，在我们拉取下来数据之后可能就匆匆把数据丢给了 VH 处理，其实，数据的处理逻辑我们也应该放在异步处理，这样 Adapter 在 notify change 后，ViewHolder 就可以简单无压力地做数据与视图的绑定逻辑，比如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mTextView.setText(Html.fromHtml(data).toString());</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mTextView.setText(Html.fromHtml(data).toString());</span><br></pre></td></tr></table></figure>
 <p>这里的 <code>Html.fromHtml(data)</code> 方法可能就是比较耗时的，存在多个 <code>TextView</code> 的话耗时会更为严重，这样便会引发掉帧、卡顿，而如果把这一步与网络异步线程放在一起，站在用户角度，最多就是网络刷新时间稍长一点。</p>
 <h2 id="数据优化"><a href="#数据优化" class="headerlink" title="数据优化"></a>数据优化</h2><p>分页拉取远端数据，对拉取下来的远端数据进行缓存，提升二次加载速度；对于新增或者删除数据通过 <code>DiffUtil</code> 来进行局部刷新数据，而不是一味地全局刷新数据。</p>
-<h2 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a>布局优化</h2><h3 id="减少过渡绘制"><a href="#减少过渡绘制" class="headerlink" title="减少过渡绘制"></a>减少过渡绘制</h3><p>减少布局层级，可以考虑使用自定义 View 来减少层级，或者更合理地设置布局来减少层级，不推荐在 RecyclerView 中使用 <code>ConstraintLayout</code>，有很多开发者已经反映了使用它效果更差，相关链接有：<a href="https://www.reddit.com/r/androiddev/comments/7ylbz3/is_constraintlayout_that_slow/" target="_blank" rel="external">Is ConstraintLayout that slow?</a>、<a href="https://issuetracker.google.com/issues/112000722" target="_blank" rel="external">constraintlayout 1.1.1 not work well in listview</a>。</p>
+<h2 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a>布局优化</h2><h3 id="减少过渡绘制"><a href="#减少过渡绘制" class="headerlink" title="减少过渡绘制"></a>减少过渡绘制</h3><p>减少布局层级，可以考虑使用自定义 View 来减少层级，或者更合理地设置布局来减少层级，不推荐在 RecyclerView 中使用 <code>ConstraintLayout</code>，有很多开发者已经反映了使用它效果更差，相关链接有：<a href="https://www.reddit.com/r/androiddev/comments/7ylbz3/is_constraintlayout_that_slow/" target="_blank" rel="noopener">Is ConstraintLayout that slow?</a>、<a href="https://issuetracker.google.com/issues/112000722" target="_blank" rel="noopener">constraintlayout 1.1.1 not work well in listview</a>。</p>
 <h3 id="减少-xml-文件-inflate-时间"><a href="#减少-xml-文件-inflate-时间" class="headerlink" title="减少 xml 文件 inflate 时间"></a>减少 xml 文件 inflate 时间</h3><p>这里的 xml 文件不仅包括 layout 的 xml，还包括 drawable 的 xml，xml 文件 inflate 出 ItemView 是通过耗时的 IO 操作，尤其当 Item 的复用几率很低的情况下，随着 Type 的增多，这种 inflate 带来的损耗是相当大的，此时我们可以用代码去生成布局，即 <code>new View()</code> 的方式，只要搞清楚 xml 中每个节点的属性对应的 API 即可。</p>
 <h3 id="减少-View-对象的创建"><a href="#减少-View-对象的创建" class="headerlink" title="减少 View 对象的创建"></a>减少 View 对象的创建</h3><p>一个稍微复杂的 Item 会包含大量的 View，而大量的 View 的创建也会消耗大量时间，所以要尽可能简化 ItemView；设计 ItemType 时，对多 ViewType 能够共用的部分尽量设计成自定义 View，减少 View 的构造和嵌套。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他并不代表不重要，而是我不能把他们进行分类哈，其中可能某些操作会对你的 RecyclerView 有很大的优化。</p>
 <ul>
-<li><p>升级 <code>RecycleView</code> 版本到 25.1.0 及以上使用 Prefetch 功能，可参考 <a href="https://juejin.im/entry/58a3f4f62f301e0069908d8f" target="_blank" rel="external">RecyclerView 数据预取</a>。</p>
+<li><p>升级 <code>RecycleView</code> 版本到 25.1.0 及以上使用 Prefetch 功能，可参考 <a href="https://juejin.im/entry/58a3f4f62f301e0069908d8f" target="_blank" rel="noopener">RecyclerView 数据预取</a>。</p>
 </li>
 <li><p>如果 Item 高度是固定的话，可以使用 <code>RecyclerView.setHasFixedSize(true);</code> 来避免 <code>requestLayout</code> 浪费资源；</p>
 </li>
@@ -461,10 +467,10 @@
 <li><p>对 <code>ItemView</code> 设置监听器，不要对每个 Item 都调用 <code>addXxListener</code>，应该大家公用一个 <code>XxListener</code>，根据 <code>ID</code> 来进行不同的操作，优化了对象的频繁创建带来的资源消耗。</p>
 </li>
 <li><p>通过 getExtraLayoutSpace 来增加 RecyclerView 预留的额外空间（显示范围之外，应该额外缓存的空间），如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">new LinearLayoutManager(this) &#123;</div><div class="line">    @Override</div><div class="line">    protected int getExtraLayoutSpace(RecyclerView.State state) &#123;</div><div class="line">        return size;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new LinearLayoutManager(this) &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected int getExtraLayoutSpace(RecyclerView.State state) &#123;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我正在打造一个帮助 Android 开发者们拿到更好 offer 的面试库————<a href="https://github.com/Blankj/AndroidOfferKiller" target="_blank" rel="external">安卓 offer 收割基</a>，欢迎 star，觉得不错的可以持续关注，有兴趣的可以一起加入进来和我一同打造。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我正在打造一个帮助 Android 开发者们拿到更好 offer 的面试库————<a href="https://github.com/Blankj/AndroidOfferKiller" target="_blank" rel="noopener">安卓 offer 收割基</a>，欢迎 star，觉得不错的可以持续关注，有兴趣的可以一起加入进来和我一同打造。</p>
 
       
     </div>
@@ -485,7 +491,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -618,11 +624,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -751,7 +755,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -769,26 +773,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1273,6 +1257,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

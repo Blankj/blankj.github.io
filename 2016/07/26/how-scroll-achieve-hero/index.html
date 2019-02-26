@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="5.Android Scroll分析," />
+  <meta name="keywords" content="5.Android Scroll分析,">
 
 
 
@@ -79,22 +79,21 @@
 
 
 
-<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。  
-前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。　　滑动一个View，本质上来说就是移动">
+<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。   前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。　　滑动一个View，本质上来说就是移动">
+<meta name="keywords" content="5.Android Scroll分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="滑动效果是如何产生的(Android群英传)">
 <meta property="og:url" content="https://blankj.com/2016/07/26/how-scroll-achieve-hero/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。  
-前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。　　滑动一个View，本质上来说就是移动">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。   前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。　　滑动一个View，本质上来说就是移动">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blankj.com/2016/07/26/how-scroll-achieve-hero/android_coordinate.png">
 <meta property="og:image" content="https://blankj.com/2016/07/26/how-scroll-achieve-hero/view_coordinate.png">
 <meta property="og:image" content="https://blankj.com/2016/07/26/how-scroll-achieve-hero/get_xy_method.png">
 <meta property="og:updated_time" content="2016-11-09T17:30:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="滑动效果是如何产生的(Android群英传)">
-<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。  
-前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。　　滑动一个View，本质上来说就是移动">
+<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。   前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。　　滑动一个View，本质上来说就是移动">
 <meta name="twitter:image" content="https://blankj.com/2016/07/26/how-scroll-achieve-hero/android_coordinate.png">
 
 
@@ -125,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2016/07/26/how-scroll-achieve-hero/"/>
+  <link rel="canonical" href="https://blankj.com/2016/07/26/how-scroll-achieve-hero/">
 
 
 
@@ -153,7 +152,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -163,13 +162,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -199,7 +198,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -209,7 +208,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -219,7 +218,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -229,7 +228,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -239,7 +238,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -249,7 +248,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -259,7 +258,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -272,7 +271,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -293,9 +292,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -327,20 +324,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/07/26/how-scroll-achieve-hero/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -372,7 +369,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -383,7 +380,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/" itemprop="url" rel="index">
                     <span itemprop="name">Android群英传</span>
                   </a>
@@ -394,7 +391,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/5-Android-Scroll分析/" itemprop="url" rel="index">
                     <span itemprop="name">5.Android Scroll分析</span>
                   </a>
@@ -412,12 +409,18 @@
 
           
           
-
+             <span id="/2016/07/26/how-scroll-achieve-hero/" class="leancloud_visitors" data-flag-title="滑动效果是如何产生的(Android群英传)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -441,18 +444,18 @@
 <p>前言：相对于Android2.X版本中常见的长按、点击操作，滑动的操作方式具有更好的用户体验性。因此，从Android4.X版本开始，滑动操作就大量出现在了Android系统中，各种第三方应用也竞相模仿这种效果，来改善自己的应用，下面就将向大家展示如何在应用中添加滑动效果。<br>　　滑动一个View，本质上来说就是移动一个View。改变其当前所处的位置，它的原理与动画效果的实现非常相似，都是通过不断地改变View的坐标来实现这一效果。所以，要实现View的滑动，就必须监听用户触摸的事件，并根据事件传入的坐标，动态且不断地改变View的坐标，从而实现View跟随用户触摸的滑动而滑动。  </p>
 <p>　　在讲解如何实现滑动效果之前，需要先来了解一下Android中的窗口坐标体系和屏幕的触控事件——MotionEvent。<br><a id="more"></a></p>
 <h3 id="Android坐标系"><a href="#Android坐标系" class="headerlink" title="Android坐标系"></a>Android坐标系</h3><p>　　在物理学中，要描述一个物体的运动，就必须选定一个参考系。所谓滑动，正是相对于参考系的运动。在Android中，将屏幕最左上角的顶点作为Android坐标系的原点，从这个点向右是X轴正方向，从这个点向下是Y轴的正方向，如下图所示。  </p>
-<img src="/2016/07/26/how-scroll-achieve-hero/android_coordinate.png" alt="[Android坐标系]" title="[Android坐标系]">
+<img src="/2016/07/26/how-scroll-achieve-hero/android_coordinate.png" title="[Android坐标系]">
 <p>　　系统提供了getLocationOnScreen(int location[])这样的方法来获取Android坐标系中点的位置，即该视图左上角在Android坐标系的坐标。另外，在触控事件中使用getRawX()、getRawY()方法所获得的坐标同样是Android坐标系中的坐标。  </p>
 <h3 id="视图坐标系"><a href="#视图坐标系" class="headerlink" title="视图坐标系"></a>视图坐标系</h3><p>　　Android中除了上面所说的这种坐标系之外，还有一个视图坐标系，它描述了子视图在父视图中的位置关系。这两种坐标系并不矛盾也不复杂，他们的作用是相辅相成的。与Android坐标系类似，视图坐标系同样是以原点向右为X轴正方向，以原点向下为Y轴正方向，只不过在视图坐标系中，原点不再是Android坐标系中的屏幕最左上角，而是以<strong>父视图左上角</strong>为坐标原点，如下图所示。  </p>
-<img src="/2016/07/26/how-scroll-achieve-hero/view_coordinate.png" alt="[视图坐标系]" title="[视图坐标系]">
+<img src="/2016/07/26/how-scroll-achieve-hero/view_coordinate.png" title="[视图坐标系]">
 <p>　　在触控事件中，通过getX()、getY()所获得的坐标就是视图坐标系中的坐标。  </p>
 <h3 id="触控事件——MotionEvent"><a href="#触控事件——MotionEvent" class="headerlink" title="触控事件——MotionEvent"></a>触控事件——MotionEvent</h3><p>　　触控事件MotionEvent在用户交互中，站着举足轻重的地位，学好触控事件是掌握后序内容的基础。首先，来看看MotionEvent中封装的一些常用的事件常量，它定义了触控事件的不同类型。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 单点触摸按下动作</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_DOWN             = <span class="number">0</span>;</div><div class="line"><span class="comment">// 单点触摸离开动作</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_UP               = <span class="number">1</span>;</div><div class="line"><span class="comment">// 触摸点移动动作</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_MOVE             = <span class="number">2</span>;</div><div class="line"><span class="comment">// 触摸动作取消</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_CANCEL           = <span class="number">3</span>;</div><div class="line"><span class="comment">// 触摸动作超出边界</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_OUTSIDE          = <span class="number">4</span>;</div><div class="line"><span class="comment">// 多点触摸按下动作</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_POINTER_DOWN     = <span class="number">5</span>;</div><div class="line"><span class="comment">// 多点离开动作</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_POINTER_UP       = <span class="number">6</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单点触摸按下动作</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_DOWN             = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 单点触摸离开动作</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_UP               = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 触摸点移动动作</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_MOVE             = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 触摸动作取消</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_CANCEL           = <span class="number">3</span>;</span><br><span class="line"><span class="comment">// 触摸动作超出边界</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_OUTSIDE          = <span class="number">4</span>;</span><br><span class="line"><span class="comment">// 多点触摸按下动作</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_POINTER_DOWN     = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 多点离开动作</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ACTION_POINTER_UP       = <span class="number">6</span>;</span><br></pre></td></tr></table></figure>
 <p>　　通常情况下，我们会在onTouchEvent(MotionEvent event)方法中通过event.getAction()方法来获取触控事件的类型，并使用switch-case方法来进行筛选，这个代码的模式基本固定，如下所示。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</div><div class="line">    <span class="comment">// 获取当前输入点的X、Y坐标(视图坐标)</span></div><div class="line">    <span class="keyword">int</span> x = (<span class="keyword">int</span>) event.getX();</div><div class="line">    <span class="keyword">int</span> y = (<span class="keyword">int</span>) event.getY();</div><div class="line">    <span class="keyword">switch</span> (event.getAction()) &#123;</div><div class="line">        <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</div><div class="line">            <span class="comment">// 处理输入的按下事件</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line">            <span class="comment">// 处理输入的移动事件</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">            <span class="comment">// 处理输入的离开事件</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取当前输入点的X、Y坐标(视图坐标)</span></span><br><span class="line">    <span class="keyword">int</span> x = (<span class="keyword">int</span>) event.getX();</span><br><span class="line">    <span class="keyword">int</span> y = (<span class="keyword">int</span>) event.getY();</span><br><span class="line">    <span class="keyword">switch</span> (event.getAction()) &#123;</span><br><span class="line">        <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line">            <span class="comment">// 处理输入的按下事件</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</span><br><span class="line">            <span class="comment">// 处理输入的移动事件</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MotionEvent.ACTION_UP:</span><br><span class="line">            <span class="comment">// 处理输入的离开事件</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　在不涉及多点操作的情况下，通常可以使用以上代码来完成触控事件的监听，不过这里只是一个代码模板，后面我们会在触控事件中完成具体的逻辑。  </p>
 <p>　　在Android中，系统提供了非常多的方法来获取坐标值、相对距离等。方法丰富固然好，但也给初学者带来了很多困惑，不知道在什么情况下使用什么方法，下面总结了一些API，结合Android坐标系来看看该如何使用它们，如下图所示。  </p>
-<img src="/2016/07/26/how-scroll-achieve-hero/get_xy_method.png" alt="[获取坐标值的各种方法]" title="[获取坐标值的各种方法]">
+<img src="/2016/07/26/how-scroll-achieve-hero/get_xy_method.png" title="[获取坐标值的各种方法]">
 <p>　　这些方法可以分成如下两个类别：  </p>
 <ul>
 <li><p>View提供的获取坐标方法<br>getTop()：获取到的是View自身的顶边到其父布局顶边的距离。<br>getLeft()：获取到的是View自身的左边到其父布局左边的距离。<br>getRight()：获取到的是View自身的右边到其父布局左边的距离。<br>getBottom()：获取到的是View自身的底边到其父布局顶边的距离。  </p>
@@ -484,7 +487,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -615,11 +618,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -748,7 +749,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -766,26 +767,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1270,6 +1251,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

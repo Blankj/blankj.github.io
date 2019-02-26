@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="工具类,屏幕适配," />
+  <meta name="keywords" content="工具类,屏幕适配,">
 
 
 
@@ -80,18 +80,20 @@
 
 
 <meta name="description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
+<meta name="keywords" content="工具类,屏幕适配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 屏幕适配终结者">
 <meta property="og:url" content="https://blankj.com/2018/12/18/android-adapt-screen-killer/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadvmk1uqj21420m8dnw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadwez1p9j21o20zkts7.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadwxbz7bj22i21hcb29.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadxaj8phj23c21z41ky.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/b75b8776ly1fyablj2mjmj21lc13a4qz.jpg">
-<meta property="og:updated_time" content="2018-12-17T20:45:31.000Z">
+<meta property="og:updated_time" content="2019-01-26T06:40:32.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 屏幕适配终结者">
 <meta name="twitter:description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
@@ -125,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2018/12/18/android-adapt-screen-killer/"/>
+  <link rel="canonical" href="https://blankj.com/2018/12/18/android-adapt-screen-killer/">
 
 
 
@@ -153,7 +155,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -163,13 +165,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -199,7 +201,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -209,7 +211,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -219,7 +221,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -229,7 +231,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -239,7 +241,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -249,7 +251,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -259,7 +261,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -272,7 +274,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -293,9 +295,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -327,20 +327,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2018/12/18/android-adapt-screen-killer/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -372,7 +372,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -383,7 +383,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -394,7 +394,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/工具类/" itemprop="url" rel="index">
                     <span itemprop="name">工具类</span>
                   </a>
@@ -412,12 +412,18 @@
 
           
           
-
+             <span id="/2018/12/18/android-adapt-screen-killer/" class="leancloud_visitors" data-flag-title="Android 屏幕适配终结者">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -438,11 +444,11 @@
 
       
         <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前基于头条的适配方案写了篇文章 <a href="https://blankj.com/2018/07/30/easy-adapt-screen/">Android 屏幕适配从未如斯简单</a>，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub <a href="https://github.com/Blankj/AndroidUtilCode/issues/597" target="_blank" rel="external">屏幕适配问题汇总及解决</a>，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。<br><a id="more"></a></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前基于头条的适配方案写了篇文章 <a href="https://blankj.com/2018/07/30/easy-adapt-screen/">Android 屏幕适配从未如斯简单</a>，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub <a href="https://github.com/Blankj/AndroidUtilCode/issues/597" target="_blank" rel="noopener">屏幕适配问题汇总及解决</a>，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。<br><a id="more"></a></p>
 <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="1-无侵入性"><a href="#1-无侵入性" class="headerlink" title="1. 无侵入性"></a>1. 无侵入性</h3><p>首先科普下 Android 中的一个长度单位：<code>pt</code>，它表示一个点，是屏幕的物理尺寸，其大小为 1 英寸的 <code>1 / 72</code>，也就是 <code>72pt</code> 等于 1 英寸（其实 Android 中还有比较少见的 <code>in</code> 和 <code>mm</code> 的长度单位）。而我本次的适配使用的单位恰好是 <code>pt</code>，所以对你从前使用的布局不会造成任何影响，在老项目中开发新功能你可以胆大地加入该适配方案，新项目的话更可以毫不犹豫地采用该适配，并且在关闭该关闭后，<code>pt</code> 效果等同于 <code>dp</code> 哦。</p>
 <h3 id="2-灵活性高"><a href="#2-灵活性高" class="headerlink" title="2. 灵活性高"></a>2. 灵活性高</h3><p>如果你想要对某个 <code>View</code> 做到不同分辨率的设备下，使其尺寸在适配维度上所占比例一致的话，那么对它使用 <code>pt</code> 单位即可，如果你不想要这样的效果，而是想要更大尺寸的设备显示更多的内容，那么你可以像从前那样写 <code>dp</code>、<code>sp</code> 什么的即可，结合这两点，在界面布局上你就可以游刃有余地做到你想要的效果。</p>
 <h3 id="3-不会影响系统-View-和三方-View-的大小"><a href="#3-不会影响系统-View-和三方-View-的大小" class="headerlink" title="3. 不会影响系统 View 和三方 View 的大小"></a>3. 不会影响系统 View 和三方 View 的大小</h3><p>这点其实在无侵入性中已经表现出来了，由于头条的方案是直接修改 <code>DisplayMetrics#density</code> 的 <code>dp</code> 适配，这样会导致系统 <code>View</code> 尺寸和原先不一致，比如 <code>Dialog</code>、<code>Toast</code>、 尺寸，同样，三方 <code>View</code> 的大小也会和原先效果不一致，这也就是我选择 <code>pt</code> 适配的原因之一。</p>
-<h3 id="4-不会失效"><a href="#4-不会失效" class="headerlink" title="4. 不会失效"></a>4. 不会失效</h3><p>这一点是最值得吹牛的，因为不论头条的适配还是 <a href="https://github.com/JessYanCoding/AndroidAutoSize" target="_blank" rel="external">AndroidAutoSize</a>，都会存在 <code>DisplayMetrics#density</code> 被还原的情况，需要自己重新设置回去，最显著的就是界面中存在 <code>WebView</code> 的话，由于其初始化的时候会还原 <code>DisplayMetrics#density</code> 的值导致适配失效，当然这点已经有解决方案了，但还会有很多其他情况会还原 <code>DisplayMetrics#density</code> 的值导致适配失效。而我这方案就是为了解决这个痛点，不让 <code>DisplayMetrics</code> 中的值被还原导致适配失效。</p>
+<h3 id="4-不会失效"><a href="#4-不会失效" class="headerlink" title="4. 不会失效"></a>4. 不会失效</h3><p>这一点是最值得吹牛的，因为不论头条的适配还是 <a href="https://github.com/JessYanCoding/AndroidAutoSize" target="_blank" rel="noopener">AndroidAutoSize</a>，都会存在 <code>DisplayMetrics#density</code> 被还原的情况，需要自己重新设置回去，最显著的就是界面中存在 <code>WebView</code> 的话，由于其初始化的时候会还原 <code>DisplayMetrics#density</code> 的值导致适配失效，当然这点已经有解决方案了，但还会有很多其他情况会还原 <code>DisplayMetrics#density</code> 的值导致适配失效。而我这方案就是为了解决这个痛点，不让 <code>DisplayMetrics</code> 中的值被还原导致适配失效。</p>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>说了这么多，先上下效果图压压惊吧，每种分辨率的图依次是宽度 <code>1080pt</code> 适配，高度 <code>1920pt</code> 适配以及关闭适配的效果。</p>
 <h3 id="480-x-800-mdpi-160dpi"><a href="#480-x-800-mdpi-160dpi" class="headerlink" title="480 x 800 - mdpi(160dpi)"></a>480 x 800 - mdpi(160dpi)</h3><p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1fyadvmk1uqj21420m8dnw.jpg" alt="mdpi"></p>
 <h3 id="720-x-1280-xhdpi-320dpi"><a href="#720-x-1280-xhdpi-320dpi" class="headerlink" title="720 x 1280 - xhdpi(320dpi)"></a>720 x 1280 - xhdpi(320dpi)</h3><p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1fyadwez1p9j21o20zkts7.jpg" alt="xhdpi"></p>
@@ -452,16 +458,16 @@
 <h2 id="如何根据设计图创建预览？"><a href="#如何根据设计图创建预览？" class="headerlink" title="如何根据设计图创建预览？"></a>如何根据设计图创建预览？</h2><p>在 AS 中 <code>Tools -&gt; AVD Manager -&gt; Create Virtual Device...</code>，我们以适配 <code>1080 x 1920</code>px 为例，具体操作如下：</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/b75b8776ly1fyablj2mjmj21lc13a4qz.jpg" alt="1080 x 1920"></p>
 <p>创建完设备我们在预览界面选中这个设备即可看到 <code>pt</code> 单位效果。</p>
-<p>设计师给你的设计图尺寸是多少，那你就建多少尺寸的设备即可，比如是 <code>720 x 1280</code>px 的，那你把上图的尺寸换成 <code>720</code> 和 <code>1280</code>，再计算下屏幕尺寸即可，如果是 <code>360 x 640</code>dp 的话，那就把上图的尺寸换成 <code>360</code> 和 <code>640</code>，再计算下屏幕尺寸即可，不用去 care 单位到底是什么，设计图标注多少那你就写多少即可，无需换算。适配的时候传入这个纬度的尺寸值即可，比如 <code>720 x 1280</code> 的宽度适配，那就传入 <code>720</code> 即可。</p>
+<p>设计师给你的设计图尺寸是多少，那你就建多少尺寸的设备即可，比如是 <code>720 x 1280</code>px 的，那你把上图的尺寸换成 <code>720</code> 和 <code>1280</code>，再计算下屏幕尺寸即可，如果是 <code>360 x 640</code>dp 的话，那就把上图的尺寸换成 <code>360</code> 和 <code>640</code>，再计算下屏幕尺寸即可，不用去 care 单位到底是什么，设计图标注多少那你就写多少即可，无需换算。适配的时候传入这个维度的尺寸值即可，比如 <code>720 x 1280</code> 的宽度适配，那就传入 <code>720</code> 即可。</p>
 <h2 id="原理及用法"><a href="#原理及用法" class="headerlink" title="原理及用法"></a>原理及用法</h2><p>原理其实也是基于头条的原理，不过我是操作 <code>pt</code>，所以不是改 <code>DisplayMetrics#density</code>，而是 <code>DisplayMetrics#xdpi</code>，由于适配不会失效，所以需要在适配的 <code>Activity</code> 中重写下 <code>getResources()</code> 函数，因为每次 <code>View</code> 在变更尺寸时都会调用到 <code>getResources()</code>，所以我们直接在这里进行适配就不会导致失效，效果图中对应的代码分别如下所示：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getResources</span><span class="params">()</span></span>: Resources &#123;</div><div class="line">    <span class="keyword">return</span> AdaptScreenUtils.adaptWidth(<span class="keyword">super</span>.getResources(), <span class="number">1080</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getResources</span><span class="params">()</span></span>: Resources &#123;</div><div class="line">    <span class="keyword">return</span> AdaptScreenUtils.adaptHeight(<span class="keyword">super</span>.getResources(), <span class="number">1920</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getResources</span><span class="params">()</span></span>: Resources &#123;</div><div class="line">    <span class="keyword">return</span> AdaptScreenUtils.closeAdapt(<span class="keyword">super</span>.getResources())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getResources</span><span class="params">()</span></span>: Resources &#123;</span><br><span class="line">    <span class="keyword">return</span> AdaptScreenUtils.adaptWidth(<span class="keyword">super</span>.getResources(), <span class="number">1080</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getResources</span><span class="params">()</span></span>: Resources &#123;</span><br><span class="line">    <span class="keyword">return</span> AdaptScreenUtils.adaptHeight(<span class="keyword">super</span>.getResources(), <span class="number">1920</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getResources</span><span class="params">()</span></span>: Resources &#123;</span><br><span class="line">    <span class="keyword">return</span> AdaptScreenUtils.closeAdapt(<span class="keyword">super</span>.getResources())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其源码、Demo 以及 API 如下所示：</p>
-<p>AdaptScreen 相关 -&gt; [AdaptScreenUtils.java][adaptScreen.java] -&gt; [Demo][adaptScreen.demo]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">adaptWidth : 适配宽度</div><div class="line">adaptHeight: 适配高度</div><div class="line">closeAdapt : 关闭适配（pt 等同于 dp）</div><div class="line">pt2Px      : pt 转 px</div><div class="line">px2Pt      : px 转 pt</div></pre></td></tr></table></figure></p>
+<p>AdaptScreen 相关 -&gt; [AdaptScreenUtils.java][adaptScreen.java] -&gt; [Demo][adaptScreen.demo]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adaptWidth : 适配宽度</span><br><span class="line">adaptHeight: 适配高度</span><br><span class="line">closeAdapt : 关闭适配（pt 等同于 dp）</span><br><span class="line">pt2Px      : pt 转 px</span><br><span class="line">px2Pt      : px 转 pt</span><br></pre></td></tr></table></figure></p>
 <p>pt2Px 及 px2Pt 是提供给需要动态操作 <code>View</code> 的。</p>
-<p>如上只需依赖 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a> 最新版本即可：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">implementation <span class="string">'com.blankj:utilcode:1.22.3'</span></div></pre></td></tr></table></figure>
-<h2 id="结尾的话"><a href="#结尾的话" class="headerlink" title="结尾的话"></a>结尾的话</h2><p>看了原理之后是不是觉得很简单，但能想到这种解决方案的又能有几人呢，我也是站在了巨人的肩膀上才能想到这一层次，希望该适配方案能像文章标题一样终结我们的适配，这是我目前发现最简单有效的适配方案，如果觉得不错的话记得推荐给身边的 Androider 哦，使用过程有问题的话欢迎同步到 <a href="https://github.com/Blankj/AndroidUtilCode/issues/758" target="_blank" rel="external">「Android 屏幕适配终结者」问题汇总</a> 这个 issue 中。</p>
-<p>最后再插个内容，<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="external">AndroidUtilCode</a> 项目已改造为组件化，有兴趣的可以翻阅源码查看，相信你肯定会学到不少好东西的，下一篇文章我会为大家介绍下这方面的内容，期待我能尽快出产吧。</p>
+<p>如上只需依赖 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 最新版本即可：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.blankj:utilcode:1.23.2'</span></span><br></pre></td></tr></table></figure>
+<h2 id="结尾的话"><a href="#结尾的话" class="headerlink" title="结尾的话"></a>结尾的话</h2><p>看了原理之后是不是觉得很简单，但能想到这种解决方案的又能有几人呢，我也是站在了巨人的肩膀上才能想到这一层次，希望该适配方案能像文章标题一样终结我们的适配，这是我目前发现最简单有效的适配方案，如果觉得不错的话记得推荐给身边的 Androider 哦，使用过程有问题的话欢迎同步到 <a href="https://github.com/Blankj/AndroidUtilCode/issues/758" target="_blank" rel="noopener">「Android 屏幕适配终结者」问题汇总</a> 这个 issue 中。</p>
+<p>最后再插个内容，<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 项目已改造为组件化，有兴趣的可以翻阅源码查看，相信你肯定会学到不少好东西的，下一篇文章我会为大家介绍下这方面的内容，期待我能尽快出产吧。</p>
 
       
     </div>
@@ -482,7 +488,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -611,11 +617,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -744,7 +748,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -762,26 +766,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1266,6 +1250,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

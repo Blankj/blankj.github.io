@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="3.Android控件架构与自定义控件详解," />
+  <meta name="keywords" content="3.Android控件架构与自定义控件详解,">
 
 
 
@@ -79,25 +79,21 @@
 
 
 
-<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　Android系统在绘制View之前也必须对View进行测量，即告诉系统该画一个多大的View。这个过程在onMeasure()方法中进行。
-　　Android系统给我们提供了一个牛逼的类—-MeasureSpec类，我们可通过它来测量View。MeasureSpec是一个32位的值，其中高两位为测量的模式，低3">
+<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　Android系统在绘制View之前也必须对View进行测量，即告诉系统该画一个多大的View。这个过程在onMeasure()方法中进行。 　　Android系统给我们提供了一个牛逼的类—-MeasureSpec类，我们可通过它来测量View。MeasureSpec是一个32位的值，其中高两位为测量的模式，低3">
+<meta name="keywords" content="3.Android控件架构与自定义控件详解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="View的测量(Android群英传)">
 <meta property="og:url" content="https://blankj.com/2016/05/20/measure-view-hero/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　Android系统在绘制View之前也必须对View进行测量，即告诉系统该画一个多大的View。这个过程在onMeasure()方法中进行。
-　　Android系统给我们提供了一个牛逼的类—-MeasureSpec类，我们可通过它来测量View。MeasureSpec是一个32位的值，其中高两位为测量的模式，低3">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　Android系统在绘制View之前也必须对View进行测量，即告诉系统该画一个多大的View。这个过程在onMeasure()方法中进行。 　　Android系统给我们提供了一个牛逼的类—-MeasureSpec类，我们可通过它来测量View。MeasureSpec是一个32位的值，其中高两位为测量的模式，低3">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blankj.com/2016/05/20/measure-view-hero/VCL0.png">
 <meta property="og:image" content="https://blankj.com/2016/05/20/measure-view-hero/VCL1.png">
 <meta property="og:image" content="https://blankj.com/2016/05/20/measure-view-hero/VCL2.png">
 <meta property="og:updated_time" content="2017-01-13T06:10:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的测量(Android群英传)">
-<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　Android系统在绘制View之前也必须对View进行测量，即告诉系统该画一个多大的View。这个过程在onMeasure()方法中进行。
-　　Android系统给我们提供了一个牛逼的类—-MeasureSpec类，我们可通过它来测量View。MeasureSpec是一个32位的值，其中高两位为测量的模式，低3">
+<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　Android系统在绘制View之前也必须对View进行测量，即告诉系统该画一个多大的View。这个过程在onMeasure()方法中进行。 　　Android系统给我们提供了一个牛逼的类—-MeasureSpec类，我们可通过它来测量View。MeasureSpec是一个32位的值，其中高两位为测量的模式，低3">
 <meta name="twitter:image" content="https://blankj.com/2016/05/20/measure-view-hero/VCL0.png">
 
 
@@ -128,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2016/05/20/measure-view-hero/"/>
+  <link rel="canonical" href="https://blankj.com/2016/05/20/measure-view-hero/">
 
 
 
@@ -156,7 +152,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -166,13 +162,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -202,7 +198,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -212,7 +208,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -222,7 +218,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -232,7 +228,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -242,7 +238,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -252,7 +248,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -262,7 +258,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -275,7 +271,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -296,9 +292,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -330,20 +324,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/05/20/measure-view-hero/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -375,7 +369,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -386,7 +380,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/" itemprop="url" rel="index">
                     <span itemprop="name">Android群英传</span>
                   </a>
@@ -397,7 +391,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
                     <span itemprop="name">3.Android控件架构与自定义控件详解</span>
                   </a>
@@ -415,12 +409,18 @@
 
           
           
-
+             <span id="/2016/05/20/measure-view-hero/" class="leancloud_visitors" data-flag-title="View的测量(Android群英传)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -455,22 +455,22 @@
 </ul>
 <p>　　View类默认的onMeasure()方法只支持EXACTLY模式，所以如果在自定义控件的时候不重写onMeasure()方法的话，就只能使用EXACTLY模式。控件可以响应你指定的具体宽高值或者是match_parent属性。而如果要让自定义View支持wrap_content属性，那就必须重写onMeasure()方法来指定wrap_content时的大小。</p>
 <p>　　通过MeasureSpec这一个类，我们就获取了View的测量模式和View想要绘制的大小。有了这些信息，我们就可以控制View最后显示的大小。<br>　　下面来看一个简单的实例演示如何进行View的测量。首先要重写onMeasure()方法，该方法如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　在IDE中按住Ctrl+鼠标左键点击onMeasure查看源代码，可以发现系统最终会调用setMeasuredDimension(int measuredWidth, int measuredHeight)方法将测量后的宽高值设置进去，从而完成测量工作。所以在重写onMeasure()方法后，最重要最的工作就是把测量后的宽高值作为参数传给setMeasuredDimension()方法。</p>
 <p>　　通过上面的分析，重写的onMeasure()方法代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">    setMeasuredDimension(measureWidth(widthMeasureSpec), measureHeight(heightMeasureSpec));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">    setMeasuredDimension(measureWidth(widthMeasureSpec), measureHeight(heightMeasureSpec));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　在onMeasure()方法中，我们调用自定义的measureWidth()方法和measureHeight()方法分别对宽高进行重定义，参数则是宽和高的MeasureSpec对象，MeasureSpec对象根据前面的介绍可以知道它包含了测量的模式和测量值的大小。</p>
 <p>　　下面我们就以measureWidth()方法为例，讲解如何自定义测量值。<br>　　第一步，从MeasureSpec对象中提取出具体的测量模式和大小，代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> specMode = MeasureSpec.getMode(widthMeasureSpec);</div><div class="line"><span class="keyword">int</span> specSize = MeasureSpec.getSize(widthMeasureSpec);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> specMode = MeasureSpec.getMode(widthMeasureSpec);</span><br><span class="line"><span class="keyword">int</span> specSize = MeasureSpec.getSize(widthMeasureSpec);</span><br></pre></td></tr></table></figure>
 <p>　　接下来通过判断测量的模式，给出不同的测量值。当specMode为EXACTLY时，直接使用指定的specSize即可；当specMode为其他两种模式时，需要给它一个默认的大小。特别地，如果指定wrap_content属性，即AT_MOST模式，则需要提取出我们指定的大小与specSize中最小的一个来作为最后的测量值，measureWidth()方法的代码如下。这段代码基本可以作为模板代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">measureWidth</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> specMode = MeasureSpec.getMode(widthMeasureSpec);</div><div class="line">    <span class="keyword">int</span> specSize = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">    <span class="keyword">if</span> (specMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">        result = specSize;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        result = <span class="number">200</span>;</div><div class="line">        <span class="keyword">if</span> (specMode == MeasureSpec.AT_MOST) &#123;</div><div class="line">            result = Math.min(result, specSize);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">measureWidth</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> specMode = MeasureSpec.getMode(widthMeasureSpec);</span><br><span class="line">    <span class="keyword">int</span> specSize = MeasureSpec.getSize(widthMeasureSpec);</span><br><span class="line">    <span class="keyword">if</span> (specMode == MeasureSpec.EXACTLY) &#123;</span><br><span class="line">        result = specSize;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        result = <span class="number">200</span>;</span><br><span class="line">        <span class="keyword">if</span> (specMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">            result = Math.min(result, specSize);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　measureHeight()与measureWidth()方法基本一致，不再给出代码，通过这两个方法，我们就完成了对宽高值得自定义。最后可以在程序中验证以上分析。</p>
 <p>　　在布局文件中首先指定确定的宽高值400px，程序效果如下图所示。</p>
-<img src="/2016/05/20/measure-view-hero/VCL0.png" alt="[指定宽高值为400px]" title="[指定宽高值为400px]">
+<img src="/2016/05/20/measure-view-hero/VCL0.png" title="[指定宽高值为400px]">
 <p>　　当指定宽高属性为match_parent时，运行效果如下图所示。</p>
-<img src="/2016/05/20/measure-view-hero/VCL1.png" alt="[宽高属性为match_parent]" title="[宽高属性为match_parent]">
+<img src="/2016/05/20/measure-view-hero/VCL1.png" title="[宽高属性为match_parent]">
 <p>　　当指定宽高属性为wrap_content时，如果不写onMeasure()方法，那么系统就不知道该使用默认多大尺寸。因此它就会默认填充整个父布局，所以重写onMeasure()方法的目的就是为了能够给View一个wrap_content属性下的默认大小，其运行效果如下图所示。</p>
-<img src="/2016/05/20/measure-view-hero/VCL2.png" alt="[宽高属性为wrap_content]" title="[宽高属性为wrap_content]">
+<img src="/2016/05/20/measure-view-hero/VCL2.png" title="[宽高属性为wrap_content]">
 <p>　　可以发现，当指定wrap_content属性时，View就会获得一个默认值200px，而不是再填充父布局了。</p>
 <p>　　通过这个实例，相信大家对View的测量不再陌生了，它并不是什么高深莫测的东西，它的整个过程与我们在生活中精确绘图是一样的。</p>
 <hr>
@@ -496,7 +496,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -618,11 +618,9 @@
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -735,7 +733,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -753,26 +751,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1257,6 +1235,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

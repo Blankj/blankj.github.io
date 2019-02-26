@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="3.Android控件架构与自定义控件详解," />
+  <meta name="keywords" content="3.Android控件架构与自定义控件详解,">
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta name="keywords" content="3.Android控件架构与自定义控件详解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义View(一)(Android群英传)">
 <meta property="og:url" content="https://blankj.com/2016/05/29/custom-view1-hero/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blankj.com/2016/05/29/custom-view1-hero/zdyv0.png">
 <meta property="og:image" content="https://blankj.com/2016/05/29/custom-view1-hero/zdyv1.png">
 <meta property="og:updated_time" content="2016-11-09T17:27:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View(一)(Android群英传)">
-<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
+<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　Android给我们提供了丰富的组件库来创建丰富的UI效果，同时也提供了非常方便的拓展方法。通过继承Android的系统组件，我们可以非常方便地拓展现有功能，在系统组件的基础上创建新的功能，甚至可以直接自定义一个控件，实现Android系统控件所没有的功能。自定义控件作为Android中一个非常重要的功能，一直以">
 <meta name="twitter:image" content="https://blankj.com/2016/05/29/custom-view1-hero/zdyv0.png">
 
 
@@ -124,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2016/05/29/custom-view1-hero/"/>
+  <link rel="canonical" href="https://blankj.com/2016/05/29/custom-view1-hero/">
 
 
 
@@ -152,7 +151,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -162,13 +161,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -198,7 +197,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -208,7 +207,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -218,7 +217,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -228,7 +227,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -238,7 +237,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -248,7 +247,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -258,7 +257,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -271,7 +270,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -292,9 +291,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -326,20 +323,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/05/29/custom-view1-hero/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -371,7 +368,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -382,7 +379,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/" itemprop="url" rel="index">
                     <span itemprop="name">Android群英传</span>
                   </a>
@@ -393,7 +390,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
                     <span itemprop="name">3.Android控件架构与自定义控件详解</span>
                   </a>
@@ -411,12 +408,18 @@
 
           
           
-
+             <span id="/2016/05/29/custom-view1-hero/" class="leancloud_visitors" data-flag-title="自定义View(一)(Android群英传)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -457,21 +460,21 @@
 </ul>
 <h3 id="对现有控件进行拓展"><a href="#对现有控件进行拓展" class="headerlink" title="对现有控件进行拓展"></a>对现有控件进行拓展</h3><p>　　这是一个非常重要的自定义View方法，它可以在原生控件的基础上进行拓展，增加新的功能、修改显示的UI等。一般来说，我们可以再原生控件的基础上进行拓展，增加新的功能、修改显示的UI等。一般来说，我们可以在onDraw()方法中对原生控件行为进行拓展。</p>
 <p>　　下面以一个TextView为例，来看看如何使用拓展原生控件的方法创建新的控件。比如想让一个TextView的背景更佳丰富，给其多绘制几层背景，如下图所示。</p>
-<img src="/2016/05/29/custom-view1-hero/zdyv0.png" alt="[自定义修改TextView]" title="[自定义修改TextView]">
+<img src="/2016/05/29/custom-view1-hero/zdyv0.png" title="[自定义修改TextView]">
 <p>　　我们先来分析一下如何实现这个效果，原生的TextView使用onDraw()方法绘制要显示的文字。当继承了系统的TextView之后，如果不重写其onDraw()方法，则不会修改TextView的任何效果。可以认为在自定义的TextView中调用TextView类的onDraw()方法来绘制显示的文字，代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　程序调用super.onDraw(canvas)方法来实现原生控件的功能，但是在动用super.onDraw()方法之前和之后，我们都可以实现自己的逻辑，分别在系统绘制文字前后，完成自己的操作，即如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="comment">//在调父类方法前，实现自己的逻辑，对TextView来说即是在绘制文本内容前</span></div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">    <span class="comment">//在调父类方法后，实现自己的逻辑，对TextView来说即是在绘制文本内容后</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在调父类方法前，实现自己的逻辑，对TextView来说即是在绘制文本内容前</span></span><br><span class="line">    <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">    <span class="comment">//在调父类方法后，实现自己的逻辑，对TextView来说即是在绘制文本内容后</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　以上就是通过改变控件的绘制行为创建自定义View的思路。有了上面的分析，我们就可以很轻松地实现上图所示的自定义TextView了。我们在构造方法中完成必要对象的初始化工作，如初始化画笔等，代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mPaint1 = <span class="keyword">new</span> Paint();</div><div class="line">mPaint1.setColor(Color.BLUE);</div><div class="line">mPaint1.setStyle(Paint.Style.FILL);</div><div class="line">mPaint2 = <span class="keyword">new</span> Paint();</div><div class="line">mPaint2.setColor(Color.YELLOW);</div><div class="line">mPaint2.setStyle(Paint.Style.FILL);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mPaint1 = <span class="keyword">new</span> Paint();</span><br><span class="line">mPaint1.setColor(Color.BLUE);</span><br><span class="line">mPaint1.setStyle(Paint.Style.FILL);</span><br><span class="line">mPaint2 = <span class="keyword">new</span> Paint();</span><br><span class="line">mPaint2.setColor(Color.YELLOW);</span><br><span class="line">mPaint2.setStyle(Paint.Style.FILL);</span><br></pre></td></tr></table></figure>
 <p>　　而代码中最重要的部分则是在onDraw()方法中，为了改变原生的绘制行为，在系统调用super.onDraw(canvas)方法前，也就是在绘制文字之前，绘制两个不同大小的矩形，形成一个重叠效果，再让系统调用super.onDraw(canvas)方法，执行绘制文字的工作。这样，我们就通过改变控件绘制行为，创建了一个新的控件，代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘制外层矩形</span></div><div class="line">canvas.drawRect(</div><div class="line">        <span class="number">0</span>,</div><div class="line">        <span class="number">0</span>,</div><div class="line">        getMeasuredWidth(),</div><div class="line">        getMeasuredHeight(),</div><div class="line">        mPaint1</div><div class="line">);</div><div class="line"><span class="comment">//绘制内层矩形</span></div><div class="line">canvas.drawRect(</div><div class="line">        <span class="number">10</span>,</div><div class="line">        <span class="number">10</span>,</div><div class="line">        getMeasuredWidth() - <span class="number">10</span>,</div><div class="line">        getMeasuredHeight() - <span class="number">10</span>,</div><div class="line">        mPaint2</div><div class="line">);</div><div class="line">canvas.save();</div><div class="line"><span class="comment">//绘制文字前平移10像素</span></div><div class="line">canvas.translate(<span class="number">10</span>,<span class="number">0</span>);</div><div class="line"><span class="comment">//父类完成的方法，即绘制文本</span></div><div class="line"><span class="keyword">super</span>.onDraw(canvas);</div><div class="line">canvas.restore();</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绘制外层矩形</span></span><br><span class="line">canvas.drawRect(</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        getMeasuredWidth(),</span><br><span class="line">        getMeasuredHeight(),</span><br><span class="line">        mPaint1</span><br><span class="line">);</span><br><span class="line"><span class="comment">//绘制内层矩形</span></span><br><span class="line">canvas.drawRect(</span><br><span class="line">        <span class="number">10</span>,</span><br><span class="line">        <span class="number">10</span>,</span><br><span class="line">        getMeasuredWidth() - <span class="number">10</span>,</span><br><span class="line">        getMeasuredHeight() - <span class="number">10</span>,</span><br><span class="line">        mPaint2</span><br><span class="line">);</span><br><span class="line">canvas.save();</span><br><span class="line"><span class="comment">//绘制文字前平移10像素</span></span><br><span class="line">canvas.translate(<span class="number">10</span>,<span class="number">0</span>);</span><br><span class="line"><span class="comment">//父类完成的方法，即绘制文本</span></span><br><span class="line"><span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">canvas.restore();</span><br></pre></td></tr></table></figure>
 <p>　　下面再来看一个稍微复杂一点的TextView。在前面一个实例中，我们直接使用了Canvas对象来进行图像的绘制，然后利用Android的绘图机制，可以绘制出更复杂丰富的图像。比如可以利用LinearGradient Shader 和Matrix来实现一个动态的文字闪动效果，程序运行效果如下图所示。</p>
-<img src="/2016/05/29/custom-view1-hero/zdyv1.png" alt="[闪动的文字效果]" title="[闪动的文字效果]">
+<img src="/2016/05/29/custom-view1-hero/zdyv1.png" title="[闪动的文字效果]">
 <p>　　要想实现这个效果，可以充分利用Android中Paint对象的Shader渲染器。通过设置一个不断变化的LinearGradient，并使用带有该属性的Paint对象来绘制要显示的文字。首先，在onSizeChanged()方法中进行一些对象的初始化工作，并根据View的宽度设置一个LinearGradient渐变渲染器，代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onSizeChanged(w, h, oldw, oldh);</div><div class="line">    <span class="keyword">if</span> (mViewWidth == <span class="number">0</span>) &#123;</div><div class="line">        mViewWidth = getMeasuredWidth();</div><div class="line">        <span class="keyword">if</span> (mViewWidth &gt; <span class="number">0</span>) &#123;</div><div class="line">            mPaint = getPaint();</div><div class="line">            mLinearGradient = <span class="keyword">new</span> LinearGradient(</div><div class="line">                    <span class="number">0</span>,</div><div class="line">                    <span class="number">0</span>,</div><div class="line">                    mViewWidth,</div><div class="line">                    <span class="number">0</span>,</div><div class="line">                    <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;</div><div class="line">                            Color.BLUE,</div><div class="line">                            <span class="number">0xffffff</span>,</div><div class="line">                            Color.BLUE</div><div class="line">                    &#125;,</div><div class="line">                    <span class="keyword">null</span>,</div><div class="line">                    Shader.TileMode.CLAMP);</div><div class="line">            mPaint.setShader(mLinearGradient);</div><div class="line">            mGradientMatrix = <span class="keyword">new</span> Matrix();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onSizeChanged(w, h, oldw, oldh);</span><br><span class="line">    <span class="keyword">if</span> (mViewWidth == <span class="number">0</span>) &#123;</span><br><span class="line">        mViewWidth = getMeasuredWidth();</span><br><span class="line">        <span class="keyword">if</span> (mViewWidth &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            mPaint = getPaint();</span><br><span class="line">            mLinearGradient = <span class="keyword">new</span> LinearGradient(</span><br><span class="line">                    <span class="number">0</span>,</span><br><span class="line">                    <span class="number">0</span>,</span><br><span class="line">                    mViewWidth,</span><br><span class="line">                    <span class="number">0</span>,</span><br><span class="line">                    <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;</span><br><span class="line">                            Color.BLUE,</span><br><span class="line">                            <span class="number">0xffffff</span>,</span><br><span class="line">                            Color.BLUE</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="keyword">null</span>,</span><br><span class="line">                    Shader.TileMode.CLAMP);</span><br><span class="line">            mPaint.setShader(mLinearGradient);</span><br><span class="line">            mGradientMatrix = <span class="keyword">new</span> Matrix();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　其中最关键的就是使用getPaint()方法获取当前绘制TextView的Paint对象，并给这个Paint对象设置原生TextView没有的LinearGradient属性。最后，在onDraw()方法中，通过矩形的方式来不断平移渐变效果，从而在绘制文字时，产生动态的闪动效果，代码如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">    <span class="keyword">if</span> (mGradientMatrix != <span class="keyword">null</span>) &#123;</div><div class="line">        mTranslate += mViewWidth / <span class="number">5</span>;</div><div class="line">        <span class="keyword">if</span> (mTranslate &gt; <span class="number">2</span> * mViewWidth) &#123;</div><div class="line">            mTranslate = -mViewWidth;</div><div class="line">        &#125;</div><div class="line">        mGradientMatrix.setTranslate(mTranslate, <span class="number">0</span>);</div><div class="line">        mLinearGradient.setLocalMatrix(mGradientMatrix);</div><div class="line">        postInvalidateDelayed(<span class="number">100</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">    <span class="keyword">if</span> (mGradientMatrix != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mTranslate += mViewWidth / <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">if</span> (mTranslate &gt; <span class="number">2</span> * mViewWidth) &#123;</span><br><span class="line">            mTranslate = -mViewWidth;</span><br><span class="line">        &#125;</span><br><span class="line">        mGradientMatrix.setTranslate(mTranslate, <span class="number">0</span>);</span><br><span class="line">        mLinearGradient.setLocalMatrix(mGradientMatrix);</span><br><span class="line">        postInvalidateDelayed(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>原文地址<a href="http://blankj.com/2016/05/29/自定义View(一)(Android群英传)/">自定义View(一)(Android群英传)</a></p>
 <p>我的自媒体博客<a href="http://blankj.com/">Blankj小站</a>，欢迎来逛逛。</p>
@@ -495,7 +498,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -626,11 +629,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -759,7 +760,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -777,26 +778,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1281,6 +1262,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.jpg?v=5.1.3">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="3.Android控件架构与自定义控件详解," />
+  <meta name="keywords" content="3.Android控件架构与自定义控件详解,">
 
 
 
@@ -79,16 +79,14 @@
 
 
 
-<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。
-　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常">
+<meta name="description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。 　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常">
+<meta name="keywords" content="3.Android控件架构与自定义控件详解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事件拦截机制分析(Android群英传)">
 <meta property="og:url" content="https://blankj.com/2016/07/21/analyse-event-interception-hero/index.html">
-<meta property="og:site_name" content="Blankj's Blog">
-<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。
-　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。 　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blankj.com/2016/07/21/analyse-event-interception-hero/sjljsl.png">
 <meta property="og:image" content="https://blankj.com/2016/07/21/analyse-event-interception-hero/slbjjg.png">
 <meta property="og:image" content="https://blankj.com/2016/07/21/analyse-event-interception-hero/sjclgc.png">
@@ -99,9 +97,7 @@
 <meta property="og:updated_time" content="2016-11-09T17:29:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件拦截机制分析(Android群英传)">
-<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。
-　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。
-　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常">
+<meta name="twitter:description" content="内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。 　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。 　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常">
 <meta name="twitter:image" content="https://blankj.com/2016/07/21/analyse-event-interception-hero/sjljsl.png">
 
 
@@ -132,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://blankj.com/2016/07/21/analyse-event-interception-hero/"/>
+  <link rel="canonical" href="https://blankj.com/2016/07/21/analyse-event-interception-hero/">
 
 
 
@@ -160,7 +156,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -170,13 +166,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Blankj's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -206,7 +202,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -216,7 +212,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -226,7 +222,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -236,7 +232,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -246,7 +242,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -256,7 +252,7 @@
         <li class="menu-item menu-item-gitbook">
           <a href="https://blankj.com/gitbook/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             GitBook
           </a>
@@ -266,7 +262,7 @@
         <li class="menu-item menu-item-link">
           <a href="/link/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-group"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
             
             小伙伴们
           </a>
@@ -279,7 +275,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -300,9 +296,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -334,20 +328,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/07/21/analyse-event-interception-hero/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="布兰柯基">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Blankj's Blog">
     </span>
 
@@ -379,7 +373,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -390,7 +384,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/" itemprop="url" rel="index">
                     <span itemprop="name">Android群英传</span>
                   </a>
@@ -401,7 +395,7 @@
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
                     <span itemprop="name">3.Android控件架构与自定义控件详解</span>
                   </a>
@@ -419,12 +413,18 @@
 
           
           
-
+             <span id="/2016/07/21/analyse-event-interception-hero/" class="leancloud_visitors" data-flag-title="事件拦截机制分析(Android群英传)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+
           
 
           
@@ -450,17 +450,17 @@
 <p>　　在MotionEvent里面封装了不少好东西，比如触摸点的坐标，可以通过event.getX()方法和event.getRawX()方法取出坐标点；再比如获得点击的事件类型，可以通过不同的Action(如MotionEvent.ACTION_DOWN、MotionEvent.ACTION_MOVE)来进行区分，并实现不同的逻辑。<br><a id="more"></a><br>　　如此看来，触摸事件还是比较简单的，其实就是一个动作类型加坐标而已。但是我们知道，Android的View结构是树形结构，也就是说，View可以放在ViewGroup里面，通过不同的组合来实现不同的样式。那么问题来了，View放在一个ViewGroup里面，这个ViewGroup又放在另一个ViewGroup里面，甚至还有可能继续嵌套，一层层地叠起来。可我们的触摸事件就一个，到底该分给谁呢？同一个事件，子View和父ViewGroup都有可能想要进行处理。因此，这就产生了“事件拦截”这个“霸气”的称呼。</p>
 <p>　　当然，事件拦截可以很复杂，也可以很简单。但是初学者却经常“卡”在这里不知道如何继续进行，所以我们不想通过过多的源代码让大家不知所措。我们通过最直观的Log信息，让大家先有一个大概的了解，知道事件拦截的本质，然后大家在结合源代码学习时，就可以有方向、有目的性去理解了。</p>
 <p>　　首先，请想象一下生活中非常常见的场景：假设你所在的公司，有一个总经理，级别最高；他下面有一个部长，级别次之；最低层，就是干活的你，没有级别。现在董事会交给总经理一项任务，总经理将这项任务布置给了部长，部长又把任务安排给了你。而当你好不容易干完活了，你就把任务交给部长，部长觉得任务完成得不错，于是就签了他的名字交给总经理，总经理看了也觉得不错，就业签了名字交给董事会。这样，一个任务就顺利完成了。如果大家能非常清楚地理解这样一个场景，那么对于事件拦截机制，你就超过了40%的开发者了。下面，我们再来超越剩下的开发者。为了能过方便地了解整个事件的流程，我们设计了这样一个实例，如下图所示。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/sjljsl.png" alt="[事件拦截实例]" title="[事件拦截实例]">
+<img src="/2016/07/21/analyse-event-interception-hero/sjljsl.png" title="[事件拦截实例]">
 <p>　　一个总经理——MyViewGroupA，最外层的ViewGroup（红色）。</p>
 <p>　　一个部长——MyViewGroupB，中间的ViewGroup（绿色）。</p>
 <p>　　一个干活的你——MyView，在最底层（蓝色）。</p>
 <p>　　本实例的整个布局结构如下图所示。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/slbjjg.png" alt="[实例布局结构]" title="[实例布局结构]">
+<img src="/2016/07/21/analyse-event-interception-hero/slbjjg.png" title="[实例布局结构]">
 <p>　　代码非常简单，只是重写了事件拦截和处理的几个方法，并给它加上了一些Log而已。</p>
 <p>　　对于ViewGroup来说，重写了如下所示的三个方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"ViewGroupA dispatchTouchEvent"</span> + ev.getAction());</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(ev);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"ViewGroupA onInterceptTouchEvent"</span> + ev.getAction());</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</div><div class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"ViewGroupA onTouchEvent"</span> + event.getAction());</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</span><br><span class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"ViewGroupA dispatchTouchEvent"</span> + ev.getAction());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(ev);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</span><br><span class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"ViewGroupA onInterceptTouchEvent"</span> + ev.getAction());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"ViewGroupA onTouchEvent"</span> + event.getAction());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　而对于View来说，重写了如下所示的两个方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</div><div class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"View onTouchEvent"</span> + event.getAction());</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</div><div class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"View dispatchTouchEvent"</span> + event.getAction());</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(event);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"View onTouchEvent"</span> + event.getAction());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">    Log.d(<span class="string">"blankj"</span>, <span class="string">"View dispatchTouchEvent"</span> + event.getAction());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>　　从上面的代码中可以看到，ViewGroup级别比较高，比View多了一个方法——onInterceptTouchEvent()。这个方法看名字就能猜到是事件拦截的核心方法。我们先不修改任何返回值，只是点击一下View，然后看Log会怎样记录我们的操作和程序响应。点击View后的Log如下所示。</p>
 <blockquote>
 <p>D/blankj: ViewGroupA dispatchTouchEvent0<br>D/blankj: ViewGroupA onInterceptTouchEvent0<br>D/blankj: ViewGroupB dispatchTouchEvent0<br>D/blankj: ViewGroupB onInterceptTouchEvent0<br>D/blankj: View dispatchTouchEvent0<br>D/blankj: View onTouchEvent0<br>D/blankj: ViewGroupB onTouchEvent0<br>D/blankj: ViewGroupA onTouchEvent0</p>
@@ -473,7 +473,7 @@
 <p>　　事件处理的返回值也类似：true，处理了，不用审核了；false，给上级处理。</p>
 <p>　　初始情况下，返回值都是false。</p>
 <p>　　这里为了能够方便大家理解事件拦截的过程，在事件传递中，我们只关心onInterceptTouchEvent()，而dispatchTouchEvent()方法虽然是事件分发的第一步，但一般情况下，我们不太会去改写这个方法，所以暂时不管这个方法。可以把上面的整个事件过程整理成如下图所示的一张图。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/sjclgc.png" alt="[事件处理过程]" title="[事件处理过程]">
+<img src="/2016/07/21/analyse-event-interception-hero/sjclgc.png" title="[事件处理过程]">
 <p>　　相信大家只要把MyView想成自己，就能充分理解事件分发、拦截、处理的整个流程了。</p>
 <p>　　下面我们稍微改动一下，假设总经理(MyViewGroupA)发现这个任务太简单了，觉得自己完成就可以了，完全没必要再找下属。因此时间就被总经理(MyViewGroupA)使用onInterceptTouchEvent()方法把事件给拦截了，即让MyViewGroupA的onInterceptTouchEvent()方法返回true，我们再来看一下Log。</p>
 <blockquote>
@@ -486,23 +486,23 @@
 <p>　　可以看到，这次部长(MyViewGroupB)当了好人，你(MyView)就不用干活了。</p>
 <p>　　那么这两种情况，也可以整理成类似如上图所示的图。</p>
 <p>　　总经理(MyViewGroupA)拦截事件，如下图所示。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/sjljA.png" alt="[事件拦截A]" title="[事件拦截A]">
+<img src="/2016/07/21/analyse-event-interception-hero/sjljA.png" title="[事件拦截A]">
 <p>　　部长(MyViewGroupB)拦截事件，如下图所示。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/sjljB.png" alt="[事件拦截B]" title="[事件拦截B]">
+<img src="/2016/07/21/analyse-event-interception-hero/sjljB.png" title="[事件拦截B]">
 <p>　　对事件的分发、拦截，现在大家应该比较清楚了，下面我们再看看事件的处理。先来看看底层人民——你(MyView)。最开始的时候讲了，当你处理完任务后会向上级报告，需要上级的确认，所以你的事件处理返回false。那么你突然有一天受不了老板的压迫了，罢工不干了，那么你的任务就没人做了，也就不用报告上机了，所以就直接返回true。现在再来看看Log，如下所示。</p>
 <blockquote>
 <p>D/blankj: ViewGroupA dispatchTouchEvent0<br>D/blankj: ViewGroupA onInterceptTouchEvent0<br>D/blankj: ViewGroupB dispatchTouchEvent0<br>D/blankj: ViewGroupB onInterceptTouchEvent0<br>D/blankj: View dispatchTouchEvent0<br>D/blankj: View onTouchEvent0</p>
 </blockquote>
 <p>　　可以看见，事件传递跟以前一样，但是事件处理，到你(MyView)这就结束了，因为你返回true，表示不用向上级汇报了。这时，我们同样来整理下关系图，如下所示。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/sjclA.png" alt="[事件处理A]" title="[事件处理A]">
+<img src="/2016/07/21/analyse-event-interception-hero/sjclA.png" title="[事件处理A]">
 <p>　　你(MyView)终于翻身做了主，决定了自己的命运。但是，如果部长(MyViewGroupB)看到了你的报告，觉得太丢人，不敢给经理看，所以他就偷偷地返回true，整个事件也就到此为止了，即部长(MyViewGroupB)将自己的onTouchEvent返回true，Log如下所示。</p>
 <blockquote>
 <p>D/blankj: ViewGroupA dispatchTouchEvent0<br>D/blankj: ViewGroupA onInterceptTouchEvent0<br>D/blankj: ViewGroupB dispatchTouchEvent0<br>D/blankj: ViewGroupB onInterceptTouchEvent0<br>D/blankj: View dispatchTouchEvent0<br>D/blankj: View onTouchEvent0<br>D/blankj: ViewGroupB onTouchEvent0</p>
 </blockquote>
 <p>　　他们之间的关系图如下图所示。</p>
-<img src="/2016/07/21/analyse-event-interception-hero/sjclB.png" alt="[事件处理B]" title="[事件处理B]">
+<img src="/2016/07/21/analyse-event-interception-hero/sjclB.png" title="[事件处理B]">
 <p>　　通过对前面几种情况的分析，相信大家能比较容易地了解事件的分发、拦截、处理事件的流程了。在后面的学习中，结合源码，你会更加深入地理解，为什么流程会是这样的？初学者在学习的时候，最好先对流程有一个大致的认识之后，再去接触源码，这样就不会一头雾水，摸不着头脑，从而丧失学习的兴趣。</p>
-<p>项目地址→<a href="https://github.com/Blankj/EventIntercept" target="_blank" rel="external">EventIntercept</a></p>
+<p>项目地址→<a href="https://github.com/Blankj/EventIntercept" target="_blank" rel="noopener">EventIntercept</a></p>
 <hr>
 <p>原文地址<a href="http://blankj.com/2016/07/21/事件拦截机制分析(Android群英传)/">事件拦截机制分析(Android群英传)</a></p>
 <p>我的自媒体博客<a href="http://blankj.com/">Blankj小站</a>，欢迎来逛逛。</p>
@@ -526,7 +526,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付"/>
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
         <!--<p>微信支付</p>-->
       </div>
     
@@ -648,11 +648,9 @@
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="布兰柯基" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="布兰柯基">
             
               <p class="site-author-name" itemprop="name">布兰柯基</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -765,7 +763,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -783,26 +781,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -1287,6 +1265,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
