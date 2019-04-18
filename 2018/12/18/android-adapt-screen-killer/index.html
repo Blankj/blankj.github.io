@@ -92,8 +92,8 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadwez1p9j21o20zkts7.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadwxbz7bj22i21hcb29.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadxaj8phj23c21z41ky.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/b75b8776ly1fyablj2mjmj21lc13a4qz.jpg">
-<meta property="og:updated_time" content="2019-01-26T06:40:32.617Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g26v2cygx2j20j60d574h.jpg">
+<meta property="og:updated_time" content="2019-04-18T08:22:32.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 屏幕适配终结者">
 <meta name="twitter:description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
@@ -456,7 +456,7 @@
 <h3 id="1440x2560-560dpi"><a href="#1440x2560-560dpi" class="headerlink" title="1440x2560 - 560dpi"></a>1440x2560 - 560dpi</h3><p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1fyadxaj8phj23c21z41ky.jpg" alt="560dpi"></p>
 <p>可以看到效果图中 <code>WebView</code> 对之后的 <code>View</code> 并没有产生适配失效的问题，这是之前适配所不能解决的问题。</p>
 <h2 id="如何根据设计图创建预览？"><a href="#如何根据设计图创建预览？" class="headerlink" title="如何根据设计图创建预览？"></a>如何根据设计图创建预览？</h2><p>在 AS 中 <code>Tools -&gt; AVD Manager -&gt; Create Virtual Device...</code>，我们以适配 <code>1080 x 1920</code>px 为例，具体操作如下：</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/b75b8776ly1fyablj2mjmj21lc13a4qz.jpg" alt="1080 x 1920"></p>
+<p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g26v2cygx2j20j60d574h.jpg" alt="1080 x 1920"></p>
 <p>创建完设备我们在预览界面选中这个设备即可看到 <code>pt</code> 单位效果。</p>
 <p>设计师给你的设计图尺寸是多少，那你就建多少尺寸的设备即可，比如是 <code>720 x 1280</code>px 的，那你把上图的尺寸换成 <code>720</code> 和 <code>1280</code>，再计算下屏幕尺寸即可，如果是 <code>360 x 640</code>dp 的话，那就把上图的尺寸换成 <code>360</code> 和 <code>640</code>，再计算下屏幕尺寸即可，不用去 care 单位到底是什么，设计图标注多少那你就写多少即可，无需换算。适配的时候传入这个维度的尺寸值即可，比如 <code>720 x 1280</code> 的宽度适配，那就传入 <code>720</code> 即可。</p>
 <h2 id="原理及用法"><a href="#原理及用法" class="headerlink" title="原理及用法"></a>原理及用法</h2><p>原理其实也是基于头条的原理，不过我是操作 <code>pt</code>，所以不是改 <code>DisplayMetrics#density</code>，而是 <code>DisplayMetrics#xdpi</code>，由于适配不会失效，所以需要在适配的 <code>Activity</code> 中重写下 <code>getResources()</code> 函数，因为每次 <code>View</code> 在变更尺寸时都会调用到 <code>getResources()</code>，所以我们直接在这里进行适配就不会导致失效，效果图中对应的代码分别如下所示：</p>
