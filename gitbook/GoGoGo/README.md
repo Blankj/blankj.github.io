@@ -1,4 +1,4 @@
 # GoGoGo
 
 
-## [Go 速查](./quick_search/README.md)
+## [Go 速查](https://blankj.com/gitbook/GoGoGo/quick_search/)
