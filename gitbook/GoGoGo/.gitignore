@@ -1,5 +1,5 @@
 *.iml
 local.properties
 .DS_Store
-/main
+main
 .idea
