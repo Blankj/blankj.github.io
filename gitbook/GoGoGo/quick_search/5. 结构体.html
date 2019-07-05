@@ -481,7 +481,252 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#5-&#x7ED3;&#x6784;&#x4F53;"><b></b>5. &#x7ED3;&#x6784;&#x4F53;</a></li></ul></div><a href="#5-&#x7ED3;&#x6784;&#x4F53;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="5-&#x7ED3;&#x6784;&#x4F53;"><a name="5-&#x7ED3;&#x6784;&#x4F53;" class="anchor-navigation-ex-anchor" href="#5-&#x7ED3;&#x6784;&#x4F53;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="5-&#x7ED3;&#x6784;&#x4F53;" class="plugin-anchor" href="#5-&#x7ED3;&#x6784;&#x4F53;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x7ED3;&#x6784;&#x4F53;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#5-&#x7ED3;&#x6784;&#x4F53;"><b></b>5. &#x7ED3;&#x6784;&#x4F53;</a></li><ul><li><span class="title-icon "></span><a href="#51-&#x5B9A;&#x4E49;"><b></b>5.1 &#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#52-&#x5B9E;&#x4F8B;&#x5316;"><b></b>5.2 &#x5B9E;&#x4F8B;&#x5316;</a></li><li><span class="title-icon "></span><a href="#53-&#x521D;&#x59CB;&#x5316;"><b></b>5.3 &#x521D;&#x59CB;&#x5316;</a></li><li><span class="title-icon "></span><a href="#54-&#x6784;&#x9020;&#x51FD;&#x6570;"><b></b>5.4 &#x6784;&#x9020;&#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#55-&#x63A5;&#x6536;&#x5668;"><b></b>5.5 &#x63A5;&#x6536;&#x5668;</a></li><li><span class="title-icon "></span><a href="#56-&#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;"><b></b>5.6 &#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;</a></li><li><span class="title-icon "></span><a href="#57-&#x89E3;&#x6790;-json-&#x6570;&#x636E;"><b></b>5.7 &#x89E3;&#x6790; JSON &#x6570;&#x636E;</a></li><li><span class="title-icon "></span><a href="#58-setfinalizer"><b></b>5.8 SetFinalizer</a></li></ul></ul></div><a href="#5-&#x7ED3;&#x6784;&#x4F53;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="5-&#x7ED3;&#x6784;&#x4F53;"><a name="5-&#x7ED3;&#x6784;&#x4F53;" class="anchor-navigation-ex-anchor" href="#5-&#x7ED3;&#x6784;&#x4F53;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="5-&#x7ED3;&#x6784;&#x4F53;" class="plugin-anchor" href="#5-&#x7ED3;&#x6784;&#x4F53;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x7ED3;&#x6784;&#x4F53;</h1>
+<h2 id="51-&#x5B9A;&#x4E49;"><a name="51-&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#51-&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="51-&#x5B9A;&#x4E49;" class="plugin-anchor" href="#51-&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>5.1 &#x5B9A;&#x4E49;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Name <span class="hljs-keyword">struct</span> {
+    ...
+}
+</code></pre>
+<h2 id="52-&#x5B9E;&#x4F8B;&#x5316;"><a name="52-&#x5B9E;&#x4F8B;&#x5316;" class="anchor-navigation-ex-anchor" href="#52-&#x5B9E;&#x4F8B;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="52-&#x5B9E;&#x4F8B;&#x5316;" class="plugin-anchor" href="#52-&#x5B9E;&#x4F8B;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>5.2 &#x5B9E;&#x4F8B;&#x5316;</h2>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x57FA;&#x672C;&#x5B9E;&#x4F8B;&#x5316;</span>
+<span class="hljs-keyword">var</span> name T
+<span class="hljs-comment">// new &#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x5316;</span>
+name := <span class="hljs-built_in">new</span>(T)
+<span class="hljs-comment">// &#x53D6;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5730;&#x5740;&#x5B9E;&#x4F8B;&#x5316;</span>
+name := &amp;T{} <span class="hljs-comment">// &#x4F7F;&#x7528;&#x6700;&#x5E7F;&#x6CDB;</span>
+</code></pre>
+<h2 id="53-&#x521D;&#x59CB;&#x5316;"><a name="53-&#x521D;&#x59CB;&#x5316;" class="anchor-navigation-ex-anchor" href="#53-&#x521D;&#x59CB;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="53-&#x521D;&#x59CB;&#x5316;" class="plugin-anchor" href="#53-&#x521D;&#x59CB;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>5.3 &#x521D;&#x59CB;&#x5316;</h2>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x952E;&#x503C;&#x5BF9;&#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;&#x4F53;</span>
+<span class="hljs-keyword">type</span> People <span class="hljs-keyword">struct</span> {
+    name  <span class="hljs-keyword">string</span>
+    child *People
+}
+
+relation := &amp;People{
+    name: <span class="hljs-string">&quot;&#x7237;&#x7237;&quot;</span>,
+    child: &amp;People{
+        name: <span class="hljs-string">&quot;&#x7238;&#x7238;&quot;</span>,
+        child: &amp;People{
+            name: <span class="hljs-string">&quot;&#x6211;&quot;</span>,
+        },
+    },
+}
+
+<span class="hljs-comment">// &#x591A;&#x4E2A;&#x503C;&#x5217;&#x8868;&#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;&#x4F53;</span>
+<span class="hljs-keyword">type</span> Address <span class="hljs-keyword">struct</span> {
+    Province    <span class="hljs-keyword">string</span>
+    City        <span class="hljs-keyword">string</span>
+    ZipCode     <span class="hljs-keyword">int</span>
+    PhoneNumber <span class="hljs-keyword">string</span>
+}
+
+addr := Address{
+    <span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+    <span class="hljs-string">&quot;&#x6210;&#x90FD;&quot;</span>,
+    <span class="hljs-number">610000</span>,
+    <span class="hljs-string">&quot;0&quot;</span>,
+}
+
+<span class="hljs-comment">// &#x533F;&#x540D;&#x7ED3;&#x6784;&#x4F53;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x533F;&#x540D;&#x7ED3;&#x6784;&#x4F53;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#xFF0C;&#x9020;&#x6210;&#x5927;&#x91CF;&#x91CD;&#x590D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x56E0;&#x6B64;&#x5F00;&#x53D1;&#x4E2D;&#x8F83;&#x5C11;&#x4F7F;&#x7528;&#x3002;</span>
+msg := &amp;<span class="hljs-keyword">struct</span> {
+    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x90E8;&#x5206;</span>
+    id   <span class="hljs-keyword">int</span>
+    data <span class="hljs-keyword">string</span>
+}{
+    <span class="hljs-comment">// &#x503C;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;</span>
+    <span class="hljs-number">1024</span>,
+    <span class="hljs-string">&quot;hello&quot;</span>,
+}
+</code></pre>
+<h2 id="54-&#x6784;&#x9020;&#x51FD;&#x6570;"><a name="54-&#x6784;&#x9020;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#54-&#x6784;&#x9020;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="54-&#x6784;&#x9020;&#x51FD;&#x6570;" class="plugin-anchor" href="#54-&#x6784;&#x9020;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4 &#x6784;&#x9020;&#x51FD;&#x6570;</h2>
+<p>Go &#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6216;&#x7ED3;&#x6784;&#x4F53;&#x6CA1;&#x6709;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5C01;&#x88C5;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;&#x4F53;&#x2014;&#x2014;&#x6A21;&#x62DF;&#x6784;&#x9020;&#x51FD;&#x6570;&#x91CD;&#x8F7D;</span>
+<span class="hljs-keyword">type</span> Cat <span class="hljs-keyword">struct</span> {
+    Color <span class="hljs-keyword">string</span>
+    Name  <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">func</span> NewCatByName(name <span class="hljs-keyword">string</span>) *Cat {
+    <span class="hljs-keyword">return</span> &amp;Cat{
+        Name: name,
+    }
+}
+
+<span class="hljs-keyword">func</span> NewCatByColor(color <span class="hljs-keyword">string</span>) *Cat {
+    <span class="hljs-keyword">return</span> &amp;Cat{
+        Color: color,
+    }
+}
+
+<span class="hljs-comment">// &#x5E26;&#x6709;&#x7236;&#x5B50;&#x5173;&#x7CFB;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6784;&#x9020;&#x548C;&#x521D;&#x59CB;&#x5316;&#x2014;&#x2014;&#x6A21;&#x62DF;&#x7236;&#x7EA7;&#x6784;&#x9020;&#x8C03;&#x7528;</span>
+<span class="hljs-keyword">type</span> Cat <span class="hljs-keyword">struct</span> {
+    Color <span class="hljs-keyword">string</span>
+    Name  <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">type</span> BlackCat <span class="hljs-keyword">struct</span> {
+    Cat  <span class="hljs-comment">// &#x5D4C;&#x5165;Cat, &#x7C7B;&#x4F3C;&#x4E8E;&#x6D3E;&#x751F;</span>
+}
+
+<span class="hljs-comment">// &#x201C;&#x6784;&#x9020;&#x57FA;&#x7C7B;&#x201D;</span>
+<span class="hljs-keyword">func</span> NewCat(name <span class="hljs-keyword">string</span>) *Cat {
+    <span class="hljs-keyword">return</span> &amp;Cat{
+        Name: name,
+    }
+}
+
+<span class="hljs-comment">// &#x201C;&#x6784;&#x9020;&#x5B50;&#x7C7B;&#x201D;</span>
+<span class="hljs-keyword">func</span> NewBlackCat(color <span class="hljs-keyword">string</span>) *BlackCat {
+    cat := &amp;BlackCat{}
+    cat.Color = color
+    <span class="hljs-keyword">return</span> cat
+}
+</code></pre>
+<h2 id="55-&#x63A5;&#x6536;&#x5668;"><a name="55-&#x63A5;&#x6536;&#x5668;" class="anchor-navigation-ex-anchor" href="#55-&#x63A5;&#x6536;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="55-&#x63A5;&#x6536;&#x5668;" class="plugin-anchor" href="#55-&#x63A5;&#x6536;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>5.5 &#x63A5;&#x6536;&#x5668;</h2>
+<p>&#x7C7B;&#x4F3C;&#x4E8E; Kotlin &#x7684;&#x62D3;&#x5C55;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (&#x63A5;&#x6536;&#x5668;&#x53D8;&#x91CF; &#x63A5;&#x6536;&#x5668;&#x7C7B;&#x578B;) Name(params) (returns) {
+    ...
+}
+
+<span class="hljs-keyword">type</span> Bag <span class="hljs-keyword">struct</span> {
+    items []<span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">func</span> (b *Bag) Insert(itemid <span class="hljs-keyword">int</span>) {
+    b.items = <span class="hljs-built_in">append</span>(b.items, itemid)
+}
+
+<span class="hljs-keyword">func</span> main() {
+    b := <span class="hljs-built_in">new</span>(Bag)
+    b.Insert(<span class="hljs-number">1001</span>)
+}
+
+<span class="hljs-comment">// &#x4E3A;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;</span>
+
+<span class="hljs-keyword">type</span> MyInt <span class="hljs-keyword">int</span>
+
+<span class="hljs-comment">// &#x4E3A; MyInt &#x6DFB;&#x52A0; IsZero() &#x65B9;&#x6CD5;</span>
+<span class="hljs-keyword">func</span> (m MyInt) IsZero() <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">return</span> m == <span class="hljs-number">0</span>
+}
+</code></pre>
+<h2 id="56-&#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;"><a name="56-&#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;" class="anchor-navigation-ex-anchor" href="#56-&#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="56-&#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;" class="plugin-anchor" href="#56-&#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a>5.6 &#x5185;&#x5D4C;&#x6A21;&#x62DF;&#x7C7B;&#x7684;&#x7EE7;&#x627F;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">// &#x53EF;&#x98DE;&#x884C;&#x7684;</span>
+<span class="hljs-keyword">type</span> Flying <span class="hljs-keyword">struct</span>{}
+
+<span class="hljs-keyword">func</span> (f *Flying) Fly() {
+    fmt.Println(<span class="hljs-string">&quot;can fly&quot;</span>)
+}
+
+<span class="hljs-comment">// &#x53EF;&#x884C;&#x8D70;&#x7684;</span>
+<span class="hljs-keyword">type</span> Walkable <span class="hljs-keyword">struct</span>{}
+
+<span class="hljs-keyword">func</span> (f *Walkable) Walk() {
+    fmt.Println(<span class="hljs-string">&quot;can walk&quot;</span>)
+}
+
+<span class="hljs-comment">// &#x4EBA;&#x7C7B;</span>
+<span class="hljs-keyword">type</span> Human <span class="hljs-keyword">struct</span> {
+    Walkable <span class="hljs-comment">// &#x4EBA;&#x7C7B;&#x80FD;&#x884C;&#x8D70;</span>
+}
+
+<span class="hljs-comment">// &#x9E1F;&#x7C7B;</span>
+<span class="hljs-keyword">type</span> Bird <span class="hljs-keyword">struct</span> {
+    Walkable <span class="hljs-comment">// &#x9E1F;&#x7C7B;&#x80FD;&#x884C;&#x8D70;</span>
+    Flying   <span class="hljs-comment">// &#x9E1F;&#x7C7B;&#x80FD;&#x98DE;&#x884C;</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x5B9E;&#x4F8B;&#x5316;&#x9E1F;&#x7C7B;</span>
+    b := <span class="hljs-built_in">new</span>(Bird)
+    fmt.Println(<span class="hljs-string">&quot;Bird: &quot;</span>)
+    b.Fly()
+    b.Walk()
+    <span class="hljs-comment">// &#x5B9E;&#x4F8B;&#x5316;&#x4EBA;&#x7C7B;</span>
+    h := <span class="hljs-built_in">new</span>(Human)
+    fmt.Println(<span class="hljs-string">&quot;Human: &quot;</span>)
+    h.Walk()
+}
+<span class="hljs-comment">// Output:</span>
+<span class="hljs-comment">// Bird:</span>
+<span class="hljs-comment">// can fly</span>
+<span class="hljs-comment">// can walk</span>
+<span class="hljs-comment">// Human:</span>
+<span class="hljs-comment">// can walk</span>
+</code></pre>
+<h2 id="57-&#x89E3;&#x6790;-json-&#x6570;&#x636E;"><a name="57-&#x89E3;&#x6790;-json-&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#57-&#x89E3;&#x6790;-json-&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="57-&#x89E3;&#x6790;-json-&#x6570;&#x636E;" class="plugin-anchor" href="#57-&#x89E3;&#x6790;-json-&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>5.7 &#x89E3;&#x6790; JSON &#x6570;&#x636E;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;encoding/json&quot;</span>
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x624B;&#x673A;&#x5C4F;&#x5E55;</span>
+<span class="hljs-keyword">type</span> Screen <span class="hljs-keyword">struct</span> {
+    Size       <span class="hljs-keyword">float32</span> <span class="hljs-comment">// &#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;</span>
+    ResX, ResY <span class="hljs-keyword">int</span>     <span class="hljs-comment">// &#x5C4F;&#x5E55;&#x6C34;&#x5E73;&#x548C;&#x5782;&#x76F4;&#x5206;&#x8FA8;&#x7387;</span>
+}
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x7535;&#x6C60;</span>
+<span class="hljs-keyword">type</span> Battery <span class="hljs-keyword">struct</span> {
+    Capacity <span class="hljs-keyword">int</span> <span class="hljs-comment">// &#x5BB9;&#x91CF;</span>
+}
+
+<span class="hljs-comment">// &#x751F;&#x6210;json&#x6570;&#x636E;</span>
+<span class="hljs-keyword">func</span> genJsonData() []<span class="hljs-keyword">byte</span> {
+    <span class="hljs-comment">// &#x5B8C;&#x6574;&#x6570;&#x636E;&#x7ED3;&#x6784;</span>
+    raw := &amp;<span class="hljs-keyword">struct</span> {
+        Screen
+        Battery
+        HasTouchID <span class="hljs-keyword">bool</span> <span class="hljs-comment">// &#x5E8F;&#x5217;&#x5316;&#x65F6;&#x6DFB;&#x52A0;&#x7684;&#x5B57;&#x6BB5;&#xFF1A;&#x662F;&#x5426;&#x6709;&#x6307;&#x7EB9;&#x8BC6;&#x522B;</span>
+    }{
+        <span class="hljs-comment">// &#x5C4F;&#x5E55;&#x53C2;&#x6570;</span>
+        Screen: Screen{
+            Size: <span class="hljs-number">5.5</span>,
+            ResX: <span class="hljs-number">1920</span>,
+            ResY: <span class="hljs-number">1080</span>,
+        },
+        <span class="hljs-comment">// &#x7535;&#x6C60;&#x53C2;&#x6570;</span>
+        Battery: Battery{
+            <span class="hljs-number">2910</span>,
+        },
+        <span class="hljs-comment">// &#x662F;&#x5426;&#x6709;&#x6307;&#x7EB9;&#x8BC6;&#x522B;</span>
+        HasTouchID: <span class="hljs-literal">true</span>,
+    }
+    <span class="hljs-comment">// &#x5C06;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x5316;&#x4E3A;json</span>
+    jsonData, _ := json.Marshal(raw)
+    <span class="hljs-keyword">return</span> jsonData
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x751F;&#x6210;&#x4E00;&#x6BB5;json&#x6570;&#x636E;</span>
+    jsonData := genJsonData()
+    fmt.Println(<span class="hljs-keyword">string</span>(jsonData))
+    <span class="hljs-comment">// &#x53EA;&#x9700;&#x8981;&#x5C4F;&#x5E55;&#x548C;&#x6307;&#x7EB9;&#x8BC6;&#x522B;&#x4FE1;&#x606F;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x5B9E;&#x4F8B;</span>
+    screenAndTouch := <span class="hljs-keyword">struct</span> {
+        Screen
+        HasTouchID <span class="hljs-keyword">bool</span>
+    }{}
+    <span class="hljs-comment">// &#x53CD;&#x5E8F;&#x5217;&#x5316;&#x5230;screenAndTouch</span>
+    json.Unmarshal(jsonData, &amp;screenAndTouch)
+    <span class="hljs-comment">// &#x8F93;&#x51FA;screenAndTouch&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x6784;</span>
+    fmt.Printf(<span class="hljs-string">&quot;%+v\n&quot;</span>, screenAndTouch)
+    <span class="hljs-comment">// &#x53EA;&#x9700;&#x8981;&#x7535;&#x6C60;&#x548C;&#x6307;&#x7EB9;&#x8BC6;&#x522B;&#x4FE1;&#x606F;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x5B9E;&#x4F8B;</span>
+    batteryAndTouch := <span class="hljs-keyword">struct</span> {
+        Battery
+        HasTouchID <span class="hljs-keyword">bool</span>
+    }{}
+    <span class="hljs-comment">// &#x53CD;&#x5E8F;&#x5217;&#x5316;&#x5230;batteryAndTouch</span>
+    json.Unmarshal(jsonData, &amp;batteryAndTouch)
+    <span class="hljs-comment">// &#x8F93;&#x51FA;screenAndTouch&#x7684;&#x8BE6;&#x7EC6;&#x7ED3;&#x6784;</span>
+    fmt.Printf(<span class="hljs-string">&quot;%+v\n&quot;</span>, batteryAndTouch)
+}
+</code></pre>
+<h2 id="58-setfinalizer"><a name="58-setfinalizer" class="anchor-navigation-ex-anchor" href="#58-setfinalizer"><i class="fa fa-link" aria-hidden="true"></i></a><a name="58-setfinalizer" class="plugin-anchor" href="#58-setfinalizer"><i class="fa fa-link" aria-hidden="true"></i></a>5.8 SetFinalizer</h2>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61; obj &#x88AB;&#x4ECE;&#x5185;&#x5B58;&#x79FB;&#x9664;&#x524D;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x5199;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-go">runtime.SetFinalizer(obj, <span class="hljs-keyword">func</span>(obj *typeObj){})
+</code></pre>
 
                                 
                                 </section>
@@ -525,7 +770,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. 结构体","level":"5.1.5","depth":2,"next":{"title":"6. 接口","level":"5.1.6","depth":2,"path":"GoGoGo/quick_search/6. 接口.md","ref":"GoGoGo/quick_search/6. 接口.md","articles":[]},"previous":{"title":"4. 函数","level":"5.1.4","depth":2,"path":"GoGoGo/quick_search/4. 函数.md","ref":"GoGoGo/quick_search/4. 函数.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Blankj"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://blankj.com/gitbook/source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon-32x32.webp","bookmark":"./source/images/favicon-32x32.webp","appleTouch":"./source/images/apple-touch-icon.webp"},"github-buttons":{"buttons":[{"user":"Blankj","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Blankj","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Blankj's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"GoGoGo/quick_search/5. 结构体.md","mtime":"2019-07-02T10:47:57.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-04T04:33:32.381Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. 结构体","level":"5.1.5","depth":2,"next":{"title":"6. 接口","level":"5.1.6","depth":2,"path":"GoGoGo/quick_search/6. 接口.md","ref":"GoGoGo/quick_search/6. 接口.md","articles":[]},"previous":{"title":"4. 函数","level":"5.1.4","depth":2,"path":"GoGoGo/quick_search/4. 函数.md","ref":"GoGoGo/quick_search/4. 函数.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Blankj"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://blankj.com/gitbook/source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon-32x32.webp","bookmark":"./source/images/favicon-32x32.webp","appleTouch":"./source/images/apple-touch-icon.webp"},"github-buttons":{"buttons":[{"user":"Blankj","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Blankj","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Blankj's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"GoGoGo/quick_search/5. 结构体.md","mtime":"2019-07-05T07:03:23.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-05T07:05:14.146Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
