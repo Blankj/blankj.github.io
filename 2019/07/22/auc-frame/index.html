@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame_general.png?raw=true">
-<meta property="og:updated_time" content="2019-07-22T01:59:12.582Z">
+<meta property="og:updated_time" content="2019-07-22T02:07:31.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之简介及学习">
 <meta name="twitter:description" content="简介首先，什么是 AUC 呢？在 QQ 群里的小伙伴们应该知道这个词，或者知道我的工具类的也应该能猜到是什么，没错，AUC 全称就是 AndroidUtilCode，这个项目的生命周期已长达 3 年之久，star 数目前是 24k+，应该算是比较成功的一个开源项目了，基于它，我打造了一套自认为还不错的组件化架构 ———— AucFrame，其优点如下所示：  统一管理项目中的 Gradle 自由">
@@ -480,7 +480,7 @@
 <li>模块间通讯一学就会</li>
 <li>比 EventBus 更高效的模块内通讯</li>
 </ul>
-<p>接下来就让我们来一一揭开他的神秘面纱。</p>
+<p>接下来就让我们来一一揭开他的神秘面纱。<br><a id="more"></a></p>
 <h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p>架构么，肯定要开门见山，直接上图，不然说的再天花乱坠也无济于事，也就是所谓的 <code>no picture you say a j8</code>，AucFrame 的架构如下所示：<br><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png" alt="AucFrame"></p>
 <p>其项目中具体的工程结构如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">└── AndroidUtilCode</span><br><span class="line">    ├── feature</span><br><span class="line">    │   ├── launcher</span><br><span class="line">    │   │   └── app</span><br><span class="line">    │   ├── main</span><br><span class="line">    │   │   ├── app</span><br><span class="line">    │   │   └── pkg</span><br><span class="line">    │   ├── mock</span><br><span class="line">    │   ├── subutil</span><br><span class="line">    │   │   ├── app</span><br><span class="line">    │   │   ├── export</span><br><span class="line">    │   │   └── pkg</span><br><span class="line">    │   └── utilcode</span><br><span class="line">    │       ├── app</span><br><span class="line">    │       ├── export</span><br><span class="line">    │       └── pkg</span><br><span class="line">    └── lib</span><br><span class="line">        ├── base</span><br><span class="line">        ├── common</span><br><span class="line">        ├── subutil</span><br><span class="line">        └── utilcode</span><br></pre></td></tr></table></figure></p>
 <p>基于此，我们可以设计出如下通用架构：</p>
