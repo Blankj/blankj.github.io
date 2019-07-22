@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.webp?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.webp?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.webp?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.webp?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工具类,AucFrame,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="背景设计这个 BusUtils 其实是在做 ApiUtils 时顺手做的，因为两者实现方式基本一致，设计前我也没想着要和 greenrobot 的 EventBus 一较高低，但设计完总需要一个对比，所以就拿业界最优秀的事件总线 EventBus 比较一下吧，然后就发现我这区区 300 行不到的 BusUtils 性能比 EventBus 要高出好多，当然，这一切的前提都是在 BusUtils">
+<meta name="keywords" content="工具类,AucFrame">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比 EventBus 更高效的事件总线（BusUtils）">
+<meta property="og:url" content="https://blankj.com/2019/07/22/busutils/index.html">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="背景设计这个 BusUtils 其实是在做 ApiUtils 时顺手做的，因为两者实现方式基本一致，设计前我也没想着要和 greenrobot 的 EventBus 一较高低，但设计完总需要一个对比，所以就拿业界最优秀的事件总线 EventBus 比较一下吧，然后就发现我这区区 300 行不到的 BusUtils 性能比 EventBus 要高出好多，当然，这一切的前提都是在 BusUtils">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/communication.png">
+<meta property="og:image" content="https://github.com/Blankj/AndroidUtilCode/blob/master/art/busutil_vs_eventbus.png">
+<meta property="og:updated_time" content="2019-07-22T01:46:13.854Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="比 EventBus 更高效的事件总线（BusUtils）">
+<meta name="twitter:description" content="背景设计这个 BusUtils 其实是在做 ApiUtils 时顺手做的，因为两者实现方式基本一致，设计前我也没想着要和 greenrobot 的 EventBus 一较高低，但设计完总需要一个对比，所以就拿业界最优秀的事件总线 EventBus 比较一下吧，然后就发现我这区区 300 行不到的 BusUtils 性能比 EventBus 要高出好多，当然，这一切的前提都是在 BusUtils">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blankj.com/2019/07/22/busutils/">
+
+
+
+
+
+  <title>比 EventBus 更高效的事件总线（BusUtils） | Blankj's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1918d813c85f9869017db2480dee5733";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blankj's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">select * from learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-面经">
+          <a href="https://github.com/Blankj/AndroidOfferKiller" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            面经
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的开源库">
+          <a href="/gitbook/artwork/open_source/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            我的开源库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-go-速查">
+          <a href="/gitbook/GoGoGo/quick_search/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flash"></i> <br>
+            
+            Go 速查
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="/gitbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-小伙伴们">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
+            
+            小伙伴们
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blankj.com/2019/07/22/busutils/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">比 EventBus 更高效的事件总线（BusUtils）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T09:42:54+08:00">
+                2019-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/AucFrame/" itemprop="url" rel="index">
+                    <span itemprop="name">AucFrame</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/AucFrame/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/22/busutils/" class="leancloud_visitors" data-flag-title="比 EventBus 更高效的事件总线（BusUtils）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>设计这个 <code>BusUtils</code> 其实是在做 <a href="https://github.com/Blankj/AndroidUtilCode/tree/master/plugin/api-gradle-plugin" target="_blank" rel="noopener">ApiUtils</a> 时顺手做的，因为两者实现方式基本一致，设计前我也没想着要和 greenrobot 的 <code>EventBus</code> 一较高低，但设计完总需要一个对比，所以就拿业界最优秀的事件总线 <code>EventBus</code> 比较一下吧，然后就发现我这区区 300 行不到的 <code>BusUtils</code> 性能比 <code>EventBus</code> 要高出好多，当然，这一切的前提都是在 <code>BusUtils</code> 是切实可用并且有效的，它也是一款线程安全的事件总线，这些我都在单测中有做过实际测试的，不吹不擂，后面我们拿数据说话，有小伙伴不相信的话也可以通过下载我的源码来比较即可，单测地址：<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/src/test/java/com/blankj/utilcode/util/BusUtilsVsEventBusTest.java" target="_blank" rel="noopener">BusUtilsVsEventBusTest</a>，Android 测试地址：<a href="https://github.com/Blankj/AndroidUtilCode/blob/master/feature/utilcode/pkg/src/main/java/com/blankj/utilcode/pkg/feature/bus/BusCompareActivity.kt" target="_blank" rel="noopener">BusCompareActivity</a>，<code>BusUtils</code> 在 <strong><a href="https://github.com/Blankj/AucFrameTemplate" target="_blank" rel="noopener">AucFrame</a></strong> 中的作用就是模块内传值，其扮演的角色如下所示：</p>
+<a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/communication.png" alt="BusUtilsRole"></p>
+<p>下面介绍其使用：</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在项目根目录的 <code>build.gradle</code> 中添加 <code>bus</code> 插件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        ...</span><br><span class="line">        classpath <span class="string">'com.blankj:bus-gradle-plugin:2.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在 application 模块中使用该插件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">"com.blankj.bus"</span></span><br></pre></td></tr></table></figure>
+<p>给你的项目添加 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 依赖：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api <span class="string">"com.blankj:utilcode:1.25.0"</span></span><br></pre></td></tr></table></figure>
+<p>如果你单纯只想引入 <code>BusUtils</code> 也是可以的，需要你自己拷贝一份这个类放到你工程里，记得还要拷贝 <code>ThreadUtils</code> 哦，然后在 app 下的 <code>build.gradle</code> 中 配置 bus 的 SDL 域如下所示：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">api &#123;</span><br><span class="line">    busUtilsClass <span class="string">"com.xxx.xxx.BusUtils"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以猜测到默认的 busUtilsClass 为 <code>com.blankj.utilcode.util.BusUtils</code> 哈。</p>
+<p>如果开启混淆的话还需要配置你的 <code>BusUtils</code> 中注解方法的防混淆，如果直接用 <strong><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a></strong> 的话是不需要你配置的，我已经帮你做完了，配置你自己的 <code>BusUtils</code> 防混淆应该如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes *Annotation*</span><br><span class="line">-keepclassmembers <span class="class"><span class="keyword">class</span> * </span>&#123;</span><br><span class="line">    <span class="meta">@com</span>.xxx.xxx.BusUtils$Bus &lt;methods&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，如果你项目是开启混淆的话，全量引入 <strong><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a></strong> 也是可以的，混淆会帮你去除未使用到的类和方法。</p>
+<p>好了，插件和依赖都配置完毕，下面介绍基本使用。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG_NO_PARAM  = <span class="string">"TagNoParam"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG_ONE_PARAM = <span class="string">"TagOneParam"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@BusUtils</span>.Bus(tag = TAG_NO_PARAM)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">noParamFun</span><span class="params">()</span> </span>&#123;<span class="comment">/* Do something */</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@BusUtils</span>.Bus(tag = TAG_ONE_PARAM)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">oneParamFun</span><span class="params">(String param)</span> </span>&#123;<span class="comment">/* Do something */</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onStart();</span><br><span class="line">    BusUtils.register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onStop();</span><br><span class="line">    BusUtils.unregister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">BusUtils.post(TAG_NO_PARAM);<span class="comment">// noParamFun() will receive</span></span><br><span class="line">BusUtils.post(TAG_ONE_PARAM, <span class="string">"param"</span>);<span class="comment">// oneParamFun() will receive</span></span><br></pre></td></tr></table></figure>
+<p>使用过 <code>EventBus</code> 的肯定一下子就能看懂。</p>
+<h3 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h3><h4 id="粘性事件"><a href="#粘性事件" class="headerlink" title="粘性事件"></a>粘性事件</h4><p>支持粘性事件，也就是先发送，然后在订阅的时候接收到之前发送的粘性事件，把其消费掉，使用方式和 <code>EventBus</code> 一致，就是在 <a href="mailto:`@BusUtils.Bus" target="_blank" rel="noopener">`@BusUtils.Bus</a><code>注解中设置</code>sticky = true`，具体例子如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG_NO_PARAM_STICKY  = <span class="string">"TagNoParamSticky"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@BusUtils</span>.Bus(tag = TAG_NO_PARAM_STICKY, sticky = <span class="keyword">true</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">noParamStickyFun</span><span class="params">()</span> </span>&#123;<span class="comment">/* Do something */</span>&#125;</span><br><span class="line"></span><br><span class="line">BusUtils.postSticky(TAG_NO_PARAM_STICKY);</span><br><span class="line"></span><br><span class="line">BusUtils.register(xxx);<span class="comment">// will invoke noParamStickyFun</span></span><br><span class="line"></span><br><span class="line">BusUtils.removeSticky(TAG_NO_PARAM_STICKY);<span class="comment">// When u needn't use the sticky, remove it</span></span><br><span class="line"></span><br><span class="line">BusUtils.unregister(xxx);</span><br></pre></td></tr></table></figure></p>
+<h4 id="线程切换"><a href="#线程切换" class="headerlink" title="线程切换"></a>线程切换</h4><p>线程切换使用的是 ThreadUtils 中的线程池，它具有安全的 Cached 线程池，以及 MAIN, IO, CPU, CACHED, SINGLE 线程池，默认不设置的话就是在提交的线程 POSTING，使用的话就是在 <a href="mailto:`@BusUtils.Bus" target="_blank" rel="noopener">`@BusUtils.Bus</a><code>注解中设置</code>threadMode = BusUtils.ThreadMode.xx` 即可。</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p>要想工具用得舒服，规范肯定要遵守的，所谓无规矩不成方圆，不然五花八门的问题肯定一堆堆，这里推荐如下规范：</p>
+<ul>
+<li>持有事件的类和函数确保确保都是 <code>public</code> 的。</li>
+<li>由于 <code>BusUtils</code> 是用于模块内调用，所以可以写一个 <code>BusConfig</code> 的类来保存一个模块内所有 bus 的 <code>Tag</code>，方便查找到使用方及调用方。</li>
+<li><code>Tag</code> 中最好还能带有业务模块后缀名防止重复，是 sticky 类型的话也带上 sticky，指定具体线程的话也带上线程名，例如：<code>update_avatar_sticky_main_info</code> 这个 <code>Tag</code>，让人直接望文生义。</li>
+<li>如果能结合 <strong><a href="https://github.com/Blankj/AucFrameTemplate" target="_blank" rel="noopener">AucFrame</a></strong> 来使用，那就更规范不过了。</li>
+<li>对 <code>BusUtils</code> 中事件传输的的 <code>bean</code> 都需要 <code>keep</code> 下来，否则开启混淆后会找不到该实体对象而报错。</li>
+</ul>
+<p>使用已经介绍完毕，下面我们来和 <code>EventBus</code> 对比下性能。</p>
+<h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><p>首先，把两者的事件定义好，因为比较的是事件达到的快慢，所以内部都是空实现即可，具体代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Subscribe</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eventBusFun</span><span class="params">(String param)</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@BusUtils</span>.Bus(tag = <span class="string">"busUtilsFun"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">busUtilsFun</span><span class="params">(String param)</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>BusUtils</code> 在编译时会根据 <a href="mailto:`@BusUtils.Bus" target="_blank" rel="noopener">`@BusUtils.Bus</a>` 注解生成一份记录 tag 和 方法签名的映射表，因为是在编译时完成的，这里我们通过反射来完成。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 这一步是在 AOP 的时候注入的，这里通过反射来注入 busUtilsFun 事件，效果是一样的。</span></span><br><span class="line">    ReflectUtils getInstance = ReflectUtils.reflect(BusUtils.class).method(<span class="string">"getInstance"</span>);</span><br><span class="line">    getInstance.method(<span class="string">"registerBus"</span>, <span class="string">"busUtilsFun"</span>, BusUtilsVsEventBusTest.class.getName(), <span class="string">"busUtilsFun"</span>, String.class.getName(), <span class="string">"param"</span>, <span class="keyword">false</span>, <span class="string">"POSTING"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过比较如下几点的测试来完成对比：</p>
+<ul>
+<li>注册 10000 个订阅者，共执行 10 次取平均值</li>
+<li>向 1 个订阅者发送 * 1000000 次，共执行 10 次取平均值</li>
+<li>向 100 个订阅者发送 * 100000 次，共执行 10 次取平均值</li>
+<li>注销 10000 个订阅者，共执行 10 次取平均值</li>
+</ul>
+<p>测试机器如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">macOS: 2.2GHz Intel Core i7 16GB</span><br><span class="line">一加6: Android 9 8GB</span><br></pre></td></tr></table></figure>
+<p>在 Android 上，我们加入 <code>EventBus</code> 的注解处理器来提升 <code>EventBus</code> 效率，让其在最优情况下和 <code>BusUtils</code> 比较。</p>
+<p>接下来，我们把测试的模板代码写好，方便后续可以直接把两者比较的代码往回调中塞入即可，具体代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> name       传入的测试函数名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> sampleSize 样本的数量</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> times      每次执行的次数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> callback   比较的回调函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">compareWithEventBus</span><span class="params">(String name, <span class="keyword">int</span> sampleSize, <span class="keyword">int</span> times, CompareCallback callback)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span>[][] dur = <span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">2</span>][sampleSize];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sampleSize; i++) &#123;</span><br><span class="line">        <span class="keyword">long</span> cur = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; times; j++) &#123;</span><br><span class="line">            callback.runEventBus();</span><br><span class="line">        &#125;</span><br><span class="line">        dur[<span class="number">0</span>][i] = System.currentTimeMillis() - cur;</span><br><span class="line">        cur = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; times; j++) &#123;</span><br><span class="line">            callback.runBusUtils();</span><br><span class="line">        &#125;</span><br><span class="line">        dur[<span class="number">1</span>][i] = System.currentTimeMillis() - cur;</span><br><span class="line">        callback.restState();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> eventBusAverageTime = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> busUtilsAverageTime = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sampleSize; i++) &#123;</span><br><span class="line">        eventBusAverageTime += dur[<span class="number">0</span>][i];</span><br><span class="line">        busUtilsAverageTime += dur[<span class="number">1</span>][i];</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(</span><br><span class="line">            name +</span><br><span class="line">            <span class="string">"\nEventBusCostTime: "</span> + eventBusAverageTime / sampleSize +</span><br><span class="line">            <span class="string">"\nBusUtilsCostTime: "</span> + busUtilsAverageTime / sampleSize</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CompareCallback</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">runEventBus</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">runBusUtils</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">restState</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面就让我们来一一对比测试。</p>
+<h3 id="注册-10000-个订阅者，共执行-10-次取平均值"><a href="#注册-10000-个订阅者，共执行-10-次取平均值" class="headerlink" title="注册 10000 个订阅者，共执行 10 次取平均值"></a>注册 10000 个订阅者，共执行 10 次取平均值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 注册 10000 个订阅者，共执行 10 次取平均值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">compareRegister10000Times</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> List&lt;BusUtilsVsEventBusTest&gt; eventBusTests = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">final</span> List&lt;BusUtilsVsEventBusTest&gt; busUtilsTests = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    compareWithEventBus(<span class="string">"Register 10000 times."</span>, <span class="number">10</span>, <span class="number">10000</span>, <span class="keyword">new</span> CompareCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runEventBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            BusUtilsVsEventBusTest test = <span class="keyword">new</span> BusUtilsVsEventBusTest();</span><br><span class="line">            EventBus.getDefault().register(test);</span><br><span class="line">            eventBusTests.add(test);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runBusUtils</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            BusUtilsVsEventBusTest test = <span class="keyword">new</span> BusUtilsVsEventBusTest();</span><br><span class="line">            BusUtils.register(test);</span><br><span class="line">            busUtilsTests.add(test);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">restState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (BusUtilsVsEventBusTest test : eventBusTests) &#123;</span><br><span class="line">                EventBus.getDefault().unregister(test);</span><br><span class="line">            &#125;</span><br><span class="line">            eventBusTests.clear();</span><br><span class="line">            <span class="keyword">for</span> (BusUtilsVsEventBusTest test : busUtilsTests) &#123;</span><br><span class="line">                BusUtils.unregister(test);</span><br><span class="line">            &#125;</span><br><span class="line">            busUtilsTests.clear();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// MacOS Output:</span></span><br><span class="line"><span class="comment">// Register 10000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 427</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 41</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一加6 Output:</span></span><br><span class="line"><span class="comment">// Register 10000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 1268</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 399</span></span><br></pre></td></tr></table></figure>
+<h3 id="向-1-个订阅者发送-1000000-次，共执行-10-次取平均值"><a href="#向-1-个订阅者发送-1000000-次，共执行-10-次取平均值" class="headerlink" title="向 1 个订阅者发送 * 1000000 次，共执行 10 次取平均值"></a>向 1 个订阅者发送 * 1000000 次，共执行 10 次取平均值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 向 1 个订阅者发送 * 1000000 次，共执行 10 次取平均值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">comparePostTo1Subscriber1000000Times</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    comparePostTemplate(<span class="string">"Post to 1 subscriber 1000000 times."</span>, <span class="number">1</span>, <span class="number">1000000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// MacOS Output:</span></span><br><span class="line"><span class="comment">// Post to 1 subscriber 1000000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 145</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 33</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一加6 Output:</span></span><br><span class="line"><span class="comment">// Post to 1 subscriber 1000000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 1247</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 696</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">comparePostTemplate</span><span class="params">(String name, <span class="keyword">int</span> subscribeNum, <span class="keyword">int</span> postTimes)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> List&lt;BusUtilsVsEventBusTest&gt; tests = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; subscribeNum; i++) &#123;</span><br><span class="line">        BusUtilsVsEventBusTest test = <span class="keyword">new</span> BusUtilsVsEventBusTest();</span><br><span class="line">        EventBus.getDefault().register(test);</span><br><span class="line">        BusUtils.register(test);</span><br><span class="line">        tests.add(test);</span><br><span class="line">    &#125;</span><br><span class="line">    compareWithEventBus(name, <span class="number">10</span>, postTimes, <span class="keyword">new</span> CompareCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runEventBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            EventBus.getDefault().post(<span class="string">"EventBus"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runBusUtils</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            BusUtils.post(<span class="string">"busUtilsFun"</span>, <span class="string">"BusUtils"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">restState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">for</span> (BusUtilsVsEventBusTest test : tests) &#123;</span><br><span class="line">        EventBus.getDefault().unregister(test);</span><br><span class="line">        BusUtils.unregister(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="向-100-个订阅者发送-10000-次，共执行-10-次取平均值"><a href="#向-100-个订阅者发送-10000-次，共执行-10-次取平均值" class="headerlink" title="向 100 个订阅者发送 * 10000 次，共执行 10 次取平均值"></a>向 100 个订阅者发送 * 10000 次，共执行 10 次取平均值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 向 100 个订阅者发送 * 100000 次，共执行 10 次取平均值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">comparePostTo100Subscribers10000Times</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    comparePostTemplate(<span class="string">"Post to 100 subscribers 100000 times."</span>, <span class="number">100</span>, <span class="number">100000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// MacOS Output:</span></span><br><span class="line"><span class="comment">// Post to 100 subscribers 100000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 139</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 79</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一加6 Output:</span></span><br><span class="line"><span class="comment">// Post to 100 subscribers 100000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 3092</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 2900</span></span><br></pre></td></tr></table></figure>
+<h3 id="注销-10000-个订阅者，共执行-10-次取平均值"><a href="#注销-10000-个订阅者，共执行-10-次取平均值" class="headerlink" title="注销 10000 个订阅者，共执行 10 次取平均值"></a>注销 10000 个订阅者，共执行 10 次取平均值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 注销 10000 个订阅者，共执行 10 次取平均值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">compareUnregister10000Times</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> List&lt;BusUtilsVsEventBusTest&gt; tests = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">        BusUtilsVsEventBusTest test = <span class="keyword">new</span> BusUtilsVsEventBusTest();</span><br><span class="line">        EventBus.getDefault().register(test);</span><br><span class="line">        BusUtils.register(test);</span><br><span class="line">        tests.add(test);</span><br><span class="line">    &#125;</span><br><span class="line">    compareWithEventBus(<span class="string">"Unregister 10000 times."</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="keyword">new</span> CompareCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runEventBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (BusUtilsVsEventBusTest test : tests) &#123;</span><br><span class="line">                EventBus.getDefault().unregister(test);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runBusUtils</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (BusUtilsVsEventBusTest test : tests) &#123;</span><br><span class="line">                BusUtils.unregister(test);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">restState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (BusUtilsVsEventBusTest test : tests) &#123;</span><br><span class="line">                EventBus.getDefault().register(test);</span><br><span class="line">                BusUtils.register(test);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">for</span> (BusUtilsVsEventBusTest test : tests) &#123;</span><br><span class="line">        EventBus.getDefault().unregister(test);</span><br><span class="line">        BusUtils.unregister(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// MacOS Output:</span></span><br><span class="line"><span class="comment">// Unregister 10000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 231</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 23</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一加6 Output:</span></span><br><span class="line"><span class="comment">// Unregister 10000 times.</span></span><br><span class="line"><span class="comment">// EventBusCostTime: 800</span></span><br><span class="line"><span class="comment">// BusUtilsCostTime: 199</span></span><br></pre></td></tr></table></figure>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>为了方便观察，我们生成一份图表来比较两者之间的性能：</p>
+<p><img src="https://github.com/Blankj/AndroidUtilCode/blob/master/art/busutil_vs_eventbus.png" alt="BusUtilsVsEventBusChart"></p>
+<p>图表中分别对四个函数在 MacOS 和 OnePlus6 中的表现进行统计，每个函数中从左向右分别是 「MacOS 的 BusUtils」、「MacOS 的 EventBus」、「OnePlus6 的 BusUtils」、「OnePlus6 的 EventBus」，可以发现，BusUtils 在注册和注销上基本比 <code>EventBus</code> 要快上好几倍，BusUtils 在向少量订阅者发送多次事件比 <code>EventBus</code> 也快上好多，在向多个订阅者发送多次事件也比 <code>EventBus</code> 快上些许。</p>
+<p>基于以上说的这么多，如果你项目中事件总线用得比较频繁，那么可以试着用我的 <code>BusUtils</code> 来替代 <code>EventBus</code> 来提升性能，或者在新的项目中，你也可以直接使用性能更好的 <code>BusUtils</code>。</p>
+<p>下面来总结下 <code>BusUtils</code> 的优点：</p>
+<ul>
+<li><code>BusUtils</code> 是通过事件 <code>Tag</code> 来确定唯一事件的，所以接收函数支持无参或者一个参数，而 <code>EventBus</code> 只能通过 MessageEvent 来确定具体的接收者，只能接收一个参数，即便仅仅是通知，也需要定义一个 MessageEvent，所以，<code>BusUtils</code> 传参更灵活。</li>
+<li><code>BusUtils</code> 在应用到项目中后，编译后便会在 application 中生成 <code>__bus__.json</code> 事件列表，如上生成的事件列表如下所示：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"BusUtilsClass"</span>: <span class="string">"com.blankj.utilcode.util.BusUtils"</span>,</span><br><span class="line">  <span class="attr">"rightBus"</span>: &#123;</span><br><span class="line">    <span class="attr">"noParamFun"</span>: <span class="string">"&#123; desc: com.blankj.utilcode.pkg.feature.bus.BusActivity#noParamFun(), threadMode: POSTING &#125;"</span>,</span><br><span class="line">    <span class="attr">"oneParamFun"</span>: <span class="string">"&#123; desc: com.blankj.utilcode.pkg.feature.bus.BusActivity#oneParamFun(java.lang.String param), threadMode: POSTING &#125;"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"wrongBus"</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改 <code>oneParamFun</code> 为两个参数的话，为了确保项目不会因为 <code>BusUtils</code> 在运行时崩溃，<code>api</code> 插件会使其在编译时就不过，此时 <code>__bus__.json</code> 文件如下所示，提示你参数个数不对：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"BusUtilsClass"</span>: <span class="string">"com.blankj.utilcode.util.BusUtils"</span>,</span><br><span class="line">  <span class="attr">"rightBus"</span>: &#123;</span><br><span class="line">    <span class="attr">"noParamFun"</span>: <span class="string">"&#123; desc: com.blankj.utilcode.pkg.feature.bus.BusActivity#noParamFun(), threadMode: POSTING &#125;"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"wrongBus"</span>: &#123;</span><br><span class="line">    <span class="attr">"oneParamFun"</span>: <span class="string">"&#123; desc: com.blankj.utilcode.pkg.feature.bus.BusActivity#oneParamFun(java.lang.String param, java.lang.String param1), threadMode: POSTING, paramSize: 2 &#125;"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>同理，如果两个 bus 的 <code>Tag</code> 相同了，也会编译不过，提示你项目中存在 <code>Tag</code> 相同的 bus。</p>
+<p>所以，<code>BusUtils</code> 比 <code>EventBus</code> 更友好。</p>
+<ul>
+<li><code>BusUtils</code> 比 <code>EventBus</code> 代码少得太多，<code>BusUtils</code> 的源码只有区区 300 行，而 <code>EventBus</code> 3000 行肯定是不止的哈。</li>
+<li><code>BusUtils</code> 比 <code>EventBus</code> 性能更好。</li>
+</ul>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="bus-插件原理分析"><a href="#bus-插件原理分析" class="headerlink" title="bus 插件原理分析"></a>bus 插件原理分析</h3><p>bus 插件的源码在这里：<a href="https://github.com/Blankj/AndroidUtilCode/tree/master/plugin/bus-gradle-plugin" target="_blank" rel="noopener">bus 插件源码传送门</a>，该插件通过 Gradle 的 transform 来完成对 <code>BusUtils.init()</code> 做注入，下面来一步步分析：</p>
+<p>不明白 transform 的可以先去了解下，简单来说 transform 就是专门用来做字节码插入操作的，最常见的就是 AOP（面向切面编程），这部分我就不科普了，有兴趣的可以自己搜索了解。</p>
+<p>说到字节码操作，那就又有知识点了，想要上手快速简单的可以使用 <code>javassist</code>，不过，我选择了更强大快速的 <code>ASM</code>，这里我就不详细介绍了，有兴趣的可以自己去学习，<code>ASM</code> 其实也很简单的，在 <a href="https://plugins.jetbrains.com/plugin/5918-asm-bytecode-outline" target="_blank" rel="noopener">ASM Bytecode Outline</a> 这个插件帮助下写得还是很快的。</p>
+<p>通过 ASM 扫描出所有带有 <a href="mailto:`@BusUtils.Bus" target="_blank" rel="noopener">`@BusUtils.Bus</a>` 注解的函数，读取并保存注解的值和函数的参数信息，相关代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(<span class="keyword">int</span> version, <span class="keyword">int</span> access, String name, String signature, String superName, String[] interfaces)</span> </span>&#123;</span><br><span class="line">    className = name.replace(<span class="string">"/"</span>, <span class="string">"."</span>);</span><br><span class="line">    <span class="keyword">super</span>.visit(version, access, name, signature, superName, interfaces);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MethodVisitor <span class="title">visitMethod</span><span class="params">(<span class="keyword">int</span> access, String funName, String desc, String signature, String[] exceptions)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cv == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    MethodVisitor mv = cv.visitMethod(access, funName, desc, signature, exceptions);</span><br><span class="line">    busInfo = <span class="keyword">null</span>;</span><br><span class="line">    mv = <span class="keyword">new</span> AdviceAdapter(Opcodes.ASM5, mv, access, funName, desc) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> AnnotationVisitor <span class="title">visitAnnotation</span><span class="params">(String desc1, <span class="keyword">boolean</span> visible)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">final</span> AnnotationVisitor av = <span class="keyword">super</span>.visitAnnotation(desc1, visible);</span><br><span class="line">            <span class="keyword">if</span> ((<span class="string">"L"</span> + mBusUtilsClass + <span class="string">"$Bus;"</span>).equals(desc1)) &#123;</span><br><span class="line">                busInfo = <span class="keyword">new</span> BusInfo(className, funName);</span><br><span class="line">                funParamDesc = desc.substring(<span class="number">1</span>, desc.indexOf(<span class="string">")"</span>));</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> AnnotationVisitor(Opcodes.ASM5, av) &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(String name, Object value)</span> </span>&#123;<span class="comment">// 可获取注解的值</span></span><br><span class="line">                        <span class="keyword">super</span>.visit(name, value);</span><br><span class="line">                        <span class="keyword">if</span> (<span class="string">"tag"</span>.equals(name)) &#123;</span><br><span class="line">                            tag = (String) value;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"sticky"</span>.equals(name) &amp;&amp; (Boolean) value) &#123;</span><br><span class="line">                            busInfo.sticky = <span class="keyword">true</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitEnum</span><span class="params">(String name, String desc, String value)</span> </span>&#123;</span><br><span class="line">                        <span class="keyword">super</span>.visitEnum(name, desc, value);</span><br><span class="line">                        <span class="keyword">if</span> (<span class="string">"threadMode"</span>.equals(name)) &#123;</span><br><span class="line">                            busInfo.threadMode = value;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> av;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitLocalVariable</span><span class="params">(String name, String desc, String signature, Label start, Label end, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.visitLocalVariable(name, desc, signature, start, end, index);<span class="comment">// 获取方法参数信息</span></span><br><span class="line">            <span class="keyword">if</span> (busInfo != <span class="keyword">null</span> &amp;&amp; !funParamDesc.equals(<span class="string">""</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">"this"</span>.equals(name)) &#123;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                funParamDesc = funParamDesc.substring(desc.length());<span class="comment">// 每次去除参数直到为 ""，那么之后的就不是参数了</span></span><br><span class="line">                busInfo.paramsInfo.add(<span class="keyword">new</span> BusInfo.ParamsInfo(Type.getType(desc).getClassName(), name));</span><br><span class="line">                <span class="keyword">if</span> (busInfo.isParamSizeNoMoreThanOne &amp;&amp; busInfo.paramsInfo.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                    busInfo.isParamSizeNoMoreThanOne = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitEnd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.visitEnd();</span><br><span class="line">            <span class="keyword">if</span> (busInfo != <span class="keyword">null</span>) &#123;</span><br><span class="line">                List&lt;BusInfo&gt; infoList = mBusMap.get(tag);</span><br><span class="line">                <span class="keyword">if</span> (infoList == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    infoList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                    mBusMap.put(tag, infoList);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (infoList.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                    mBusMap.put(tag, infoList);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (infoList.size() == <span class="number">1</span>) &#123;</span><br><span class="line">                    BusInfo info0 = infoList.get(<span class="number">0</span>);</span><br><span class="line">                    info0.isTagRepeat = <span class="keyword">true</span>;</span><br><span class="line">                    busInfo.isTagRepeat = <span class="keyword">true</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    busInfo.isTagRepeat = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                infoList.add(busInfo);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> mv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后往 <code>BusUtils.init()</code> 插入扫描出来的内容，比如上面提到的 <code>oneParamFun</code> 这个函数，那么其最终插入的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.registerBus(<span class="string">"TagOneParam"</span>, <span class="string">"com.blankj.bus.BusTest"</span>, <span class="string">"oneParamFun"</span>, <span class="string">"java.lang.String"</span>, <span class="string">"param"</span>, <span class="keyword">false</span>, <span class="string">"POSTING"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其 ASM 插入的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MethodVisitor <span class="title">visitMethod</span><span class="params">(<span class="keyword">int</span> access, String name, String descriptor, String signature, String[] exceptions)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="string">"init"</span>.equals(name)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.visitMethod(access, name, descriptor, signature, exceptions);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 往 init() 函数中写入</span></span><br><span class="line">    <span class="keyword">if</span> (cv == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    MethodVisitor mv = cv.visitMethod(access, name, descriptor, signature, exceptions);</span><br><span class="line">    mv = <span class="keyword">new</span> AdviceAdapter(Opcodes.ASM5, mv, access, name, descriptor) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> AnnotationVisitor <span class="title">visitAnnotation</span><span class="params">(String desc, <span class="keyword">boolean</span> visible)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.visitAnnotation(desc, visible);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMethodEnter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onMethodEnter();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMethodExit</span><span class="params">(<span class="keyword">int</span> opcode)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onMethodExit(opcode);</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String, List&lt;BusInfo&gt;&gt; busEntry : mBusMap.entrySet()) &#123;</span><br><span class="line">                List&lt;BusInfo&gt; infoList = busEntry.getValue();</span><br><span class="line">                <span class="keyword">if</span> (infoList.size() != <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">                BusInfo busInfo = infoList.get(<span class="number">0</span>);</span><br><span class="line">                <span class="keyword">if</span> (!busInfo.isParamSizeNoMoreThanOne) <span class="keyword">continue</span>;</span><br><span class="line">                mv.visitVarInsn(ALOAD, <span class="number">0</span>);</span><br><span class="line">                mv.visitLdcInsn(busEntry.getKey());</span><br><span class="line">                mv.visitLdcInsn(busInfo.className);</span><br><span class="line">                mv.visitLdcInsn(busInfo.funName);</span><br><span class="line">                <span class="keyword">if</span> (busInfo.paramsInfo.size() == <span class="number">1</span>) &#123;</span><br><span class="line">                    mv.visitLdcInsn(busInfo.paramsInfo.get(<span class="number">0</span>).className);</span><br><span class="line">                    mv.visitLdcInsn(busInfo.paramsInfo.get(<span class="number">0</span>).name);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    mv.visitLdcInsn(<span class="string">""</span>);</span><br><span class="line">                    mv.visitLdcInsn(<span class="string">""</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                mv.visitInsn(busInfo.sticky ? ICONST_1 : ICONST_0);</span><br><span class="line">                mv.visitLdcInsn(busInfo.threadMode);</span><br><span class="line">                mv.visitMethodInsn(INVOKESPECIAL, mBusUtilsClass, <span class="string">"registerBus"</span>, <span class="string">"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V"</span>, <span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> mv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="BusUtils-原理分析"><a href="#BusUtils-原理分析" class="headerlink" title="BusUtils 原理分析"></a>BusUtils 原理分析</h3><p>接下来看下 <code>BusUtils.registerBus</code> 的实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">registerBus</span><span class="params">(String tag,</span></span></span><br><span class="line"><span class="function"><span class="params">                         String className, String funName, String paramType, String paramName,</span></span></span><br><span class="line"><span class="function"><span class="params">                         <span class="keyword">boolean</span> sticky, String threadMode)</span> </span>&#123;</span><br><span class="line">    mTag_BusInfoMap.put(tag, <span class="keyword">new</span> BusInfo(className, funName, paramType, paramName, sticky, threadMode));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很简单，就是往 <code>mTag_BusInfoMap</code> 中插入了 key 为 <code>tag</code>，value 为 <code>BusInfo</code> 的一个实例，这样便把一个事件保留了下来。</p>
+<p>接下来就是使用了，一开始我们都是先 register，源码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(<span class="keyword">final</span> Object bus)</span> </span>&#123;</span><br><span class="line">    getInstance().registerInner(bus);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">registerInner</span><span class="params">(<span class="keyword">final</span> Object bus)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (bus == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    String className = bus.getClass().getName();</span><br><span class="line">    <span class="keyword">synchronized</span> (mClassName_BusesMap) &#123;</span><br><span class="line">        Set&lt;Object&gt; buses = mClassName_BusesMap.get(className);</span><br><span class="line">        <span class="keyword">if</span> (buses == <span class="keyword">null</span>) &#123;</span><br><span class="line">            buses = <span class="keyword">new</span> CopyOnWriteArraySet&lt;&gt;();</span><br><span class="line">            mClassName_BusesMap.put(className, buses);</span><br><span class="line">        &#125;</span><br><span class="line">        buses.add(bus);</span><br><span class="line">    &#125;</span><br><span class="line">    processSticky(bus);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们获取 bus 的类名，然后对 <code>mClassName_BusesMap</code> 加锁来把它插入到 <code>mClassName_BusesMap</code> 的 value 的集合中，可以看到我们用了线程安全的 <code>CopyOnWriteArraySet</code> 集合，然后还需要处理下之前是否订阅过粘性事件 <code>processSticky</code>，到这里 register 便结束了。</p>
+<p>然后就是 <code>post</code> 来发送事件了，源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(<span class="keyword">final</span> String tag)</span> </span>&#123;</span><br><span class="line">    post(tag, NULL);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(<span class="keyword">final</span> String tag, <span class="keyword">final</span> Object arg)</span> </span>&#123;</span><br><span class="line">    getInstance().postInner(tag, arg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">postInner</span><span class="params">(<span class="keyword">final</span> String tag, <span class="keyword">final</span> Object arg)</span> </span>&#123;</span><br><span class="line">    postInner(tag, arg, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">postInner</span><span class="params">(<span class="keyword">final</span> String tag, <span class="keyword">final</span> Object arg, <span class="keyword">final</span> <span class="keyword">boolean</span> sticky)</span> </span>&#123;</span><br><span class="line">    BusInfo busInfo = mTag_BusInfoMap.get(tag);</span><br><span class="line">    <span class="keyword">if</span> (busInfo == <span class="keyword">null</span>) &#123;</span><br><span class="line">        Log.e(TAG, <span class="string">"The bus of tag &lt;"</span> + tag + <span class="string">"&gt; is not exists."</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (busInfo.method == <span class="keyword">null</span>) &#123;</span><br><span class="line">        Method method = getMethodByBusInfo(busInfo);</span><br><span class="line">        <span class="keyword">if</span> (method == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        busInfo.method = method;</span><br><span class="line">    &#125;</span><br><span class="line">    invokeMethod(tag, arg, busInfo, sticky);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> Method <span class="title">getMethodByBusInfo</span><span class="params">(BusInfo busInfo)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">""</span>.equals(busInfo.paramType)) &#123;</span><br><span class="line">            <span class="keyword">return</span> Class.forName(busInfo.className).getDeclaredMethod(busInfo.funName);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> Class.forName(busInfo.className).getDeclaredMethod(busInfo.funName, Class.forName(busInfo.paramType));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">invokeMethod</span><span class="params">(<span class="keyword">final</span> String tag, <span class="keyword">final</span> Object arg, <span class="keyword">final</span> BusInfo busInfo, <span class="keyword">final</span> <span class="keyword">boolean</span> sticky)</span> </span>&#123;</span><br><span class="line">    Runnable runnable = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            realInvokeMethod(tag, arg, busInfo, sticky);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">switch</span> (busInfo.threadMode) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"MAIN"</span>:</span><br><span class="line">            Utils.runOnUiThread(runnable);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"IO"</span>:</span><br><span class="line">            ThreadUtils.getIoPool().execute(runnable);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"CPU"</span>:</span><br><span class="line">            ThreadUtils.getCpuPool().execute(runnable);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"CACHED"</span>:</span><br><span class="line">            ThreadUtils.getCachedPool().execute(runnable);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"SINGLE"</span>:</span><br><span class="line">            ThreadUtils.getSinglePool().execute(runnable);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            runnable.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">realInvokeMethod</span><span class="params">(<span class="keyword">final</span> String tag, Object arg, BusInfo busInfo, <span class="keyword">boolean</span> sticky)</span> </span>&#123;</span><br><span class="line">    Set&lt;Object&gt; buses = mClassName_BusesMap.get(busInfo.className);</span><br><span class="line">    <span class="keyword">if</span> (buses == <span class="keyword">null</span> || buses.size() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!sticky) &#123;</span><br><span class="line">            Log.e(TAG, <span class="string">"The bus of tag &lt;"</span> + tag + <span class="string">"&gt; was not registered before."</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (arg == NULL) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Object bus : buses) &#123;</span><br><span class="line">                busInfo.method.invoke(bus);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (Object bus : buses) &#123;</span><br><span class="line">                busInfo.method.invoke(bus, arg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到代码还是比较多的，不过别急，我们一步步来还是很简单的，首先在我们之前注入的 <code>mTag_BusInfoMap</code> 中查找是否有该 <code>tag</code> 的 <code>BusInfo</code>，没有的话就输出错误日志直接返回。</p>
+<p>然后我们根据获取到的 <code>BusInfo</code> 来找到 <code>method</code> 实例，<code>BusInfo</code> 第一次会把 <code>method</code> 保存在实例中，之后调用的话直接从实例中取出 <code>method</code> 即可。</p>
+<p>接着我们从 <code>BusInfo</code> 中取出线程信息，最后在线程中执行 <code>method</code> 的反射，大体就是这样，具体细节的话还是需要自己分析源码。</p>
+<p>最后就是 <code>unregister</code> 了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">unregister</span><span class="params">(<span class="keyword">final</span> Object bus)</span> </span>&#123;</span><br><span class="line">    getInstance().unregisterInner(bus);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">unregisterInner</span><span class="params">(<span class="keyword">final</span> Object bus)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (bus == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    String className = bus.getClass().getName();</span><br><span class="line">    <span class="keyword">synchronized</span> (mClassName_BusesMap) &#123;</span><br><span class="line">        Set&lt;Object&gt; buses = mClassName_BusesMap.get(className);</span><br><span class="line">        <span class="keyword">if</span> (buses == <span class="keyword">null</span> || !buses.contains(bus)) &#123;</span><br><span class="line">            Log.e(TAG, <span class="string">"The bus of &lt;"</span> + bus + <span class="string">"&gt; was not registered before."</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        buses.remove(bus);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>unregister</code> 和 <code>register</code> 相反，就是从 <code>mClassName_BusesMap</code> 的 value 集合中移除，同样需要对 <code>mClassName_BusesMap</code> 加锁哦。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
+        <!--<p>微信支付</p>-->
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    布兰柯基
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blankj.com/2019/07/22/busutils/" title="比 EventBus 更高效的事件总线（BusUtils）">https://blankj.com/2019/07/22/busutils/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具类/" rel="tag"># 工具类</a>
+          
+            <a href="/tags/AucFrame/" rel="tag"># AucFrame</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/22/apiutils/" rel="next" title="一学就会的模块间通讯（ApiUtils）">
+                <i class="fa fa-chevron-left"></i> 一学就会的模块间通讯（ApiUtils）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div id="gitalk-container"></div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="布兰柯基">
+            
+              <p class="site-author-name" itemprop="name">布兰柯基</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">152</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/46702d5c6978" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-book"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/579f5dd1a341310063f9f105" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/a120705230" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-book"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/blankcmj" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj/AndroidOfferKiller#9-%E5%86%85%E6%8E%A8%E9%80%9A%E9%81%93" target="_blank" title="内推">
+                    
+                      <i class="fa fa-fw fa-thumbs-up"></i>内推</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">2.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">2.2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级使用"><span class="nav-number">2.3.</span> <span class="nav-text">高级使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#粘性事件"><span class="nav-number">2.3.1.</span> <span class="nav-text">粘性事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程切换"><span class="nav-number">2.3.2.</span> <span class="nav-text">线程切换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规范"><span class="nav-number">3.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能测试"><span class="nav-number">4.</span> <span class="nav-text">性能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-10000-个订阅者，共执行-10-次取平均值"><span class="nav-number">4.1.</span> <span class="nav-text">注册 10000 个订阅者，共执行 10 次取平均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向-1-个订阅者发送-1000000-次，共执行-10-次取平均值"><span class="nav-number">4.2.</span> <span class="nav-text">向 1 个订阅者发送 * 1000000 次，共执行 10 次取平均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向-100-个订阅者发送-10000-次，共执行-10-次取平均值"><span class="nav-number">4.3.</span> <span class="nav-text">向 100 个订阅者发送 * 10000 次，共执行 10 次取平均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注销-10000-个订阅者，共执行-10-次取平均值"><span class="nav-number">4.4.</span> <span class="nav-text">注销 10000 个订阅者，共执行 10 次取平均值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">6.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bus-插件原理分析"><span class="nav-number">6.1.</span> <span class="nav-text">bus 插件原理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BusUtils-原理分析"><span class="nav-number">6.2.</span> <span class="nav-text">BusUtils 原理分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">布兰柯基</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

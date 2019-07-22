@@ -481,7 +481,62 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#8-&#x5E76;&#x53D1;"><b></b>8. &#x5E76;&#x53D1;</a></li></ul></div><a href="#8-&#x5E76;&#x53D1;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="8-&#x5E76;&#x53D1;"><a name="8-&#x5E76;&#x53D1;" class="anchor-navigation-ex-anchor" href="#8-&#x5E76;&#x53D1;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="8-&#x5E76;&#x53D1;" class="plugin-anchor" href="#8-&#x5E76;&#x53D1;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x5E76;&#x53D1;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#8-&#x5E76;&#x53D1;"><b></b>8. &#x5E76;&#x53D1;</a></li><ul><li><span class="title-icon "></span><a href="#81-goroutine"><b></b>8.1 goroutine</a></li><li><span class="title-icon "></span><a href="#82-chan"><b></b>8.2 chan</a></li><li><span class="title-icon "></span><a href="#83-select"><b></b>8.3 select</a></li><li><span class="title-icon "></span><a href="#84"><b></b>8.4</a></li></ul></ul></div><a href="#8-&#x5E76;&#x53D1;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="8-&#x5E76;&#x53D1;"><a name="8-&#x5E76;&#x53D1;" class="anchor-navigation-ex-anchor" href="#8-&#x5E76;&#x53D1;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="8-&#x5E76;&#x53D1;" class="plugin-anchor" href="#8-&#x5E76;&#x53D1;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x5E76;&#x53D1;</h1>
+<h2 id="81-goroutine"><a name="81-goroutine" class="anchor-navigation-ex-anchor" href="#81-goroutine"><i class="fa fa-link" aria-hidden="true"></i></a><a name="81-goroutine" class="plugin-anchor" href="#81-goroutine"><i class="fa fa-link" aria-hidden="true"></i></a>8.1 goroutine</h2>
+<p>&#x4E3A;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x51FD;&#x6570;&#x521B;&#x5EFA; goroutine &#x7684;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">go</span> &#x51FD;&#x6570;&#x540D;(&#x53C2;&#x6570;&#x5217;&#x8868;) <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x503C;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x533F;&#x540D;&#x51FD;&#x6570;&#x521B;&#x5EFA; goroutine &#x7684;&#x683C;&#x5F0F;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(&#x53C2;&#x6570;&#x5217;&#x8868;) {
+    &#x51FD;&#x6570;&#x4F53;
+}(&#x8C03;&#x7528;&#x53C2;&#x6570;&#x5217;&#x8868;)
+</code></pre>
+<h2 id="82-chan"><a name="82-chan" class="anchor-navigation-ex-anchor" href="#82-chan"><i class="fa fa-link" aria-hidden="true"></i></a><a name="82-chan" class="plugin-anchor" href="#82-chan"><i class="fa fa-link" aria-hidden="true"></i></a>8.2 chan</h2>
+<p>Go&#x8BED;&#x8A00;&#x63D0;&#x5021;&#x4F7F;&#x7528;&#x901A;&#x4FE1;&#x7684;&#x65B9;&#x6CD5;&#x4EE3;&#x66FF;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x9700;&#x8981;&#x5728; goroutine &#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x65F6;&#xFF0C;&#x901A;&#x9053;&#x5728; goroutine &#x4E4B;&#x95F4;&#x67B6;&#x8D77;&#x4E86;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x786E;&#x4FDD;&#x540C;&#x6B65;&#x4EA4;&#x6362;&#x6570;&#x636E;&#x7684;&#x673A;&#x5236;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A; int &#x7C7B;&#x578B;&#x7684;&#x901A;&#x9053;</span>
+<span class="hljs-keyword">var</span> chInt <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x63A5;&#x53E3;&#x901A;&#x9053;</span>
+ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">interface</span>{})
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; 3 &#x4E2A;&#x5143;&#x7D20;&#x7F13;&#x51B2;&#x5927;&#x5C0F;&#x7684;&#x6574;&#x578B;&#x901A;&#x9053;</span>
+ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">3</span>)
+<span class="hljs-comment">// &#x5C06;0&#x653E;&#x5165;&#x901A;&#x9053;&#x4E2D;</span>
+ch &lt;- <span class="hljs-number">0</span>
+<span class="hljs-comment">// &#x5C06;hello&#x5B57;&#x7B26;&#x4E32;&#x653E;&#x5165;&#x901A;&#x9053;&#x4E2D;</span>
+ch &lt;- <span class="hljs-string">&quot;hello&quot;</span>
+<span class="hljs-comment">// &#x963B;&#x585E;&#x63A5;&#x6536;&#x6570;&#x636E;</span>
+data := &lt;-ch
+<span class="hljs-comment">// &#x975E;&#x963B;&#x585E;&#x63A5;&#x6536;&#x6570;&#x636E;</span>
+data, ok := &lt;-ch
+<span class="hljs-comment">// &#x63A5;&#x6536;&#x4EFB;&#x610F;&#x6570;&#x636E;&#xFF0C;&#x5FFD;&#x7565;&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;</span>
+&lt;-ch
+<span class="hljs-comment">// &#x5FAA;&#x73AF;&#x63A5;&#x6536;</span>
+<span class="hljs-keyword">for</span> data := <span class="hljs-keyword">range</span> ch {
+    ...
+}
+
+<span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EA;&#x80FD;&#x53D1;&#x9001;&#x7684;&#x901A;&#x9053;&#x7C7B;&#x578B;, &#x5E76;&#x8D4B;&#x503C;&#x4E3A;ch</span>
+<span class="hljs-keyword">var</span> chSendOnly <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">int</span> = ch
+<span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EA;&#x80FD;&#x63A5;&#x6536;&#x7684;&#x901A;&#x9053;&#x7C7B;&#x578B;, &#x5E76;&#x8D4B;&#x503C;&#x4E3A;ch</span>
+<span class="hljs-keyword">var</span> chRecvOnly &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span> = ch
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EA;&#x80FD;&#x63A5;&#x6536;&#x7684;&#x901A;&#x9053;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x80FD;&#x53D1;&#x9001;&#x53EA;&#x80FD;&#x63A5;&#x6536;&#x7684;&#x901A;&#x9053;&#x662F;&#x6BEB;&#x65E0;&#x610F;&#x4E49;&#x7684;</span>
+ch := <span class="hljs-built_in">make</span>(&lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+
+<span class="hljs-comment">// &#x5173;&#x95ED;&#x901A;&#x9053;</span>
+<span class="hljs-built_in">close</span>(ch)
+<span class="hljs-comment">// ok &#x4E3A; false &#x8868;&#x793A;&#x5DF2;&#x5173;&#x95ED;</span>
+x, ok := &lt;-ch
+</code></pre>
+<h2 id="83-select"><a name="83-select" class="anchor-navigation-ex-anchor" href="#83-select"><i class="fa fa-link" aria-hidden="true"></i></a><a name="83-select" class="plugin-anchor" href="#83-select"><i class="fa fa-link" aria-hidden="true"></i></a>8.3 select</h2>
+<p>Go &#x8BED;&#x8A00;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86; <code>select</code> &#x5173;&#x952E;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x54CD;&#x5E94;&#x591A;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">select</span> {
+<span class="hljs-keyword">case</span> &lt;-ch: <span class="hljs-comment">// &#x63A5;&#x6536;&#x4EFB;&#x610F;&#x6570;&#x636E;</span>
+    ...
+<span class="hljs-keyword">case</span> d := &lt;-ch: <span class="hljs-comment">// &#x63A5;&#x6536;&#x53D8;&#x91CF;</span>
+<span class="hljs-keyword">case</span> ch &lt;- <span class="hljs-number">100</span>: <span class="hljs-comment">// &#x53D1;&#x9001;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">default</span>: <span class="hljs-comment">// &#x6CA1;&#x6709;&#x64CD;&#x4F5C;&#x60C5;&#x51B5;</span>
+}
+</code></pre>
+<h2 id="84"><a name="84" class="anchor-navigation-ex-anchor" href="#84"><i class="fa fa-link" aria-hidden="true"></i></a><a name="84" class="plugin-anchor" href="#84"><i class="fa fa-link" aria-hidden="true"></i></a>8.4</h2>
 
                                 
                                 </section>
@@ -525,7 +580,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8. 并发","level":"5.1.8","depth":2,"next":{"title":"9. 反射","level":"5.1.9","depth":2,"path":"GoGoGo/quick_search/9. 反射.md","ref":"GoGoGo/quick_search/9. 反射.md","articles":[]},"previous":{"title":"7. 包","level":"5.1.7","depth":2,"path":"GoGoGo/quick_search/7. 包.md","ref":"GoGoGo/quick_search/7. 包.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Blankj"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://blankj.com/gitbook/source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon-32x32.webp","bookmark":"./source/images/favicon-32x32.webp","appleTouch":"./source/images/apple-touch-icon.webp"},"github-buttons":{"buttons":[{"user":"Blankj","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Blankj","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Blankj's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"GoGoGo/quick_search/8. 并发.md","mtime":"2019-07-01T13:40:18.513Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-05T13:08:18.408Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. 并发","level":"5.1.8","depth":2,"next":{"title":"9. 反射","level":"5.1.9","depth":2,"path":"GoGoGo/quick_search/9. 反射.md","ref":"GoGoGo/quick_search/9. 反射.md","articles":[]},"previous":{"title":"7. 包","level":"5.1.7","depth":2,"path":"GoGoGo/quick_search/7. 包.md","ref":"GoGoGo/quick_search/7. 包.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Blankj"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"https://blankj.com/gitbook/source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon-32x32.webp","bookmark":"./source/images/favicon-32x32.webp","appleTouch":"./source/images/apple-touch-icon.webp"},"github-buttons":{"buttons":[{"user":"Blankj","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Blankj","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Blankj's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"GoGoGo/quick_search/8. 并发.md","mtime":"2019-07-14T10:43:53.906Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-22T01:47:07.703Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
