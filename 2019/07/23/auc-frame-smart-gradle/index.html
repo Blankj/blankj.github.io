@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://blankj.com/2019/07/23/auc-frame-smart-gradle/art/tip.jpg">
 <meta property="og:image" content="https://blankj.com/2019/07/23/auc-frame-smart-gradle/art/buildSrc.png">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/b75b8776ly1g5bylu0rhdj206y090wfc.jpg">
-<meta property="og:updated_time" content="2019-07-25T04:13:54.173Z">
+<meta property="og:updated_time" content="2019-07-25T04:19:01.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之让你的 Gradle 更智能">
 <meta name="twitter:description" content="前言不了解什么是 AucFrame 的可以先看一下这篇文章：AucFrame 之简介及学习 环境首先来明确下开发环境，这里推荐使用 Android Studio 3.5-Beta4 及以上的版本，3.3.x 和 3.4.x 也都是可以的，只是没有智能提示，3.2.x 及以下版本的话就不推荐使用了，否则后面的课程可能会出问题。">
@@ -488,7 +488,8 @@
 <p>写完后我们再同步一下项目，现在你可以跳转到 app 中的 <code>build.gradle</code> 中，设置你所需要设置的属性即可，可设置成如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion Config.compileSdkVersion</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion Config.minSdkVersion</span><br><span class="line">        versionCode Config.versionCode</span><br><span class="line">        versionName Config.versionName</span><br><span class="line">        applicationId Config.applicationId</span><br><span class="line">        targetSdkVersion Config.targetSdkVersion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你会发现在输入过程中是支持智能提示的，也可以支持跳转，如上只是基本的操作，愣着干嘛啊，赶紧扣 6 吧，接下来我们做更刺激的操作。</p>
-<h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2><p>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」学习 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架，目前第一期 ¥66 的 50 个名额已满，有兴趣的可以扫码加入微信群，二期开放的时候统一拉你们。</p>
+<h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2><p><del>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」学习 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架，目前是第一期，只有 50 个名额，价格是 ¥66 一年，到期日为 2020/07/15，平均一天 2 毛都不用，但你却可以快速学习到该牛逼的组件化框架，50 个之后我会先运行一段时间看是否可行再决定升价来更好地运行它，所以，各位 Androider 还在等什么，当然，进来之后试看发现内容并不喜欢，我也可以无条件全额给你退款，但我相信这份教程绝对值这个价钱，学完后你也会比其他人更加优秀。在学习过程中遇到的问题或者有其他 Android 相关的疑问，我有空都可以帮你解答，而且，星球中分享的不仅于 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架，关于大厂的面试经验、内推通道、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 的使用我也可以提供帮助，目的就是为了把更多优秀的人聚在一起来分享更多的资源让大家一同提升。</del></p>
+<p>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」学习 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架，目前第一期 ¥66 的 50 个名额已满，有兴趣的可以扫码加入微信群，二期开放的时候统一拉你们。</p>
 <p><img src="https://ws1.sinaimg.cn/large/b75b8776ly1g5bylu0rhdj206y090wfc.jpg" alt="基你太美二期"></p>
 
       
