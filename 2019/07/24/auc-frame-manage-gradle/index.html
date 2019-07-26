@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5by867cx2j20ce06qab5.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/b75b8776ly1g5bylu0rhdj206y090wfc.jpg">
-<meta property="og:updated_time" content="2019-07-25T04:18:34.145Z">
+<meta property="og:updated_time" content="2019-07-26T15:33:56.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之统一管理 Gradle">
 <meta name="twitter:description" content="前言AucFrame 往期文章：  AucFrame 之简介及学习 AucFrame 之让你的 Gradle 更智能  「AucFrame 之统一管理 Gradle」源码传送门">
@@ -502,7 +502,7 @@
 <p>现在我们 <code>gradle</code> 同步一下，可以发现两个 <code>export</code> 已经被添加进来了。</p>
 <h3 id="管理-pkg-的-Gradle"><a href="#管理-pkg-的-Gradle" class="headerlink" title="管理 pkg 的 Gradle"></a>管理 pkg 的 Gradle</h3><p>我们以相同的方式创建两个 <code>pkg</code>，包名分别是 <code>com.blankj.feature0.pkg</code>、<code>com.blankj.feature1.pkg</code>，建立完后的 <code>setting.gradle</code> 文件如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">':app'</span>, <span class="string">':lib:base'</span>, <span class="string">':lib:common'</span>,</span><br><span class="line">        <span class="string">':feature:feature0:export'</span>, <span class="string">':feature:feature1:export'</span>,</span><br><span class="line">        <span class="string">':feature:feature0:pkg'</span>, <span class="string">':feature:feature1:pkg'</span></span><br></pre></td></tr></table></figure>
-<p><code>pkg</code> 是只依赖各自的 <code>export</code>，所以 <code>:feature:feature0:pkg</code> 的 <code>build.gradle</code> 如下所示：</p>
+<p><code>pkg</code> 我们暂时只依赖各自的 <code>export</code>，后面我们会再改成全量依赖 <code>export</code>，所以 <code>:feature:feature0:pkg</code> 的 <code>build.gradle</code> 如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apply &#123;</span><br><span class="line">    from <span class="string">"$&#123;project.rootDir.path&#125;/buildLib.gradle"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    api project(<span class="string">":feature:feature0:export"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>:feature:feature1:pkg</code> 的 <code>build.gradle</code> 同理。</p>
 <p><code>gradle</code> 同步一下，可以发现两个 <code>pkg</code> 已经被添加进来了，现在我们在 <code>:feature:feature0:pkg</code> 中添加一个 <code>Feature0Activity</code>，以及在 <code>:feature:feature1:pkg</code> 中添加一个 <code>Feature1Activity</code>，具体请参看源码。</p>
