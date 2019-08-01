@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/b75b8776ly1g5c7w0cg70j20e908aweq.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/b75b8776ly1g5bylu0rhdj206y090wfc.jpg">
-<meta property="og:updated_time" content="2019-07-25T09:35:07.825Z">
+<meta property="og:updated_time" content="2019-08-01T02:33:49.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一学就会的模块间通讯（ApiUtils）">
 <meta name="twitter:description" content="背景随着项目业务越来越多，开发出一套好的组件化方案势在必行，如果还在探寻一套好的组件化架构，那么 AucFrame 想必会是你的菜。 组件化方案中各业务是相互隔离的，所以两个业务模块要通信的话，就需要通过路由或者接口下沉来完成，业界的方案都无法与 AucFrame 完美融合，所以我就只好自己动手来完成一个更方便、精简、完美的 ApiUtils，它功能类似 SPI，但比 SPI 更适合于 Andr">
@@ -496,8 +496,8 @@
 <p>然后在 <code>application</code> 模块中使用该插件：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">"com.blankj.api"</span></span><br></pre></td></tr></table></figure>
 <p>给你的项目添加 <strong><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a></strong> 依赖：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api <span class="string">"com.blankj:utilcode:1.25.0"</span></span><br></pre></td></tr></table></figure>
-<p>如果你单纯只想引入 <code>ApiUtils</code> 也是可以的，需要你自己拷贝一份这个类放到你工程里，然后在 app 下的 <code>build.gradle</code> 中 配置 api 的 SDL 域如下所示：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api <span class="string">"com.blankj:utilcode:latest_version"</span></span><br></pre></td></tr></table></figure>
+<p>如果你单纯只想引入 <code>ApiUtils</code> 也是可以的，需要你自己拷贝一份这个类放到你工程里，然后在 app 下的 <code>build.gradle</code> 中 配置 api 的 DSL 域如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">api &#123;</span><br><span class="line">    apiUtilsClass <span class="string">"com.xxx.xxx.ApiUtils"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以猜测到默认的 apiUtilsClass 为 <code>com.blankj.utilcode.util.ApiUtils</code> 哈。</p>
 <p>当然，如果你项目是开启混淆的话，全量引入 <strong><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a></strong> 也是可以的，混淆会帮你去除未使用到的类和方法。</p>

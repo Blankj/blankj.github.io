@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/communication.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/busutil_vs_eventbus.png">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/b75b8776ly1g5bylu0rhdj206y090wfc.jpg">
-<meta property="og:updated_time" content="2019-07-25T04:19:05.315Z">
+<meta property="og:updated_time" content="2019-07-27T05:07:03.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="比 EventBus 更高效的事件总线（BusUtils）">
 <meta name="twitter:description" content="背景设计这个 BusUtils 其实是在做 ApiUtils 时顺手做的，因为两者实现方式基本一致，设计前我也没想着要和 greenrobot 的 EventBus 一较高低，但设计完总需要一个对比，所以就拿业界最优秀的事件总线 EventBus 比较一下吧，然后就发现我这区区 300 行不到的 BusUtils 性能比 EventBus 要高出好多，当然，这一切的前提都是在 BusUtils">
@@ -492,7 +492,7 @@
 <p>然后在 application 模块中使用该插件：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">"com.blankj.bus"</span></span><br></pre></td></tr></table></figure>
 <p>给你的项目添加 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 依赖：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api <span class="string">"com.blankj:utilcode:1.25.0"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api <span class="string">"com.blankj:utilcode:latest_version"</span></span><br></pre></td></tr></table></figure>
 <p>如果你单纯只想引入 <code>BusUtils</code> 也是可以的，需要你自己拷贝一份这个类放到你工程里，记得还要拷贝 <code>ThreadUtils</code> 哦，然后在 app 下的 <code>build.gradle</code> 中 配置 bus 的 SDL 域如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">api &#123;</span><br><span class="line">    busUtilsClass <span class="string">"com.xxx.xxx.BusUtils"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以猜测到默认的 busUtilsClass 为 <code>com.blankj.utilcode.util.BusUtils</code> 哈。</p>
