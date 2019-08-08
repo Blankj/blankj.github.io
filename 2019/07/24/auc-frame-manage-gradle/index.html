@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="前言AucFrame 往期文章：  AucFrame 之简介及学习 AucFrame 之让你的 Gradle 更智能  「AucFrame 之统一管理 Gradle」源码传送门">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5by867cx2j20ce06qab5.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png">
-<meta property="og:updated_time" content="2019-08-08T06:44:15.908Z">
+<meta property="og:updated_time" content="2019-08-08T07:07:28.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之统一管理 Gradle">
 <meta name="twitter:description" content="前言AucFrame 往期文章：  AucFrame 之简介及学习 AucFrame 之让你的 Gradle 更智能  「AucFrame 之统一管理 Gradle」源码传送门">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
 
 
 
@@ -472,7 +472,7 @@
       
 
       
-        <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png" alt="logo"></p>
+        <p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="logo"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>AucFrame 往期文章：</p>
 <ul>
 <li><a href="https://blankj.com/2019/07/22/auc-frame">AucFrame 之简介及学习</a></li>
@@ -480,7 +480,7 @@
 </ul>
 <p><a href="https://github.com/Blankj/AucFrameTemplate/releases/tag/2" target="_blank" rel="noopener">「AucFrame 之统一管理 Gradle」源码传送门</a><br><a id="more"></a></p>
 <h2 id="管理-lib-的-Gradle"><a href="#管理-lib-的-Gradle" class="headerlink" title="管理 lib 的 Gradle"></a>管理 lib 的 Gradle</h2><p>首先，我们再看一遍 AucFrame 的架构图。</p>
-<p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/auc_frame.png" alt="AucFrameGeneral"></p>
+<p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="AucFrameGeneral"></p>
 <p>我们从下开始往上搭建，在根目录创建 <code>lib</code> 文件夹，在项目中新建一个 <code>Android Library</code> 类型的 <code>base</code> module，然后删除其中的 <code>base.iml</code>，因为不删除 <code>base.iml</code> 文件的话会影响后续的移动，把 <code>androidTest</code> 以及 <code>test</code> 测试目录删了也没事，然后我们把 <code>base</code> 文件夹移入到 <code>lib</code> 中，最后我们修改 <code>setting.gradle</code> 文件中的 <code>&#39;:base&#39;</code> 为 <code>:lib:base</code>，最后点击 Gradle 的同步即可，最终会在 <code>lib</code> 下生成 <code>lib.iml</code>，<code>base</code> 下生成 <code>lib-base.iml</code> 表示成功，结果如下所示：</p>
 <p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg" alt="lib_base"></p>
 <p>同样的方式，我们创建 <code>:lib:common</code>，接下来配置他们的依赖关系。</p>
