@@ -88,7 +88,8 @@
 <meta property="og:description" content="背景之前总是有开发者反馈我应用切换了语言，可是工具类获取的 string 却没有发生改变。其实这个问题很简单，你切换语言的 Context 只作用在了你的 Activity 上，并没有对你的 Application 做同样的操作，知道了这点，那么解决问题就很简单了，为了省事，我给大家封装了 LanguageUtils，直接一行代码便可完成多语言的切换，类似微信的语言切换分分钟便可完成。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
-<meta property="og:updated_time" content="2019-07-25T04:19:18.211Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png">
+<meta property="og:updated_time" content="2019-08-15T13:27:53.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几需一行代码完成多语言切换">
 <meta name="twitter:description" content="背景之前总是有开发者反馈我应用切换了语言，可是工具类获取的 string 却没有发生改变。其实这个问题很简单，你切换语言的 Context 只作用在了你的 Activity 上，并没有对你的 Application 做同样的操作，知道了这点，那么解决问题就很简单了，为了省事，我给大家封装了 LanguageUtils，直接一行代码便可完成多语言的切换，类似微信的语言切换分分钟便可完成。">
@@ -239,6 +240,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的星球">
+          <a href="https://t.zsxq.com/FmeqfYF" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            我的星球
           </a>
         </li>
       
@@ -487,6 +498,8 @@
 <li>如果需要应用内切换语言变为跟随系统设置语言，那么调用 <code>LanguageUtils.applySystemLanguage(&quot;&quot;/* 切换语言后你要跳转到的页面，如果为空，则启动应用的 launcher Activity */);</code> 即可。</li>
 </ul>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>功能其实很简单，但总是缺少人能把它分析得透彻，从而做得很完美分享出来，希望我这次的分享能让你看到这一点，从而提升你之后的技能。</p>
+<h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2><p>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」，我会在星球中分享 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架、大厂面经、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 更详尽的说明…一切我所了解的知识，你可以通过支付进入我的星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」进行体验，加入后优先观看星球中精华的部分，如果觉得星球的内容对自身没有收益，你可以自行申请退款退出星球，也没必要加我好友；<strong>如果你已确定要留在我的星球，可以通过扫描如下二维码（备注：基你太美）加我个人微信，发送给我你的星球 ID，方便我后续拉你进群(PS：进得越早价格越便宜)。</strong></p>
+<p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" alt="我的二维码"></p>
 
       
     </div>
@@ -747,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APIs"><span class="nav-number">3.</span> <span class="nav-text">APIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言相关-gt-LanguageUtils-java-gt-Demo"><span class="nav-number">3.1.</span> <span class="nav-text">语言相关 -&gt; LanguageUtils.java -&gt; Demo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">4.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APIs"><span class="nav-number">3.</span> <span class="nav-text">APIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言相关-gt-LanguageUtils-java-gt-Demo"><span class="nav-number">3.1.</span> <span class="nav-text">语言相关 -&gt; LanguageUtils.java -&gt; Demo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">4.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打个小广告"><span class="nav-number">6.</span> <span class="nav-text">打个小广告</span></a></li></ol></div>
             
 
           </div>

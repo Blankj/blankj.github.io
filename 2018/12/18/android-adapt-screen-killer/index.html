@@ -93,7 +93,8 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadwxbz7bj22i21hcb29.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1fyadxaj8phj23c21z41ky.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g26v2cygx2j20j60d574h.jpg">
-<meta property="og:updated_time" content="2019-06-27T13:52:06.279Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png">
+<meta property="og:updated_time" content="2019-08-15T13:28:05.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 屏幕适配终结者">
 <meta name="twitter:description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
@@ -244,6 +245,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的星球">
+          <a href="https://t.zsxq.com/FmeqfYF" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            我的星球
           </a>
         </li>
       
@@ -498,6 +509,8 @@
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.blankj:utilcode:1.23.2'</span></span><br></pre></td></tr></table></figure>
 <h2 id="结尾的话"><a href="#结尾的话" class="headerlink" title="结尾的话"></a>结尾的话</h2><p>看了原理之后是不是觉得很简单，但能想到这种解决方案的又能有几人呢，我也是站在了巨人的肩膀上才能想到这一层次，希望该适配方案能像文章标题一样终结我们的适配，这是我目前发现最简单有效的适配方案，如果觉得不错的话记得推荐给身边的 Androider 哦，使用过程有问题的话欢迎同步到 <a href="https://github.com/Blankj/AndroidUtilCode/issues/758" target="_blank" rel="noopener">「Android 屏幕适配终结者」问题汇总</a> 这个 issue 中。</p>
 <p>最后再插个内容，<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 项目已改造为组件化，有兴趣的可以翻阅源码查看，相信你肯定会学到不少好东西的，下一篇文章我会为大家介绍下这方面的内容，期待我能尽快出产吧。</p>
+<h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2><p>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」，我会在星球中分享 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架、大厂面经、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 更详尽的说明…一切我所了解的知识，你可以通过支付进入我的星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」进行体验，加入后优先观看星球中精华的部分，如果觉得星球的内容对自身没有收益，你可以自行申请退款退出星球，也没必要加我好友；<strong>如果你已确定要留在我的星球，可以通过扫描如下二维码（备注：基你太美）加我个人微信，发送给我你的星球 ID，方便我后续拉你进群(PS：进得越早价格越便宜)。</strong></p>
+<p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" alt="我的二维码"></p>
 
       
     </div>
@@ -758,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">2.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-无侵入性"><span class="nav-number">2.1.</span> <span class="nav-text">1. 无侵入性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-灵活性高"><span class="nav-number">2.2.</span> <span class="nav-text">2. 灵活性高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-不会影响系统-View-和三方-View-的大小"><span class="nav-number">2.3.</span> <span class="nav-text">3. 不会影响系统 View 和三方 View 的大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-不会失效"><span class="nav-number">2.4.</span> <span class="nav-text">4. 不会失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#480-x-800-mdpi-160dpi"><span class="nav-number">3.1.</span> <span class="nav-text">480 x 800 - mdpi(160dpi)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#720-x-1280-xhdpi-320dpi"><span class="nav-number">3.2.</span> <span class="nav-text">720 x 1280 - xhdpi(320dpi)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1080-x-1920-xxhdpi-480dpi"><span class="nav-number">3.3.</span> <span class="nav-text">1080 x 1920 - xxhdpi(480dpi)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1440x2560-560dpi"><span class="nav-number">3.4.</span> <span class="nav-text">1440x2560 - 560dpi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何根据设计图创建预览？"><span class="nav-number">4.</span> <span class="nav-text">如何根据设计图创建预览？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理及用法"><span class="nav-number">5.</span> <span class="nav-text">原理及用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾的话"><span class="nav-number">6.</span> <span class="nav-text">结尾的话</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">2.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-无侵入性"><span class="nav-number">2.1.</span> <span class="nav-text">1. 无侵入性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-灵活性高"><span class="nav-number">2.2.</span> <span class="nav-text">2. 灵活性高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-不会影响系统-View-和三方-View-的大小"><span class="nav-number">2.3.</span> <span class="nav-text">3. 不会影响系统 View 和三方 View 的大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-不会失效"><span class="nav-number">2.4.</span> <span class="nav-text">4. 不会失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#480-x-800-mdpi-160dpi"><span class="nav-number">3.1.</span> <span class="nav-text">480 x 800 - mdpi(160dpi)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#720-x-1280-xhdpi-320dpi"><span class="nav-number">3.2.</span> <span class="nav-text">720 x 1280 - xhdpi(320dpi)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1080-x-1920-xxhdpi-480dpi"><span class="nav-number">3.3.</span> <span class="nav-text">1080 x 1920 - xxhdpi(480dpi)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1440x2560-560dpi"><span class="nav-number">3.4.</span> <span class="nav-text">1440x2560 - 560dpi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何根据设计图创建预览？"><span class="nav-number">4.</span> <span class="nav-text">如何根据设计图创建预览？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理及用法"><span class="nav-number">5.</span> <span class="nav-text">原理及用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾的话"><span class="nav-number">6.</span> <span class="nav-text">结尾的话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打个小广告"><span class="nav-number">7.</span> <span class="nav-text">打个小广告</span></a></li></ol></div>
             
 
           </div>
