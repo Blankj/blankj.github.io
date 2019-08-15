@@ -1090,8 +1090,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Math</tag>
         <tag>Array</tag>
+        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -1402,9 +1402,9 @@
         <category>C++</category>
       </categories>
       <tags>
-        <tag>Bit Manipulation</tag>
         <tag>Array</tag>
         <tag>Divide and Conquer</tag>
+        <tag>Bit Manipulation</tag>
       </tags>
   </entry>
   <entry>
