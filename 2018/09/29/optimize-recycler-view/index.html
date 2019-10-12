@@ -87,12 +87,10 @@
 <meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png">
-<meta property="og:updated_time" content="2019-08-15T13:28:19.237Z">
+<meta property="og:updated_time" content="2019-10-12T06:51:12.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView 性能优化 | 安卓 offer 收割基">
 <meta name="twitter:description" content="阿里四面有三面都问了这个问题，在此做了整理，希望可以帮助到大家，欢迎查漏补缺。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png">
 
 
 
@@ -523,8 +521,10 @@
 </li>
 </ul>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我正在打造一个帮助 Android 开发者们拿到更好 offer 的面试库————<a href="https://github.com/Blankj/AndroidOfferKiller" target="_blank" rel="noopener">安卓 offer 收割基</a>，欢迎 star，觉得不错的可以持续关注，有兴趣的可以一起加入进来和我一同打造。</p>
-<h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2><p>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」，我会在星球中分享 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架、大厂面经、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 更详尽的说明…一切我所了解的知识，你可以通过支付进入我的星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」进行体验，加入后优先观看星球中精华的部分，如果觉得星球的内容对自身没有收益，你可以自行申请退款退出星球，也没必要加我好友；<strong>如果你已确定要留在我的星球，可以通过扫描如下二维码（备注：基你太美）加我个人微信，发送给我你的星球 ID，方便我后续拉你进群(PS：进得越早价格越便宜)。</strong></p>
-<p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" alt="我的二维码"></p>
+
+        <h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2>
+<p class="__web-inspector-hide-shortcut__">欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」，我会在星球中分享 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架、大厂面经、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 更详尽的说明…一切我所了解的知识，你可以通过支付进入我的星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」进行体验，加入后优先观看星球中精华的部分，如果觉得星球的内容对自身没有收益，你可以自行申请退款退出星球，也没必要加我好友；<strong>如果你已确定要留在我的星球，可以通过扫描如下二维码（备注：基你太美）加我个人微信，发送给我你的星球 ID，方便我后续拉你进群(PS：进得越早价格越便宜)。</strong></p>
+<p><a href="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" class="fancybox fancybox.image" rel="group"><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" alt="我的二维码"></a></p>
 
       
     </div>
@@ -779,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理和视图加载分离"><span class="nav-number">1.</span> <span class="nav-text">数据处理和视图加载分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据优化"><span class="nav-number">2.</span> <span class="nav-text">数据优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局优化"><span class="nav-number">3.</span> <span class="nav-text">布局优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少过渡绘制"><span class="nav-number">3.1.</span> <span class="nav-text">减少过渡绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少-xml-文件-inflate-时间"><span class="nav-number">3.2.</span> <span class="nav-text">减少 xml 文件 inflate 时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少-View-对象的创建"><span class="nav-number">3.3.</span> <span class="nav-text">减少 View 对象的创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打个小广告"><span class="nav-number">6.</span> <span class="nav-text">打个小广告</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理和视图加载分离"><span class="nav-number">1.</span> <span class="nav-text">数据处理和视图加载分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据优化"><span class="nav-number">2.</span> <span class="nav-text">数据优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局优化"><span class="nav-number">3.</span> <span class="nav-text">布局优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少过渡绘制"><span class="nav-number">3.1.</span> <span class="nav-text">减少过渡绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少-xml-文件-inflate-时间"><span class="nav-number">3.2.</span> <span class="nav-text">减少 xml 文件 inflate 时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少-View-对象的创建"><span class="nav-number">3.3.</span> <span class="nav-text">减少 View 对象的创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>

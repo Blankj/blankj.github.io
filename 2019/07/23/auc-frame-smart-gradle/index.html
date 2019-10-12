@@ -90,8 +90,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
 <meta property="og:image" content="https://blankj.com/2019/07/23/auc-frame-smart-gradle/art/tip.jpg">
 <meta property="og:image" content="https://blankj.com/2019/07/23/auc-frame-smart-gradle/art/buildSrc.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png">
-<meta property="og:updated_time" content="2019-08-15T13:27:18.419Z">
+<meta property="og:updated_time" content="2019-10-12T06:51:58.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之让你的 Gradle 更智能">
 <meta name="twitter:description" content="前言不了解什么是 AucFrame 的可以先看一下这篇文章：AucFrame 之简介及学习 环境首先来明确下开发环境，这里推荐使用 Android Studio 3.5-Beta4 及以上的版本，3.3.x 和 3.4.x 也都是可以的，只是没有智能提示，3.2.x 及以下版本的话就不推荐使用了，否则后面的课程可能会出问题。">
@@ -508,8 +507,10 @@
 <p>写完后我们再同步一下项目，现在你可以跳转到 app 中的 <code>build.gradle</code> 中，设置你所需要设置的属性即可，可设置成如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion Config.compileSdkVersion</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion Config.minSdkVersion</span><br><span class="line">        versionCode Config.versionCode</span><br><span class="line">        versionName Config.versionName</span><br><span class="line">        applicationId Config.applicationId</span><br><span class="line">        targetSdkVersion Config.targetSdkVersion</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你会发现在输入过程中是支持智能提示的，也可以支持跳转，如上只是基本的操作，愣着干嘛啊，赶紧扣 6 吧，接下来我们做更刺激的操作。</p>
-<h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2><p>欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」，我会在星球中分享 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架、大厂面经、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 更详尽的说明…一切我所了解的知识，你可以通过支付进入我的星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」进行体验，加入后优先观看星球中精华的部分，如果觉得星球的内容对自身没有收益，你可以自行申请退款退出星球，也没必要加我好友；<strong>如果你已确定要留在我的星球，可以通过扫描如下二维码（备注：基你太美）加我个人微信，发送给我你的星球 ID，方便我后续拉你进群(PS：进得越早价格越便宜)。</strong></p>
-<p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" alt="我的二维码"></p>
+
+        <h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2>
+<p class="__web-inspector-hide-shortcut__">欢迎加入我的知识星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」，我会在星球中分享 <a href="https://blankj.com/2019/07/22/auc-frame/">AucFrame</a> 框架、大厂面经、<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 更详尽的说明…一切我所了解的知识，你可以通过支付进入我的星球「<strong><a href="https://t.zsxq.com/FmeqfYF" target="_blank" rel="noopener">基你太美</a></strong>」进行体验，加入后优先观看星球中精华的部分，如果觉得星球的内容对自身没有收益，你可以自行申请退款退出星球，也没必要加我好友；<strong>如果你已确定要留在我的星球，可以通过扫描如下二维码（备注：基你太美）加我个人微信，发送给我你的星球 ID，方便我后续拉你进群(PS：进得越早价格越便宜)。</strong></p>
+<p><a href="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" class="fancybox fancybox.image" rel="group"><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/wechat.png" alt="我的二维码"></a></p>
 
       
     </div>
@@ -762,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">3.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打个小广告"><span class="nav-number">5.</span> <span class="nav-text">打个小广告</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">3.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>
