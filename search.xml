@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AndroidUtilCode 网红库终于发布 1.26.0 啦！！！]]></title>
+    <url>%2F2019%2F11%2F27%2Futilcode-1-26-0%2F</url>
+    <content type="text"><![CDATA[前言作为 Android 开发者如果是第一次听说这个库，那么相信在了解 AndroidUtilCode 之后，你会发现其恐怖如斯。 上版本的更新内容我只放在了我的星球中，这次也一起拿出来分享给你们吧：集合三剑客工具类，如果想要第一时间获得最新内容，可以加入我的知识星球哦。 此次新版本更新的东西还是比较多的，具体主要包括如下： 整体 Demo 的代码及界面的优化； 新增 UiMessageUtils； 新增 NotificationUtils； 新增 ShadowUtils； 新增 TouchUtils； 新增 ClickUtils pressed bg 变暗效果； api-plugin 升级到 1.1； bus-plugin 升级到 2.3； AucFrame 适配 Gradle 6.0 下面我只对其需要的进行简单的介绍，具体想了解最好还是通过体验 Demo 及阅读源码。 整体 Demo 的代码及界面的优化1.26.0 版本的 Demo 可以在 1.26.0 Release 中下载到，其界面如下所示： 在 UI 方面是不是比之前要强点哈，不过代码可比之前大大优化了，之前都是通过在布局中插入一个个 Button，如今已经改为一个 RV 走天下了。关于本项目，我推荐大家拉下来源码好好阅读下，不管是 AucFrame、base 及 common 源码、Demo 的实现……其中存在很多可借鉴的模板代码让你们 copy 的哈。 UI 消息相关 -&gt; UiMessageUtils123send : 发送消息addListener : 新增消息监听器removeListener: 移除消息监听器 这个类就是通过 Handler 实现了主线程间消息的通信，可以代替本地广播来使用，效率也更加高效，用来页面间传递消息再合适不过了。 通知相关 -&gt; NotificationUtils12345areNotificationsEnabled : 判断通知是否可用notify : 发送通知cancel : 取消通知cancelAll : 取消所有通知setNotificationBarVisibility: 设置通知栏是否可见 这个类也是拖了好久，为了满足你们，我还是费了点功夫才搞完的。 ShadowUtils一个不增加层级，只在其 background 基础上实现可设置任意色的阴影工具类，整个 View 大小需要考虑到阴影哦！ TouchUtils一个可以为你快速实现单指手势操作的工具类。 点击相关 -&gt; ClickUtils.java12345678applyPressedViewScale : 应用点击后对视图缩放applyPressedViewAlpha : 应用点击后对视图改变透明度applyPressedBgAlpha : 应用点击后对背景改变透明度applyPressedBgDark : 应用点击后对背景加深applySingleDebouncing : 对单视图应用防抖点击applyGlobalDebouncing : 对所有设置 GlobalDebouncing 的视图应用防抖点击ClickUtils#OnDebouncingClickListener: 防抖点击监听器ClickUtils#OnMultiClickListener : 连续点击监听器 满足日常用到的点击需求，我真是太贴心了。 最后的话这次的很多介绍都是一笔带过，主要是想推荐你们阅读下源码，生怕你们浪费了这么好的一次机会，我话都说到这个份上了，再不看源码吃亏的可真是你哦。]]></content>
+      <categories>
+        <category>Android</category>
+        <category>AucFrame</category>
+        <category>工具类</category>
+      </categories>
+      <tags>
+        <tag>工具类</tag>
+        <tag>AucFrame</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[EditText 搜索优化 | 安卓 offer 收割基]]></title>
     <url>%2F2019%2F09%2F06%2Foptimize-edittext-search%2F</url>
     <content type="text"><![CDATA[描述设计一个 EditText 的文本监听器，停止输入 1s 后，如果文本发生变化则触发监听器。 例子：文本内容是 111，111 -&gt; 1111 -&gt; 11111，连续输入都小于 1s，在输完后的 1s 触发监听器为 11111；文本内容是 111，111 -&gt; 1111 -&gt; 111，连续输入都小于 1s，在输完后的 1s 不触发监听器； 类似微信的客户端搜索，不同的是微信在 111 -&gt; 1111 -&gt; 111 是会触发改变的。 效果如下所示，注意观察 title 文本的改变： 参考答案代码很简单，结合注释参考即可，小功能从构思到编码到完成到优化，其实也是要花不少时间的，希望可以帮到你们哈。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556public class SearchEditText extends EditText &#123; private static final long LIMIT = 1000; private OnTextChangedListener mListener; private String mStartText = "";// 记录开始输入前的文本内容 private Runnable mAction = new Runnable() &#123; @Override public void run() &#123; if (mListener != null) &#123; // 判断最终和开始前是否一致 if (!StringUtils.equals(mStartText, getText().toString())) &#123; mStartText = getText().toString();// 更新 mStartText mListener.onTextChanged(mStartText); &#125; &#125; &#125; &#125;; public SearchEditText(Context context) &#123; super(context); &#125; public SearchEditText(Context context, AttributeSet attrs) &#123; super(context, attrs); &#125; public SearchEditText(Context context, AttributeSet attrs, int defStyleAttr) &#123; super(context, attrs, defStyleAttr); &#125; /** * 在 LIMIT 时间内连续输入不触发文本变化 */ public void setOnTextChangedListener(OnTextChangedListener listener) &#123; mListener = listener; &#125; @Override protected void onTextChanged(final CharSequence text, int start, int lengthBefore, int lengthAfter) &#123; super.onTextChanged(text, start, lengthBefore, lengthAfter); // 移除上一次的回调 removeCallbacks(mAction); postDelayed(mAction, LIMIT); &#125; @Override protected void onDetachedFromWindow() &#123; super.onDetachedFromWindow(); removeCallbacks(mAction); &#125; public interface OnTextChangedListener &#123; void onTextChanged(String text); &#125;&#125; 结语我正在打造一个帮助 Android 开发者们拿到更好 offer 的面试库————安卓 offer 收割基，欢迎 star，觉得不错的可以持续关注，有兴趣的可以一起加入进来和我一同打造。]]></content>
@@ -1103,8 +1117,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Array</tag>
         <tag>Math</tag>
+        <tag>Array</tag>
       </tags>
   </entry>
   <entry>
