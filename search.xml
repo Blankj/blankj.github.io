@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[AndroidUtilCode 网红库终于发布 1.26.0 啦！！！]]></title>
     <url>%2F2019%2F11%2F27%2Futilcode-1-26-0%2F</url>
-    <content type="text"><![CDATA[前言作为 Android 开发者如果是第一次听说这个库，那么相信在了解 AndroidUtilCode 之后，你会发现其恐怖如斯。 上版本的更新内容我只放在了我的星球中，这次也一起拿出来分享给你们吧：集合三剑客工具类，如果想要第一时间获得最新内容，可以加入我的知识星球哦。 此次新版本更新的东西还是比较多的，具体主要包括如下： 整体 Demo 的代码及界面的优化； 新增 UiMessageUtils； 新增 NotificationUtils； 新增 ShadowUtils； 新增 TouchUtils； 新增 ClickUtils pressed bg 变暗效果； api-plugin 升级到 1.1； bus-plugin 升级到 2.3； AucFrame 适配 Gradle 6.0 下面我只对其需要的进行简单的介绍，具体想了解最好还是通过体验 Demo 及阅读源码。 整体 Demo 的代码及界面的优化1.26.0 版本的 Demo 可以在 1.26.0 Release 中下载到，其界面如下所示： 在 UI 方面是不是比之前要强点哈，不过代码可比之前大大优化了，之前都是通过在布局中插入一个个 Button，如今已经改为一个 RV 走天下了。关于本项目，我推荐大家拉下来源码好好阅读下，不管是 AucFrame、base 及 common 源码、Demo 的实现……其中存在很多可借鉴的模板代码让你们 copy 的哈。 UI 消息相关 -&gt; UiMessageUtils123send : 发送消息addListener : 新增消息监听器removeListener: 移除消息监听器 这个类就是通过 Handler 实现了主线程间消息的通信，可以代替本地广播来使用，效率也更加高效，用来页面间传递消息再合适不过了。 通知相关 -&gt; NotificationUtils12345areNotificationsEnabled : 判断通知是否可用notify : 发送通知cancel : 取消通知cancelAll : 取消所有通知setNotificationBarVisibility: 设置通知栏是否可见 这个类也是拖了好久，为了满足你们，我还是费了点功夫才搞完的。 ShadowUtils一个不增加层级，只在其 background 基础上实现可设置任意色的阴影工具类，整个 View 大小需要考虑到阴影哦！ TouchUtils一个可以为你快速实现单指手势操作的工具类。 点击相关 -&gt; ClickUtils.java12345678applyPressedViewScale : 应用点击后对视图缩放applyPressedViewAlpha : 应用点击后对视图改变透明度applyPressedBgAlpha : 应用点击后对背景改变透明度applyPressedBgDark : 应用点击后对背景加深applySingleDebouncing : 对单视图应用防抖点击applyGlobalDebouncing : 对所有设置 GlobalDebouncing 的视图应用防抖点击ClickUtils#OnDebouncingClickListener: 防抖点击监听器ClickUtils#OnMultiClickListener : 连续点击监听器 满足日常用到的点击需求，我真是太贴心了。 最后的话这次的很多介绍都是一笔带过，主要是想推荐你们阅读下源码，生怕你们浪费了这么好的一次机会，我话都说到这个份上了，再不看源码吃亏的可真是你哦。]]></content>
+    <content type="text"><![CDATA[前言作为 Android 开发者如果是第一次听说这个库，那么相信在了解 AndroidUtilCode 之后，你会发现其恐怖如斯。 上版本的更新内容我只放在了我的星球中，这次也一起拿出来分享给你们吧：集合三剑客工具类，如果想要第一时间获得最新内容，可以加入我的知识星球哦。 此次新版本更新的东西还是比较多的，具体主要包括如下： 整体 Demo 的代码及界面的优化； 新增 UiMessageUtils； 新增 NotificationUtils； 新增 ShadowUtils； 新增 TouchUtils； 新增 ClickUtils pressed bg 变暗效果； api-plugin 升级到 1.2； bus-plugin 升级到 2.4； AucFrame 适配 Gradle 6.0 下面我只对其需要的进行简单的介绍，具体想了解最好还是通过体验 Demo 及阅读源码。 整体 Demo 的代码及界面的优化1.26.0 版本的 Demo 可以在 1.26.0 Release 中下载到，其界面如下所示： 在 UI 方面是不是比之前要强点哈，不过代码可比之前大大优化了，之前都是通过在布局中插入一个个 Button，如今已经改为一个 RV 走天下了。关于本项目，我推荐大家拉下来源码好好阅读下，不管是 AucFrame、base 及 common 源码、Demo 的实现……其中存在很多可借鉴的模板代码让你们 copy 的哈。 UI 消息相关 -&gt; UiMessageUtils123send : 发送消息addListener : 新增消息监听器removeListener: 移除消息监听器 这个类就是通过 Handler 实现了主线程间消息的通信，可以代替本地广播来使用，效率也更加高效，用来页面间传递消息再合适不过了。 通知相关 -&gt; NotificationUtils12345areNotificationsEnabled : 判断通知是否可用notify : 发送通知cancel : 取消通知cancelAll : 取消所有通知setNotificationBarVisibility: 设置通知栏是否可见 这个类也是拖了好久，为了满足你们，我还是费了点功夫才搞完的。 ShadowUtils一个不增加层级，只在其 background 基础上实现可设置任意色的阴影工具类，整个 View 大小需要考虑到阴影哦！ TouchUtils一个可以为你快速实现单指手势操作的工具类。 点击相关 -&gt; ClickUtils.java12345678applyPressedViewScale : 应用点击后对视图缩放applyPressedViewAlpha : 应用点击后对视图改变透明度applyPressedBgAlpha : 应用点击后对背景改变透明度applyPressedBgDark : 应用点击后对背景加深applySingleDebouncing : 对单视图应用防抖点击applyGlobalDebouncing : 对所有设置 GlobalDebouncing 的视图应用防抖点击ClickUtils#OnDebouncingClickListener: 防抖点击监听器ClickUtils#OnMultiClickListener : 连续点击监听器 满足日常用到的点击需求，我真是太贴心了。 最后的话这次的很多介绍都是一笔带过，主要是想推荐你们阅读下源码，生怕你们浪费了这么好的一次机会，我话都说到这个份上了，再不看源码吃亏的可真是你哦。]]></content>
       <categories>
         <category>Android</category>
         <category>AucFrame</category>
@@ -1429,9 +1429,9 @@
         <category>C++</category>
       </categories>
       <tags>
-        <tag>Bit Manipulation</tag>
         <tag>Array</tag>
         <tag>Divide and Conquer</tag>
+        <tag>Bit Manipulation</tag>
       </tags>
   </entry>
   <entry>
