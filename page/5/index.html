@@ -371,6 +371,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/07/21/analyse-event-interception-hero/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/07/21/analyse-event-interception-hero/" itemprop="url">事件拦截机制分析(Android群英传)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-21T14:30:09+08:00">
+                2016-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android群英传/" itemprop="url" rel="index">
+                    <span itemprop="name">Android群英传</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
+                    <span itemprop="name">3.Android控件架构与自定义控件详解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/07/21/analyse-event-interception-hero/" class="leancloud_visitors" data-flag-title="事件拦截机制分析(Android群英传)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong><em>内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。</em></strong></p>
+<p>　　当Android系统捕获到用户的各种输入事件后，如何准确地传递给真正需要这个事件的控件呢？Android给我们提供了一整套完善的事件传递、处理机制，来帮助开发者完成准确的事件分配与处理。</p>
+<p>　　要了解触摸事件的拦截机制，首先要了解什么是触摸事件？顾名思义，触摸事件就是捕获触摸屏幕后产生的事件。当点击一个按钮时，通常就会产生两个或者三个事件——按钮按下，这是事件一；如果不小心滑动一点，这就是事件二；当手抬起，这是事件三。Android为触摸事件封装了一个类——MotionEvent，如果重写onTouchEvent()方法，那就会发现给方法的参数就是这样一个MotionEvent。其实，只要是重写触摸相关的方法，参数一般都含有MotionEvent，可见它的重要性。</p>
+<p>　　在MotionEvent里面封装了不少好东西，比如触摸点的坐标，可以通过event.getX()方法和event.getRawX()方法取出坐标点；再比如获得点击的事件类型，可以通过不同的Action(如MotionEvent.ACTION_DOWN、MotionEvent.ACTION_MOVE)来进行区分，并实现不同的逻辑。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/07/21/analyse-event-interception-hero/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/07/20/custom-viewgroup-hero/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1888,176 +2059,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/05/20/draw-view-hero/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="布兰柯基">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blankj's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/20/draw-view-hero/" itemprop="url">View的绘制(Android群英传)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-20T19:28:47+08:00">
-                2016-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android群英传/" itemprop="url" rel="index">
-                    <span itemprop="name">Android群英传</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android群英传/3-Android控件架构与自定义控件详解/" itemprop="url" rel="index">
-                    <span itemprop="name">3.Android控件架构与自定义控件详解</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/05/20/draw-view-hero/" class="leancloud_visitors" data-flag-title="View的绘制(Android群英传)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong><em>内容是博主照着书敲出来的，博主码字挺辛苦的，转载请注明出处，后序内容陆续会码出。</em></strong></p>
-<p>　　当测量好了一个View之后，我们就可以简单地重写onDraw()方法，并在Canvas对象上来绘制所需要的图形。首先我们来了解一下利用系统2D绘图API所必须要使用到的Canvas对象。</p>
-<p>　　要想在Android的界面中绘制相应的图像，就必须在Canvas上进行绘制。Canvas就像是一个画板，使用Paint就可以在上面作画了。通常需要通过继承View并重写它的onDraw()方法来完成绘图。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/20/draw-view-hero/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2110,7 +2111,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">158</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2121,7 +2122,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2132,7 +2133,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
