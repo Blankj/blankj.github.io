@@ -88,8 +88,8 @@
 <meta property="og:description" content="前言作为 Android 开发者如果是第一次听说这个库，那么相信在了解 AndroidUtilCode 之后，你会发现其恐怖如斯。 上版本的更新内容我只放在了我的星球中，这次也一起拿出来分享给你们吧：集合三剑客工具类，如果想要第一时间获得最新内容，可以加入我的知识星球哦。 此次新版本更新的东西还是比较多的，具体主要包括如下：  整体 Demo 的代码及界面的优化； 新增 UiMessageUti">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g9d5mu7d33j20f30fu42w.jpg">
-<meta property="og:updated_time" content="2019-11-30T09:09:53.237Z">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/b75b8776ly1g9d5mu7d33j20f30fu42w.jpg">
+<meta property="og:updated_time" content="2020-10-29T03:42:48.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AndroidUtilCode 网红库终于发布 1.26.0 啦！！！">
 <meta name="twitter:description" content="前言作为 Android 开发者如果是第一次听说这个库，那么相信在了解 AndroidUtilCode 之后，你会发现其恐怖如斯。 上版本的更新内容我只放在了我的星球中，这次也一起拿出来分享给你们吧：集合三剑客工具类，如果想要第一时间获得最新内容，可以加入我的知识星球哦。 此次新版本更新的东西还是比较多的，具体主要包括如下：  整体 Demo 的代码及界面的优化； 新增 UiMessageUti">
@@ -517,7 +517,7 @@
 </ul>
 <p>下面我只对其需要的进行简单的介绍，具体想了解最好还是通过体验 Demo 及阅读源码。<br><a id="more"></a></p>
 <h2 id="整体-Demo-的代码及界面的优化"><a href="#整体-Demo-的代码及界面的优化" class="headerlink" title="整体 Demo 的代码及界面的优化"></a>整体 Demo 的代码及界面的优化</h2><p>1.26.0 版本的 Demo 可以在 <a href="https://github.com/Blankj/AndroidUtilCode/releases/tag/1.26.0" target="_blank" rel="noopener">1.26.0 Release</a> 中下载到，其界面如下所示：</p>
-<p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g9d5mu7d33j20f30fu42w.jpg" alt="Demo"></p>
+<p><img src="https://ww1.sinaimg.cn/large/b75b8776ly1g9d5mu7d33j20f30fu42w.jpg" alt="Demo"></p>
 <p>在 UI 方面是不是比之前要强点哈，不过代码可比之前大大优化了，之前都是通过在布局中插入一个个 Button，如今已经改为一个 RV 走天下了。关于本项目，我推荐大家拉下来源码好好阅读下，不管是 AucFrame、base 及 common 源码、Demo 的实现……其中存在很多可借鉴的模板代码让你们 copy 的哈。</p>
 <h2 id="UI-消息相关-gt-UiMessageUtils"><a href="#UI-消息相关-gt-UiMessageUtils" class="headerlink" title="UI 消息相关 -&gt; UiMessageUtils"></a>UI 消息相关 -&gt; UiMessageUtils</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">send          : 发送消息</span><br><span class="line">addListener   : 新增消息监听器</span><br><span class="line">removeListener: 移除消息监听器</span><br></pre></td></tr></table></figure>
 <p>这个类就是通过 Handler 实现了主线程间消息的通信，可以代替本地广播来使用，效率也更加高效，用来页面间传递消息再合适不过了。</p>
