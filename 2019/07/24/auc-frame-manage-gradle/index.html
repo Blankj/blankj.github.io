@@ -87,15 +87,15 @@
 <meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="前言AucFrame 往期文章：  AucFrame 之简介及学习 AucFrame 之让你的 Gradle 更智能  「AucFrame 之统一管理 Gradle」源码传送门">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/b75b8776ly1g5by867cx2j20ce06qab5.jpg">
-<meta property="og:updated_time" content="2020-10-29T03:42:55.431Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5by867cx2j20ce06qab5.jpg">
+<meta property="og:updated_time" content="2020-10-29T06:41:30.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之统一管理 Gradle">
 <meta name="twitter:description" content="前言AucFrame 往期文章：  AucFrame 之简介及学习 AucFrame 之让你的 Gradle 更智能  「AucFrame 之统一管理 Gradle」源码传送门">
-<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
 
 
 
@@ -491,7 +491,7 @@
       
 
       
-        <p><img src="https://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="logo"></p>
+        <p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="logo"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>AucFrame 往期文章：</p>
 <ul>
 <li><a href="https://blankj.com/2019/07/22/auc-frame">AucFrame 之简介及学习</a></li>
@@ -499,9 +499,9 @@
 </ul>
 <p><a href="https://github.com/Blankj/AucFrameTemplate/releases/tag/2" target="_blank" rel="noopener">「AucFrame 之统一管理 Gradle」源码传送门</a><br><a id="more"></a></p>
 <h2 id="管理-lib-的-Gradle"><a href="#管理-lib-的-Gradle" class="headerlink" title="管理 lib 的 Gradle"></a>管理 lib 的 Gradle</h2><p>首先，我们再看一遍 AucFrame 的架构图。</p>
-<p><img src="https://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="AucFrameGeneral"></p>
+<p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="AucFrameGeneral"></p>
 <p>我们从下开始往上搭建，在根目录创建 <code>lib</code> 文件夹，在项目中新建一个 <code>Android Library</code> 类型的 <code>base</code> module，然后删除其中的 <code>base.iml</code>，因为不删除 <code>base.iml</code> 文件的话会影响后续的移动，把 <code>androidTest</code> 以及 <code>test</code> 测试目录删了也没事，然后我们把 <code>base</code> 文件夹移入到 <code>lib</code> 中，最后我们修改 <code>setting.gradle</code> 文件中的 <code>&#39;:base&#39;</code> 为 <code>:lib:base</code>，最后点击 Gradle 的同步即可，最终会在 <code>lib</code> 下生成 <code>lib.iml</code>，<code>base</code> 下生成 <code>lib-base.iml</code> 表示成功，结果如下所示：</p>
-<p><img src="https://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg" alt="lib_base"></p>
+<p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5by92j7a6j20cg0c20tw.jpg" alt="lib_base"></p>
 <p>同样的方式，我们创建 <code>:lib:common</code>，接下来配置他们的依赖关系。</p>
 <p>我们可以看到 <code>base</code> 和 <code>common</code> 的 <code>build.gralde</code> 简直一毛一样，这样我们是否可以把他们都抽出去呢，答案是肯定的。</p>
 <p>我们在项目根目录创建 <code>buildLib.gradle</code> 文件，代表所有 <code>lib</code> 类型的模块都可以使用它，我们放入公共内容即可，具体如下所示：</p>
@@ -534,7 +534,7 @@
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apply &#123;</span><br><span class="line">    from <span class="string">"$&#123;project.rootDir.path&#125;/buildApp.gradle"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    api project(<span class="string">":feature:feature0:pkg"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>:feature:feature1:app</code> 的 <code>build.gradle</code> 同理。</p>
 <p>同步一下项目可以发现两个 <code>app</code> 也被编译到了项目中，在可运行 app 列表中已经有了 <code>feature0-app</code> 和 <code>feature1-app</code>，如下图所示：</p>
-<p><img src="https://ww1.sinaimg.cn/large/b75b8776ly1g5by867cx2j20ce06qab5.jpg" alt="enable_apps"></p>
+<p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5by867cx2j20ce06qab5.jpg" alt="enable_apps"></p>
 <p>现在我们在 <code>:feature:feature0:app</code> 中添加一个 <code>Feature0App</code>，以及在 <code>:feature:feature1:app</code> 中添加一个 <code>Feature1App</code>，具体请参看源码，然后把设置各自的 <code>AndroidManifest.xml</code>，我这里以 <code>:feature:feature0:app</code> 中的为例：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"com.blankj.feature0.app"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:name</span>=<span class="string">"com.blankj.feature0.app.Feature0App"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:allowBackup</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">"com.blankj.feature0.pkg.Feature0Activity"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.VIEW"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可以发现，我们加入了 <code>Feature0Activity</code> 作为启动页，这样便可快速调试它，同理，<code>:feature:feature1:app</code> 的 <code>AndroidManifest.xml</code> 也是如此，此时我们便可单独运行一下它们了，由于他们的 <code>applicationId</code> 是不同的，所以两者可以同时安装。</p>
