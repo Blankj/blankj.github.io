@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="前言不了解什么是 AucFrame 的可以先看一下这篇文章：AucFrame 之简介及学习 环境首先来明确下开发环境，这里推荐使用 Android Studio 3.5-Beta4 及以上的版本，3.3.x 和 3.4.x 也都是可以的，只是没有智能提示，3.2.x 及以下版本的话就不推荐使用了，否则后面的课程可能会出问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/b75b8776ly1g5by9yckwaj217a0can0j.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/b75b8776ly1g5bya7c920j20ha0feta4.jpg">
-<meta property="og:updated_time" content="2020-10-29T06:41:28.524Z">
+<meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/auc_frame.png">
+<meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/gradle_auto_tip.png">
+<meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/aucf_buildSrc.png">
+<meta property="og:updated_time" content="2020-11-06T10:02:11.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AucFrame 之让你的 Gradle 更智能">
 <meta name="twitter:description" content="前言不了解什么是 AucFrame 的可以先看一下这篇文章：AucFrame 之简介及学习 环境首先来明确下开发环境，这里推荐使用 Android Studio 3.5-Beta4 及以上的版本，3.3.x 和 3.4.x 也都是可以的，只是没有智能提示，3.2.x 及以下版本的话就不推荐使用了，否则后面的课程可能会出问题。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg">
+<meta name="twitter:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/auc_frame.png">
 
 
 
@@ -490,14 +490,14 @@
       
 
       
-        <p><img src="http://ww1.sinaimg.cn/large/b75b8776ly1g5byaor9aej20s10kl0uo.jpg" alt="logo"></p>
+        <p><img src="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/auc_frame.png" alt="logo"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不了解什么是 AucFrame 的可以先看一下这篇文章：<a href="https://blankj.com/2019/07/22/auc-frame">AucFrame 之简介及学习</a></p>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>首先来明确下开发环境，这里推荐使用 Android Studio 3.5-Beta4 及以上的版本，3.3.x 和 3.4.x 也都是可以的，只是没有智能提示，3.2.x 及以下版本的话就不推荐使用了，否则后面的课程可能会出问题。<br><a id="more"></a></p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>如果你开发过稍微大型点的项目，项目中肯定会存有多个 module，那么多个 gradle 的管理便成了问题，曾经我也分享过 <a href="https://blankj.com/2016/09/21/android-keep-version-unity">Android 开发之版本统一规范</a> 这样的 ext 管理方式，但在 gradle 中没有智能提示，也不能跳转到这些变量，局限性太高是个硬伤，那么现在有更好的解决方案吗？答案是肯定的，就是利用 <code>buildSrc</code> 来更好地管理 Gradle。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>首先声明下，该方式在 AS 的 3.3.x 版本以及 3.4.x 版本是不能提供智能提示，推荐使用 3.5-Beta4 及以上的版本，相关 bug 地址传送门：<a href="https://issuetracker.google.com/issues/123032843，从修复" target="_blank" rel="noopener">https://issuetracker.google.com/issues/123032843，从修复</a>  bug 这里可以看出 AS 团队也是赞成使用的，最新的 3.5 正式版相信马上就会到来了，我如今使用的版本是 3.5-Beta5 版本，一切如斯顺畅，效果图如下所示：</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/b75b8776ly1g5by9yckwaj217a0can0j.jpg" alt="提示效果图"></p>
+<p><img src="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/gradle_auto_tip.png" alt="提示效果图"></p>
 <p>那么具体怎么操作呢，现在来揭晓其真面目，写过插件的肯定知道 <code>buildSrc</code> 这个目录，这个目录存在于项目根目录下，例如我这里就是 <code>AucFrameTemplate/buildSrc</code>，提醒一下，这个是要<strong>自己创建</strong>的哦，它默认是直接会参与编译，所以不用加入到 <code>setting.gradle</code> 中，具体如下图所示：</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/b75b8776ly1g5bya7c920j20ha0feta4.jpg" alt="buildSrc"></p>
+<p><img src="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/aucf_buildSrc.png" alt="buildSrc"></p>
 <p>下面我们自己来建立它，首先是 <code>.gitignore</code>，这个文件没什么好说的，内容就是 <code>/build</code>。</p>
 <p>其 <code>build.gradle</code> 文件如下所示：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    google()</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply &#123;</span><br><span class="line">    plugin <span class="string">'groovy'</span></span><br><span class="line">    plugin <span class="string">'java-gradle-plugin'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation gradleApi()</span><br><span class="line">    implementation localGroovy()</span><br><span class="line">    implementation <span class="string">"commons-io:commons-io:2.6"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -673,7 +673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">159</span>
+                  <span class="site-state-item-count">160</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -695,7 +695,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
