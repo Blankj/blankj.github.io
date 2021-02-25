@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.webp?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.webp?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.webp?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.webp?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android Tips,混淆,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！　　首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示： 123456789101112131415161718192021222324252627282">
+<meta name="keywords" content="Android Tips,混淆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio混淆模板及常用第三方混淆(看了都说好)">
+<meta property="og:url" content="https://blankj.com/2016/06/28/android-proguard-templet/index.html">
+<meta property="og:site_name" content="Blankj&#39;s Blog">
+<meta property="og:description" content="现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！　　首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示： 123456789101112131415161718192021222324252627282">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T03:36:55.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio混淆模板及常用第三方混淆(看了都说好)">
+<meta name="twitter:description" content="现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！现可使用 FreeProGuard 库来助你快速混淆！　　首先要在build.gradle中开启混淆，也就是 minifyEnabled true ，我用的build.gradle具体如下所示： 123456789101112131415161718192021222324252627282">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blankj.com/2016/06/28/android-proguard-templet/">
+
+
+
+
+
+  <title>Android Studio混淆模板及常用第三方混淆(看了都说好) | Blankj's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1918d813c85f9869017db2480dee5733";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blankj's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">select * from utils</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的星球">
+          <a href="https://t.zsxq.com/FmeqfYF" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            我的星球
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-面经">
+          <a href="https://github.com/Blankj/AndroidOfferKiller" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            面经
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的开源库">
+          <a href="/gitbook/artwork/open_source/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            我的开源库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-go-速查">
+          <a href="/gitbook/GoGoGo/quick_search/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-flash"></i> <br>
+            
+            Go 速查
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="/gitbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-小伙伴们">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-group"></i> <br>
+            
+            小伙伴们
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-内推">
+          <a href="https://www.yuque.com/docs/share/215512ae-a0d5-4256-8867-3a9b12a4f785" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>
+            
+            内推
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blankj.com/2016/06/28/android-proguard-templet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="布兰柯基">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blankj's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android Studio混淆模板及常用第三方混淆(看了都说好)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-28T17:36:46+08:00">
+                2016-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-Tips/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Tips</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/06/28/android-proguard-templet/" class="leancloud_visitors" data-flag-title="Android Studio混淆模板及常用第三方混淆(看了都说好)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="现可使用-FreeProGuard-库来助你快速混淆！"><a href="#现可使用-FreeProGuard-库来助你快速混淆！" class="headerlink" title="现可使用 FreeProGuard 库来助你快速混淆！"></a>现可使用 <a href="https://github.com/Blankj/FreeProGuard" target="_blank" rel="noopener">FreeProGuard</a> 库来助你快速混淆！</h2><h2 id="现可使用-FreeProGuard-库来助你快速混淆！-1"><a href="#现可使用-FreeProGuard-库来助你快速混淆！-1" class="headerlink" title="现可使用 FreeProGuard 库来助你快速混淆！"></a>现可使用 <a href="https://github.com/Blankj/FreeProGuard" target="_blank" rel="noopener">FreeProGuard</a> 库来助你快速混淆！</h2><h2 id="现可使用-FreeProGuard-库来助你快速混淆！-2"><a href="#现可使用-FreeProGuard-库来助你快速混淆！-2" class="headerlink" title="现可使用 FreeProGuard 库来助你快速混淆！"></a>现可使用 <a href="https://github.com/Blankj/FreeProGuard" target="_blank" rel="noopener">FreeProGuard</a> 库来助你快速混淆！</h2><p>　　首先要在build.gradle中开启混淆，也就是 <code>minifyEnabled true</code> ，我用的build.gradle具体如下所示：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> releaseTime() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Date().format(<span class="string">"yyyy.MM.dd"</span>, TimeZone.getTimeZone(<span class="string">"UTC"</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    ....</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="comment">// 混淆</span></span><br><span class="line">            minifyEnabled <span class="literal">true</span></span><br><span class="line">            <span class="comment">// Zipalign优化</span></span><br><span class="line">            zipAlignEnabled <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 移除无用的resource文件</span></span><br><span class="line">            shrinkResources <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line"> </span><br><span class="line">            applicationVariants.all &#123; variant -&gt;</span><br><span class="line">                variant.outputs.each &#123; output -&gt;</span><br><span class="line">                    <span class="keyword">def</span> outputFile = output.outputFile</span><br><span class="line">                    <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">                        <span class="comment">// 输出apk名称为appname-1.0-beta1-xxxx-xx-xx.apk</span></span><br><span class="line">                        <span class="keyword">def</span> fileName = <span class="string">"app-$&#123;defaultConfig.versionName&#125;-beta1-$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">                        output.outputFile = <span class="keyword">new</span> File(outputFile.parent, fileName)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>　　上面注释中写到proguard-android.txt文件，这是系统默认的混淆文件，具体在../sdk/tools/proguard/目录下，其中包含了android最基本的混淆，一般不需要改动，我们需要配置的是项目中app下的proguard-rules.pro文件，在此提供一份混淆模板。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line">#############################################</span><br><span class="line">#</span><br><span class="line"># 对于一些基本指令的添加</span><br><span class="line">#</span><br><span class="line">#############################################</span><br><span class="line"># 代码混淆压缩比，在0~7之间，默认为5，一般不做修改</span><br><span class="line">-optimizationpasses 5</span><br><span class="line"> </span><br><span class="line"># 混合时不使用大小写混合，混合后的类名为小写</span><br><span class="line">-dontusemixedcaseclassnames</span><br><span class="line"> </span><br><span class="line"># 指定不去忽略非公共库的类</span><br><span class="line">-dontskipnonpubliclibraryclasses</span><br><span class="line"> </span><br><span class="line"># 这句话能够使我们的项目混淆后产生映射文件</span><br><span class="line"># 包含有类名-&gt;混淆后类名的映射关系</span><br><span class="line">-verbose</span><br><span class="line"> </span><br><span class="line"># 指定不去忽略非公共库的类成员</span><br><span class="line">-dontskipnonpubliclibraryclassmembers</span><br><span class="line"> </span><br><span class="line"># 不做预校验，preverify是proguard的四个步骤之一，Android不需要preverify，去掉这一步能够加快混淆速度。</span><br><span class="line">-dontpreverify</span><br><span class="line"> </span><br><span class="line"># 保留Annotation不混淆</span><br><span class="line">-keepattributes *Annotation*,InnerClasses</span><br><span class="line"> </span><br><span class="line"># 避免混淆泛型</span><br><span class="line">-keepattributes Signature</span><br><span class="line"> </span><br><span class="line"># 抛出异常时保留代码行号</span><br><span class="line">-keepattributes SourceFile,LineNumberTable</span><br><span class="line"> </span><br><span class="line"># 指定混淆是采用的算法，后面的参数是一个过滤器</span><br><span class="line"># 这个过滤器是谷歌推荐的算法，一般不做更改</span><br><span class="line">-optimizations !code/simplification/cast,!field/*,!class/merging/*</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">#############################################</span><br><span class="line">#</span><br><span class="line"># Android开发中一些需要保留的公共部分</span><br><span class="line">#</span><br><span class="line">#############################################</span><br><span class="line"> </span><br><span class="line"># 保留我们使用的四大组件，自定义的Application等等这些类不被混淆</span><br><span class="line"># 因为这些子类都有可能被外部调用</span><br><span class="line">-keep public class * extends android.app.Activity</span><br><span class="line">-keep public class * extends android.app.Appliction</span><br><span class="line">-keep public class * extends android.app.Service</span><br><span class="line">-keep public class * extends android.content.BroadcastReceiver</span><br><span class="line">-keep public class * extends android.content.ContentProvider</span><br><span class="line">-keep public class * extends android.app.backup.BackupAgentHelper</span><br><span class="line">-keep public class * extends android.preference.Preference</span><br><span class="line">-keep public class * extends android.view.View</span><br><span class="line">-keep public class com.android.vending.licensing.ILicensingService</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"># 保留support下的所有类及其内部类</span><br><span class="line">-keep class android.support.** &#123;*;&#125;</span><br><span class="line"> </span><br><span class="line"># 保留继承的</span><br><span class="line">-keep public class * extends android.support.v4.**</span><br><span class="line">-keep public class * extends android.support.v7.**</span><br><span class="line">-keep public class * extends android.support.annotation.**</span><br><span class="line"> </span><br><span class="line"># 保留R下面的资源</span><br><span class="line">-keep class **.R$* &#123;*;&#125;</span><br><span class="line"> </span><br><span class="line"># 保留本地native方法不被混淆</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    native &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 保留在Activity中的方法参数是view的方法，</span><br><span class="line"># 这样以来我们在layout中写的onClick就不会被影响</span><br><span class="line">-keepclassmembers class * extends android.app.Activity&#123;</span><br><span class="line">    public void *(android.view.View);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 保留枚举类不被混淆</span><br><span class="line">-keepclassmembers enum * &#123;</span><br><span class="line">    public static **[] values();</span><br><span class="line">    public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 保留我们自定义控件（继承自View）不被混淆</span><br><span class="line">-keep public class * extends android.view.View&#123;</span><br><span class="line">    *** get*();</span><br><span class="line">    void set*(***);</span><br><span class="line">    public &lt;init&gt;(android.content.Context);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 保留Parcelable序列化类不被混淆</span><br><span class="line">-keep class * implements android.os.Parcelable &#123;</span><br><span class="line">    public static final android.os.Parcelable$Creator *;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 保留Serializable序列化的类不被混淆</span><br><span class="line">-keepclassmembers class * implements java.io.Serializable &#123;</span><br><span class="line">    static final long serialVersionUID;</span><br><span class="line">    private static final java.io.ObjectStreamField[] serialPersistentFields;</span><br><span class="line">    !static !transient &lt;fields&gt;;</span><br><span class="line">    !private &lt;fields&gt;;</span><br><span class="line">    !private &lt;methods&gt;;</span><br><span class="line">    private void writeObject(java.io.ObjectOutputStream);</span><br><span class="line">    private void readObject(java.io.ObjectInputStream);</span><br><span class="line">    java.lang.Object writeReplace();</span><br><span class="line">    java.lang.Object readResolve();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 对于带有回调函数的onXXEvent、**On*Listener的，不能被混淆</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">    void *(**On*Event);</span><br><span class="line">    void *(**On*Listener);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># webView处理，项目中没有使用到webView忽略即可</span><br><span class="line">-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;</span><br><span class="line">    public *;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.webkit.webViewClient &#123;</span><br><span class="line">    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);</span><br><span class="line">    public boolean *(android.webkit.WebView, java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.webkit.webViewClient &#123;</span><br><span class="line">    public void *(android.webkit.webView, jav.lang.String);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 移除Log类打印各个等级日志的代码，打正式包的时候可以做为禁log使用，这里可以作为禁止log打印的功能使用</span><br><span class="line"># 记得proguard-android.txt中一定不要加-dontoptimize才起作用</span><br><span class="line"># 另外的一种实现方案是通过BuildConfig.DEBUG的变量来控制</span><br><span class="line">#-assumenosideeffects class android.util.Log &#123;</span><br><span class="line">#    public static int v(...);</span><br><span class="line">#    public static int i(...);</span><br><span class="line">#    public static int w(...);</span><br><span class="line">#    public static int d(...);</span><br><span class="line">#    public static int e(...);</span><br><span class="line">#&#125;</span><br><span class="line"> </span><br><span class="line">#############################################</span><br><span class="line">#</span><br><span class="line"># 项目中特殊处理部分</span><br><span class="line">#</span><br><span class="line">#############################################</span><br><span class="line"> </span><br><span class="line">#-----------处理反射类---------------</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">#-----------处理js交互---------------</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">#-----------处理实体类---------------</span><br><span class="line"># 在开发的时候我们可以将所有的实体类放在一个包内，这样我们写一次混淆就行了。</span><br><span class="line">#-keep public class com.ljd.example.entity.** &#123;</span><br><span class="line">#    public void set*(***);</span><br><span class="line">#    public *** get*();</span><br><span class="line">#    public *** is*();</span><br><span class="line">#&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">#-----------处理第三方依赖库---------</span><br></pre></td></tr></table></figure>
+<p>　　下面介绍常用第三方混淆配置（已按字母排序，不定期更新）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br></pre></td><td class="code"><pre><span class="line"># AndroidEventBus</span><br><span class="line">-keep class org.simple.** &#123; *; &#125;</span><br><span class="line">-keep interface org.simple.** &#123; *; &#125;</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">    @org.simple.eventbus.Subscriber &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 百度地图（jar包换成自己的版本，记得签名要匹配）</span><br><span class="line">-libraryjars libs/baidumapapi_v2_1_3.jar</span><br><span class="line">-keep class com.baidu.** &#123;*;&#125;</span><br><span class="line">-keep class vi.com.** &#123;*;&#125;</span><br><span class="line">-keep class com.sinovoice.** &#123;*;&#125;</span><br><span class="line">-keep class pvi.com.** &#123;*;&#125;</span><br><span class="line">-dontwarn com.baidu.**</span><br><span class="line">-dontwarn vi.com.**</span><br><span class="line">-dontwarn pvi.com.**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Bugly</span><br><span class="line">-dontwarn com.tencent.bugly.**</span><br><span class="line">-keep class com.tencent.bugly.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># ButterKnife</span><br><span class="line">-keep class butterknife.** &#123; *; &#125;</span><br><span class="line">-dontwarn butterknife.internal.**</span><br><span class="line">-keep class **$$ViewBinder &#123; *; &#125; </span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    @butterknife.* &lt;fields&gt;;</span><br><span class="line">&#125;</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    @butterknife.* &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># EventBus</span><br><span class="line">-keepattributes *Annotation*</span><br><span class="line">-keepclassmembers class ** &#123;</span><br><span class="line">    @org.greenrobot.eventbus.Subscribe &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line">-keep enum org.greenrobot.eventbus.ThreadMode &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Facebook</span><br><span class="line">-keep class com.facebook.** &#123;*;&#125;</span><br><span class="line">-keep interface com.facebook.** &#123;*;&#125;</span><br><span class="line">-keep enum com.facebook.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># FastJson</span><br><span class="line">-dontwarn com.alibaba.fastjson.**</span><br><span class="line">-keep class com.alibaba.fastjson.** &#123; *; &#125;</span><br><span class="line">-keepattributes Signature</span><br><span class="line">-keepattributes *Annotation*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Fresco</span><br><span class="line">-keep class com.facebook.fresco.** &#123;*;&#125;</span><br><span class="line">-keep interface com.facebook.fresco.** &#123;*;&#125;</span><br><span class="line">-keep enum com.facebook.fresco.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 高德相关依赖</span><br><span class="line"># 集合包:3D地图3.3.2 导航1.8.0 定位2.5.0</span><br><span class="line">-dontwarn com.amap.api.**</span><br><span class="line">-dontwarn com.autonavi.**</span><br><span class="line">-keep class com.amap.api.**&#123;*;&#125;</span><br><span class="line">-keep class com.autonavi.**&#123;*;&#125;</span><br><span class="line"># 地图服务</span><br><span class="line">-dontwarn com.amap.api.services.**</span><br><span class="line">-keep class com.map.api.services.** &#123;*;&#125;</span><br><span class="line"># 3D地图</span><br><span class="line">-dontwarn com.amap.api.mapcore.**</span><br><span class="line">-dontwarn com.amap.api.maps.**</span><br><span class="line">-dontwarn com.autonavi.amap.mapcore.**</span><br><span class="line">-keep class com.amap.api.mapcore.**&#123;*;&#125;</span><br><span class="line">-keep class com.amap.api.maps.**&#123;*;&#125;</span><br><span class="line">-keep class com.autonavi.amap.mapcore.**&#123;*;&#125;</span><br><span class="line"># 定位</span><br><span class="line">-dontwarn com.amap.api.location.**</span><br><span class="line">-dontwarn com.aps.**</span><br><span class="line">-keep class com.amap.api.location.**&#123;*;&#125;</span><br><span class="line">-keep class com.aps.**&#123;*;&#125;</span><br><span class="line"># 导航</span><br><span class="line">-dontwarn com.amap.api.navi.**</span><br><span class="line">-dontwarn com.autonavi.**</span><br><span class="line">-keep class com.amap.api.navi.** &#123;*;&#125;</span><br><span class="line">-keep class com.autonavi.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Glide</span><br><span class="line">-keep public class * implements com.bumptech.glide.module.GlideModule</span><br><span class="line">-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** &#123;</span><br><span class="line">  **[] $VALUES;</span><br><span class="line">  public *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Gson</span><br><span class="line">-keepattributes Signature-keepattributes *Annotation*</span><br><span class="line">-keep class sun.misc.Unsafe &#123; *; &#125;</span><br><span class="line">-keep class com.google.gson.stream.** &#123; *; &#125;</span><br><span class="line"># 使用Gson时需要配置Gson的解析对象及变量都不混淆。不然Gson会找不到变量。</span><br><span class="line"># 将下面替换成自己的实体类</span><br><span class="line">-keep class com.example.bean.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Jackson</span><br><span class="line">-dontwarn org.codehaus.jackson.**</span><br><span class="line">-dontwarn com.fasterxml.jackson.databind.**</span><br><span class="line">-keep class org.codehaus.jackson.** &#123; *;&#125;</span><br><span class="line">-keep class com.fasterxml.jackson.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 极光推送</span><br><span class="line">-dontoptimize</span><br><span class="line">-dontpreverify</span><br><span class="line">-dontwarn cn.jpush.**</span><br><span class="line">-keep class cn.jpush.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># OkHttp</span><br><span class="line">-keep class com.squareup.okhttp.** &#123; *; &#125;</span><br><span class="line">-keep interface com.squareup.okhttp.** &#123; *; &#125;</span><br><span class="line">-dontwarn com.squareup.okhttp.**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># OkHttp3</span><br><span class="line">-dontwarn com.squareup.okhttp3.**</span><br><span class="line">-keep class com.squareup.okhttp3.** &#123; *;&#125;</span><br><span class="line">-dontwarn okio.**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Okio</span><br><span class="line">-dontwarn com.squareup.**  </span><br><span class="line">-dontwarn okio.**  </span><br><span class="line">-keep public class org.codehaus.* &#123; *; &#125;  </span><br><span class="line">-keep public class java.nio.* &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># OrmLite</span><br><span class="line">-keepattributes *DatabaseField* </span><br><span class="line">-keepattributes *DatabaseTable* </span><br><span class="line">-keepattributes *SerializedName*  </span><br><span class="line">-keep class com.j256.**</span><br><span class="line">-keepclassmembers class com.j256.** &#123; *; &#125;</span><br><span class="line">-keep enum com.j256.**</span><br><span class="line">-keepclassmembers enum com.j256.** &#123; *; &#125;</span><br><span class="line">-keep interface com.j256.**</span><br><span class="line">-keepclassmembers interface com.j256.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Realm</span><br><span class="line">-keep class io.realm.annotations.RealmModule</span><br><span class="line">-keep @io.realm.annotations.RealmModule class *</span><br><span class="line">-keep class io.realm.internal.Keep</span><br><span class="line">-keep @io.realm.internal.Keep class * &#123; *; &#125;</span><br><span class="line">-dontwarn javax.**</span><br><span class="line">-dontwarn io.realm.**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Retrofit</span><br><span class="line">-dontwarn retrofit2.**</span><br><span class="line">-keep class retrofit2.** &#123; *; &#125;</span><br><span class="line">-keepattributes Signature</span><br><span class="line">-keepattributes Exceptions</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Retrolambda</span><br><span class="line">-dontwarn java.lang.invoke.*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># RxJava RxAndroid</span><br><span class="line">-dontwarn sun.misc.**</span><br><span class="line">-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* &#123;</span><br><span class="line">    long producerIndex;</span><br><span class="line">    long consumerIndex;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef &#123;</span><br><span class="line">    rx.internal.util.atomic.LinkedQueueNode producerNode;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef &#123;</span><br><span class="line">    rx.internal.util.atomic.LinkedQueueNode consumerNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Universal-Image-Loader-v1.9.5</span><br><span class="line">-libraryjars libs/universal-image-loader-1.9.5-SNAPSHOT-with-sources.jar</span><br><span class="line">-dontwarn com.nostra13.universalimageloader.**</span><br><span class="line">-keep class com.nostra13.universalimageloader.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 微信支付</span><br><span class="line">-dontwarn com.tencent.mm.**</span><br><span class="line">-dontwarn com.tencent.wxop.stat.**</span><br><span class="line">-keep class com.tencent.mm.** &#123;*;&#125;</span><br><span class="line">-keep class com.tencent.wxop.stat.**&#123;*;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 信鸽</span><br><span class="line">-keep public class * extends android.app.Service</span><br><span class="line">-keep public class * extends android.content.BroadcastReceiver</span><br><span class="line">-keep class com.tencent.android.tpush.**  &#123;* ;&#125;</span><br><span class="line">-keep class com.tencent.mid.**  &#123;* ;&#125;</span><br><span class="line">-keepattributes *Annotation*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 新浪微博</span><br><span class="line">-keep class com.sina.weibo.sdk.* &#123; *; &#125;  </span><br><span class="line">-keep class android.support.v4.* &#123; *; &#125;  </span><br><span class="line">-keep class com.tencent.* &#123; *; &#125;  </span><br><span class="line">-keep class com.baidu.* &#123; *; &#125;  </span><br><span class="line">-keep class lombok.ast.ecj.* &#123; *; &#125;  </span><br><span class="line">-dontwarn android.support.v4.**  </span><br><span class="line">-dontwarn com.tencent.**s  </span><br><span class="line">-dontwarn com.baidu.**  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 讯飞语音</span><br><span class="line">-dontwarn com.iflytek.**</span><br><span class="line">-keep class com.iflytek.** &#123;*;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># xUtils3.0</span><br><span class="line">-keepattributes Signature,Annotation</span><br><span class="line">-keep public class org.xutils.** &#123;</span><br><span class="line">public protected *;</span><br><span class="line">&#125;</span><br><span class="line">-keep public interface org.xutils.** &#123;</span><br><span class="line">public protected *;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends org.xutils.** &#123;</span><br><span class="line">public protected *;</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers @org.xutils.db.annotation.* class * &#123;;&#125;</span><br><span class="line">-keepclassmembers @org.xutils.http.annotation. class * &#123;*;&#125;</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">@org.xutils.view.annotation.Event ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 银联</span><br><span class="line">-dontwarn com.unionpay.**</span><br><span class="line">-keep class com.unionpay.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 友盟统计分析</span><br><span class="line">-keepclassmembers class * &#123; public &lt;init&gt;(org.json.JSONObject); &#125;</span><br><span class="line">-keepclassmembers enum com.umeng.analytics.** &#123;</span><br><span class="line">    public static **[] values();</span><br><span class="line">    public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 友盟自动更新</span><br><span class="line">-keepclassmembers class * &#123; public &lt;init&gt;(org.json.JSONObject); &#125;</span><br><span class="line">-keep public class cn.irains.parking.cloud.pub.R$*&#123; public static final int *; &#125;</span><br><span class="line">-keep public class * extends com.umeng.**</span><br><span class="line">-keep class com.umeng.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 支付宝钱包</span><br><span class="line">-dontwarn com.alipay.**</span><br><span class="line">-dontwarn HttpUtils.HttpFetcher</span><br><span class="line">-dontwarn com.ta.utdid2.**</span><br><span class="line">-dontwarn com.ut.device.**</span><br><span class="line">-keep class com.alipay.android.app.IAlixPay&#123;*;&#125;</span><br><span class="line">-keep class com.alipay.android.app.IAlixPay$Stub&#123;*;&#125;</span><br><span class="line">-keep class com.alipay.android.app.IRemoteServiceCallback&#123;*;&#125;</span><br><span class="line">-keep class com.alipay.android.app.IRemoteServiceCallback$Stub&#123;*;&#125;</span><br><span class="line">-keep class com.alipay.sdk.app.PayTask&#123; public *;&#125;</span><br><span class="line">-keep class com.alipay.sdk.app.AuthTask&#123; public *;&#125;</span><br><span class="line">-keep class com.alipay.mobilesecuritysdk.*</span><br><span class="line">-keep class com.ut.*</span><br></pre></td></tr></table></figure>
+<hr>
+<p>原文地址<a href="http://blankj.com/2016/06/28/Android-Studio混淆模板及常用第三方混淆(看了都说好)/">Android Studio混淆模板及常用第三方混淆(看了都说好)</a></p>
+<p>我的自媒体博客<a href="http://blankj.com/">Blankj小站</a>，欢迎来逛逛。</p>
+
+        <h2 id="打个小广告"><a href="#打个小广告" class="headerlink" title="打个小广告"></a>打个小广告</h2>
+<p class="__web-inspector-hide-shortcut__">欢迎加入我的小专栏「<strong><a href="https://xiaozhuanlan.com/Blankj" target="_blank" rel="noopener">基你太美</a></strong>」一起学习。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate.png" alt="布兰柯基 微信支付">
+        <!--<p>微信支付</p>-->
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    布兰柯基
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blankj.com/2016/06/28/android-proguard-templet/" title="Android Studio混淆模板及常用第三方混淆(看了都说好)">https://blankj.com/2016/06/28/android-proguard-templet/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-Tips/" rel="tag"># Android Tips</a>
+          
+            <a href="/tags/混淆/" rel="tag"># 混淆</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/17/solve-wp-markdown-editor-crayon-syntax-highlighter-one-more-line-bug/" rel="next" title="解决WP Markdown Editor和Crayon Syntax Highlighter一起使用代码块无故多一行">
+                <i class="fa fa-chevron-left"></i> 解决WP Markdown Editor和Crayon Syntax Highlighter一起使用代码块无故多一行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/12/rxjava-note/" rel="prev" title="RxJava笔记">
+                RxJava笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div id="gitalk-container"></div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="布兰柯基">
+            
+              <p class="site-author-name" itemprop="name">布兰柯基</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Blankj" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/46702d5c6978" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-book"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/579f5dd1a341310063f9f105" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/a120705230" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-book"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/blankcmj" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现可使用-FreeProGuard-库来助你快速混淆！"><span class="nav-number">1.</span> <span class="nav-text">现可使用 FreeProGuard 库来助你快速混淆！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现可使用-FreeProGuard-库来助你快速混淆！-1"><span class="nav-number">2.</span> <span class="nav-text">现可使用 FreeProGuard 库来助你快速混淆！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现可使用-FreeProGuard-库来助你快速混淆！-2"><span class="nav-number">3.</span> <span class="nav-text">现可使用 FreeProGuard 库来助你快速混淆！</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">布兰柯基</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '40b54552b9e407691164',
+		  clientSecret: 'e6cbe1a78128cc82a0296fc2bb703ec71ef879ad',
+		  repo: 'blog-comment',
+		  owner: 'Blankj',
+		  admin: ['Blankj'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("SLa4unOL3pwk5ORkuuN3QtdR-gzGzoHsz", "MjejL7wld2mHY0W8B8h9T6l0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
