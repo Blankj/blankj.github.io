@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
-<meta property="og:updated_time" content="2019-08-15T13:29:56.782Z">
+<meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/logo.png">
+<meta property="og:updated_time" content="2021-05-23T05:33:49.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 的二级缓存如斯简单">
 <meta name="twitter:description" content="CacheDiskUtils之前写过一篇 你想要的 CacheUtils，简单介绍了下其可以完美替代 ASimpleCache，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+<meta name="twitter:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/logo.png">
 
 
 
@@ -488,7 +488,7 @@
       
 
       
-        <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
+        <p><img src="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/logo.png" alt="logo"></p>
 <h2 id="CacheDiskUtils"><a href="#CacheDiskUtils" class="headerlink" title="CacheDiskUtils"></a>CacheDiskUtils</h2><p>之前写过一篇 <a href="https://www.jianshu.com/p/e39fb4f2b06a" target="_blank" rel="noopener">你想要的 CacheUtils</a>，简单介绍了下其可以完美替代 <a href="https://github.com/yangfuhai/ASimpleCache" target="_blank" rel="noopener">ASimpleCache</a>，而且修复了其中少许 BUG 并做了相应优化，相关 API 如下所示：<br><a id="more"></a></p>
 <h3 id="缓存相关-gt-CacheUtils-java"><a href="#缓存相关-gt-CacheUtils-java" class="headerlink" title="缓存相关 -&gt; CacheUtils.java"></a>缓存相关 -&gt; <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="noopener">CacheUtils.java</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">getInstance             : 获取缓存实例</span><br><span class="line">Instance.put            : 缓存中写入数据</span><br><span class="line">Instance.getBytes       : 缓存中读取字节数组</span><br><span class="line">Instance.getString      : 缓存中读取 String</span><br><span class="line">Instance.getJSONObject  : 缓存中读取 JSONObject</span><br><span class="line">Instance.getJSONArray   : 缓存中读取 JSONArray</span><br><span class="line">Instance.getBitmap      : 缓存中读取 Bitmap</span><br><span class="line">Instance.getDrawable    : 缓存中读取 Drawable</span><br><span class="line">Instance.getParcelable  : 缓存中读取 Parcelable</span><br><span class="line">Instance.getSerializable: 缓存中读取 Serializable</span><br><span class="line">Instance.getCacheSize   : 获取缓存大小</span><br><span class="line">Instance.getCacheCount  : 获取缓存个数</span><br><span class="line">Instance.remove         : 根据键值移除缓存</span><br><span class="line">Instance.clear          : 清除所有缓存</span><br></pre></td></tr></table></figure>
 <p>其也就是所谓的硬盘缓存，在 <a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a> 1.17.0 版本，该 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="noopener">CacheUtils</a> 已被我标记废弃，可替换为 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheDiskUtils.java" target="_blank" rel="noopener"> CacheDiskUtils</a>，下一个大版本1.18.x 可能就会移除 <a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/CacheUtils.java" target="_blank" rel="noopener">CacheUtils</a>。</p>
@@ -665,7 +665,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -676,7 +676,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -687,7 +687,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

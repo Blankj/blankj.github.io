@@ -87,17 +87,17 @@
 <meta property="og:site_name" content="Blankj&#39;s Blog">
 <meta property="og:description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+<meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/logo.png">
 <meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/20201106180228.png">
 <meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/20201106180250.png">
 <meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/20201106180306.png">
 <meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/20201106180328.png">
 <meta property="og:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/20201106180353.png">
-<meta property="og:updated_time" content="2020-11-06T10:04:00.234Z">
+<meta property="og:updated_time" content="2021-05-23T05:34:05.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 屏幕适配终结者">
 <meta name="twitter:description" content="背景之前基于头条的适配方案写了篇文章 Android 屏幕适配从未如斯简单，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub 屏幕适配问题汇总及解决，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png">
+<meta name="twitter:image" content="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/logo.png">
 
 
 
@@ -493,7 +493,7 @@
       
 
       
-        <p><img src="https://raw.githubusercontent.com/Blankj/AndroidUtilCode/master/art/logo.png" alt="logo"></p>
+        <p><img src="https://blankjblog.oss-cn-hangzhou.aliyuncs.com/blog/logo.png" alt="logo"></p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前基于头条的适配方案写了篇文章 <a href="https://blankj.com/2018/07/30/easy-adapt-screen/">Android 屏幕适配从未如斯简单</a>，但后续发现还是有挺多坑的，这些坑都记录在了 GitHub <a href="https://github.com/Blankj/AndroidUtilCode/issues/597" target="_blank" rel="noopener">屏幕适配问题汇总及解决</a>，基于这么多坑，最终我发现了一种更完美的适配方案，本打算一个多月前就写这篇文章的，但由于公司事务繁忙一直抽不出空来，拖更到现在才发布，下面就让我来分享下此法，先来吹下优点吧。<br><a id="more"></a></p>
 <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="1-无侵入性"><a href="#1-无侵入性" class="headerlink" title="1. 无侵入性"></a>1. 无侵入性</h3><p>首先科普下 Android 中的一个长度单位：<code>pt</code>，它表示一个点，是屏幕的物理尺寸，其大小为 1 英寸的 <code>1 / 72</code>，也就是 <code>72pt</code> 等于 1 英寸（其实 Android 中还有比较少见的 <code>in</code> 和 <code>mm</code> 的长度单位）。而我本次的适配使用的单位恰好是 <code>pt</code>，所以对你从前使用的布局不会造成任何影响，在老项目中开发新功能你可以胆大地加入该适配方案，新项目的话更可以毫不犹豫地采用该适配，并且在关闭该关闭后，<code>pt</code> 效果等同于 <code>dp</code> 哦。</p>
 <h3 id="2-灵活性高"><a href="#2-灵活性高" class="headerlink" title="2. 灵活性高"></a>2. 灵活性高</h3><p>如果你想要对某个 <code>View</code> 做到不同分辨率的设备下，使其尺寸在适配维度上所占比例一致的话，那么对它使用 <code>pt</code> 单位即可，如果你不想要这样的效果，而是想要更大尺寸的设备显示更多的内容，那么你可以像从前那样写 <code>dp</code>、<code>sp</code> 什么的即可，结合这两点，在界面布局上你就可以游刃有余地做到你想要的效果。</p>
@@ -686,7 +686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">160</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -697,7 +697,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -708,7 +708,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
